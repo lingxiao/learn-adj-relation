@@ -25,11 +25,12 @@ from experiments.elastic_net import *
 '''
 	Training config
 '''
-alpha      = 0.3
+alpha      = 0.9
 l1_ratio   = 0.9
 
-num_adv    = 50
-data_set   = 'ppdb-ngram'
+num_adv    = 2
+# data_set   = 'ppdb-ngram'
+data_set   = 'ppdb-ngram-1'
 
 w2idx_path = os.path.join( work_dir['assets']
 	                     , 'w2idx-' + str(num_adv) + '.pkl')
@@ -37,21 +38,18 @@ w2idx_path = os.path.join( work_dir['assets']
 with open(w2idx_path,'rb') as h:
 	w2idx = pickle.load(h)
 
-# fix, rho = 'io', rho_concat_in_out( GRAPH[data_set], w2idx )
 fix, rho = 'out' , rho_out( GRAPH[data_set], w2idx )
 OP , op  = '-'   , rho_subtract
-
-SAVE     = False
-
-
+phi      = to_x(rho,op)
+SAVE     = True
 
 ############################################################
 '''
 	train and validation data 
 '''
-if data_set == 'ppdb-ngram':
+if data_set in ['ppdb-ngram', 'ppdb-ngram-1']:
 	test = both_gr
-elif data_set == 'ppdb':
+elif data_set in ['ppdb', 'ppdb-1'] :
 	test = ppdb_gr
 elif data_set == 'ngram':
 	test = ngram_gr

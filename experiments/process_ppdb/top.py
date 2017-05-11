@@ -54,102 +54,44 @@ except:
 
 ############################################################
 '''
-	@Use: get all edges
+	@Use: given a graph with multiple labels for adverbs
+		  collpas to one label for adverbs
 '''
-def get_edges(G):
+def collapse_graph(graph):
 
-	all_edges = []
+	print('\n\t>> get ppdb-ngram edges')
 
-	for src,out in G.edges.iteritems():
-		for tgt,adverbs in out.iteritems():
-			for adverb,n in adverbs.iteritems():
-				es = [(src,tgt,adverb)]*n
-				all_edges += es
+	vertex = graph.vertices
+	edges  = { v : dict() for v in vertex }
 
-	return all_edges
+	print('\n\t>> converting edges ...')
+	for src,out in graph.edges.iteritems():
+		for tgt,es in out.iteritems():
+			if src != tgt:
+				es    = graph.edges[src][tgt]
+				ngram  = [n for x,n in es.iteritems() if x == '<is weaker than>']
+				adverb = [n for x,n in es.iteritems() if x != '<is weaker than>']
+				out    = {'<ngram weaker than>': sum(ngram), '<ppdb weaker than>': sum(adverb)}
+				
+				edges[src][tgt] = out
 
-'''
-	@Use: convert to dictionary
-'''
-def to_edges(vertices,edges):
-
-	print('\n\t>> making graph ...')
-	graph = { v : None for v in vertices }	
-
-	for src,_ in graph.iteritems():
-
-		out = [(tgt,v) for x,tgt,v in edges if x == src]
-
-		d = dict()
-
-		for tgt,v in out:
-			if tgt not in d: 
-				d[tgt] = {v : 1}
-			else:
-				if v in d[tgt]:
-					d[tgt][v] += 1
-				else:
-					d[tgt][v] = 1
-
-		graph[src] = d 
-
-	return graph
-
-def make_graphs():
-
-	print('\n\t>> remove loops from ngram')
-	ngram_edges    = get_edges(G_ngram)
-	ngram_no_loops = [(s,t,v) for s,t,v in ngram_edges if s != t]
-
-	print('\n\t>> remove loops from ppdb')
-	ppdb_edges     = get_edges(G_ppdb)
-	ppdb_one_event = [(a,b,'<ppdb weaker than>') for a,b,c in ppdb_edges if s != t] 
-	ppdb_vertex    = list(set(join([[s,t] for s,t,_ in ppdb_one_event])))
-	ppdb_edge      = to_edges( ppdb_vertex, ppdb_one_event )
-
-	print('\n\t>> collapse both graph down to one event')
-	ngram_one_event = [(s,t,'<ngram weaker than>') for s,t,_ in ngram_no_loops]
-
-	print('\n\t>> combine graph and sharding ...')
-	both_one_event = ppdb_one_event + ngram_one_event
-	both_vertex    = list(set(join([[s,t] for s,t,_ in both_one_event])))
-	both_edge      = list(to_edges( both_vertex, both_one_event ).iteritems())
-	chunk_size     = int(float(len(both_edge))/6)
-	both_shards    = chunks( both_edge, chunk_size )
-
-	print('\n\t>> saving ppdb graph')
-	out_dir    = get_path('ppdb-one-event-no-loop')
-	ppdb_graph = {'edge': ppdb_edge, 'vertex': ppdb_vertex}
-
-	with open(os.path.join(out_dir, 'shard.pkl'),'wb') as h:
-		pickle.dump(ppdb_graph, h)
-
-	out_both = get_path('ppdb-one-event-ngram-no-loop')
-
-	num = 1
+	print('\n\t>> sharding edges ...')
+	size   = int(float(len(edges))/6)
+	shards = chunks(list(edges.iteritems()), size)
 
 	print('\n\t>> saving ppdb-ngram graph shards')
+	out_both = get_path('ppdb-one-event-ngram-no-loop')
+	num = 1
 
-	for shard in both_shards:
-
-		path = os.path.join(out_both, 'shard-' + str(num) + '.pkl')
-		shard_graph = {'edge': shard, 'vertex': both_vertex}
+	for shard in shards:
+		path  = os.path.join(out_both, 'shard-' + str(num) + '.pkl')
+		shard = { k:v for k,v in shard }
+		shard_graph = {'edge': shard, 'vertex': vertex}
 
 		with open(path,'wb') as h:
 			pickle.dump(shard_graph, h)
 
 		num +=1 
-
-make_graphs()
-
-# print('\n\t>> remove loops from ppdb')
-# ppdb_edges     = get_edges(G_ppdb)
-# ppdb_no_loops  = [(a,b,c) for a,b,c in ppdb_edges if s != t] 
-# ppdb_vertex    = list(set(join([[s,t] for s,t,_ in ppdb_one_event])))
-
-# ppdb_one_event = [(s,t,'<ppdb weaker than>') for s,t,_ in ppdb_no_loops]
-# ppdb_graph     = to_graph(ppdb_vertex, ppdb_one_event)
-
 
 
 

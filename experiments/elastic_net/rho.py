@@ -87,7 +87,44 @@ def rho_divide(rho1, rho2):
 ############################################################
 '''
 	@Use: given graph `G` and word `s`, and feature dict,
-		  find feature representation
+		  compute BTL-like score
+
+	@Note: this only works with w2idx:
+			 [ <ppdb weaker than>, <ngram weaker than> ]
+'''
+def rho_BTL(G, w2idx):
+
+	def fn(s):
+
+		vec_in, vec_out = get_edges(G, w2idx, s)
+
+		ngram_idx = w2idx['<ngram weaker than>']['idx']
+		ppdb_idx  = w2idx['<ppdb weaker than>'] ['idx']
+
+		win_ngram  = vec_in [ngram_idx]
+		lose_ngram = vec_out[ngram_idx]
+
+		win_ppdb   = vec_in [ppdb_idx]
+		lose_ppdb  = vec_out[ppdb_idx]
+
+		tot_ppdb   = max(1e-5, win_ppdb  + lose_ppdb)
+		tot_ngram  = max(1e-5, win_ngram + lose_ngram)
+
+		btl_ngram = win_ngram / tot_ngram
+		btl_ppdb  = win_ppdb  / tot_ppdb
+
+		v = [0.0,0.0]
+		v[ngram_idx] = btl_ngram
+		v[ppdb_idx ] = btl_ppdb
+
+		return np.array(v)
+
+	return fn
+
+
+'''
+	@Use: given graph `G` and word `s`, and feature dict,
+		  add in and out degree
 '''
 def rho_add_in_out(G, w2idx):
 

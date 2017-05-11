@@ -53,29 +53,23 @@ baseline = locate_dirs( get_path('baseline'), ['no-data'] )
 	graphs
 '''
 try:
-	G_ppdb, G_ngram, G_ppng
-	# , G_pnng_1, G_ppdb_1
+	G_ppdb, G_ngram, G_ppng, G_ppdb_1, G_pnng_1
 except:	
-	G_ppdb  = Graph( 'ppdb|edge-wt|0.8'       , asset_dirs )
-	G_ngram = Graph( 'ngram|edge-wt|0.8'      , asset_dirs )
-	G_ppng  = Graph( 'ppdb-ngram|edge-wt|0.8' , asset_dirs )
+	G_ppdb   = Graph( 'ppdb|edge-wt|0.8'       , asset_dirs )
+	G_ngram  = Graph( 'ngram|edge-wt|0.8'      , asset_dirs )
+	G_ppng   = Graph( 'ppdb-ngram|edge-wt|0.8' , asset_dirs )
 
-	# G_ppdb_1 = Graph( 'ppdb-one-event-no-loop|edge-wt|0.8', asset_dirs )
-	# G_ppng_1 = Graph( 'ppdb-one-event-ngram-no-loop|edge-wt|0.8' , asset_dirs )
+	G_ppdb_1 = Graph( 'ppdb-one-event-no-loop|edge-wt|0.8', asset_dirs )
+	G_ppng_1 = Graph( 'ppdb-one-event-ngram-no-loop|edge-wt|0.8' , asset_dirs )
+
 
 GRAPH = {
-          'ppdb'       : G_ppdb
-		 ,'ngram'      : G_ngram
-		 ,'ppdb-ngram' : G_ppng
+          'ppdb'        : G_ppdb
+		 ,'ngram'       : G_ngram
+		 ,'ppdb-ngram'  : G_ppng
+		 ,'ppdb-1'      : G_ppdb_1
+		 ,'ppdb-ngram-1': G_ppng_1
 		 }
-
-path = get_path('ppdb') + '/shard-1.pkl'
-# path = get_path('ppdb-one-event-no-loop') + '/shard.pkl'
-
-# es,vs = load_as_dict(path)
-with open(path,'rb') as h:
-	G = pickle.load(h)
-
 
 ############################################################
 '''
@@ -120,9 +114,9 @@ both_gr = {
 
 ############################################################
 '''
-
 	load test sets
 '''
+
 print('\n\t>> load base-comparative-superlative')
 bcs = join(_xs for _, _xs in train_vertices(get_path('bcs')).iteritems())
 bcs = [[[w] for w in _ws] for _ws in bcs]
@@ -143,9 +137,14 @@ test = {
 	make word2index dicts
 '''
 def make_word2index():
-	print('\n\t>> [ Making w2idx, id2w dicts ]')
-	for num in [5,10,50, 100,200,300,400,500,605]:
+
+	print('\n\t>> [ Making w2idx, id2w dicts for adverb-pattern ]')
+	for num in [2,5,10,50, 100,200,300,400,500,605]:
 		encode(G_ppng, num, work_dir['assets'])
+	
+	print('\n\t>> [ Making w2idx, id2w dicts for single-adverb-pattern ]')
+	for num in [1,2]:
+		encode(G_ppng_1, num, work_dir['assets'])
 
 # make_word2index()
 

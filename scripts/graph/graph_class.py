@@ -155,7 +155,10 @@ class Graph:
 
 		if src in E:
 			if tgt in E[src]: 
-				return E[src][tgt], W[src][tgt]
+				if tgt in W[src]:
+					return E[src][tgt], W[src][tgt]
+				else:
+					return E[src][tgt], 0.0
 			else:
 				return dict(), 0.0
 		else:

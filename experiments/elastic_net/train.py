@@ -56,7 +56,6 @@ def exec_train( dir_name = None
 
 	if len(vector) == len(w2idx):
 		coefs  = decode(vector,w2idx)		
-		# print('\n\t>> ' + str(coefs))
 		print('\n\t>> coefficents: ')
 		for w,v in coefs.iteritems():
 			print('\n\t\t ' + w + ': ' + str(v))
