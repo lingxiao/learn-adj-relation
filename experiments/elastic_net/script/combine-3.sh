@@ -45,5 +45,5 @@ cd $HOME/xiao/learn-adj-relation
 source /home1/l/lingxiao/xiao/tensorflow-1.0.1/bin/activate
 
 # run my scripts
-python $HOME/xiao/learn-adj-relation/experiments/elastic_net/script/combine-3.py
+python $HOME/xiao/learn-adj-relation/experiments/elastic_net/script/combine_3.py
 
