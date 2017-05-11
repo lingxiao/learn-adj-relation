@@ -56,7 +56,7 @@ SAVE = True
 	run on all data set
 '''
 decide      = decide_fn_both(G_ppng, model, phi)
-results_dir = os.path.join(work_dir['results'], 'combined/' + winner)
+results_dir = os.path.join(work_dir['combined'], winner)
 
 if not os.path.exists(results_dir):
 	os.mkdir(results_dir)
