@@ -1,0 +1,3 @@
+This directory contains logic to create all training words, validation words, and all words from graph.
+This directory also contains the power set of all word sets above where either (s,t) appears in the set, or (t,s) appears in it.
+This is useful for, ie: taking the dot product. These words appear in batches.

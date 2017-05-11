@@ -1,0 +1,2103 @@
+moh-bet.txt
+2017-04-21 14:41:37.571105
+------------------------------------------------
+average pairwise : 64.0%
+average tau:  0.39
+average |tau|:0.56
+------------------------------------------------
+=== tau:
+0.0714285714286
+
+=== pairwise accuracy:
+0.535714285714
+
+=== gold: 
+['first']
+['second']
+['third']
+['fourth']
+['fifth']
+['sixth']
+['seventh']
+['eighth']
+
+=== algo: 
+['second']
+['first']
+['sixth']
+['seventh']
+['eighth']
+['fifth']
+['fourth']
+['third']
+
+=== raw:
+('first', -0.01401264205120042)
+('second', -0.06963978771948702)
+('third', 0.08502855331681217)
+('fourth', 0.01819772094280523)
+('fifth', 0.004186969152220049)
+('sixth', -0.00014555150401573898)
+('seventh', 0.00013420986471135112)
+('eighth', 0.00016823489604306713)
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['known']
+['famous']
+['legendary']
+
+=== algo: 
+['known']
+['famous']
+['legendary']
+
+=== raw:
+('known', -0.0018694864248217779)
+('famous', 8.506259723232461e-05)
+('legendary', 0.00017579601411678845)
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['dim']
+['gloomy']
+['dark']
+['black']
+
+=== algo: 
+['dark']
+['dim']
+['gloomy']
+['black']
+
+=== raw:
+('dim', -0.0010963621017851157)
+('gloomy', 0.0007050742792766448)
+('dark', -0.045886535290926386)
+('black', 0.04768797170979394)
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['close']
+['near']
+['intimate']
+
+=== algo: 
+['near']
+['close']
+['intimate']
+
+=== raw:
+('close', -0.0007995882173917114)
+('near', -0.0018959503380798159)
+('intimate', 0.001967780997586309)
+
+------------------------------------------------
+=== tau:
+0.547722557505
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['nearby', 'near']
+['close']
+['adjacent']
+
+=== algo: 
+['near']
+['close']
+['nearby']
+['adjacent']
+
+=== raw:
+('nearby', -0.00030055442452700266)
+('near', -0.0018959503380798159)
+('close', -0.0007995882173917114)
+('adjacent', 0.0026558427422936994)
+
+------------------------------------------------
+=== tau:
+-0.182574185835
+
+=== pairwise accuracy:
+0.333333333333
+
+=== gold: 
+['sufficient']
+['good', 'wide']
+['full']
+
+=== algo: 
+['good']
+['full']
+['sufficient']
+['wide']
+
+=== raw:
+('sufficient', -0.0015027721982469136)
+('good', -0.32609968256218574)
+('wide', -0.00048580181733293186)
+('full', -0.004406241538551923)
+
+------------------------------------------------
+=== tau:
+0.0
+
+=== pairwise accuracy:
+0.5
+
+=== gold: 
+['real']
+['solemn']
+['serious']
+['grave']
+
+=== algo: 
+['serious']
+['real']
+['grave']
+['solemn']
+
+=== raw:
+('real', -0.00020982100764236695)
+('solemn', 0.0013288665203575844)
+('serious', -0.0025840120827875395)
+('grave', 8.884315626916696e-05)
+
+------------------------------------------------
+=== tau:
+0.787726361443
+
+=== pairwise accuracy:
+0.8
+
+=== gold: 
+['interesting']
+['intriguing']
+['amusing', 'entertaining']
+['fascinating', 'exciting']
+
+=== algo: 
+['interesting']
+['entertaining']
+['intriguing']
+['amusing']
+['fascinating']
+['exciting']
+
+=== raw:
+('interesting', -0.013282994157087797)
+('intriguing', 0.00020225992737482696)
+('amusing', 0.0017711919276696124)
+('entertaining', -0.001219230270482716)
+('fascinating', 0.002992312496573922)
+('exciting', 0.0051018644391391775)
+
+------------------------------------------------
+=== tau:
+0.182574185835
+
+=== pairwise accuracy:
+0.5
+
+=== gold: 
+['far']
+['further', 'farther']
+['removed']
+
+=== algo: 
+['far']
+['removed']
+['farther']
+['further']
+
+=== raw:
+('far', -0.0006861714462862396)
+('further', 0.02168150609526738)
+('farther', 0.00042909346958608754)
+('removed', 1.8902984214295438e-06)
+
+------------------------------------------------
+=== tau:
+0.707106781187
+
+=== pairwise accuracy:
+0.5
+
+=== gold: 
+['acceptable', 'okay', 'alright']
+['right']
+
+=== algo: 
+['okay']
+['alright']
+['acceptable']
+['right']
+
+=== raw:
+('acceptable', -0.0038315965649496657)
+('okay', -0.012076995824330776)
+('alright', -0.005850415090630394)
+('right', 0.005404309162087371)
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['cracked']
+['broken']
+['crushed']
+
+=== algo: 
+['cracked']
+['crushed']
+['broken']
+
+=== raw:
+('cracked', -0.0021586991911413237)
+('broken', 0.0009621522937825009)
+('crushed', 5.8598683974371034e-05)
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['full']
+['stuffed']
+['overloaded']
+['overflowing']
+
+=== algo: 
+['full']
+['overflowing']
+['stuffed']
+['overloaded']
+
+=== raw:
+('full', -0.004406241538551923)
+('stuffed', 0.001914853171070357)
+('overloaded', 0.0020736366506181256)
+('overflowing', 0.00041019067440181223)
+
+------------------------------------------------
+=== tau:
+0.182574185835
+
+=== pairwise accuracy:
+0.5
+
+=== gold: 
+['flavorful']
+['zesty']
+['hot', 'spicy']
+
+=== algo: 
+['zesty']
+['spicy']
+['flavorful']
+['hot']
+
+=== raw:
+('flavorful', -0.001211669152409)
+('zesty', -0.002727673326188016)
+('hot', 0.07137695463472829)
+('spicy', -0.0021530283525859296)
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['unstable']
+['crazy']
+['insane']
+
+=== algo: 
+['crazy']
+['unstable']
+['insane']
+
+=== raw:
+('unstable', -0.00036104336911670136)
+('crazy', -0.005421321639947209)
+('insane', 0.004168066357035822)
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['good']
+['real']
+['authentic']
+
+=== algo: 
+['good']
+['real']
+['authentic']
+
+=== raw:
+('good', -0.32609968256218574)
+('real', -0.00020982100764236695)
+('authentic', 0.0006294630985393847)
+
+------------------------------------------------
+=== tau:
+0.816496580928
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['clean']
+['spotless', 'immaculate']
+
+=== algo: 
+['clean']
+['immaculate']
+['spotless']
+
+=== raw:
+('clean', -0.0030452402852835262)
+('spotless', 0.0009999578841512582)
+('immaculate', 0.00040262955632792855)
+
+------------------------------------------------
+=== tau:
+-0.666666666667
+
+=== pairwise accuracy:
+0.166666666667
+
+=== gold: 
+['possible']
+['realistic']
+['feasible']
+['practical']
+
+=== algo: 
+['feasible']
+['practical']
+['realistic']
+['possible']
+
+=== raw:
+('possible', 0.033013731808240736)
+('realistic', -0.0005273879667383475)
+('feasible', -0.0008865410752394634)
+('practical', -0.0006483658559175918)
+
+------------------------------------------------
+=== tau:
+-0.912870929175
+
+=== pairwise accuracy:
+0.0
+
+=== gold: 
+['sick', 'ill']
+['impaired']
+['disabled']
+
+=== algo: 
+['disabled']
+['impaired']
+['ill']
+['sick']
+
+=== raw:
+('sick', 0.00045555738284403175)
+('ill', 0.0003950684382543335)
+('impaired', -0.0001965890510133701)
+('disabled', -0.0004007392390037238)
+
+------------------------------------------------
+=== tau:
+0.6
+
+=== pairwise accuracy:
+0.8
+
+=== gold: 
+['uncommon']
+['unusual']
+['rare']
+['extraordinary']
+['exceptional']
+
+=== algo: 
+['uncommon']
+['extraordinary']
+['unusual']
+['rare']
+['exceptional']
+
+=== raw:
+('uncommon', -0.008750103871898222)
+('unusual', 0.008043139369812435)
+('rare', 0.008644248256672192)
+('extraordinary', -4.7256969057658854e-05)
+('exceptional', 0.018658949145301782)
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['impractical']
+['unrealistic']
+['impossible']
+
+=== algo: 
+['impractical']
+['unrealistic']
+['impossible']
+
+=== raw:
+('impractical', -0.0185379712183162)
+('unrealistic', -0.0008071493354654453)
+('impossible', 0.021842179854333586)
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['transnational']
+['international']
+['global']
+
+=== algo: 
+['international']
+['transnational']
+['global']
+
+=== raw:
+('transnational', -0.00037616560526413084)
+('international', -0.016228049646797683)
+('global', 0.016689277887100208)
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['concerned']
+['preoccupied']
+['obsessed']
+
+=== algo: 
+['concerned']
+['obsessed']
+['preoccupied']
+
+=== raw:
+('concerned', -0.002829748420183103)
+('preoccupied', 0.0005160463274337152)
+('obsessed', 0.00032701837559102724)
+
+------------------------------------------------
+=== tau:
+0.666666666667
+
+=== pairwise accuracy:
+0.833333333333
+
+=== gold: 
+['interesting']
+['moving']
+['exciting']
+['thrilling']
+
+=== algo: 
+['interesting']
+['moving']
+['thrilling']
+['exciting']
+
+=== raw:
+('interesting', -0.013282994157087797)
+('moving', -0.00023250436186363798)
+('exciting', 0.0051018644391391775)
+('thrilling', 0.00016823489604306713)
+
+------------------------------------------------
+=== tau:
+-0.333333333333
+
+=== pairwise accuracy:
+0.333333333333
+
+=== gold: 
+['low']
+['subdued']
+['quiet']
+
+=== algo: 
+['quiet']
+['low']
+['subdued']
+
+=== raw:
+('low', -0.0038315965649496657)
+('subdued', -0.00016823485823695672)
+('quiet', -0.006434511461824422)
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['sweet']
+['sugary']
+['syrupy']
+
+=== algo: 
+['sweet']
+['sugary']
+['syrupy']
+
+=== raw:
+('sweet', -0.0014044776632885234)
+('sugary', 0.0004328740286227989)
+('syrupy', 0.0007126353973503075)
+
+------------------------------------------------
+=== tau:
+0.8
+
+=== pairwise accuracy:
+0.9
+
+=== gold: 
+['strong']
+['intense']
+['terrible']
+['overwhelming']
+['violent']
+
+=== algo: 
+['strong']
+['intense']
+['terrible']
+['violent']
+['overwhelming']
+
+=== raw:
+('strong', -0.014137400499416754)
+('intense', -0.00041775175466945)
+('terrible', 1.8902984214295438e-06)
+('overwhelming', 0.005551750964524831)
+('violent', 0.00036860452499623114)
+
+------------------------------------------------
+=== tau:
+0.0
+
+=== pairwise accuracy:
+0.333333333333
+
+=== gold: 
+['bleak', 'desperate']
+['hopeless']
+
+=== algo: 
+['bleak']
+['hopeless']
+['desperate']
+
+=== raw:
+('bleak', -0.0003837267233378167)
+('desperate', 0.0006408047756501142)
+('hopeless', 0.00020982104544870674)
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['unfortunate']
+['disastrous']
+['fatal']
+
+=== algo: 
+['unfortunate']
+['disastrous']
+['fatal']
+
+=== raw:
+('unfortunate', -0.0004215323137063391)
+('disastrous', -0.00020982100764247697)
+('fatal', 0.002387423050677106)
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['negligent']
+['careless']
+['reckless']
+
+=== algo: 
+['negligent']
+['careless']
+['reckless']
+
+=== raw:
+('negligent', -0.0002514071570477399)
+('careless', -0.00021360156667924406)
+('reckless', 0.0009716036913747932)
+
+------------------------------------------------
+=== tau:
+0.105409255339
+
+=== pairwise accuracy:
+0.5
+
+=== gold: 
+['strange', 'funny']
+['unusual']
+['weird']
+['eerie']
+
+=== algo: 
+['strange']
+['eerie']
+['funny']
+['weird']
+['unusual']
+
+=== raw:
+('strange', -0.020116354616203)
+('funny', 0.0009961773251143337)
+('unusual', 0.008043139369812435)
+('weird', 0.005062168569251998)
+('eerie', 0.00025518775389089875)
+
+------------------------------------------------
+=== tau:
+-0.333333333333
+
+=== pairwise accuracy:
+0.333333333333
+
+=== gold: 
+['reasonable']
+['valid']
+['sound']
+
+=== algo: 
+['valid']
+['sound']
+['reasonable']
+
+=== raw:
+('reasonable', -0.00047067958118547225)
+('valid', -0.002523523138197952)
+('sound', -0.0010415459994666042)
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['affordable']
+['inexpensive']
+['cheap']
+
+=== algo: 
+['inexpensive']
+['affordable']
+['cheap']
+
+=== raw:
+('affordable', -0.00035348225104293965)
+('inexpensive', -0.0014498443717308924)
+('cheap', 0.0024441314362297173)
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['available']
+['accessible']
+['visible']
+
+=== algo: 
+['available']
+['visible']
+['accessible']
+
+=== raw:
+('available', -0.037319788513412736)
+('accessible', 0.008700956642225114)
+('visible', -0.002393093851426503)
+
+------------------------------------------------
+=== tau:
+0.582181736427
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['cool', 'refrigerated', 'chilly']
+['cold']
+['frigid']
+['icy', 'frozen']
+
+=== algo: 
+['cool']
+['refrigerated']
+['chilly']
+['frigid']
+['icy']
+['frozen']
+['cold']
+
+=== raw:
+('cool', -0.041041748885196606)
+('refrigerated', -0.002088758848959547)
+('chilly', 4.158616830835619e-05)
+('cold', 0.030025199889606828)
+('frigid', 0.0006597075708343049)
+('icy', 0.0008411744046032712)
+('frozen', 0.009184868198942769)
+
+------------------------------------------------
+=== tau:
+-0.816496580928
+
+=== pairwise accuracy:
+0.0
+
+=== gold: 
+['content', 'satisfied']
+['pleased', 'happy']
+
+=== algo: 
+['pleased']
+['happy']
+['content']
+['satisfied']
+
+=== raw:
+('content', 0.0002816516671487712)
+('satisfied', 0.02406703884752296)
+('pleased', -0.008787909462266652)
+('happy', -0.006067797235249453)
+
+------------------------------------------------
+=== tau:
+0.912870929175
+
+=== pairwise accuracy:
+0.833333333333
+
+=== gold: 
+['misleading']
+['deceptive', 'fraudulent']
+['false']
+
+=== algo: 
+['misleading']
+['fraudulent']
+['deceptive']
+['false']
+
+=== raw:
+('misleading', -0.008073383804301022)
+('deceptive', 0.0024819370265983555)
+('fraudulent', 0.0009319078214878037)
+('false', 0.004128370487148887)
+
+------------------------------------------------
+=== tau:
+-0.105409255339
+
+=== pairwise accuracy:
+0.4
+
+=== gold: 
+['needed']
+['necessary']
+['required', 'essential']
+['indispensable']
+
+=== algo: 
+['needed']
+['indispensable']
+['required']
+['essential']
+['necessary']
+
+=== raw:
+('needed', -0.001595395894649847)
+('necessary', 0.15374210242771003)
+('required', 0.0017182641011535616)
+('essential', 0.11466246532720135)
+('indispensable', 0.000440435146696559)
+
+------------------------------------------------
+=== tau:
+0.666666666667
+
+=== pairwise accuracy:
+0.833333333333
+
+=== gold: 
+['some']
+['many']
+['numerous']
+['galore']
+
+=== algo: 
+['many']
+['some']
+['numerous']
+['galore']
+
+=== raw:
+('some', -0.04501323057671134)
+('many', -0.22224961436021898)
+('numerous', -0.0003875072823746997)
+('galore', -0.00016445429920008736)
+
+------------------------------------------------
+=== tau:
+0.912870929175
+
+=== pairwise accuracy:
+0.833333333333
+
+=== gold: 
+['quiet']
+['inaudible', 'imperceptible']
+['silent']
+
+=== algo: 
+['quiet']
+['imperceptible']
+['inaudible']
+['silent']
+
+=== raw:
+('quiet', -0.006434511461824422)
+('inaudible', 0.0011398385685148682)
+('imperceptible', 0.0008128202118268921)
+('silent', 0.002795723426657447)
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['wrong']
+['immoral']
+['sinful']
+['evil']
+
+=== algo: 
+['wrong']
+['immoral']
+['sinful']
+['evil']
+
+=== raw:
+('wrong', -0.002497059224939951)
+('immoral', -5.670819652344561e-06)
+('sinful', 0.000546290799728544)
+('evil', 0.5009335237998023)
+
+------------------------------------------------
+=== tau:
+0.142857142857
+
+=== pairwise accuracy:
+0.571428571429
+
+=== gold: 
+['lean']
+['slim']
+['thin']
+['skinny']
+['gaunt']
+['emaciated']
+['skeletal']
+
+=== algo: 
+['thin']
+['slim']
+['lean']
+['skeletal']
+['emaciated']
+['gaunt']
+['skinny']
+
+=== raw:
+('lean', -0.000578425513735692)
+('slim', -0.0011700830030036099)
+('thin', -0.004789968280792383)
+('skinny', 0.002803284544731172)
+('gaunt', 0.0006294630985393847)
+('emaciated', 0.0005992186262445293)
+('skeletal', 0.0002854322261856679)
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['statewide']
+['nationwide']
+['worldwide']
+
+=== algo: 
+['nationwide']
+['statewide']
+['worldwide']
+
+=== raw:
+('statewide', -0.00017201541727368907)
+('nationwide', -0.004375997066256869)
+('worldwide', 0.004553683378795045)
+
+------------------------------------------------
+=== tau:
+-0.105409255339
+
+=== pairwise accuracy:
+0.4
+
+=== gold: 
+['warm']
+['hot']
+['overheated']
+['stifling', 'sultry']
+
+=== algo: 
+['warm']
+['stifling']
+['sultry']
+['overheated']
+['hot']
+
+=== raw:
+('warm', -0.0718438536379738)
+('hot', 0.07137695463472829)
+('overheated', 0.0014611860866476233)
+('stifling', 0.00040262955632792855)
+('sultry', 0.0005009240912862281)
+
+------------------------------------------------
+=== tau:
+0.3585685828
+
+=== pairwise accuracy:
+0.5
+
+=== gold: 
+['easy', 'simple', 'smooth']
+['painless']
+['effortless']
+
+=== algo: 
+['simple']
+['smooth']
+['painless']
+['effortless']
+['easy']
+
+=== raw:
+('easy', 0.019785555738284537)
+('simple', -0.04256531417704896)
+('smooth', 5.670840445591169e-05)
+('painless', 0.0007466604286819024)
+('effortless', 0.0009281272624508918)
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['plain']
+['unattractive']
+['ugly']
+
+=== algo: 
+['plain']
+['unattractive']
+['ugly']
+
+=== raw:
+('plain', -0.0025669995671216105)
+('unattractive', 0.00037994620210703655)
+('ugly', 0.0011776441588834186)
+
+------------------------------------------------
+=== tau:
+-0.333333333333
+
+=== pairwise accuracy:
+0.333333333333
+
+=== gold: 
+['like']
+['equal']
+['same']
+
+=== algo: 
+['equal']
+['same']
+['like']
+
+=== raw:
+('like', 0.003956355050972113)
+('equal', -0.0007012936824335978)
+('same', 0.0012759386938417023)
+
+------------------------------------------------
+=== tau:
+0.547722557505
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['broad', 'widespread']
+['general']
+['universal']
+
+=== algo: 
+['widespread']
+['general']
+['broad']
+['universal']
+
+=== raw:
+('broad', -0.00022872380282676512)
+('widespread', -0.006704821432959658)
+('general', -0.003967696690276316)
+('universal', 0.010863436411306196)
+
+------------------------------------------------
+=== tau:
+-0.547722557505
+
+=== pairwise accuracy:
+0.166666666667
+
+=== gold: 
+['cheap', 'mediocre']
+['bad']
+['worst']
+
+=== algo: 
+['bad']
+['worst']
+['mediocre']
+['cheap']
+
+=== raw:
+('cheap', 0.0024441314362297173)
+('mediocre', 0.0002665294310015757)
+('bad', -0.017955765126640502)
+('worst', 2.079309360576521e-05)
+
+------------------------------------------------
+=== tau:
+-0.258198889747
+
+=== pairwise accuracy:
+0.2
+
+=== gold: 
+['handsome', 'lovely', 'gorgeous']
+['beautiful', 'pretty', 'attractive']
+
+=== algo: 
+['pretty']
+['attractive']
+['lovely']
+['handsome']
+['gorgeous']
+['beautiful']
+
+=== raw:
+('handsome', 0.00015689321893248102)
+('lovely', -0.0014403929741386907)
+('gorgeous', 0.0006521464527606351)
+('beautiful', 0.0039714772871196225)
+('pretty', -0.004266360854187992)
+('attractive', -0.0018694884285381777)
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['thick']
+['dense']
+['impenetrable']
+
+=== algo: 
+['dense']
+['thick']
+['impenetrable']
+
+=== raw:
+('thick', -0.0004725698607039246)
+('dense', -0.001102032940340228)
+('impenetrable', 0.0016142987276402826)
+
+------------------------------------------------
+=== tau:
+0.666666666667
+
+=== pairwise accuracy:
+0.833333333333
+
+=== gold: 
+['soft']
+['quiet']
+['inaudible']
+['silent']
+
+=== algo: 
+['quiet']
+['soft']
+['inaudible']
+['silent']
+
+=== raw:
+('soft', -0.0006672686511018585)
+('quiet', -0.006434511461824422)
+('inaudible', 0.0011398385685148682)
+('silent', 0.002795723426657447)
+
+------------------------------------------------
+=== tau:
+0.547722557505
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['cool', 'chilly']
+['unfriendly']
+['hostile']
+
+=== algo: 
+['cool']
+['unfriendly']
+['chilly']
+['hostile']
+
+=== raw:
+('cool', -0.041041748885196606)
+('chilly', 4.158616830835619e-05)
+('unfriendly', -0.00024006547993726075)
+('hostile', 0.003147315417084857)
+
+------------------------------------------------
+=== tau:
+0.316227766017
+
+=== pairwise accuracy:
+0.6
+
+=== gold: 
+['sizeable']
+['big', 'large']
+['huge']
+['colossal']
+
+=== algo: 
+['big']
+['large']
+['sizeable']
+['colossal']
+['huge']
+
+=== raw:
+('sizeable', -0.00032323777874808466)
+('big', -0.01956628327634075)
+('large', -0.011887967872487743)
+('huge', 0.003704947875021024)
+('colossal', 0.00032701837559102724)
+
+------------------------------------------------
+=== tau:
+0.700649049745
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['dual', 'double', 'doubled']
+['triple', 'treble']
+['quadruple']
+
+=== algo: 
+['double']
+['dual']
+['doubled']
+['treble']
+['quadruple']
+['triple']
+
+=== raw:
+('dual', -0.0006521464149544722)
+('double', -0.1523962250362463)
+('doubled', 4.7257006863805394e-05)
+('triple', 0.09540807815249797)
+('treble', 0.003929891137714108)
+('quadruple', 0.05337582278074252)
+
+------------------------------------------------
+=== tau:
+0.948683298051
+
+=== pairwise accuracy:
+0.9
+
+=== gold: 
+['creepy']
+['scary', 'frightening']
+['terrifying']
+['sinister']
+
+=== algo: 
+['creepy']
+['scary']
+['frightening']
+['terrifying']
+['sinister']
+
+=== raw:
+('creepy', -0.0009016633113869021)
+('scary', -0.0007390992728021589)
+('frightening', -0.00012664870883152723)
+('terrifying', 0.00047824073706526695)
+('sinister', 0.0007428798696450336)
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['some']
+['few']
+['fewer']
+
+=== algo: 
+['some']
+['few']
+['fewer']
+
+=== raw:
+('some', -0.04501323057671134)
+('few', -0.0006483658559175918)
+('fewer', 0.0010094092817432196)
+
+------------------------------------------------
+=== tau:
+0.182574185835
+
+=== pairwise accuracy:
+0.5
+
+=== gold: 
+['neglected']
+['ignored', 'overlooked']
+['forgotten']
+
+=== algo: 
+['overlooked']
+['neglected']
+['forgotten']
+['ignored']
+
+=== raw:
+('neglected', -0.0010944718222666392)
+('ignored', 0.0007976979756792821)
+('overlooked', -0.0014233804584728104)
+('forgotten', -0.0006067797065121092)
+
+------------------------------------------------
+=== tau:
+0.816496580928
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['old']
+['obsolete', 'outdated']
+
+=== algo: 
+['old']
+['obsolete']
+['outdated']
+
+=== raw:
+('old', -0.005910904035219957)
+('obsolete', -0.0016653362368316464)
+('outdated', 0.0007995882551977848)
+
+------------------------------------------------
+=== tau:
+-0.666666666667
+
+=== pairwise accuracy:
+0.166666666667
+
+=== gold: 
+['necessary']
+['vital']
+['indispensable']
+['critical']
+
+=== algo: 
+['critical']
+['vital']
+['indispensable']
+['necessary']
+
+=== raw:
+('necessary', 0.15374210242771003)
+('vital', 0.00018146685267228665)
+('indispensable', 0.000440435146696559)
+('critical', -0.0007769048631706543)
+
+------------------------------------------------
+=== tau:
+0.182574185835
+
+=== pairwise accuracy:
+0.5
+
+=== gold: 
+['attractive']
+['beautiful']
+['mesmerizing', 'seductive']
+
+=== algo: 
+['attractive']
+['seductive']
+['mesmerizing']
+['beautiful']
+
+=== raw:
+('attractive', -0.0018694884285381777)
+('beautiful', 0.0039714772871196225)
+('mesmerizing', 0.0003875073201807031)
+('seductive', 0.00020225992737482696)
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['closed']
+['shut']
+['sealed']
+
+=== algo: 
+['closed']
+['shut']
+['sealed']
+
+=== raw:
+('closed', -0.003837267403504903)
+('shut', 0.0005160463274337152)
+('sealed', 0.002209736775944937)
+
+------------------------------------------------
+=== tau:
+0.816496580928
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['unexpected']
+['astonishing', 'stunning']
+
+=== algo: 
+['unexpected']
+['stunning']
+['astonishing']
+
+=== raw:
+('unexpected', -0.001994244873038355)
+('astonishing', 0.0014838694408688042)
+('stunning', 0.00042909346958608754)
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['indecent']
+['profane']
+['obscene']
+
+=== algo: 
+['indecent']
+['profane']
+['obscene']
+
+=== raw:
+('indecent', -0.011596864826650236)
+('profane', 0.0003043350213699175)
+('obscene', 0.014880280387964946)
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['attractive']
+['sexy']
+['seductive']
+
+=== algo: 
+['attractive']
+['sexy']
+['seductive']
+
+=== raw:
+('attractive', -0.0018694884285381777)
+('sexy', -0.0006634880920649757)
+('seductive', 0.00020225992737482696)
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['humbled']
+['humiliated']
+['crushed']
+
+=== algo: 
+['humbled']
+['crushed']
+['humiliated']
+
+=== raw:
+('humbled', -0.0006143408245857761)
+('humiliated', 0.0009697134118562897)
+('crushed', 5.8598683974371034e-05)
+
+------------------------------------------------
+=== tau:
+0.632455532034
+
+=== pairwise accuracy:
+0.4
+
+=== gold: 
+['bright', 'intelligent', 'smart', 'clever']
+['brilliant']
+
+=== algo: 
+['bright']
+['smart']
+['clever']
+['intelligent']
+['brilliant']
+
+=== raw:
+('bright', -0.00267285522015353)
+('intelligent', -0.00020604044860558025)
+('smart', -0.0010982523813033995)
+('clever', -0.0005425102028856383)
+('brilliant', 0.0010755690648884728)
+
+------------------------------------------------
+=== tau:
+-0.816496580928
+
+=== pairwise accuracy:
+0.0
+
+=== gold: 
+['violent']
+['homicidal', 'murderous']
+
+=== algo: 
+['homicidal']
+['murderous']
+['violent']
+
+=== raw:
+('violent', 0.00036860452499623114)
+('homicidal', 0.0001606737779694345)
+('murderous', 0.0001946988093011386)
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['personal']
+['private']
+['secret']
+
+=== algo: 
+['personal']
+['secret']
+['private']
+
+=== raw:
+('personal', -0.004081113461382248)
+('private', 0.0020698560915811946)
+('secret', -0.0006710492101386461)
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['high']
+['higher']
+['soaring']
+
+=== algo: 
+['high']
+['soaring']
+['higher']
+
+=== raw:
+('high', -0.008829495611672039)
+('higher', 0.029168903267758832)
+('soaring', -0.000954591137902727)
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['harmful']
+['toxic']
+['deadly']
+
+=== algo: 
+['harmful']
+['toxic']
+['deadly']
+
+=== raw:
+('harmful', -0.004684112627760506)
+('toxic', 4.7257006863805394e-05)
+('deadly', 0.004610391764347876)
+
+------------------------------------------------
+=== tau:
+0.148249863332
+
+=== pairwise accuracy:
+0.535714285714
+
+=== gold: 
+['small']
+['smaller']
+['midget']
+['minute']
+['tiny', 'minuscule']
+['micro', 'microscopic']
+
+=== algo: 
+['small']
+['midget']
+['micro']
+['minuscule']
+['minute']
+['microscopic']
+['tiny']
+['smaller']
+
+=== raw:
+('small', -0.014859487275455975)
+('smaller', 0.006037552800760701)
+('midget', -0.0005765352342172374)
+('minute', 0.0012400233829915899)
+('tiny', 0.004205871947404382)
+('minuscule', 0.0004706796189913906)
+('micro', 0.00036482396595950576)
+('microscopic', 0.0018808281397385456)
+
+------------------------------------------------
+=== tau:
+0.948683298051
+
+=== pairwise accuracy:
+0.9
+
+=== gold: 
+['impractical', 'impracticable']
+['unrealistic']
+['infeasible']
+['impossible']
+
+=== algo: 
+['impractical']
+['impracticable']
+['unrealistic']
+['infeasible']
+['impossible']
+
+=== raw:
+('impractical', -0.0185379712183162)
+('impracticable', -0.0009886161692343046)
+('unrealistic', -0.0008071493354654453)
+('infeasible', -0.00017201541727368907)
+('impossible', 0.021842179854333586)
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['mature']
+['ripe']
+['overripe']
+
+=== algo: 
+['ripe']
+['mature']
+['overripe']
+
+=== raw:
+('mature', -0.00036293364863518096)
+('ripe', -0.0009734939330869547)
+('overripe', 0.002149247831355162)
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['overweight']
+['chubby']
+['fat']
+['obese']
+
+=== algo: 
+['overweight']
+['chubby']
+['fat']
+['obese']
+
+=== raw:
+('overweight', -0.024688940771279574)
+('chubby', -0.0010339828776767081)
+('fat', 0.00034592117077524937)
+('obese', 0.025191755160987442)
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['uncomfortable']
+['uneasy']
+['painful']
+
+=== algo: 
+['uncomfortable']
+['uneasy']
+['painful']
+
+=== raw:
+('uncomfortable', -0.018513397584576697)
+('uneasy', -0.0003742753257455726)
+('painful', 0.01837918777657418)
+
+------------------------------------------------
+=== tau:
+0.182574185835
+
+=== pairwise accuracy:
+0.5
+
+=== gold: 
+['friendly', 'cordial']
+['warm']
+['intimate']
+
+=== algo: 
+['warm']
+['friendly']
+['cordial']
+['intimate']
+
+=== raw:
+('friendly', -0.004319288680704047)
+('cordial', -0.0008449549258340545)
+('warm', -0.0718438536379738)
+('intimate', 0.001967780997586309)
+
+------------------------------------------------
+=== tau:
+0.316227766017
+
+=== pairwise accuracy:
+0.6
+
+=== gold: 
+['cool']
+['cold']
+['frigid']
+['icy', 'frozen']
+
+=== algo: 
+['cool']
+['frigid']
+['icy']
+['frozen']
+['cold']
+
+=== raw:
+('cool', -0.041041748885196606)
+('cold', 0.030025199889606828)
+('frigid', 0.0006597075708343049)
+('icy', 0.0008411744046032712)
+('frozen', 0.009184868198942769)
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['disappointed']
+['frustrated']
+['defeated']
+
+=== algo: 
+['disappointed']
+['frustrated']
+['defeated']
+
+=== raw:
+('disappointed', -0.0031699987335000695)
+('frustrated', 0.0009697134118563998)
+('defeated', 0.0024970592627459112)
+
+------------------------------------------------
+=== tau:
+-0.333333333333
+
+=== pairwise accuracy:
+0.333333333333
+
+=== gold: 
+['close']
+['tight']
+['snug']
+
+=== algo: 
+['snug']
+['close']
+['tight']
+
+=== raw:
+('close', -0.0007995882173917114)
+('tight', 0.043724055559651295)
+('snug', -0.04376186111221386)
+
+------------------------------------------------
+=== tau:
+0.948683298051
+
+=== pairwise accuracy:
+0.9
+
+=== gold: 
+['general']
+['extensive']
+['complete', 'comprehensive']
+['universal']
+
+=== algo: 
+['general']
+['extensive']
+['complete']
+['comprehensive']
+['universal']
+
+=== raw:
+('general', -0.003967696690276316)
+('extensive', -0.0019999157115933503)
+('complete', -0.0004839115378144557)
+('comprehensive', -8.317227990775643e-05)
+('universal', 0.010863436411306196)
+
+------------------------------------------------
+=== tau:
+0.547722557505
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['alive']
+['awake']
+['aware', 'conscious']
+
+=== algo: 
+['awake']
+['alive']
+['conscious']
+['aware']
+
+=== raw:
+('alive', 0.0013496595950602214)
+('awake', -0.002784381711740704)
+('aware', 0.008801141456701774)
+('conscious', 0.004931739282480535)
+
+------------------------------------------------
+=== tau:
+-1.0
+
+=== pairwise accuracy:
+0.0
+
+=== gold: 
+['interested']
+['concerned']
+['involved']
+
+=== algo: 
+['involved']
+['concerned']
+['interested']
+
+=== raw:
+('interested', -0.0025462064924189347)
+('concerned', -0.002829748420183103)
+('involved', -0.006226583890498786)
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['critical']
+['negative']
+['hostile']
+
+=== algo: 
+['negative']
+['critical']
+['hostile']
+
+=== raw:
+('critical', -0.0007769048631706543)
+('negative', -0.0024989495044583105)
+('hostile', 0.003147315417084857)
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['hard']
+['painful']
+['hopeless']
+
+=== algo: 
+['hard']
+['hopeless']
+['painful']
+
+=== raw:
+('hard', -0.008929680426148811)
+('painful', 0.01837918777657418)
+('hopeless', 0.00020982104544870674)
+
+------------------------------------------------
+=== tau:
+0.0
+
+=== pairwise accuracy:
+0.333333333333
+
+=== gold: 
+['happy', 'content']
+['euphoric']
+
+=== algo: 
+['happy']
+['euphoric']
+['content']
+
+=== raw:
+('happy', -0.006067797235249453)
+('content', 0.0002816516671487712)
+('euphoric', 0.0001606737779694345)
+
+------------------------------------------------
+=== tau:
+0.816496580928
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['calm', 'cool']
+['serene']
+
+=== algo: 
+['cool']
+['calm']
+['serene']
+
+=== raw:
+('calm', -0.0013231956439962065)
+('cool', -0.041041748885196606)
+('serene', 0.0011511802456254576)
+
+------------------------------------------------
+=== tau:
+0.182574185835
+
+=== pairwise accuracy:
+0.5
+
+=== gold: 
+['unreliable']
+['dangerous', 'risky']
+['suicidal']
+
+=== algo: 
+['risky']
+['dangerous']
+['unreliable']
+['suicidal']
+
+=== raw:
+('unreliable', -0.00028543218837951626)
+('dangerous', -0.0003251280582664791)
+('risky', -0.000931907783681573)
+('suicidal', 0.001722044660190438)
+
+------------------------------------------------
+=== END

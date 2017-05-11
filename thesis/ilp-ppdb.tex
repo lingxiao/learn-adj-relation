@@ -1,0 +1,238 @@
+\section{ILP using PPDB}
+
+\section{Introduction}
+
+In this chapter we explore a variety of ways of measuring relative intensities of adjectives using data from the PPDB graph. First we explore measuring intensities using of an adjective using only their neighbors, next we consider measuring direct comparisons if they are observed, and end the chpater by exploring a variety of ways of resolving contradiction and making up for missing data.
+
+Before diving into a more formal treatment, we give some intuition about how the adjectives should be ranked and some simplifying assumptions. Recall the PPDB graph is a set of paraphrases over adjectives, where the vertices are adjectives and the edges are adverbs. In concrete terms, the PPDB corpus reveals that the phrase "very good" is a paraphrase of the word "great", then we place a directed edge from the vertex "good" to the vertex "great". One complication is that while some adverbs such as "very" and "extremely" intensify the "adjectives" they modify, others such as "somewhat" and "kind of" de-intensify said adjectives. However while poring over the data we found that [the overwhelming majority of the adjectives] are intensifiers. Moreover the adjectives modified by de-intensifying adverbs are often paraphrases of themselves, or even weaker words. Thus we make the simplifying assumption that all adverbs are intensifiers. Finally, note that an adjective might be a paraphrase of multiple other adjective for two reasons: the adjective is polysemous, or it is intensified/deintensified frequently in common speech. Hypothetically polysemy undermines count based methods since a relative weak adjective might be intensified multiple times, leading us to believe that is stronger than it actually is. Here we make the strong simplifying assumption that if an adjective is polysemous, then it occupies the same position on multiple scales.
+
+\section{Data Set}
+
+We use the set of base, comparative and superlative adjectives as training data, the set of mechanical turk annotated as validation data, and the original dataset used by {citation} as the test data. 
+
+\section{Notation}
+
+This section introduces some basic terminolgy. The raw PPDB data forms a multi-directed graph $\tG$, where the vertices $\tV$ are adjectives, and the edges $\tE$ are adverbs. Each vertex will be denoted by $s$, $t$ or $r$, while adverbs are denoted with center dot $\cdot$. An edge from $s$ to $t$ is denoted $(s,t; \cdot)$, it is incident on $t$. We say $s$ and $t$ are adjacent if they share a common edge, regardless of direction. The set of neighbors of $s$ that have an edges incident on $s$ is called the in-neighbors of s: $\N^{in}_s = \{ t : (t,s, \cdot) \in \tE \}$. The set of neighbors of $s$ where $s$ incidents on is called the out-neighbors of $s$: $\N^{out}_s = \{ t : (s,t, \cdot) \in \tE \}$. The neighbors of $s$ is then simply $\N = \N^{in}_s \cup \N^{out}_s$. Finally, in the rest of the thesis, when we say "local information" of $s$, we mean the information of restricted to the neighbors of $s$. Otherwise the information is "global".
+
+\section{Naive Measures and Results}
+
+\subsection{Naive Definitions}
+
+In this section, we define how to decide $s$ is "weaker than" $t$ using very elementary concepts from probability, using only local information over $s$ and $t$. First let us define the Bernoulli random variable $X_s \in \{0,1\}$ so that for arbitrary $t$:
+
+\begin{equation}
+X_{s} = \begin{cases} 
+	0 & (s,t, \cdot) \\
+	1  & (t,s, \cdot).
+\end{cases}
+\end{equation}
+
+Now suppose the edges between $s$ and other vertices in $\N_s$ are placed i.i.d, then after placing $n$ vertices, the probability that $X_s = 1$ is $\Prob[X_s = 1] = \frac{1}{n} \sum \I_{X_s = 1}$. $X_s$ has an intuitive interpretation: suppose we forced a new vertex $t$ to be adjacent to $s$, $X_s$ tells us what is the most likely direction the edge would take, given only information from $s$. This intution naturally lends itself to this definition.
+
+\theoremstyle{definition}
+\begin{definition}
+Given two adjectives $s$ and $t$, we say $s$ is less intense than $t$ under the distribution of of $X_s$ and $X_t$, written $s <_{X} t$, if $\Prob[X_s = 1] < \Prob[X_t = 1]$. Since the probabilities are real valued, given $m$ adjectives $s_1, \ldots, s_m$ we can let $s_1 <_X \ldots <_X s_m$ if $\Prob[X_{s_1} = 1] < \ldots < \Prob[X_{s_m} = 1]$.
+\end{definition}
+
+Next, we change the elementary events $s$ is associated with. We define a new multinomial random variable $Y_s$ ranging over $\{-K,\ldots,K\}$ for an appropriate $K$. $K$ can be interpreted as the maximum number of the paraphrases PPDB may output, so that if $Y_s$ is $k$ for some vertex in $\N_s$, then there are $k$ edges from this vertex to $s$; if $Y_s = -k$, then there are $k$ edges from $s$ to this neighbor. In practice we pick $K$ to be the maximum number of paraphrases observed in the PPDB graph. The probability of $Y_s$ is: $\Prob[Y_s = k] = \frac{1}{n} \sum \I_{Y_s = k}$. Under the multinomial variable, our definition of greater than is as follows.
+
+ \theoremstyle{definition}
+\begin{definition}
+Given $s$ and $t$, $s$ is less intense than $t$ under the the most likely value of $Y_s$, written $s <_Y t$, if $\argmax_{k} \Prob[Y_s = k] < \argmax_{k} \Prob[Y_t = k]$. In general, given $m$ adjectives $s_1, \ldots, s_m$, $s_1 <_Y \ldots <_Y s_m$ if:
+	\[
+		\argmax_{k} \Prob[Y_{s_1} = k] < \ldots < \argmax_{k} \Prob[Y_{s_m} = k].
+	\]
+\end{definition}
+
+In other words we represent each vertex as a $2K$ sided die, and rank the adjectives based on the most likely face the die will show on one roll.
+
+Finally, we end this section with by defining two simple games. Suppose once again we represent each vertex as a simple coin $X_s$, but now define a game whereby we earn one dollar each time $X_s = 1$, and lose one dollar when $X_s = 0$. After observing $n$ coin tosses, the expected value of this game is $Z_s = \frac{1}{n} \sum_n X_{s}$. This yields this definition:
+
+\theoremstyle{definition}
+\begin{definition}
+Given $m$ adjectives $s_1, \ldots, s_m$, we decide $s_1 <_{Z} \ldots < s_m$ if we have:
+	\[
+		Z_{s_1} < \ldots < Z_{s_m}.
+	\]
+\end{definition}
+
+And finally, we play a comparable game but with the multinomial die $Y_s$. Suppose we win or lose $k$ dollars on each observation of $Y_s = k$, then the expected earnings of this game is $T_s = \sum_{n} Y_s$.
+
+\begin{definition}
+Given $m$ adjectives $s_1, \ldots, s_m$, we decide $s_1 <_{T} \ldots < s_m$ if we have:
+	\[
+		T_{s_1} < \ldots < T_{s_m}.
+	\]
+\end{definition}
+
+
+\subsection{Naive Results}
+
+This section discuss the results of such elementary probes into the problem. The results appear promising, but more importantly will discuss how these results reveal particular quirks of the data we must contend. 
+
+\begin{table}
+	\small
+	\centering
+	\begin{tabular}{|l|c|c|c|c|c|c|}
+		% 
+		\hline 
+		& \multicolumn{3}{c}{Not Smoothed} & \multicolumn{3}{c}{Smoothed} \\
+		\hline 
+		\bf Method & \bf Pariwise & \bf Avg. $\tau$ & \bf Avg. $|\tau|$ & 
+		\bf Pariwise & \bf Avg. $\tau$ & \bf Avg. $|\tau|$ \\ 
+		\hline
+		% 
+		Coin      & 84.0\% & 0.80 & 0.88 & 0.88 & 0.88 & 0.88 \\
+		Die       & 84.0\% & 0.80 & 0.88 & 0.88 & 0.88 & 0.88 \\
+		Coin Bet  & 84.0\% & 0.80 & 0.88 & 0.88 & 0.88 & 0.88 \\
+		Die Bet   & 84.0\% & 0.80 & 0.88 & 0.88 & 0.88 & 0.88 \\
+		% 
+		\hline
+	\end{tabular}
+	\caption{\label{font-table} Main results over base-comparative-superlative data.}
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+
+% There are a multitude of issues with regard to the relative meaning of adjectives that need to be resolved in order to assign values. We leave all complications for discussion in the next section and focus on constructing the simplest baseline here. The simplest way forward is to measure outdegree of each vertex so that the value $\gamma_{st}$ of an edge from $s$ to $t$ is:
+
+% \begin{equation}
+% \gamma_{st} = \begin{cases} 
+% 	\frac{\I_{(s,t; \cdot)}}{\sum_{x \in \tV} \I_{(s,x; \cdot)}} & (s,t,\cdot) \in \tE, \\ 
+% 	                                             0 & (s,x,;\cdot)\not\in \tE, \text{for every vertex } x.
+% \end{cases}
+% \end{equation}
+
+% This measure naturally leads to the following definition of "greater than":
+
+% \theoremstyle{definition}
+% \begin{definition}
+% Given two adjectives $s$ and $t$, we say $s$ is less intense than $t$ under the assignment of $\gamma$ above, written $s <_{\gamma} t$, if $\gamma_{st} > \gamma_{ts}$. Given three adjectives $s$, $t$ and $r$, we decide $s <_{\gamma} t <_{\gamma} r$ if the following three conditions are satisfied:
+% 	\begin{align*}
+% 		\gamma_{st} > \gamma_{ts} \\
+% 		\gamma_{sr} > \gamma_{rs} \\
+% 		\gamma_{rt} > \gamma_{tr}.
+% 	\end{align*}
+% \end{definition}
+
+% This definition is consistent with intuition since the edges are intensifiers, an adjective with more outgoing edges is "intensified" more often in common speech than those with a smaller outdegree, therefore it is weaker. If there is data for each of the three above conditions and they are consistent, then we are done. However two common problems surface in practice: missing data, that is for at least one pair of adjectives, both $\gamma_{st}$ and $\gamma_{ts}$ are zero; and/or contradictory data. There are many ways to tackle the data sparsity problem, for now we focus on approximating the probability that an edge should be present given it is missing. At this juncture it is important to remind the reader that the restrictive assumption that any pair of adjectives on the graph can be compared, and therefore there could exist an edge between them even it if it is not observed.
+
+% \subsection{Missing Data.}
+
+% [Need to add a sentence about why ties are not allowed.] Since $\gamma_{st}$ is computed from the number of edges from $s$ to $t$ in the underlying multi-directed graph $\tG$, $\gamma$ can be determined by computing the expected number edges between $s$ and $t$ in $\tG$. There are multiple ways to measure this probability, but only one where data exists to support the expression: by framing this task as a sequential prediction problem. In essence, we ask if we had to place an edge between $s$ and $t$, how many edges would be placed and in what direction only given what we know about the neighborhood of $s$, and similarly for that of $t$. Let $X$ be a random variable ranging over the discrete set $\{-K, K\}$ for some appropriate $K$. In this setting $K$ is chosen to be the maximum number of paraphrases allowed under the data construction processs (In practice 40 is chosen). So if the expected value of $X$ is three, then we would place three edges from $s$ to $t$, if the expected value of $X$ is negative three, then we would place three edges from $t$ to $s$. Now we will determine the expected value of $X$ given that of all $n$ neighbors of $s$: $X_{s1}, \ldots, X_{sn}$, where the neighbors of $s$ are vertices that share an edge with $s$. We assume the probability of placing edges between all vertices to be absolutely independent. Under this simplifying assumption, the expected value of $X$ is simply the sample mean:
+% ex
+% \begin{equation}
+% 	\Ex[X ] = \sum_{k \in \{-K,\ldots,K\}} \Prob[X = k] \cdot k,
+% \end{equation}
+
+% where:
+
+% \begin{equation}
+% 	\Prob[X = k] = \frac{  \sum_{X_{st}} \I_{X_{st} = k}  }{\sum_{X_{st}, l} \I_{X_{st} = l}}.
+% \end{equation}
+
+% The expected value of $X$ is then rounded up to the nearest natural number, and we denote the missing edges between $s$ and $N$ as $(s, N; -).$  Finally we define $\gamma_{sN}$ as:
+
+% \begin{equation}
+% 	\tgamma_{sN} = \frac{\I_{(s,N,-)}}{\sum_{x \in \tV} \I_{(s,x; \cdot)}},
+% \end{equation}
+
+% and naturally renormalize $\gamma_{st}$ for every $t$ if an edge is observed:
+
+% \begin{equation}
+% 	\tgamma_{st} = \frac{\I_{(s,t,\cdot)}}{\sum_{x \in \tV} \I_{(s,x; \cdot)} + \I_{(s, N; -)}}.
+% \end{equation}
+
+% The same process is repeated for $\gamma_{ts}$ if no edges are observed there. Finally it is important to remind the readers that if either $\gamma_{st}$ or $\gamma_{ts}$ is not zero, we do not approximate $\gamma$ for either vertex. 
+
+% \subsection{Resolving Contradictions.}
+
+% Contradictory data arises naturally from random fluctuations in common speech and inconsistencies due to the PPDB paraphrase system. The most immediate way to force a consistent assignment is to consider the integer linear programming method described in the previous section, reproduced below for ease of reference. Let $b_{st} = 0$ if $s <_{\gamma} t$, and $1$ otherwise; let $V_{st} = \frac{\gamma_{ts}}{\gamma_{st}},$ and pick an assignment over $b$'s that:
+
+% \begin{align*}
+%   &{\bf Maximize}\\
+%   &\sum_{s,t \in \{1,..,N\}} V_{st} \cdot s_{st} + P_{ts} \cdot (1 - s_{ts}) \\
+%   &{\bf s.t}\\
+%   &(1 - s_{st}) + (1 - s_{tr}) \geq (1 - s_{sr}),  \\
+%   &\forall s,t,r \in \{1,...,N\}.\\
+% \end{align*}
+
+% \section{Measure strength via direct comparison.}
+
+% Examining equation (1), it is clear that we have defined how strong $t$ is relative to its neighbors, relative to how strong $s$ is compared to its neighbors. This measure would be consistent if all neighbors of $s$ and $t$ have the same strength, and their neighbors have the same strength, and so on. However if $\gamma_{st} = \gamma_{ts}$, but there is at least one neighbor of $s$ that is stronger than that of $t$ measured by (1), then intuition suggests that $s$ is stronger than $t$, but under (1) they are equal. Instead of recursively computing the strength of $s$ and $t$, we remedy this problem by introducing a second measure that directly compares $s$ and $t$:
+
+% \begin{equation}
+% 	\delta_{st} = \begin{cases} 
+% 		\frac{\I_{(s,t; \cdot)}}{\I_{(s,t; \cdot)} + \I_{(t,s; \cdot)}} & (s,t,\cdot) \in \tE \text{ or } (t,s,\cdot) \in \tE \\ 
+% 		\frac{\tdelta_{st}}{\tdelta_{st} + \tdelta_{ts}} & otherwise,
+% 	\end{cases}
+% \end{equation}
+
+% where $\tdelta$ is approximated using sequential prediction similar to (4):
+
+% \begin{equation}
+% 	\tdelta_{sN} = \frac{\I_{(s,N,-)}}{\sum_{x \in \tV} \I_{(s,x; \cdot)}}.
+% \end{equation}
+
+% Observe that in the absence of information about direct comparisons, we fall back to indepdence assumption between $s$ and $t$, and use their respective neighbors to predict the outcome of $s$ versus $t$. Contradiction is resolved using the integer linear programming formulation in (6). Results are presented below.
+
+
+% \subsection{Results and Discussion}
+
+% TODO.
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

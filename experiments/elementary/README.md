@@ -1,0 +1,1 @@
+This chapter contains all the code needed to reproduce the results in the chapter Elementary Measures in the thesis. The precomputed results are in thesis-results. Running exec_experiment.py from project root will create a new directory results in this directory. The data needed to run these experiments are found in the directory learn-adjective-relation-data.

@@ -1,0 +1,66 @@
+
+
+\section{Problem Overview}
+
+In this brief chapter, we give an overview of how we formulated the problem of recovering the ``most likely" total ordering of adjectives. However most of the interesting details are missing, and this chapter serves as a motivation for the rest of the thesis. Suppose we have a cluster of $n$ items, $\mathcal C = \{s_1, \ldots, s_n\}$, then we can form the set of all permuations of $\mathcal{C}$ by:
+	\[
+		\pmb \Omega = \{ \omega \in \Pi(\mathcal{C}) : \Pi : \{1,\ldots,n\} \rightarrow \{1,\ldots,n\}\}.
+	\]
+
+Now we need to place a distribution over $\pmb \Omega$ so that:
+
+	\begin{align*}
+		\Prob[\omega] &= \Prob[s_1 < \ldots < s_n] \\
+				      &= \Prob[ s_1 < s_2 \text{ and } \ldots \text{ and } s_1 < s_n \text{ and } s_2 < s_3 \ldots s_2 < s_n \text{ and } \ldots s_{n-1} < s_n] \\
+				      &= \prod_{i \in \{1,\ldots,n\}, i < j} \Prob[ s_i < s_j ],
+	\end{align*}
+
+where the last statement follows from the independence assumption among pairwise comparisons. If we assume this $\Prob$ exists and can be estimated, then we can pick the most likely ordering $\omega^*$ with:
+	\[
+		\argmax_{\omega \in \pmb{\Omega}} \Prob[\omega].
+	\]
+
+Some remarks are in order.
+
+\begin{remark}
+The independence assumption is a fair characterization of how the data is generated: we surmise when people decide if one word is stronger than another in everyday speech, they are not imagining how they assigned strength to other words in the cluster the last time they spoke of them. Note however the test set may be generated in a very different manner. If the comparisons are done pairwise by turkers, then this approximates the setting of every day speech where the decisions are independent. However if the annotator is given all $n$ words at once, and asked to rank them, then there is strong sequential dependence between the pairwise comparisons. That is to say if the turker decides that ``good" is less intense than "great", then this will inform how he/she places the word ``better". Furthermore, the 
+sequence in which the turker makes decisions may lead to different orderings, since the conditional probability that $\Prob[ s_i < s_j | si < s_k ]$ may not be the same as $\Prob [s_i < s_j | s_i < s_l ]$ for $k \neq l$. However, we do not observe this sequence of decisions and therefore cannot decide if our estimate is close to the true distribution. Thus the independence assumption is, in some sense, the most conservative approach.
+\end{remark} 
+
+
+\begin{remark}
+The complexity of a naive computation of the $\argmax$ operation is $n^2 n!$ in the size of the cluster $\mathcal{C}.$ In theory this operation is prohibitively expensive and there is literature tacking just this problem. In practice our clusters are no more than $5$ items large, so it is very manageable even on my two year old laptop. In fact, very often the bottleneck is in estimating the pairwise probability, not the enumeration of $\Pi$.
+\end{remark}
+
+\begin{remark}
+Another possible formulation for a distribution over $\pmb{\Omega}$ is to assume that there exists a distribution $\mathcal{D}$ over $\pmb{\Omega}$, and nature (or man) selects $\omega$ according to $\mathcal{D}$, and then reveal some pair from $\omega$ according to another distribution $\mathcal{D}'$ over the set of all true comparisons implied by $\omega$: $\{s_i < s_j : i,j \in \{1,\ldots, n\}, i < j\}\}$. Again, we cannot measure either of these distributions from the data we have, so this formulation is curious but not helpful.
+\end{remark}
+
+\begin{remark}
+Some readers may find the index notation confusing, so let us be very clear on what we are enumerating in $\Pi$ and $\prod$. Given vertices $s$, $t$, and $r$, there are $3!$ elements in $\pmb{\Omega}$ enumerated by $\Pi$:
+
+\begin{align*}
+	s < t < r \\
+	s < r < t \\
+	t < s < r \\
+	t < r < s \\
+	r < s < t \\
+	r < t < s.
+\end{align*}
+
+These are the set of all possible orderings of the three vertices. Next for each $\omega$ in $\pmb{\Omega}$, the indices of $\prod$ enumerates all possible consistent orderings implied by this $\omega$. For example, if $\omega := s < t < r$, then we have $O(n^2)$ comparisons:
+
+\begin{align*}
+	s < t \\
+	s < r \\
+	t < r.
+\end{align*}
+
+Note a contradictory possibility such as $s > t, s > r, t < r$ is not enumerated, so it could never be picked. Unlike Mohit, we resolve contradiction by not considering it. Finally, since we assume the decisions above are independent, the probability of this $\omega$ is:
+\[
+	\Pr[ s < t < r] = \Prob[s < t] \cdot \Prob[s < r] \cdot \Prob [t < r].
+\]
+\end{remark}
+
+
+In the next few chapters, we offer some ways of determining what the probability should be over, and how to estimate $\Prob[ s_i < s_j ]$ on different data sets.  Unless it is explicitly noted, we recover the total ordering from pairwise probabilities using the $argmax$ expression above.

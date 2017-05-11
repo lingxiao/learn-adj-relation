@@ -1,0 +1,368 @@
+\section{Elementary Measures}
+
+\section{Introduction}
+
+In this chapter we explore a variety of ways of measuring relative intensities of adjectives using data from the PPDB graph. Before diving into a more formal treatment, we give some intuition about how the adjectives should be ranked and some simplifying assumptions. Recall the PPDB graph is a set of paraphrases over adjectives, where the vertices are adjectives and the edges are adverbs. In concrete terms, the PPDB corpus reveals that the phrase "very good" is a paraphrase of the word "great", then we place a directed edge from the vertex "good" to the vertex "great". One complication is that while some adverbs such as "very" and "extremely" intensify the "adjectives" they modify, others such as "somewhat" and "kind of" de-intensify said adjectives. However while poring over the data we found that [the overwhelming majority of the adjectives] are intensifiers. Moreover the adjectives modified by de-intensifying adverbs are often paraphrases of themselves, or even weaker words. Thus we make the simplifying assumption that all adverbs are intensifiers. Finally, note that an adjective might be a paraphrase of multiple other adjective for two reasons: the adjective is polysemous, or it is intensified/deintensified frequently in common speech. Hypothetically polysemy undermines count based methods since a relative weak adjective might be intensified multiple times, leading us to believe that is stronger than it actually is. Here we make the strong simplifying assumption that if an adjective is polysemous, then it occupies the same position on multiple scales.
+
+\section{Data Set}
+
+We use two sets of data to construct the graph, the PPDB corpus and the the full N-gram corpus. In the second case if we observe a pattern such as "$s$ but not $t$", then we place an edge from $s$ to $t$. We use the set of base, comparative and superlative adjectives as training data, the set of mechanical turk annotated as validation data, and the original dataset used by {citation} as the test data. 
+
+\section{Notation}
+
+This section introduces some basic terminology. We suppose the existence of a multi-directed graph $\tG$, where the vertices $\tV$ are adjectives, and the edges $\tE$ are adverbs. Each vertex will be denoted by $s$, $t$ or $r$, while adverbs are denoted with center dot $\cdot$. An edge from $s$ to $t$ is denoted $(s,t; \cdot)$, it is incident on $t$. We say $s$ and $t$ are adjacent if they share a common edge, regardless of direction. The set of neighbors of $s$ that have an edges incident on $s$ is called the in-neighbors of s: $\N^{in}_s = \{ t : (t,s, \cdot) \in \tE \}$. The set of neighbors of $s$ where $s$ incidents on is called the out-neighbors of $s$: $\N^{out}_s = \{ t : (s,t, \cdot) \in \tE \}$. The neighbors of $s$ is then simply $\N = \N^{in}_s \cup \N^{out}_s$. The number of edges incident on $s$ is its in-degree: $deg^{in}_s$, while the number of edges from $s$ to its neighbors is its out-degree: $deg^{out}_s$. The degree of a vertex is then $deg_s = deg^{out}_s + deg^{in}_s$. Note $\N_s$ is a set while $deg_s$ is a natural number. And since vertices $\tG$ may have multiple edges incident upon it from one neighbor, $deg_s$ is not necessarily the same as the size of $\N_s$. Finally, in the rest of the thesis, when we say "local information" of $s$, we mean the information of restricted to the neighbors of $s$. Otherwise the information is "global".
+
+\subsection{Measures}
+
+In this section, we define how to decide $s$ is "weaker than" $t$ using the most elementary concepts from probability, using only local information over $s$ and $t$. Let us define the Bernoulli random variable $X_s \in \{0,1\}$ so that for arbitrary vertex $t$:
+
+\begin{equation}
+X_{s} = \begin{cases} 
+	0 & (s,t, \cdot) \\
+	1  & (t,s, \cdot).
+\end{cases}
+\end{equation}
+
+That is to say if an edge is incident on $s$ from $t$, then $X_s = 1$. If the edges is incident on $t$ from $s$, it is $0$. Note if no edge exist between $s$ and $t$, then $X_s$ is undefined. Now suppose the edges between $s$ and other vertices in $\N_s$ are placed i.i.d, then after placing $n$ vertices, the probability that $X_s = 1$ is $\Prob[X_s = 1] = \frac{1}{n} \sum \I_{X_s = 1}$. $X_s$ has an intuitive interpretation: suppose we forced a new vertex $t$ to be adjacent to $s$, $X_s$ tells us what is the most likely direction the edge would take, given only information from $s$ and completely agnostic to the behavior of $t$ relative to its neighbors. Data sparsity becomes a problem in practice, and the probability needs to be smoothed over via the following expression:
+
+\[	
+	\Prob[X_s = 1] = \frac{\sum \I_{X_s = 1} + \epsilon}{n + 2\epsilon}.
+\]
+
+\begin{remark}
+Some readers may wrinkle their nose at such cavalier ways to handle missing data. Suffice it to say smoothing appears to be a commonly accepted practice in natural language processing literature, in fact there is a small cottage industry focused on "sophisticated" ways to smooth out distributions. The inner mysteries of this topic do not appeal, so we pick the simplest one possible and do not dwell on this particular topic any further. 
+\end{remark}
+
+In the results section, we report outcomes from both smoothed and non-smoothed distributions. The above expression intuition naturally lends itself to this definition.
+
+\theoremstyle{definition}
+\begin{definition}
+Given two adjectives $s$ and $t$, we say $s$ is less intense than $t$ under the distribution of of $X_s$ and $X_t$, written $s <_{X} t$, if $\Prob[X_s = 1] < \Prob[X_t = 1]$. Since the probabilities are real valued, given $m$ adjectives $s_1, \ldots, s_m$ we can let $s_1 <_X \ldots <_X s_m$ if $\Prob[X_{s_1} = 1] < \ldots < \Prob[X_{s_m} = 1]$.
+\end{definition}
+
+Next, we change the elementary events $s$ is associated with. We define the multinomial random variable $Y_s$ ranging over $\{-K,\ldots,K\}$ for an appropriate $K$. $K$ can be interpreted as the maximum number of the paraphrases PPDB may output, so that if $Y_s$ is $k$ for some vertex in $\N_s$, then there are $k$ edges from this vertex to $s$; if $Y_s = -k$, then there are $k$ edges from $s$ to this neighbor. In practice we pick $K$ to be the maximum number of paraphrases observed in the PPDB graph. The probability of $Y_s$ is: $\Prob[Y_s = k] = \frac{1}{n} \sum \I_{Y_s = k}$. Once again we experiment with a smoothed version of the expression as well:
+\[
+	\Prob[Y_s = k] = \frac{\sum \I_{Y_s = k} + \epsilon}{n + \delta},
+\]
+where $\delta = \sum_{k} \epsilon$ for some $k$ between $0$ and $2K$. Under the multinomial variable, our definition of greater than is as follows.
+
+ \theoremstyle{definition}
+\begin{definition}
+Given $s$ and $t$, $s$ is less intense than $t$ under the the most likely value of $Y_s$, written $s <_Y t$, if $\argmax_{k} \Prob[Y_s = k] < \argmax_{k} \Prob[Y_t = k]$. In general, given $m$ adjectives $s_1, \ldots, s_m$, $s_1 <_Y \ldots <_Y s_m$ if:
+	\[
+		\argmax_{k} \Prob[Y_{s_1} = k] < \ldots < \argmax_{k} \Prob[Y_{s_m} = k].
+	\]
+\end{definition}
+
+In other words we represent each vertex as a $2K$ sided die, and rank the adjectives based on the most likely face the die will show on one roll.
+
+We end this section by finding a real valued representation for $s$. This is accomplished by defining two simple games. Suppose once again we associate each vertex with the bent coin $X_s$, but now define a game whereby we earn one dollar each time $X_s = 1$, and lose one dollar when $X_s = 0$. After observing $n$ coin tosses, the expected value of this game is $Z_s = \frac{1}{n} \sum_n X_{s}$. This yields this definition:
+
+\theoremstyle{definition}
+\begin{definition}
+Given $m$ adjectives $s_1, \ldots, s_m$, we decide $s_1 <_{Z} \ldots <_Z s_m$ if we have:
+	\[
+		Z_{s_1} < \ldots < Z_{s_m}.
+	\]
+\end{definition}
+
+And finally, we play a comparable game but with the loaded die $Y_s$. Suppose we win or lose $k$ dollars on each observation of $Y_s = k$, then the expected earnings of this game is $T_s = \sum_{n} Y_s$.
+
+\begin{definition}
+Given $m$ adjectives $s_1, \ldots, s_m$, we decide $s_1 <_{T} \ldots <_T s_m$ if we have:
+	\[
+		T_{s_1} < \ldots < T_{s_m}.
+	\]
+\end{definition}
+
+Finally, observe in all the definitions above it is possible to place all adjectives on one scale and order them, and for each measure there exists a unique scale. This is a necessary outcome of the strong assumptions we placed on the measure. 
+
+\section{Combining data}
+
+We will run all definitions over multiple sets of graphs, the graph constructed from PPDB corpus alone, the graph constructed from the N-gram data, and many combinations of the two datasets. 
+
+Combining the two graphs presents an interesting challenge, since the data describe very different events, drawn from two potentially disjoint corpus. Specifically, when we observe a pair of paraphrases in the PPDB dataset, it states that there may exists at least one sentence where two utterances are paraphrases. On the other hand, the N-gram data set gives the frequency of phrases. This point is subtle so let us belabor it even further using a concrete example. We can view each adverb from the PPDB corpus as a matchup, and similary for each linguistic pattern in the N-gram dataset. Suppose the PPDB corpus shows "very good" is a paraphrase of "great", then there are three cases: (1) the paraphrase is a mistake, so no matchup ever occurred; (2) there exists one instance in the corpus where such a paraphrase is true and "good" looses the matchup to "great", or (3) there exists more than one instance where "good" lost. Next, suppose we observe the paraphrase "good but not great" in the N-gram corpus 64 times, then we know "good" and "great" matched up at least 64 times, and "good" lost each one. 
+
+We hope the reader sees why it is unclear how to combine the two data sets. From an abstract perspective, the PPDB corpus gives boolean events (winning a matchup) with some unknown probability, while the N-gram gives a direct frequency for the event. We certainly cannot add a boolean variable to an integer valued one. Furthermore, the underlying events are surely different! The adverb "very" is certainly not the same as the phrase "but not". From a practical perspective, if we simply "throw the two data sets together", then the signal from the N-gram corpus would overwhelm that of the PPDB corpus. Naturally we need to find some combination of datasets so that the likelihood of outputting a correct ranking is maximized. But this method of ranking is exactly what we are trying to find! 
+
+In order to sort out the confusion, we need introduce some very light notations. We have two sets of edges: $\tE$ from the N-gram corpus, and $\tE'$ from the PPDB corpus. Furthermore, we suppose $\tE'$ is constructed by applying a binary mask on some underlying set of edges $\tE''$ whereby each edge in $\tE'$ appears at least once in $\tE''$, and the frequency of such edges is exactly the frequency of times in which a phrase appears in corpus. Now our goal is to transform $\tE$ and $\tE'$ and union the transformed sets. The temptation is to cast this task in light of an optimization problem, but it is unclear what the objective should be. Instead we propose two options and argue informally why they might be reasonable, then evaluate their efficacy experimentally on the labeled data sets in the next section. 
+
+\subsection{Naive Combination}
+
+Even though we belabored why "throwing the data together" makes little sense, this is still a natural first attempt under the the assumption that there is no noise in the PPDB data. Then if we observe an edge from $s$ to $t$, then we know there exists at least one such valid matchup where $s$ lost. Thus "throwing the data together" can be interpreted as a lowerbound on the frequency of paraphrases appearing in corpus.
+
+\subsection{Boolean Combination}
+
+Instead of casting PPDB events into integers, we apply a binary mask on N-gram frequencies. Again suppose we observe "good but not great" 64 times, then we construct a set of "binary edges" where the even "good but not great" only appears once. Then we take the union of this set of binary edges with the PPDB corpus. 
+
+
+\subsection{Results}
+
+This section discuss the results of such elementary probes into the problem. The results appear promising, but more importantly we need to discuss how these results reveal particular quirks of the data we must contend, before devising better methods to rank them. The table reveals a clear pattern. All measures enjoyed the best performance in the base-comparative-superlative subset, performance degraded substantially in the mechanical turk dataset, and performed the worse on Mohit's dataset. Detailed observations are found in the comments section under each table.
+
+
+\begin{table}
+\small
+\centering
+\begin{tabular}{|l|ccc|ccc|}
+	% 
+	\hline 
+	& \multicolumn{3}{c|}{Not Smoothed} & \multicolumn{3}{c|}{Smoothed} \\
+	\hline 
+	\bf Method 
+	& \bf Pairwise & \bf Avg. $\tau$ & \bf Avg. $|\tau|$ 
+	& \bf Pairwise & \bf Avg. $\tau$ & \bf Avg. $|\tau|$ \\ 
+	\hline
+	% 
+	Coin      & 84.0\% & \pmb{0.80} & 0.88 & \pmb{85.0\%} & 0.72 & \pmb{0.93} \\
+	Die       & 56.0\% & 0.56 & 0.60 &      56.0\%  & 0.55 & 0.60 \\
+	Coin Game & 84.0\% & \pmb{0.80} & 0.88 & \pmb{85.0\%} & 0.72 & \pmb{0.93} \\
+	Die Game  & 69.0\% & 0.42 & 0.88 &      70.0\%  & 0.40 & 0.91 \\
+	% 
+	\hline
+	\hline 
+	% 
+	Coin       & 66.0\% & 0.43 & 0.71       & \pmb{0.66\%} & \pmb{0.43} & \pmb{0.71} \\
+	Die        & 51.0\% & 0.40 & 0.55      & 51.0\% & 0.40 & 0.55\\
+	Coin Game  & 66.0\% & 0.43 & 0.71       & \pmb{0.66\%} & \pmb{0.43} & \pmb{0.71} \\
+	Die Game   & 65.0\% & 0.42 & 0.70       & 65.0\% & 0.42 & 0.70 \\
+	% 
+	\hline
+	\hline
+	% 
+	Coin       & 48.0\% & 0.12  & 0.46  & 48.0\% & 0.12 & 0.46 \\
+	Die        & 28.0\% & -0.09 & 0.43  & 28.0\% & -0.09 & 0.43 \\
+	Coin Game  & 48.0\% & 0.07  & 0.45  & 49.0\% & 0.07 & 0.45  \\
+	Die Game   & 48.0\% & 0.15  & 0.48  & \pmb{50.0\%} & \pmb{0.15} & \pmb{0.49} \\
+	% 
+	\hline
+\end{tabular}
+\caption{\label{font-table} Results across all measures using PPDB data. Top: base comparative superlative triples. Middle: Mechanical Turk data. Bottom: Mohit's data set. Note performance on Mohit's data set is no better than random.}
+\end{table}
+
+
+\begin{table}
+\small
+\centering
+\begin{tabular}{|l|ccc|ccc|}
+	% 
+	\hline 
+	& \multicolumn{3}{c|}{Not Smoothed} & \multicolumn{3}{c|}{Smoothed} \\
+	\hline 
+	\bf Method 
+	& \bf Pairwise & \bf Avg. $\tau$ & \bf Avg. $|\tau|$ 
+	& \bf Pairwise & \bf Avg. $\tau$ & \bf Avg. $|\tau|$ \\ 
+	\hline
+	% 
+	Coin      & 45.0\%  & 0.20 & 0.68 & \pmb{69.0\%} & \pmb{0.51} & \pmb{0.81} \\
+	Die       & 46.0\%  & 0.06 & 0.81 & 46.0\% & 0.06 & 0.81 \\
+	Coin Game & 67.0\%  & 0.53 & 0.78 & \pmb{69.0\%} & \pmb{0.51} & \pmb{0.81} \\
+	Die Game  & 62.0\%  & 0.38 & 0.79 & 62.0\% & 0.38 & 0.79 \\
+	% 
+	\hline
+	\hline 
+	% 
+	Coin       & 32.0\% & -0.12 & 0.53 & \pmb{56.0\%} & \pmb{0.29}  & \pmb{0.61 }\\
+	Die        & 38.0\% & -0.06 & 0.57 & 38.0\% & -0.06 & 0.57 \\
+	Coin Game  & 54.0\% & 0.27 & 0.60 &  \pmb{56.0\%} & \pmb{0.29}   &\pmb{ 0.61 }\\
+	Die Game   & 59.0\% & 0.37 & 0.66 & 59.0\% & 0.37   & 0.66 \\
+	% 
+	\hline
+	\hline
+	% 
+	Coin       & 66.0\% & 0.48 & 0.61 & \pmb{69.0\%} & \pmb{0.50} & \pmb{0.62} \\
+	Die        & 65.0\% & 0.41 & 0.54 & 65.0\% & 0.41 & 0.54 \\
+	Coin Game  & 67.0\% & 0.49 & 0.61 & \pmb{69.0\%} & \pmb{0.50} & \pmb{0.62} \\
+	Die Game   & 64.0\% & 0.39 & 0.56 & 64.0\% & 0.39 & 0.56 \\
+	% 
+	\hline
+\end{tabular}
+\caption{\label{font-table} Results across all measures using raw N-gram data. Top: base comparative superlative triples. Middle: Mechanical Turk data. Bottom: Mohit's data set. It is curious to see that the n-gram corpus failed so poorly on the set procured by mechanical turks. Also note how using only local information, we are able to match Mohit, et.al's performance in their dataset in terms of pairwise accuracy.}
+\end{table}
+
+
+
+\begin{table}
+\small
+\centering
+\begin{tabular}{|l|ccc|ccc|}
+	% 
+	\hline 
+	& \multicolumn{3}{c|}{Not Smoothed} & \multicolumn{3}{c|}{Smoothed} \\
+	\hline 
+	\bf Method 
+	& \bf Pairwise & \bf Avg. $\tau$ & \bf Avg. $|\tau|$ 
+	& \bf Pairwise & \bf Avg. $\tau$ & \bf Avg. $|\tau|$ \\ 
+	\hline
+	% 
+	Coin      & 45.0\% & 0.20 & 0.68 & \pmb{66.0\%} & 0.48 & 0.79 \\
+	Die       & 40.0\% & -0.03& 0.78 & 42.0\% & -0.02& 0.81 \\
+	Coin Game & \pmb{66.0\%} & \pmb{0.53} & 0.77 & \pmb{66.0\%} & 0.48 & 0.79 \\
+	Die Game  & 66.0\% & 0.44 & 0.83 & \pmb{66.0\%} & 0.44 & \pmb{0.83} \\
+	% 
+	\hline
+	\hline 
+	% 
+	Coin       & 34.0\% & -0.09 & 0.54 & \pmb{59.0\%} & 0.34 & 0.61 \\
+	Die        & 33.0\% & -0.17 & 0.58 & 66.0\% & \pmb{0.44} & \pmb{0.83} \\
+	Coin Game  & 57.0\% & 0.32 & 0.60  & \pmb{59.0\%} & 0.34 & 0.61 \\
+	Die Game   & 62.0\% & 0.43 & 0.66  & 62.0\% & 0.43 & 0.66 \\
+	% 
+	\hline
+	\hline
+	% 
+	Coin       & 67.0\% & 0.50 & 0.63 & \pmb{70.0\%} & \pmb{0.51} & \pmb{0.63} \\
+	Die        & 63.0\% & 0.41 & 0.56 & 63.0\% & 0.41 & 0.56 \\
+	Coin Game  & 67.0\% & 0.51 & 0.63 & \pmb{70.0\%} & \pmb{0.51} & \pmb{0.63} \\
+	Die Game   & 65.0\% & 0.43 & 0.55 & 66.0\% & 0.44 & 0.55 \\
+	% 
+	\hline
+\end{tabular}
+\caption{\label{font-table} Results across all measures using raw N-gram data with boolean mask. Top: base comparative superlative triples. Middle: Mechanical Turk data. Bottom: Mohit's data set. Compared to table 3, it is interesting to note that performance only dropped slightly in pairwise accuracy for the base-comparative-superlative set, while performance actually went up along all other measures for all datasets. Once again we are within reach of Mohit's $0.57$ $\tau$ and $0.66$ $|\tau|$ mark, and outperforms the paper by a slight margin in pairwise accuracy only.}
+\end{table}
+
+\begin{table}
+\small
+\centering
+\begin{tabular}{|l|ccc|ccc|}
+	% 
+	\hline 
+	& \multicolumn{3}{c|}{Not Smoothed} & \multicolumn{3}{c|}{Smoothed} \\
+	\hline 
+	\bf Method 
+	& \bf Pairwise & \bf Avg. $\tau$ & \bf Avg. $|\tau|$ 
+	& \bf Pairwise & \bf Avg. $\tau$ & \bf Avg. $|\tau|$ \\ 
+	\hline
+	% 
+	Coin      & 86.0\% & \pmb{0.81} & 0.90 & \pmb{88.0\%} & 0.76 & \pmb{0.95} \\
+	Die       & 58.0\% & 0.50 & 0.66 & 56.0\% & 0.54 & 0.59 \\
+	Coin Game & 86.0\% & \pmb{0.81} & 0.90 & \pmb{88.0\%} & 0.76 & \pmb{0.95} \\
+	Die Game  & 67.0\% & 0.35 & 0.90 & 68.0\% & 0.37 & 0.91 \\
+	% 
+	\hline
+	\hline 
+	% 
+	Coin       & \pmb{67.0\%} & \pmb{0.46} & \pmb{0.72} & \pmb{67.0\%} & \pmb{0.46} & \pmb{0.73} \\
+	Die        & 54.0\% & 0.39 & 0.61 & 52.0\% & 0.40 & 0.56 \\
+	Coin Game  & \pmb{67.0\%} & \pmb{0.46} & \pmb{0.72} & \pmb{67.0\%} & \pmb{0.46} & \pmb{0.73} \\
+	Die Game   & 68.0\% & 0.47 & 0.74 & 66.0\% & 0.43 & 0.69 \\
+	% 
+	\hline
+	\hline
+	% 
+	Coin       & \pmb{67.0}\% & \pmb{0.46} & \pmb{0.59} & \pmb{67.0\%} & \pmb{0.46} & \pmb{0.59} \\
+	Die        & 45.0\% & 0.22 & 0.44 & 45.0\% & 0.22 & 0.44 \\
+	Coin Game  & \pmb{67.0}\% & \pmb{0.46} & \pmb{0.59} & \pmb{67.0\%} & \pmb{0.46} & \pmb{0.59} \\
+	Die Game   & 64.0\% & 0.39 & 0.56 & 64.0\% & 0.39 & 0.56 \\
+	% 
+	\hline
+\end{tabular}
+\caption{\label{font-table} Results across all measures using naive combination of PPDB and N-gram data. Top: base comparative superlative triples. Middle: Mechanical Turk data. Bottom: Mohit's data set. Despite the fact that naive combination makes little sense, all measures is benefiting from more data compared to PPDB corpus alone. On the other hand, performance on Mohit's data set degraded compared to N-gram corpus alone. }
+\end{table}
+
+
+\begin{table}
+\small
+\centering
+\begin{tabular}{|l|ccc|ccc|}
+	% 
+	\hline 
+	& \multicolumn{3}{c|}{Not Smoothed} & \multicolumn{3}{c|}{Smoothed} \\
+	\hline 
+	\bf Method 
+	& \bf Pairwise & \bf Avg. $\tau$ & \bf Avg. $|\tau|$ 
+	& \bf Pairwise & \bf Avg. $\tau$ & \bf Avg. $|\tau|$ \\ 
+	\hline
+	% 
+	Coin      & \pmb{88.0\%} & \pmb{0.86} & \pmb{0.91} & \pmb{88.0\%} & 0.77 & \pmb{0.95} \\
+	Die       & 56.0\% & 0.56 & 0.60 & 56.0\% & 0.55 & 0.59 \\
+	Coin Game & \pmb{88.0\%} & \pmb{0.86} & \pmb{0.91} & \pmb{88.0\%} & 0.77 & \pmb{0.95} \\
+	Die Game  & 72.0\% & 0.46 & 0.88 & 74.0\% & 0.48 & 0.91 \\
+	% 
+	\hline
+	\hline 
+	% 
+	Coin       & \pmb{67.0\%} & \pmb{0.46} & \pmb{0.75} & 66.0\% & 0.43 & 0.73 \\
+	Die        & 53.0\% & 0.42 & 0.56 & 53.0\% & 0.42 & 0.56 \\
+	Coin Game  & \pmb{67.0\%} & 0.46 & \pmb{0.75} & 66.0\% & 0.43 & 0.73 \\
+	Die Game   & \pmb{67.0\%} & \pmb{0.47} & \pmb{0.75} & 65.0\% & 0.42 & 0.72 \\
+	% 
+	\hline
+	\hline
+	% 
+	Coin       & \pmb{65.0\%} & \pmb{0.43} & \pmb{0.56} & 65.0\% & 0.41 & 0.54 \\
+	Die        & 46.0\% & 0.25 & 0.43 & 46.0\% & 0.25 & 0.43 \\
+	Coin Game  & \pmb{65.0\%} & \pmb{0.43} & \pmb{0.56} & 65.0\% & 0.41 & 0.54 \\
+	Die Game   & 62.0\% & 0.35 & 0.51 & 63.0\% & 0.36 & 0.51 \\
+	% 
+	\hline
+\end{tabular}
+\caption{\label{font-table} Results across all measures using combination of PPDB data and N-gram data with boolean mask. Top: base comparative superlative triples. Middle: Mechanical Turk data. Bottom: Mohit's data set. A more principled manner of combining data yielded better results in some data sets but not others. Overall, the difference does not appear significant over the naive outcome.}
+\end{table} \newpage
+
+In summary, we were interested in three questions while conducting the experiment:
+
+\begin{enumerate}
+  \item which measure performs best across all three annotated sets
+  \item does smoothing improve performance for all measures and all annotated sets
+  \item what is the best way to combine the N-gram and PPDB data sets. 
+\end{enumerate}
+
+The answer to item one is clearly the simple coin toss, although the difference between using the distribution of the Bernoulli variable versus the game we proposed is unclear. Thus in the next section we will experiment with both values as we improve the ranking method. The answer to second question is also unclear, but smoothing certainly does not appear to hurt the system, and we decide to smooth in the future. The answer to the last question is also unclear. The principled combination with a boolean mask over the N-gram data set results in better performance in the base-comparative-superlative data set, but resulted in worse performance over Mohit's data set. However, what is clear is that combining the two sources of data gives clear benefits, and from now on when we refer to "the graph", we mean some combination of the PPDB and N-gram data. 
+
+Finally, we would like to ask why the naive measures performs worse on Mohit's data set compared to the other two. There are three possible explanations: not  enough data, data that contradicts the annotations, or too simple of a model. The first explanation is immediately ruled out by table 6 below, showing that the words in the base-comparative-superlative (BCS) data set has, in fact, fewer edges between neighbors and a higher variance in number of edges than the other two test sets, in the PPDB data base alone. In particular, we note that adjective from Mohit's data set has more neighbors and connection to neighbors than those in the base-comparative-superlative baseline. We assess the second hypothesis by incorporating the second data set. 
+This suggests our naive algorithm fails to capture the variations that determine which adjective is stronger in Mohit's data set. There are three natural paths forward: finding a better measure, using a more sophisticated form of comparison, or finding a larger representation (ie a vector) for every adjective. In the next chapter, we look for this better measure.
+
+\begin{table}
+\small
+\centering
+\begin{tabular}{|l|cc|cc|cc|}
+	% 
+	\hline 
+	& \multicolumn{2}{c|}{\bf BCS}
+	& \multicolumn{2}{c|}{\bf Turks} 
+	& \multicolumn{2}{c|}{\bf Mohit} \\
+	\hline 
+	\bf Variable Measured
+	& \bf $\mu$ & \bf $\sigma^2$ 
+	& \bf $\mu$ & \bf $\sigma^2$ 
+	& \bf $\mu$ & \bf $\sigma^2$ \\
+	\hline
+	$\N^{in}_s$   & 15 & 269  & 24 & 315  & 14 & 167  \\
+	$\N^{out}_s$  & 17 & 1017 & 33 & 1128 & 22 & 1032 \\
+	$\N_s$        & 16 & 645  & 28 & 743  & 18 & 619  \\
+	\hline
+	\hline
+	$deg^{in}_s$   & 29 & 1192 & 52 & 1961 & 31 & 1103 \\
+	$deg^{out}_s$  & 39 & 7347 & 73 & 7597 & 51 & 6689 \\
+	$deg_s$        & 34 & 4293 & 62 & 4892 & 41 & 3997 \\
+	\hline
+\end{tabular}
+\caption{\label{font-table} Characterization of the distribution over vertices and edges for the three datasets.}
+\end{table}\newpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

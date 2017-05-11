@@ -1,0 +1,301 @@
+\section{Ranking Using Network Centrality}
+
+\subsection{Introduction}
+
+% https://cs.stanford.edu/people/plofgren/bidirectional_ppr_thesis.pdf
+% http://scholarworks.sjsu.edu/cgi/viewcontent.cgi?article=7971&context=etd_theses
+
+Since all heuristics measures constructed in the previous chapter failed, we will consider two measures in this chapter using more principled approaches. These measure differs notably from the previous chapter in that (1) the previous chapters considers local information, here we consider the whole graph; and (2) there is large precedent in literature for these measures. 
+
+\subsection{Motivation}
+
+We hypothesize that one reason local measures fails is because it is not simply the number of edges that determines the strength of $s$ and $t$. Both the relative strength of of vertices incident on $s$ versus those of $t$, and the relative strength of vertices pointed to by $s$ and $t$ are important. For example, suppose both "good" and "great" have equal number of edges incident upon it, but great is a paraphrase of "much better", which we know to be stronger than "good", then we should rank "great" as more intense than "good". What we are interested in measuring is the ``centrality" of an adjective. In fact there is a family of measures constructed for just this task, and all involves defining some random walk over the graph and computing the stationary distribution over all vertices under this walk. In this chapter we consider two in particular: PageRank and Personalized PageRank. PageRank outputs a total ordering over all vertices, ranked by their centrality measure. Personalized PageRank, on the other hand, does not assume a unique ordering of all words in the graph, instead it computes how important some vertex $t$ is given the perspective of a particular vertex $s$. And note the ranking of $t$ may be different for each $s$. Now we will introduce some notation and review these measures.
+
+\subsection{Notation}
+
+Consider the directed graph $\G$ with vertices $\V$ and edges $\E$, the vertices in this graph be denoted by $s$, $t$, or $r$. An edge from $s$ to $t$ will be denoted $(s,t)$. The adjacency matrix $\pmb{A}$ of the graph is defined as:
+
+\[   
+\pmb{A}_{st} = \left\{
+\begin{array}{ll}
+      1 & \text{if } (s,t) \\
+      0 & otherwise.
+\end{array} 
+\right. 
+\]
+
+Note $\pmb{A}_{st}$ is the $st$'th entry of matrix $\pmb{A}$. Furthermore, the degree matrix $\pmb{D}$ is the diagonal matrix with:
+	\[
+		\pmb{D}_{st} = \sum_{t} \pmb{A}_{st}.
+	\]
+
+
+Finally we can construct the probability transition matrix $\Wa$ with:
+	\[
+		\Wa = \pmb{D}^{-1} \pmb{A}.
+	\]
+
+Note for every $st$'th entry in $\Wa$ we have:
+
+\begin{enumerate}
+	\item $\Wa_{st} \in [0,1]$
+	\item $\sum_t \Wa_{st} = 1$.
+\end{enumerate}
+
+Following the tradition of [citation], we will use $\pi_s$ to denote a distribution over all vertices in $\G$. We also overload the letter $s$ to denote both the vertex in $\V$ and a distribution over vertices where the entry $s$ has probability one, and all other vertices have probability zero. Now we will define PageRank and Personalized PageRank. In the interest of highlighting their similarities, we will use similar language in both definitions. 
+
+\subsection{PageRank}
+
+PageRank of vertex $s$ is the probability that a random walk of some length starting from an arbitrary vertex will terminate at $s$. Formally, $X_i$ be a random variable ranging over distributions over vertices in $\G$, then the ordered sequence $(X_0, X_1,\ldots,X_L)$ is a random walk of length $L$ starting from $X_0 = s$. $L$ follows a geometric distribution where $\Prob[L = l] = (1 - \alpha)^l \alpha$. That is to say the random walker starts at some arbitrary vertex and with probability $\alpha$, transition to an out-neighbor $t$ according to $W_{st}$, and with probability $1 - \alpha$, ``teleport" to an arbitrary vertex on the graph. The PageRank vector $\pi$ is the solution to the expression:
+
+	\[
+		\pi = \widetilde{\pmb{W}} \pi,
+	\]
+
+where $\widetilde{\pmb{W}}$ is the ``Google" matrix:
+	
+	\[
+		\widetilde{\pmb{W}} = \alpha \Wa + (1 - \alpha) \frac{1}{n} \pmb{J},
+	\]
+
+and $\pmb{J} = \pmb{1} \cdot \pmb{1}^T$ is the all one matrix. Note the expression $\alpha \Wa$ above captures the random surfing behavior, while the second expression is the teleportation factor. The PageRank of a vertex $s$ is the probability this random walk terminates at $s$: $\pi[s] = \Prob[X_L = s]$
+
+\subsection{Personalized PageRank}
+
+A personalized PageRank of vertex $t$ relative to $s$ is defined as the probability that a random walk of the appropriate length starting from $s$ will terminate at $t$. Similar to PageRank, let $X_i$ be a random variable ranging over distributions over vertices in $\G$, then the ordered sequence $(X_0, X_1,\ldots,X_L)$ is a random walk of length $L$ starting from $X_0 = s$. $L$ follows a geometric distribution where $\Prob[L = l] = (1 - \alpha)^l \alpha$. In other words, the random walk starts at $s$ and with probability $1 - \alpha$ continue to a random neighbor of the current vertex; and with probability $\alpha$ terminates at the current vertex $s$. Again at each vertex $s$, the random neighbor $t$ is chosen with probability $\Wa_{st}$. The personalized PageRank vector $\pi_s$ with respect to $s$ is the solution to the expression:
+
+\[
+	\pi_s = \alpha s + (1 - \alpha) \pi_s \Wa.
+\]
+
+The PPR of vertex $t$ with respect to $s$ is the probability we terminate at $t$:
+
+	\[
+		\pi_s[t] = \Prob[X_L = t].
+	\]
+
+Solving for $\pi$ and $\pi_s$ is well studied but beyond the scope of this thesis, the interested reader should refer to [citation] for a thorough treatment. 
+
+\subsection{Pairwise Comparison Using Centrality Measures}
+
+In this brief section we define how to assign $\Prob[s < t]$ using the two centrality measures defined above.
+
+\theoremstyle{definition}
+\begin{definition}
+Given two adjectives $s$ and $t$, $s$ is less intense than $t$ under PageRank over the graph if $\pi[s] < \pi[t]$. Furthermore by fiat, we have for some suitable $\epsilon$:
+
+\[   
+\Prob[s < t] = \left\{
+\begin{array}{ll}
+      \frac{1}{2} - \epsilon & \pi[s] < \pi[t] \\
+      \frac{1}{2} + \epsilon & otherwise
+\end{array} 
+\right. 
+\]
+\end{definition}
+
+\theoremstyle{definition}
+\begin{definition}
+Given two adjectives $s$ and $t$, $s$ is less intense than $t$ under Personalized PageRank over the graph if $\pi_s[t] > \pi_t[s]$. And similar to above, we can define:
+
+\[   
+\Prob[s < t] = \left\{
+\begin{array}{ll}
+      \frac{1}{2} - \epsilon & \pi_s[t] > \pi_t[s] \\
+      \frac{1}{2} + \epsilon & otherwise
+\end{array} 
+\right. 
+\]
+\end{definition}
+
+Note in both cases we ``forget" the actual probability induced by the random walk, and define the probability by fiat. This is due to our previous claim in the baseline chapter that a slight edge suffices. The second reason is mostly practical: due to the quality of our data, in practice it is prudent to not assign too much credence to the values output by the centrality measures beyond the gross direction they indicate. 
+
+\subsection{Constructing the Transition Matrix}
+
+This section outlines two ways of constructing the transition matrix $\pmb{W}$ from the multi directed graph. We only consider one variation here: whether to include the number of edges between vertices. Let us denote $\tE$ as the set of edges in the multi-directed graph so that $(s,t,v) \in \tE$ signifies an edge from $s$ to $t$ labeled with adverb $v$. In the first construction, we ignore the number of edges between two vertices $s$ and $t$, and define the probability of transitioning from $s$ to $t$ as one over the number of out-neighbors of $s$:
+
+\begin{equation}
+	\Wa_{st} = \frac{1}{|\{ \I_{(s,t,v)} : (s,t,v) \in \tE \}|}.
+\end{equation}
+
+We will call this construction the out-neighbor construction. In the second construction it is the number of edges from $s$ to $t$, over the total number of out edges of $s$:
+
+\begin{equation}
+	\Wa_{st} = \frac{|\{ (s,t,v) \in \tE \}|}{|\{ (s,t,v) : (s,t,v) \in \tE \}|}.
+\end{equation}
+
+This construction will be referred to as the out-edge construction
+
+\subsection{Results}
+
+Similar to the previous chapter, we test on the set of pairs for which no data exists. And once again we remind the reader that we wish to be in the low to mid 80 percent for pairwise accuracy across all test sets. The results are reported in the tables below. We varied the teleportation constant $\alpha$ from $0.1$ to $0.9$ in $0.1$ increments. In practice we noted $\alpha = 0.2$ performed best for PageRank, and $\alpha = 0.8$ performed best for Personalized PageRank. In the interest of space only results from the best $\alpha$ are reported. Scanning across the tables, we see that the centrality measures do outperform the random baseline, but their performance as a whole do not meet our minimum $80\%$ criteria. However, the two measures performed significantly differently across the data sets, and this difference merit some brief comments. The two most salient conclusions are:
+
+\begin{enumerate}
+	\item PageRank out performed Personalized PageRank as a whole, falsifying our hypothesis that assuming there is no total ordering over adjectives would improve results.
+	\item out-edge construction out performed out-degree construction in some cases but not others, suggesting that the exact construction of the adjacency matrix does not matter. 	 
+\end{enumerate}
+
+Detailed comments are found underneath each table. All in all, PageRank appears to show promise on some labeled sets, while Personalized PageRank does not perform. Overall, both measures are unsatisfactory. 
+
+
+
+
+\begin{table}
+\small
+\centering
+\begin{tabular}{|l|cc|cc|cc|}
+	% 
+	\hline 
+	& \multicolumn{2}{c|}{N-gram no data} 
+	& \multicolumn{2}{c|}{PPDB no data} 
+	& \multicolumn{2}{c|}{PPDB + N-gram no data} \\
+	\hline 
+	\bf Test set
+	& \bf Pairwise & \bf Avg. $\tau$  
+	& \bf Pairwise & \bf Avg. $\tau$  
+	& \bf Pairwise & \bf Avg. $\tau$  \\ 
+	\hline
+	% 
+	Mohit & 47.0\% & -0.05  & 48.0\% & -0.03 & 48.0\% & -0.04 \\
+	Turk  & 40.0\% & -0.19  & 37.0\% & -0.25 & 41.0\% & -0.18 \\
+	BCS   & 14.0\% & -0.73  & 15.0\% & -0.70 & 15.0\% & -0.70 \\
+	% 
+	\hline
+\end{tabular}
+\caption{\label{font-table} Results across all datasets for uniform baseline coupled with reverse lexicographic sorting, reprinted here for convenience. }
+\end{table}
+
+\begin{table}
+\small
+\centering
+\begin{tabular}{|l|cc|cc|cc|}
+	% 
+	\hline 
+	& \multicolumn{2}{c|}{N-gram} 
+	& \multicolumn{2}{c|}{PPDB} 
+	& \multicolumn{2}{c|}{PPDB + N-gram} \\
+	\hline 
+	\bf Test set
+	& \bf Pairwise & \bf Avg. $\tau$  
+	& \bf Pairwise & \bf Avg. $\tau$  
+	& \bf Pairwise & \bf Avg. $\tau$  \\ 
+	\hline
+	% 
+	Mohit & 48.0\%          & -0.03         & \pmb{64.0\%}  & \pmb{0.28}  & 55.0\% & 0.10 \\
+	Turk  & \pmb{57.0\%}    & \pmb{0.13}    & 53.0\%        & 0.05        & 52.0\% & 0.04 \\
+	BCS   & 73.0\% & 0.45   & \pmb{77.0\%}  & \pmb{0.54}    & 70.0\%      & 0.39 \\
+	% 
+	\hline
+\end{tabular}
+\caption{\label{font-table} PageRank using graph constructed using out-edge expression. Note BCS performed best on PPDB, this is not surprising since this is how the PPDB dataset is generated. The Turk set performed best on the N-gram set, which is curious since the Turk set was constructed with respect to the PPDB adjective set. Finally we see Mohit's set performed best on the PPDB data set, but it appears as if there is a slight negative relationship between PageRank values and adjective strength on the N-gram set. }
+\end{table}
+
+\begin{table}
+\small
+\centering
+\begin{tabular}{|l|cc|cc|cc|}
+	% 
+	\hline 
+	& \multicolumn{2}{c|}{N-gram} 
+	& \multicolumn{2}{c|}{PPDB} 
+	& \multicolumn{2}{c|}{PPDB + N-gram} \\
+	\hline 
+	\bf Test set
+	& \bf Pairwise & \bf Avg. $\tau$  
+	& \bf Pairwise & \bf Avg. $\tau$  
+	& \bf Pairwise & \bf Avg. $\tau$  \\ 
+	\hline
+	% 
+	Mohit & 49.0\% & -0.02 & 63.0\%  & 0.25  & \pmb{59.0\%} & \pmb{0.19} \\
+	Turk  & \pmb{58.0\%} & \pmb{0.16}  & 51.0\%  & 0.01  & 54.0\% & 0.08 \\
+	BCS   & \pmb{72.0\%} & \pmb{0.43}  & 63.0\%  & 0.25  & 72.0\% & 0.45 \\
+	% 
+	\hline
+\end{tabular}
+\caption{\label{font-table} PageRank with out-neighbor construction. Note in theory this construction should be more susceptible to ``confusing" signals due to polysemy, however in practice it actually performs better on some annotated sets. }
+\end{table}
+
+
+\begin{table}
+\small
+\centering
+\begin{tabular}{|l|cc|cc|cc|}
+	% 
+	\hline 
+	& \multicolumn{2}{c|}{N-gram} 
+	& \multicolumn{2}{c|}{PPDB} 
+	& \multicolumn{2}{c|}{PPDB + N-gram} \\
+	\hline 
+	\bf Test set
+	& \bf Pairwise & \bf Avg. $\tau$  
+	& \bf Pairwise & \bf Avg. $\tau$  
+	& \bf Pairwise & \bf Avg. $\tau$  \\ 
+	\hline
+	% 
+	Mohit & 60.0\% &  0.20 & 39.0\%  & -0.22  & 63.0\% & 0.25 \\
+	Turk  & 35.0\% & -0.30 & 62.0\%  & 0.23   & 58.0\% & 0.15 \\
+	BCS   & 29.0\% & -0.42 & 61.0\%  & 0.22   & 57.0\% & 0.14 \\
+	% 
+	\hline
+\end{tabular}
+\caption{\label{font-table} Personalized PageRank with out-edge construction. Note it performs significantly worse than PageRank. In particular there appears to be a negative relationship between PPR and adjective strength on some data sets, and positive relationship on others. Furthermore, observe the negative correlations appear on the N-gram dataset where we do not observe paths over several vertices, this makes PPR highly unreliable. It also appears for Mohit's set on the PPDB data, which was not constructed with Mohit's gold set in mind.}
+\end{table}
+
+\begin{table}
+\small
+\centering
+\begin{tabular}{|l|cc|cc|cc|}
+	% 
+	\hline 
+	& \multicolumn{2}{c|}{N-gram} 
+	& \multicolumn{2}{c|}{PPDB} 
+	& \multicolumn{2}{c|}{PPDB + N-gram} \\
+	\hline 
+	\bf Test set
+	& \bf Pairwise & \bf Avg. $\tau$  
+	& \bf Pairwise & \bf Avg. $\tau$  
+	& \bf Pairwise & \bf Avg. $\tau$  \\ 
+	\hline
+	% 
+	Mohit & 61.0\% &  0.22 & 39.0\%  & -0.21  & 62.0\% &  0.24 \\
+	Turk  & 34.0\% & -0.31 & 59.0\%  &  0.19  & 49.0\% & -0.01 \\
+	BCS   & 32.0\% & -0.37 & 63.0\%  &  0.25  & 68.0\% &  0.35 \\
+	% 
+	\hline
+\end{tabular}
+\caption{\label{font-table} Personalized PageRank with out-neighbor construction. Note in general it is not worse than the out-edge construction. Finally, the negative correlation appear here in the same test set and gold set. }
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
