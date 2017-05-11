@@ -22,7 +22,14 @@ from experiments.elastic_net import *
 	different graph parameters
 '''
 edge        = [ 'edge-wt' ]
-topo        = [ 'ppdb-ngram', 'ppdb', 'ngram' ]
+
+topo        = [ 'ppdb-ngram'
+              , 'ppdb'
+              , 'ngram' 
+              , 'ppdb-one-event-no-loop'
+              , 'ppdb-one-event-ngram-no-loop'
+              ]
+
 alphas      = [ 0.8 ]
 graph_names = [t + '|' + e + '|' + str(a) for t in topo for e in edge for a in alphas]              
 
@@ -47,17 +54,28 @@ baseline = locate_dirs( get_path('baseline'), ['no-data'] )
 '''
 try:
 	G_ppdb, G_ngram, G_ppng
+	# , G_pnng_1, G_ppdb_1
 except:	
 	G_ppdb  = Graph( 'ppdb|edge-wt|0.8'       , asset_dirs )
 	G_ngram = Graph( 'ngram|edge-wt|0.8'      , asset_dirs )
 	G_ppng  = Graph( 'ppdb-ngram|edge-wt|0.8' , asset_dirs )
 
+	# G_ppdb_1 = Graph( 'ppdb-one-event-no-loop|edge-wt|0.8', asset_dirs )
+	# G_ppng_1 = Graph( 'ppdb-one-event-ngram-no-loop|edge-wt|0.8' , asset_dirs )
 
 GRAPH = {
           'ppdb'       : G_ppdb
 		 ,'ngram'      : G_ngram
 		 ,'ppdb-ngram' : G_ppng
 		 }
+
+path = get_path('ppdb') + '/shard-1.pkl'
+# path = get_path('ppdb-one-event-no-loop') + '/shard.pkl'
+
+# es,vs = load_as_dict(path)
+with open(path,'rb') as h:
+	G = pickle.load(h)
+
 
 ############################################################
 '''

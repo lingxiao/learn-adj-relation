@@ -87,17 +87,17 @@ def load_as_dict(path):
 		paths = [os.path.join(path,p) for p in os.listdir(path)]
 
 		E = []
-		V = None
+		V = []
 
 		for path in paths:
 
 			es,vs = load_as_dict(path)
 			E += [(k,v) for k,v in es.iteritems()]
-			V  = vs
+			V  += vs
 
 		all_E = {k : v for k,v in E}
 
-		return all_E, V
+		return all_E, list(set(V))
 
 	elif os.path.isfile(path):
 
@@ -155,8 +155,6 @@ def load_as_list(path):
 
 	else:
 		raise NameError('ERROR: Path is not a directory, .json or .txt file')
-
-
 
 ############################################################
 

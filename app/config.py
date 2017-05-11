@@ -85,12 +85,14 @@ PATH = {
            , 'ppdb-ngram-bool-txt' : os.path.join(input_dir, 'raw-graph/ppdb-ngram-bool-txt')
 
               # varous kind of graphs in pkl form
-           , 'ppdb'            : os.path.join(input_dir, 'raw-graph/ppdb')
-           , 'ngram'           : os.path.join(input_dir, 'raw-graph/ngram')
-           , 'ngram-bool'      : os.path.join(input_dir, 'raw-graph/ngram-bool')
-           , 'ppdb-ngram'      : os.path.join(input_dir, 'raw-graph/ppdb-ngram')
-           , 'ppdb-ngram-bool' : os.path.join(input_dir, 'raw-graph/ppdb-ngram-bool')
-           , 'ppdb-ngram-full' : os.path.join(input_dir, 'raw-graph/ppdb-ngram-full' )
+           , 'ppdb'                  : os.path.join(input_dir, 'raw-graph/ppdb')
+           , 'ngram'                 : os.path.join(input_dir, 'raw-graph/ngram')
+           , 'ngram-bool'            : os.path.join(input_dir, 'raw-graph/ngram-bool')
+           , 'ppdb-ngram'            : os.path.join(input_dir, 'raw-graph/ppdb-ngram')
+           , 'ppdb-ngram-bool'       : os.path.join(input_dir, 'raw-graph/ppdb-ngram-bool')
+           , 'ppdb-ngram-full'       : os.path.join(input_dir, 'raw-graph/ppdb-ngram-full' )
+           , 'ppdb-one-event-no-loop': os.path.join(input_dir, 'raw-graph/ppdb-one-event-no-loop')
+           , 'ppdb-one-event-ngram-no-loop' : os.path.join(input_dir, 'raw-graph/ppdb-one-event-ngram-no-loop')
 
            # linguistic patterns
            , 'patterns'        : os.path.join(input_dir, 'patterns/two-sided-patterns.txt')

@@ -38,10 +38,12 @@ with open(w2idx_path,'rb') as h:
 	w2idx = pickle.load(h)
 
 # fix, rho = 'io', rho_concat_in_out( GRAPH[data_set], w2idx )
-fix, rho = 'out'   , rho_out( GRAPH[data_set], w2idx )
-OP , op  = '-' , rho_subtract
+fix, rho = 'out' , rho_out( GRAPH[data_set], w2idx )
+OP , op  = '-'   , rho_subtract
 
 SAVE     = False
+
+
 
 ############################################################
 '''
@@ -64,7 +66,7 @@ dir_name = data_set   + '|'                 \
          + 'alpha='   + str(alpha)   + '|'  \
          + 'l1='      + str(l1_ratio)   
 
-if False:
+if True:
 	print('\n\t>> Training ' + dir_name)
 	exec_train( dir_name = dir_name
 
