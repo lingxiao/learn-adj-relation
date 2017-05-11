@@ -36,7 +36,8 @@ asset_dirs  = { k : v for k,v in list(degree_dirs.iteritems())
 work_dir = locate_dirs( get_path('elastic-net'), ['results'
 	                                             ,'script'
 	                                             ,'shells'
-	                                             ,'assets'])
+	                                             ,'assets'
+	                                             ,'combined'])
 
 baseline = locate_dirs( get_path('baseline'), ['no-data'] )
 

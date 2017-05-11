@@ -37,8 +37,8 @@ w2idx_path = os.path.join( work_dir['assets']
 with open(w2idx_path,'rb') as h:
 	w2idx = pickle.load(h)
 
-fix, rho = 'io', rho_concat_in_out( GRAPH[data_set], w2idx )
-# fix, rho = 'out'   , rho_out( GRAPH[data_set], w2idx )
+# fix, rho = 'io', rho_concat_in_out( GRAPH[data_set], w2idx )
+fix, rho = 'out'   , rho_out( GRAPH[data_set], w2idx )
 OP , op  = '-' , rho_subtract
 
 SAVE     = False
