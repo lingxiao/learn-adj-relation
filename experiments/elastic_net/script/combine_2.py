@@ -46,7 +46,7 @@ with open(w2idx_path,'rb') as h:
 
 print('\n\t>> constructing feature functions')
 fix, rho  = 'o'  , rho_out( GRAPH[data_set], w2idx )
-OP , op   = '-'  , rho_subtract
+OP , op   = '-'  , vec_subtract
 phi       = to_x(rho,op)
 
 SAVE = True
@@ -75,7 +75,7 @@ rank_all_gold( test['ccb-no-tie']
 	         , os.path.join(results_dir, 'ccb-no-tie.txt')
 	         , refresh = False
 	         , save    = SAVE )
-	
+
 
 print('\n\t>> ranking bcs with ppdb-ngram graph ...')
 rank_all_gold( test['bcs']

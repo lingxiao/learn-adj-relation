@@ -45,7 +45,7 @@ with open(w2idx_path,'rb') as h:
 
 print('\n\t>> constructing feature functions')
 fix, rho  = 'o'  , rho_out( GRAPH[data_set], w2idx )
-OP , op   = '-'  , rho_subtract
+OP , op   = '-'  , vec_subtract
 phi       = to_x(rho,op)
 
 SAVE = True
