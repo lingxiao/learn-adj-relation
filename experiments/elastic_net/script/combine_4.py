@@ -26,27 +26,23 @@ from experiments.elastic_net import *
 '''
 	model and feature space representation
 '''
-winner = 'ppdb-ngram-1|[phi^out(s)-phi^out(t)]|num_adv=2|alpha=0.9|l1=0.9'
+winner = 'ppdb-ngram-1|[nu^io(s)-nu^io(t)]|num_neigh=50|alpha=0.5|l1=0.1'
 path   = os.path.join(work_dir['results'],winner + '/model')
-
+	
 print('\n\t>> loading model from ' + winner)
 with open(path,'rb') as h:
 	model = pickle.load(h)
 
 num_adv    = 2
 data_set   = 'ppdb-ngram-1'
+num_neigh  = 50
 
-w2idx_path = os.path.join( work_dir['assets']
-	                     , 'w2idx-' + str(num_adv) + '.pkl')
+w2idx    = {'neig-' + str(k) : {'idx': k} \
+           for k in xrange(num_neigh)}
 
-print('\n\t>> loading word to index')
-with open(w2idx_path,'rb') as h:
-	w2idx = pickle.load(h)
-
-print('\n\t>> constructing feature functions')
-fix, rho  = 'o'  , rho_out( GRAPH[data_set], w2idx )
-OP , op   = '-'  , rho_subtract
-phi       = to_x(rho,op)
+fix, nu  = 'io' , nu_in_out_concat( GRAPH[data_set], num_neigh )
+OP , op  = '-'  , vec_subtract
+phi      = to_x(nu,op)
 
 SAVE = True
 
@@ -81,5 +77,3 @@ rank_all_gold( test['moh']
 	         , os.path.join(results_dir, 'moh.txt')
 	         , refresh = False
 	         , save    = SAVE )
-
-

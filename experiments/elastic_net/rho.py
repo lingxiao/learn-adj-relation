@@ -1,5 +1,5 @@
 ############################################################
-# Module  : feature representation
+# Module  : feature representation rho based on edges
 # Date    : April 24th, 2017
 # Author  : Xiao Ling
 ############################################################
@@ -24,7 +24,6 @@ from scripts.graph import *
 '''
 def to_X(xs, rho, op, normalize = False):
 	X = np.array([ op(rho(s),rho(t)) for s,t in xs ])
-	# return norm_by_mu_sigma(X)
 	if normalize:
 		return norm_by_mu_sigma(X)
 	else:
@@ -57,16 +56,16 @@ def norm_by_mu_sigma(X):
 '''
 	combine two rhos
 '''
-def rho_subtract(rho1, rho2):
+def vec_subtract(rho1, rho2):
 	return rho1 - rho2
 
-def rho_concat(rho1, rho2):
+def vec_concat(rho1, rho2):
 	return np.concatenate((rho1,rho2), axis = 0)
 
-def rho_add(rho1, rho2):
+def vec_add(rho1, rho2):
 	return rho1 + rho2
 
-def rho_dot(phi1,phi2):
+def vec_dot(phi1,phi2):
 	v = np.dot(phi1,phi2)
 	w = np.append(v,1.0)
 	return w
@@ -82,7 +81,6 @@ def rho_divide(rho1, rho2):
 			out.append(v)
 
 	return np.array(out)
-
 
 ############################################################
 '''
@@ -120,7 +118,6 @@ def rho_BTL(G, w2idx):
 		return np.array(v)
 
 	return fn
-
 
 '''
 	@Use: given graph `G` and word `s`, and feature dict,

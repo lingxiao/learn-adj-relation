@@ -1,5 +1,5 @@
 ############################################################
-# Module  : run train elastic net regression
+# Module  : run train elastic net regression using neighbor features
 # Date    : April 24th, 2017
 # Author  : Xiao Ling
 ############################################################
@@ -25,23 +25,20 @@ from experiments.elastic_net import *
 '''
 	Training config
 '''
-alpha      = 0.9
-l1_ratio   = 0.9
+alpha      = 0.5
+l1_ratio   = 0.1
 
 num_adv    = 2
-# data_set   = 'ppdb-ngram'
 data_set   = 'ppdb-ngram-1'
+num_neigh  = 50
 
-w2idx_path = os.path.join( work_dir['assets']
-	                     , 'w2idx-' + str(num_adv) + '.pkl')
+w2idx    = {'neig-' + str(k) : {'idx': k} \
+           for k in xrange(num_neigh)}
 
-with open(w2idx_path,'rb') as h:
-	w2idx = pickle.load(h)
-
-fix, rho = 'out' , rho_out( GRAPH[data_set], w2idx )
-OP , op  = '-'   , rho_subtract
-phi      = to_x(rho,op)
-SAVE     = True
+fix, nu  = 'io' , nu_in_out_concat( GRAPH[data_set], num_neigh )
+OP , op  = '-'  , vec_subtract
+phi      = to_x(nu,op)
+SAVE     = False
 
 ############################################################
 '''
@@ -49,7 +46,7 @@ SAVE     = True
 '''
 if data_set in ['ppdb-ngram', 'ppdb-ngram-1']:
 	test = both_gr
-elif data_set in ['ppdb', 'ppdb-1'] :
+elif data_set in ['ppdb', 'ppdb-1']:
 	test = ppdb_gr
 elif data_set == 'ngram':
 	test = ngram_gr
@@ -58,11 +55,11 @@ elif data_set == 'ngram':
 '''
 	Train 
 '''
-dir_name = data_set   + '|'                 \
-         + '[phi^'+ fix + '(s)' + OP + 'phi^' + fix + '(t)]|'  \
-         + 'num_adv=' + str(num_adv) + '|'  \
-         + 'alpha='   + str(alpha)   + '|'  \
-         + 'l1='      + str(l1_ratio)   
+dir_name = data_set     + '|'                 \
+         + '[nu^'+ fix  + '(s)' + OP + 'nu^' + fix + '(t)]|'  \
+         + 'num_neigh=' + str(num_neigh) + '|'  \
+         + 'alpha='     + str(alpha)   + '|'  \
+         + 'l1='        + str(l1_ratio)   
 
 if True:
 	print('\n\t>> Training ' + dir_name)
@@ -71,7 +68,7 @@ if True:
 		      , alpha    = alpha
 		      , l1_ratio = l1_ratio
 
-		      , rho      = rho
+		      , rho      = nu
 		      , op       = op
 		      , w2idx    = w2idx
 
