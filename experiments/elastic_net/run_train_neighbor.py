@@ -38,7 +38,7 @@ w2idx    = {'neig-' + str(k) : {'idx': k} \
 fix, nu  = 'io' , nu_in_out_concat( GRAPH[data_set], num_neigh )
 OP , op  = '-'  , vec_subtract
 phi      = to_x(nu,op)
-SAVE     = False
+SAVE     = True
 
 ############################################################
 '''
