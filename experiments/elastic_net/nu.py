@@ -35,7 +35,6 @@ def nu_in_neg_out_concat(G,num_neighbor):
 
 	return fn
 
-
 def nu_in(G,n):
 
 	def fn(s):
@@ -43,7 +42,6 @@ def nu_in(G,n):
 		return np.array(n_in)
 
 	return fn
-
 
 def nu_out(G,n):
 

@@ -30,7 +30,7 @@ l1_ratio   = 0.1
 
 num_adv    = 2
 data_set   = 'ppdb-ngram-1'
-num_neigh  = 50
+num_neigh  = 15
 
 w2idx    = {'neig-' + str(k) : {'idx': k} \
            for k in xrange(num_neigh)}

@@ -61,6 +61,21 @@ results_dir = os.path.join(work_dir['combined'], winner)
 if not os.path.exists(results_dir):
 	os.mkdir(results_dir)
 
+print('\n\t>> ranking moh-no-ties with ppdb-ngram graph ...')
+rank_all_gold( test['moh-no-tie']
+	         , decide
+	         , os.path.join(results_dir, 'moh-no-tie.txt')
+	         , refresh = False
+	         , save    = SAVE )
+
+
+print('\n\t>> ranking ccb-no-ties with ppdb-ngram graph ...')
+rank_all_gold( test['ccb-no-tie']
+	         , decide
+	         , os.path.join(results_dir, 'ccb-no-tie.txt')
+	         , refresh = False
+	         , save    = SAVE )
+
 print('\n\t>> ranking bcs with ppdb-ngram graph ...')
 rank_all_gold( test['bcs']
 	         , decide

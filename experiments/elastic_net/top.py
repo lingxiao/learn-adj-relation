@@ -126,10 +126,19 @@ ccb = read_gold( get_path('ccb') )
 print('\n\t>> load moh')
 moh = read_gold( get_path('moh') )
 
+print('\n\t>> load moh-no-tie')
+mohn = read_gold( get_path('moh-no-tie') )
+
+print('\n\t>> load turk-no-tie')
+ccbn = read_gold( get_path('ccb-no-tie') )
+
 test = {
 	  'bcs' : bcs
 	, 'ccb' : ccb
-	, 'moh' : moh }
+	, 'moh' : moh 
+	, 'moh-no-tie': mohn
+	, 'ccb-no-tie': ccbn
+	}
 
 ############################################################
 '''

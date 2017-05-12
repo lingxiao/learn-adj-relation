@@ -57,6 +57,8 @@ PATH = {
 
             # test sets
            ,'ccb'         : os.path.join(input_dir, 'test/ccb.txt'     )
+           ,'ccb-no-tie'  : os.path.join(input_dir, 'test/ccb-no-tie.txt')
+           ,'moh-no-tie'  : os.path.join(input_dir, 'test/moh-no-tie.txt')
            ,'moh'         : os.path.join(input_dir, 'test/moh.txt'     )
            ,'moh-ppdb'    : os.path.join(input_dir, 'test/moh-ppdb.txt')
            ,'moh!ppdb'    : os.path.join(input_dir, 'test/moh-ngram.txt')

@@ -26,7 +26,7 @@ from experiments.elastic_net import *
 '''
 	model and feature space representation
 '''
-winner = 'ppdb-ngram-1|[nu^io(s)-nu^io(t)]|num_neigh=50|alpha=0.5|l1=0.1'
+winner = 'ppdb-ngram-1|[nu^io(s)-nu^io(t)]|num_neigh=15 |alpha=0.5|l1=0.1'
 path   = os.path.join(work_dir['results'],winner + '/model')
 	
 print('\n\t>> loading model from ' + winner)
@@ -35,7 +35,7 @@ with open(path,'rb') as h:
 
 num_adv    = 2
 data_set   = 'ppdb-ngram-1'
-num_neigh  = 50
+num_neigh  = 15
 
 w2idx    = {'neig-' + str(k) : {'idx': k} \
            for k in xrange(num_neigh)}
@@ -52,6 +52,21 @@ SAVE = True
 '''
 decide      = decide_fn_both(G_ppng, model, phi)
 results_dir = os.path.join(work_dir['results'], 'combined/' + winner)
+
+print('\n\t>> ranking moh-no-ties with ppdb-ngram graph ...')
+rank_all_gold( test['moh-no-tie']
+	         , decide
+	         , os.path.join(results_dir, 'moh-no-tie.txt')
+	         , refresh = False
+	         , save    = SAVE )
+
+
+print('\n\t>> ranking ccb-no-ties with ppdb-ngram graph ...')
+rank_all_gold( test['ccb-no-tie']
+	         , decide
+	         , os.path.join(results_dir, 'ccb-no-tie.txt')
+	         , refresh = False
+	         , save    = SAVE )
 
 print('\n\t>> making directory ' + results_dir)
 if not os.path.exists(results_dir):
@@ -77,3 +92,15 @@ rank_all_gold( test['moh']
 	         , os.path.join(results_dir, 'moh.txt')
 	         , refresh = False
 	         , save    = SAVE )
+
+
+
+
+
+
+
+
+
+
+
+
