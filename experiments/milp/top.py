@@ -15,7 +15,7 @@ from scripts import *
 from scripts.graph import *
 from experiments.argmax import *
 from experiments.rank_all import *
-from experiments.elastic_net import *
+from experiments.milp import *
 
 ############################################################
 '''
@@ -61,7 +61,6 @@ except:
 	G_ppdb_1 = Graph( 'ppdb-one-event-no-loop|edge-wt|0.8', asset_dirs )
 	G_ppng_1 = Graph( 'ppdb-one-event-ngram-no-loop|edge-wt|0.8' , asset_dirs )
 
-
 GRAPH = {
           'ppdb'        : G_ppdb
 		 ,'ngram'       : G_ngram
@@ -74,7 +73,6 @@ GRAPH = {
 '''
 	load test sets
 '''
-
 print('\n\t>> load base-comparative-superlative')
 bcs = join(_xs for _, _xs in train_vertices(get_path('bcs')).iteritems())
 bcs = [[[w] for w in _ws] for _ws in bcs]
@@ -101,11 +99,13 @@ test = {
 
 
 ############################################################
-
 '''
 	@Use: compute s < t
 '''
-s, t = 'good', 'great'
+s,t = 'good', 'great'
+
+
+
 
 
 
