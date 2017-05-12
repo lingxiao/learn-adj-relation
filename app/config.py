@@ -48,6 +48,7 @@ PATH = {
            ,'inputs'       : os.path.join(data_root, 'inputs' )
            ,'tests'        : os.path.join(input_dir, 'test')
            ,'results'      : os.path.join(data_root, 'results')
+
         },
 
         # path to files that must exist before application runs
@@ -74,7 +75,13 @@ PATH = {
               ,'word2vec-sm': os.path.join(data_root_big, 'word2vec/small.txt')
               ,'ngram-grep' : os.path.join(data_root_big, 'ngrams/grepped')
               ,'ngram-sm'   : os.path.join(data_root_big, 'ngrams/small'  )
-              ,'affective-data'  : os.path.join(data_root_big, 'affective'     )
+              ,'affective-data'  : os.path.join(data_root_big, 'affective')
+
+              # for milp baseline
+              ,'ngram-all'    : os.path.join(data_root, 'deploy/ngram-all/outputs')
+              ,'ngram-dev'    : os.path.join(data_root, 'deploy/ngram-all/dev' )
+              ,'ngram-milp'   : os.path.join(data_root, 'deploy/ngram-all/milp-format')
+
         },
 
         # outputs computed by experiments

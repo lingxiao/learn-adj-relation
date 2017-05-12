@@ -88,7 +88,6 @@ def collect_ngram_patterns( word_path
 
     patterns  = read_pattern(pattern_path)
 
-
     all_pairs   = [x.split(', ') for x in open(word_path,'rb').read().split('\n') if x]
     chunk       = 50
     pair_chunks = chunks(all_pairs,chunk)
