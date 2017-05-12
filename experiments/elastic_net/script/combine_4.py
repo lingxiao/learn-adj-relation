@@ -26,7 +26,7 @@ from experiments.elastic_net import *
 '''
 	model and feature space representation
 '''
-winner = 'ppdb-ngram-1|[nu^io(s)-nu^io(t)]|num_neigh=15 |alpha=0.5|l1=0.1'
+winner = 'ppdb-ngram-1|[nu^io(s)-nu^io(t)]|num_neigh=50 |alpha=0.5|l1=0.1'
 path   = os.path.join(work_dir['results'],winner + '/model')
 	
 print('\n\t>> loading model from ' + winner)
