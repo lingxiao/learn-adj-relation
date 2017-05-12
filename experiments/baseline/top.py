@@ -41,7 +41,7 @@ work_dir = locate_dirs( get_path('baseline')
 	                    , 'shells'
 	                    , 'no-data'
 	                    ] 
-	                 )
+	                  )
 
 ############################################################
 '''
@@ -70,7 +70,6 @@ test = {
 	, 'moh-no-tie': mohn
 	, 'ccb-no-tie': ccbn
 	}
-
 
 '''
 	create graph and paths

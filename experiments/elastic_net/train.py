@@ -41,12 +41,12 @@ def exec_train( dir_name = None
 	valid_X, valid_y, valid_gold = valid
 	test_X , test_y , test_gold  = test
 	
-	X    = to_X(train_X, rho, op, normalize = False)
-	y    = np.array(train_y)
+	X = to_X(train_X, rho, op, normalize = False)
+	y = np.array(train_y)
 
 	print('\n\t>> training model ...')
-	model  = ElasticNet( alpha = alpha, l1_ratio = l1_ratio)
-	model  = model.fit(X, y)
+	model = ElasticNet( alpha = alpha, l1_ratio = l1_ratio)
+	model = model.fit(X, y)
 
 	results_dir = ''
 	phi = to_x(rho, op)

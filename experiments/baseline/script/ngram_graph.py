@@ -21,6 +21,21 @@ from experiments.baseline.top import *
 '''
 	run baseline using ngram graph
 '''
+print('\n\t>> ranking moh-no-ties with ngram graph ...')
+rank_all_gold( test['moh-no-tie']
+	         , decide_fn(G_ngram)
+	         , os.path.join(work_dir['results'], 'baseline-ngram-moh-no-tie.txt')
+	         , refresh = False
+	         , save    = True )
+
+
+print('\n\t>> ranking ccb-no-ties with ngram graph ...')
+rank_all_gold( test['ccb-no-tie']
+	         , decide_fn(G_ngram)
+	         , os.path.join(work_dir['results'], 'baseline-ngram-ccb-no-tie.txt')
+	         , refresh = False
+	         , save    = True )
+
 print('\n\t>> ranking ccb with ngram graph baseline ...')
 rank_all_gold( ccb
 	         , decide_fn(G_ngram)
