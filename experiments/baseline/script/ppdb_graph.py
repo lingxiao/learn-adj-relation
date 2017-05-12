@@ -24,7 +24,7 @@ from experiments.baseline.top import *
 print('\n\t>> ranking moh-no-ties with ngram graph ...')
 rank_all_gold( test['moh-no-tie']
 	         , decide_fn(G_ppdb)
-	         , os.path.join(work_dir['results'], 'baseline-ngram-moh-no-tie.txt')
+	         , os.path.join(work_dir['results'], 'baseline-ppdb-moh-no-tie.txt')
 	         , refresh = False
 	         , save    = True )
 
@@ -32,7 +32,7 @@ rank_all_gold( test['moh-no-tie']
 print('\n\t>> ranking ccb-no-ties with ngram graph ...')
 rank_all_gold( test['ccb-no-tie']
 	         , decide_fn(G_ppdb)
-	         , os.path.join(work_dir['results'], 'baseline-ngram-ccb-no-tie.txt')
+	         , os.path.join(work_dir['results'], 'baseline-ppdb-ccb-no-tie.txt')
 	         , refresh = False
 	         , save    = True )
 
