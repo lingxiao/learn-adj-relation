@@ -5,183 +5,240 @@
 ############################################################
 
 
+import os
+import pickle
 from pulp    import *
 from scripts import *
 from utils   import *
 
 
+############################################################
+
+'''
+  @Use: rank using paper's milp 
+'''
+def paper_milp(ngram_dir, stat, count):
+
+  def fn(gold):
+
+    print('\n\t>> milping: ' + str(gold))
+
+    words = join(gold)
+    pairs = [ (s,t) for s in words for t in words if s != t ]
+
+
+    '''
+      compute score     
+    '''  
+    scores,C  = to_score( pairs
+                      , paper_score(ngram_dir, stat, count)
+                      )
+
+    no_data = all(v == 0 for _,v in scores.iteritems() )
+
+    if no_data:
+      return [words], scores
+
+    else:
+
+      prob = LpProblem('-'.join(words), LpMaximize)
+
+      '''
+        initialize variables
+      '''  
+      X = dict()     # real value of each x_i on [0,1]
+      D = dict()     # real value of distance between every x_i, x_j, i != j
+      W = dict()     # integral value where w_ij => i < j
+      S = dict()     # integral value where s_ij => i > j
+
+      for s,t in pairs:
+        st = s + '=' + t
+        W[st] = LpVariable('w_' + st, 0, 1, LpInteger   )
+        S[st] = LpVariable('s_' + st, 0, 1, LpInteger   )
+        D[st] = LpVariable('d_' + st, 0, 1, LpContinuous)
+
+      for s in words:
+        X[s] = LpVariable('x_' + s, 0, 1, LpContinuous) 
+
+
+      '''
+        objective function
+      '''
+      objective = [ (W[s + '=' + t] - S[s + '=' + t]) * scores[(s,t)] \
+                  for s,t in pairs ]
+
+      prob += lpSum(objective)
+
+
+      '''
+        constraints
+      '''
+      # d_ij = x_j - x_i
+      for i,j in pairs:
+        prob += X[j] - X[i] == D[ i + '=' + j ]
+
+      # d_ij - w_ij * C <= 0
+      for i,j in pairs:
+        prob += D[ i + '=' + j ] - W[ i + '=' + j ] * C <= 0
+
+      # d_ij + (1 - w_ij) * C > 0
+      for i,j in pairs:
+        prob += D[ i + '=' + j ] + (1 - W[i + '=' + j]) * C >= 0
+
+      # d_ij + s_ij * C >= 0
+      for i,j in pairs:
+        prob += D[ i + '=' + j ] + S[i + '=' + j] * C >= 0
+
+      # d_ij - (1 - sij) * C < 0
+      for i,j in pairs:
+        prob += D[ i + '=' + j ] - (1 - S[i + '=' + j]) * C <= 0
+
+
+      '''
+        solve and interpret data
+      '''
+      prob.solve()
+
+      algo = prob_to_algo_rank(prob,words)
+
+      return algo, scores
+
+  return fn
 
 ############################################################
-# rank each cluster
 
 '''
-  @Use: Given gold standard and server,
-        output algo ranking
-        no synonyms considered
+  @Use: compute scores
 '''
-def milp_no_syn(gold, app):
+def to_score(pairs, compute_score):
 
-  print ('ranking words ' + str(gold))
+  scores = [ (s,t,compute_score(s,t)) for s,t in pairs ]
 
-  words      = join(gold)
+  no_data = all(v == 0 for _,_,v in scores)
 
-  for k in range(0,10): shuffle(words)
+  if no_data:
+    scores = { (s,t): n for s,t,n in scores }
+    return scores, 1000
 
-  pairs      = [u + '=' + v for u in words for v in words if u != v]
-  (scores,C) = to_score(pairs,app)
+  else:
 
-  no_data = all(v == 0 for v in [scores[k] for k in scores])
+    max_s  = min ( abs(n) for _,_,n in scores if n != 0 )
 
+    scores = [ (s,t, n/max_s) for s,t,n in scores ]
 
-  '''
-    If absolutely no data for any pairs of words, output ties
-    If there is any data at all, run Bansal' method
-  '''
-  if no_data: algo = [words]
-  else      : algo = bansal_milp(words,pairs,scores,C)
+    C = sum(abs(n) for _,_,n in scores ) * 1000
+    scores = { (s,t): n for s,t,n in scores }
 
-  return {'gold'           : gold
-          ,'algo'          : algo
-          ,'tau'           : tau (gold,algo)
-          ,'tau-max'       : tau (gold,gold)   # need this since max tau not necessarily 1.0
-          ,'tau-notie'     : tau2(gold,algo)
-          ,'tau-notie-max' : tau2(gold,gold)
-          ,'pairwise'      : pairwise_accuracy(gold,algo)
-          ,'raw-score'     : scores
-          ,'raw-stat'      : dict()}
+    return scores, C
 
 '''
-  Banasl's Milp method
+  @Use: parse file for s,t if it exists
+      and output counts of W1, S1, W2, S2
 '''
-def bansal_milp(words,pairs,scores,C):
+def get_scores(ngram_dir, stat, s,t):
 
-  '''
-    initialize problem
-  '''  
-  prob = LpProblem('-'.join(words), LpMaximize)
+  path = os.path.join(ngram_dir, s + '-' + t + '.pkl')
 
-  '''
-    initialize variables
-  '''  
-  x = dict()     # real value of each x_i on [0,1]
-  d = dict()     # real value of distance between every x_i, x_j, i != j
-  w = dict()     # integral value where w_ij => i < j
-  s = dict()     # integral value where s_ij => i > j
+  if os.path.exists(path):
 
-  for uv in pairs:
-    w[uv] = LpVariable('w_' + uv, 0, 1, LpInteger   )
-    s[uv] = LpVariable('s_' + uv, 0, 1, LpInteger   )
-    d[uv] = LpVariable('d_' + uv, 0, 1, LpContinuous)
+    with open(path,'rb') as h:
+      data = pickle.load(h)
 
-  for u in words:
-    x[u] = LpVariable('x_' + u, 0, 1, LpContinuous) 
+    s_sw_t =  s + '<strong-weak>' + t 
+    t_ws_s =  t + '<weak-strong>' + s 
+    t_sw_s =  t + '<strong-weak>' + s 
+    s_ws_t =  s + '<weak-strong>' + t 
 
+    S1 = sum( n for _,n in data[s_sw_t] )/stat['strong-weak']
+    W1 = sum( n for _,n in data[s_ws_t] )/stat['weak-strong']
+    S2 = sum( n for _,n in data[t_sw_s] )/stat['strong-weak']
+    W2 = sum( n for _,n in data[t_ws_s] )/stat['weak-strong']
 
-  '''
-    objective function
-  '''
-  objective = [ (w[ij] - s[ij]) * scores[ij] \
-                for ij in pairs ]
+    return S1, W1, S2, W2
 
-  prob += lpSum(objective)
+  else:
+    return 0.0, 0.0, 0.0, 0.0
 
-  '''
-    constraints
-  '''
-  # d_ij = x_j - x_i
-  for ij in pairs:
-    [i,j] = ij.split('=')
-    prob += x[j] - x[i] == d[ij]
+'''
+  @Use: compute score 
+'''
+def paper_score(ngram_dir, stat, count):
 
-  # d_ij - w_ij * C <= 0
-  for ij in pairs:
-    prob += d[ij] - w[ij] * C <= 0
+  def fn(s,t):
 
-  # d_ij + (1 - w_ij) * C > 0
-  for ij in pairs:
-    prob += d[ij] + (1 - w[ij]) * C >= 0
+    s1, w1, s2, w2 = get_scores(ngram_dir, stat, s, t)
+    top = (w1 - s1) - (w2 - s2)
+    bot = count[s] * count[t]
 
-  # d_ij + s_ij * C >= 0
-  for ij in pairs:
-    prob += d[ij] + s[ij] * C >= 0
+    return top/bot
 
-  # d_ij - (1 - sij) * C < 0
-  for ij in pairs:
-    prob += d[ij] - (1 - s[ij]) * C <= 0
-
-  '''
-    solve and interpret data
-  '''
-
-  prob.solve()
-
-  algo = prob_to_algo_rank(prob,words)
-
-  return algo  
-
+  return fn
 
 ############################################################
-# scores
+
 '''
-  @Use: given list of form ['word1-word2', ...]
-        output dictonary mapping 'word1-word2' to
-        their score, and the normalization constant
+  @Use: given milp object, output ranking
+        as list of lists
 
-  to_score :: [String] -> App -> (Dict String Float, Float)
-'''
-def to_score(pairs,app):
+  prob_to_algo_rank :: MILP -> [[String]] -> [[String]]
+'''  
+def prob_to_algo_rank(prob,words):
 
-  one    = app.OneSided
-  two    = app.TwoSided
-  scores = dict()
+  '''
+    interpret score as ranking
+  '''
+  raw0 = [tuple(v.name.split('_'))                    
+          for v in prob.variables() if v.varValue == 1.0]
 
-  # compute scores
-  for uv in pairs:
+  '''
+    words of form wo-rd need to be taken care of
+  # '''
 
-    [u,v] = uv.split('=')
-    s     = paper_score(u,v,two)
-    scores[uv] = s 
+  raw1 = []
+
+  for t in raw0:
+
+    if len(t) == 2: 
+
+      (x,uv) = t
+      [u,v]  = uv.split('=')
+      raw1.append((x,u,v))
+
+    elif len(t) == 3:
+
+      (x,u,v) = t
+
+      if '=' in u:
+        [word1,word2a] = u.split('=')
+        raw1.append((x, word1, word2a + '-' + v))
+      elif '=' in v:
+        [word1b,word2] = v.split('=')
+        raw1.append((x, u + '-' + word1b, word2))
+
+  # if we have s_ij and w_ij, then we have a contradiction
+  contradiction = [(s,u,v)                  \
+                  for (s,u,v) in raw1       \
+                  for (w,u1,v1) in raw1     \
+                  if s == 's' and w == 'w'  \
+                  and u == u1 and v == v1]
+
+  raw  = [(u,v) for (x,u,v) in raw1 if x == 's']
+
+  # # construct graph :: dictionary for topological sort
+  order = dict()        
+
+  for s,w in raw:
+    if s in order:
+      order[s] += [w]
+    else:
+      order[s] = [w]
+
+  # complete the sink in the dictonary
+  for w in words:
+    if w not in order: order[w] = []
+
+  algo = [[w] for w in toposort(order)]
 
 
-  rescale = [abs(scores[uv]) for uv in scores \
-            if abs(scores[uv]) != 0]
-  
-  if rescale: rescale = min(rescale)
-  else:       rescale = 1.0
-
-  # normalize scores
-  for uv,s in scores.items(): scores[uv] = s/rescale
-
-  C  = sum(abs(scores[uv]) for uv in scores) * 1000
-
-  return (scores, C)
-
-# paper score
-def paper_score(ai,ak,two):
-  w1  = W1(two,ai,ak)
-  w2  = W2(two,ai,ak)
-  s1  = S1(two,ai,ak)
-  s2  = S1(two,ai,ak)
-  d   = two.data(ai,ak)
-  nai = d[ai] + 1
-  nak = d[ak] + 1
-
-  return ((w1 - s1) - (w2 - s2))/(nai * nak)
-
-def W1(two,ai,ak):
-  P_ws = sum(n for _,n in two.data(ai,ak)['weak-strong']) + 1e-10
-  P1   = two.norm()['weak-strong'] + 1e-10
-  return P_ws/P1
-
-def S1(two,ai,ak):
-  P_sw = sum(n for _,n in two.data(ai,ak)['strong-weak']) + 1e-10
-  P2   = two.norm()['strong-weak'] + 1e-10
-  return P_sw/P2
-
-def W2(two,ai,ak):
-  return W1(two,ak,ai)
-
-def S2(two,ai,ak):
-  return S1(two,ak,ai)
-
+  return algo
 

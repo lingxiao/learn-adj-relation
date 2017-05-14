@@ -21,7 +21,6 @@ from experiments.elastic_net import *
 
 
 ############################################################
-
 '''
 	@Use: use model to predict 
 '''	

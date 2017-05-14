@@ -78,6 +78,7 @@ PATH = {
               ,'affective-data'  : os.path.join(data_root_big, 'affective')
 
               # for milp baseline
+              ,'word-count'   : os.path.join(data_root, 'deploy/ngram-all/word-count.pkl')
               ,'ngram-all'    : os.path.join(data_root, 'deploy/ngram-all/outputs')
               ,'ngram-dev'    : os.path.join(data_root, 'deploy/ngram-all/dev' )
               ,'ngram-milp'   : os.path.join(data_root, 'deploy/ngram-all/milp-format')
@@ -121,6 +122,9 @@ PATH = {
               , 'elastic-net'  : os.path.join(root, 'experiments/elastic_net')
               , 'pagerank'     : os.path.join(root, 'experiments/pagerank')
               , 'affective'    : os.path.join(root, 'experiments/affective')
+              , 'bag-coins'    : os.path.join(root, 'experiments/bag_coins')
+              , 'milp'         : os.path.join(root, 'experiments/milp')
+
 
         },                   
 

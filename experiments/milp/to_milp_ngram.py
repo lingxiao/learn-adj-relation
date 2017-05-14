@@ -64,11 +64,11 @@ def compile_patterns(s,t, patts):
 '''	
 	@Use: parse each file in inpath using patterns and save to output
 '''
-def parse_each(in_path, patterns):
+def parse_each(in_path, out_dir, patterns):
 
 	s,t      = (in_path.split('/')[-1]).split('-')
 	t        = t.replace('.txt','')
-	out_path = os.path.join(out_dir, s + '-' + t + '.txt')
+	out_path = os.path.join(out_dir, s + '-' + t)
 
 	regex  = compile_patterns(s,t,patterns)
 
@@ -86,39 +86,66 @@ def parse_each(in_path, patterns):
 			ngrams[patt] += matches
 
 		
-	print('\n\t>> saving output to ' + out_path)
-	with open(out_path,'wb') as h:
+	print('\n\t>> saving output to ' + out_path + '.txt')
+	with open(out_path + '.txt','wb') as h:
 		for key,ret in ngrams.iteritems():
 			h.write('=== ' + key + '\n')
 			for r,n in ret:
 				h.write(r + '\t' + str(n) + '\n')
 			h.write('\n')
 
+	print('\n\t>> saving output to ' + out_path + '.pkl')
+	with open(out_path + '.pkl','wb') as h:
+		pickle.dump(ngrams,h)
+
+	ws = ngrams[t + '<weak-strong>' + s] \
+	   + ngrams[s + '<weak-strong>' + t]
+
+	sw = ngrams[t + '<strong-weak>' + s] \
+	   + ngrams[s + '<strong-weak>' + t]
+
+	ws = sum(n for _, n in ws)   
+	sw = sum(n for _, n in sw)   
+
+	return sw, ws
+
+'''
+	@Use: parse all files in ngram_dir and put in milp appropriate format
+'''
+def parse_all(ngram_dir, out_dir, pattern_dir):
+
+	patterns  = read_pattern(pattern_dir)
+
+	out_paths = [os.path.join(ngram_dir, p) for p in os.listdir(ngram_dir) \
+	            if '.txt' in p]
+
+	SW = 0
+	WS = 0
+
+	for path in out_paths:
+		sw, ws = parse_each(path, milp_ngram, patterns)
+		SW += sw
+		WS += ws
+
+	return SW, WS
+
 ############################################################
 '''
-	get paths
+	get paths and run
 '''
 all_ngram   = get_path('ngram-all' )
 dev_ngram   = get_path('ngram-dev' )
 milp_ngram  = get_path('ngram-milp')
 pattern_dir = get_path('patterns'  )
 
-patterns  = read_pattern(pattern_dir)
-ngram_dir = dev_ngram
-out_dir   = milp_ngram
+print('\n\t>> parsing all ngrams ...')
+sw, ws = parse_all(all_ngram, milp_ngram, pattern_dir)		
 
-'''
-	@Use: parse each file and put in milp appropriate format
-'''
-out_paths = [os.path.join(ngram_dir, p) for p in os.listdir(ngram_dir) \
-            if '.txt' in p]
+print('\n\t>> saving gross statistics')
+stat = {'strong-weak' : sw, 'weak-strong': ws }
 
-for path in out_paths:
-	parse_each(path, patterns)
-
-
-
-
+with open( os.path.join(milp_ngram,'stat-strong-weak.pkl'), 'wb') as h:
+	pickle.dump(stat,h)
 
 
 
