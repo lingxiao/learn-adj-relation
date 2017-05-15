@@ -35,6 +35,8 @@ l1_ratio   = 0.1
 penalty    = 'l1'
 C          = 0.4
 
+# data set to train the model on
+# and the size of feature represenation
 data_set   = 'ppdb-ngram-1'
 num_neigh  = 10
 
@@ -42,6 +44,7 @@ num_neigh  = 10
 w2idx    = {'neig-' + str(k) : {'idx': k} \
            for k in xrange(num_neigh)}
 
+# feature representation function
 fix, nu  = 'HT' , nu_coin( GRAPH[data_set], num_neigh )
 OP , op  = '-'  , vec_subtract
 phi      = to_x(nu,op)
@@ -75,6 +78,8 @@ elif model == 'logistic-regression':
 	         + 'num_neigh=' + str(num_neigh) + '|'                \
 	         + 'penalty='   + penalty        + '|'                  \
 	         + 'C='         + str(C)   
+else:
+	raise NameError('Expected elastic-net or logistic-regression')	         
 
 if True:
 	print('\n\t>> Training ' + dir_name)
