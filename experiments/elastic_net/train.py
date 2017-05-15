@@ -9,7 +9,7 @@ import math
 import numpy as np
 import networkx as nx
 from sklearn.metrics import r2_score
-from sklearn.linear_model import ElasticNet
+from sklearn.linear_model import ElasticNet, LogisticRegression
 import pickle
 
 
@@ -25,15 +25,24 @@ from experiments.elastic_net import *
 '''
 	@Use: train validate and test model. save results if needed
 '''
+
 def exec_train( dir_name = None
+
+	          , model    = ''
 	          , alpha    = None
 	          , l1_ratio = None
+
+	          , penalty  = ''
+	          , C        = None
+
 	          , rho      = None
 	          , op       = None
 	          , w2idx    = None
+
 	          , train    = None
 	          , valid    = None
 	          , test     = None
+
 	          , out_root = None
 	          , save     = False ):
 
@@ -44,9 +53,20 @@ def exec_train( dir_name = None
 	X = to_X(train_X, rho, op, normalize = False)
 	y = np.array(train_y)
 
-	print('\n\t>> training model ...')
-	model = ElasticNet( alpha = alpha, l1_ratio = l1_ratio)
-	model = model.fit(X, y)
+	print('\n\t>> training model ' + model + ' ...')
+	
+	if model == 'elastic-net':
+
+		print('\n\t >> running ' + model + ' with alpha = ' + str(alpha) + ' and l1-ratio = ' + str(l1_ratio))
+		model = ElasticNet( alpha = alpha, l1_ratio = l1_ratio)
+		model = model.fit(X, y)
+
+	elif model == 'logistic-regression':
+
+		print('\n\t >> running ' + model + ' with penalty ' + penalty + ' at C = ' + str(C))
+		model = LogisticRegression(C = C, penalty = penalty)
+		model = model.fit(X, y)
+
 
 	results_dir = ''
 	phi = to_x(rho, op)
@@ -61,6 +81,8 @@ def exec_train( dir_name = None
 			print('\n\t\t ' + w + ': ' + str(v))
 	else:
 		coefs = {k:c for k,c in enumerate(vector)}
+		print('\n\t\t >> coefficents: ' + str(coefs))
+
 
 	if save:
 

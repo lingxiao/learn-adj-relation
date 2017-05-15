@@ -26,21 +26,21 @@ from experiments.elastic_net import *
 '''
 	model and feature space representation
 '''
-winner = 'ppdb-ngram-1|[nu^HT(s)-nu^HT(t)]|num_neigh=50|alpha=0.9|l1=0.1'
+winner = 'logistic-regression|ppdb-ngram-1|[nu^HT(s)-nu^HT(t)]|num_neigh=10|penalty=l1|C=0.4'
 path   = os.path.join(work_dir['results'],winner + '/model')
 	
 print('\n\t>> loading model from ' + winner)
 with open(path,'rb') as h:
 	model = pickle.load(h)
 
-data_set   = 'ppdb-ngram-1'
-num_neigh  = 50
+data_set  = 'ppdb-ngram-1'
+num_neigh = 10
 
-fix, nu  = 'HT' , nu_coin( GRAPH[data_set], num_neigh )
-OP , op  = '-'  , vec_subtract
-phi      = to_x(nu,op)
+fix, nu = 'HT' , nu_coin( GRAPH[data_set], num_neigh )
+OP , op = '-'  , vec_subtract
+phi     = to_x(nu,op)
 
-SAVE = False
+SAVE    = True
 
 ############################################################
 '''

@@ -24,7 +24,6 @@ def nu_coin(G, top_n):
 		neigh = sorted( [(t,squash(d)) for t,d in G.neigh(src).iteritems()], key = lambda x : x[1] )
 		neigh.reverse()
 		neigh_sm = neigh[0:top_n]
-		# + [0.0] * max(0, top_n - len(neigh))
 
 		coins = []
 
@@ -49,7 +48,6 @@ def nu_coin(G, top_n):
 		return coins
 
 	return fn		
-
 
 '''
 	@Use: concat top n in and out neighbor

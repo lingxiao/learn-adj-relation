@@ -25,11 +25,19 @@ from experiments.elastic_net import *
 '''
 	Training config
 '''
+model      = 'logistic-regression'
+
+# elastic net regularization
 alpha      = 0.9
 l1_ratio   = 0.1
 
+# logistic regression regularization
+penalty    = 'l1'
+C          = 0.4
+
 data_set   = 'ppdb-ngram-1'
-num_neigh  = 50
+num_neigh  = 10
+
 
 w2idx    = {'neig-' + str(k) : {'idx': k} \
            for k in xrange(num_neigh)}
@@ -54,18 +62,31 @@ elif data_set == 'ngram':
 '''
 	Train 
 '''
-dir_name = data_set     + '|'                 \
-         + '[nu^'+ fix  + '(s)' + OP + 'nu^' + fix + '(t)]|'  \
-         + 'num_neigh=' + str(num_neigh) + '|'  \
-         + 'alpha='     + str(alpha)   + '|'  \
-         + 'l1='        + str(l1_ratio)   
+if model == 'elastic-net':
+	dir_name = data_set     + '|'                                \
+	         + '[nu^'+ fix  + '(s)' + OP + 'nu^' + fix + '(t)]|'  \
+	         + 'num_neigh=' + str(num_neigh) + '|'                \
+	         + 'alpha='     + str(alpha)   + '|'                  \
+	         + 'l1='        + str(l1_ratio)   
+elif model == 'logistic-regression':
+	dir_name = model         + '|'                                \
+	         +  data_set     + '|'                                \
+	         + '[nu^'+ fix  + '(s)' + OP + 'nu^' + fix + '(t)]|'  \
+	         + 'num_neigh=' + str(num_neigh) + '|'                \
+	         + 'penalty='   + penalty        + '|'                  \
+	         + 'C='         + str(C)   
 
 if True:
 	print('\n\t>> Training ' + dir_name)
 	exec_train( dir_name = dir_name
 
+			  , model    = model
+
 		      , alpha    = alpha
 		      , l1_ratio = l1_ratio
+
+		      , penalty  = penalty
+		      , C        = C
 
 		      , rho      = nu
 		      , op       = op
