@@ -54,7 +54,7 @@ if not os.path.exists(results_dir):
 if True:
 	exec_rank( data_set
 		     , test
-		     , decide_fn_both(G_ppng, model, phi)
+		     , decide_fn_both(G_ppdb, model, phi)
 		     , results_dir
 		     , save = SAVE
 		     ) 

@@ -25,7 +25,6 @@ work_dir   = dirs['work']
 script_dir = dirs['scripts']
 shell_dir  = dirs['shells']
 
-
 ############################################################
 '''
 	@Use: split edges into chunks to compute

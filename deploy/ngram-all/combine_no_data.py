@@ -20,8 +20,6 @@ num_jobs      = 87
 no_data_dir   = get_path('ngram-no-data')
 no_data_paths = [os.path.join(no_data_dir, p) for p in os.listdir(no_data_dir)]
 
-
-
 no_data_pairs = []
 
 tup = lambda t : (t[0],t[1])
