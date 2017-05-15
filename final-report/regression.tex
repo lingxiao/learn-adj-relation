@@ -104,7 +104,7 @@ First we list the $\phi$'s.
 
 Furthermore, for each $\phi^{in}$ and $\phi^{out}$, we can vary the number of adverbs in the vector. We sort the adverbs by frequency of appearance and pick the top 10, 20, 30, 40, 50, 100, 200, 300, 400, 500, and all 605 adverbs/phrases. 
 
-Now we consider the $\nu$'s. In this case we find all neighbors of $s$ and represent each neighbor by the frequency of adverbs between the neighbor and our vertex.
+Now we consider the $\nu$'s. In this case we find all neighbors of $s$ and represent each neighbor by the frequency of adverbs between the neighbor and our vertex. 
 
 \begin{enumerate}
 	\item In-neighbor only. So that for each neighbor $t$:
@@ -121,7 +121,7 @@ Now we consider the $\nu$'s. In this case we find all neighbors of $s$ and repre
 	\item Out-neighbor only. So that for each neighbor $t$:
 
 		\[   
-		\nu(s)^{out}_v = \left\{
+		\nu(s)^{out}_t = \left\{
 		\begin{array}{ll}
 		      n & \text{there are n edges pointing from $s$ to $t$} \\
 		      0 & otherwise.
@@ -135,9 +135,21 @@ Now we consider the $\nu$'s. In this case we find all neighbors of $s$ and repre
 	
 	\item Element wise subtraction of in and out neighbor. So that $\phi(s) = \phi^{in} - \phi^{out}$.
 
-	\item Bernoulli representation of in and out neighbor. 
+	\item Bernoulli representation of in and out neighbor. So that for each neighbor $t$ we have:
+
+		\[   
+			\nu(s)_t = \left\{
+			\begin{array}{ll}
+			      \frac{|\{(t,s) \in \pmb{E}\}|}{|\{(t,s) \in \pmb{E}\}| + |\{(s,t) \in \pmb{E}\}|} & \text{there is at least one edge from $t$ to $s$} \\
+			      \frac{1}{10} & otherwise.
+			\end{array} 
+			\right. 
+		\]
 
 \end{enumerate}
+
+In all cases, we sort the neighbors so that the most connected neighbor to $s$ is at the top, and so on. Finally we take the top $n$ neighbors of $s$ as its feature representation, where $n$ is also an experimental parameter. If an adjective has less than $n$ neighbors, then we pad the vector with $0$. Note how we smooth out the definition of $\nu$ above so that the padding can be distinguished from a case where there are vertices from $s$ to $t$, but not vice versa.
+
 
 
 
