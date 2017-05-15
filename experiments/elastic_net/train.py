@@ -67,7 +67,6 @@ def exec_train( dir_name = None
 		model = LogisticRegression(C = C, penalty = penalty)
 		model = model.fit(X, y)
 
-
 	results_dir = ''
 	phi = to_x(rho, op)
 
@@ -82,7 +81,6 @@ def exec_train( dir_name = None
 	else:
 		coefs = {k:c for k,c in enumerate(vector)}
 		print('\n\t\t >> coefficents: ' + str(coefs))
-
 
 	if save:
 

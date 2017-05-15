@@ -83,6 +83,8 @@ PATH = {
               ,'ngram-dev'    : os.path.join(data_root, 'deploy/ngram-all/dev' )
               ,'ngram-milp'   : os.path.join(data_root, 'deploy/ngram-all/milp-format')
 
+              ,'ngram-no-data': os.path.join(data_root, 'deploy/ngram-all/no-data')
+
         },
 
         # outputs computed by experiments

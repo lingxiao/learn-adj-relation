@@ -91,9 +91,3 @@ def decide_fn_both(G,model,phi):
 		return argmax_Omega(join(gold), Pr_s_le_t_combo(G,model,phi))
 	return fn
 
-
-
-
-
-
-

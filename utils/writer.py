@@ -52,13 +52,12 @@ class Writer:
 				self.tell('='*10 + mode + '='*10)
 
 
-
 	def tell(self,msg):
 		if self.console:
 			print('\n' + self.tabs + msg)
 
-		with open(self.path,'a') as h:
-			h.write('\n' + self.tabs + msg)
+		# with open(self.path,'a') as h:
+			# h.write('\n' + self.tabs + msg)
 
 
 
