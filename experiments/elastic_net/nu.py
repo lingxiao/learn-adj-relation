@@ -12,6 +12,46 @@ from scripts.graph import *
 
 ############################################################
 '''
+	@Use: pick the top n most connected vertices in G
+		  and compute their btl score
+'''
+def nu_coin(G, top_n):
+
+	def fn(src):
+
+		squash = lambda d : sum(n for _,n in d.iteritems())
+
+		neigh = sorted( [(t,squash(d)) for t,d in G.neigh(src).iteritems()], key = lambda x : x[1] )
+		neigh.reverse()
+		neigh_sm = neigh[0:top_n]
+		# + [0.0] * max(0, top_n - len(neigh))
+
+		coins = []
+
+		for tgt,_ in neigh_sm:
+
+			head,_ = G.edge(tgt,src)
+			tail,_ = G.edge(src,tgt)
+
+			n_head = float(sum(n for _,n in head.iteritems()))
+			n_tail = float(sum(n for _,n in tail.iteritems()))
+
+			'''
+				smooth adhoc
+			'''
+			n_head = n_head if n_head != 0 else n_tail/10.0
+			n_tail = n_tail if n_tail != 0 else n_head/10.0
+
+			coins.append(n_head/(n_head + n_tail))
+
+		# return coins
+		coins = np.array(coins + [0.0] * max(0,top_n - len(coins)))
+		return coins
+
+	return fn		
+
+
+'''
 	@Use: concat top n in and out neighbor
 '''
 def nu_in_out_concat(G,n):
@@ -71,3 +111,13 @@ def get_neighbor(G, top_n, s):
 	neigh_out = neigh_out_raw[0:top_n] + [0.0]* max(0, top_n - len(neigh_out_raw))
 
 	return neigh_in, neigh_out
+
+
+
+
+
+
+
+
+
+

@@ -109,7 +109,6 @@ both_gr = {
 '''
 	load test sets
 '''
-
 print('\n\t>> load base-comparative-superlative')
 bcs = join(_xs for _, _xs in train_vertices(get_path('bcs')).iteritems())
 bcs = [[[w] for w in _ws] for _ws in bcs]

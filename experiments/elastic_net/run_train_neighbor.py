@@ -25,17 +25,16 @@ from experiments.elastic_net import *
 '''
 	Training config
 '''
-alpha      = 0.5
+alpha      = 0.9
 l1_ratio   = 0.1
 
-num_adv    = 2
 data_set   = 'ppdb-ngram-1'
-num_neigh  = 15
+num_neigh  = 50
 
 w2idx    = {'neig-' + str(k) : {'idx': k} \
            for k in xrange(num_neigh)}
 
-fix, nu  = 'io' , nu_in_out_concat( GRAPH[data_set], num_neigh )
+fix, nu  = 'HT' , nu_coin( GRAPH[data_set], num_neigh )
 OP , op  = '-'  , vec_subtract
 phi      = to_x(nu,op)
 SAVE     = True

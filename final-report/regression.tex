@@ -69,39 +69,45 @@ for an appropriate threshold $\delta$. Again we discard the value of $\hat{y}$ a
 
 In this section we describe two broad sets of features we use, and their associated function $g$. In the first set of features, we will represent the adjective by the frequency of adverbs incident and/or outgoing from this adjective. In the second set of features we will represent the adjective by adjectives that are its neighbors. In an attempt to avoid confusion, we will denote the first set of features $\phi(s)$, while the second set will be $\nu(s)$.
 
+First we list the $\phi$'s.
 
 \begin{enumerate}
-	\item in-neighbor only. So that for each adverb $v$:
+	\item In-neighbor only. So that for each adverb $v$:
 
 		\[   
 		\phi(s)^{in}_v = \left\{
 		\begin{array}{ll}
 		      n & \text{there are n edges pointing to $s$ with the adverb v} \\
-		      0 & otherwise,
+		      0 & otherwise.
 		\end{array} 
 		\right.
 		\]
 
-	\item out-neighbor only. So that for each adverb $v$:
+	\item Out-neighbor only. So that for each adverb $v$:
 
 		\[   
 		\phi(s)^{out}_v = \left\{
 		\begin{array}{ll}
 		      n & \text{there are n edges pointing from $s$ with the adverb v} \\
-		      0 & otherwise,
+		      0 & otherwise.
 		\end{array} 
 		\right. 
 		\]
 
-	\item concatenation of in and out neighbor. So that $\phi(s) = (\phi^{in}, \phi^{out})$,
+	\item Concatenation of in and out neighbor. So that $\phi(s) = (\phi^{in}, \phi^{out})$. In this case we also considered $\phi(s) = (\phi^{in}, - \phi^{out})$, where $- \phi^{out}$ is scalar multiplication of $-1$ with all entries of $\phi^{out}$.
 
-	\item element wise addition of in and out neighbor. So that $\phi(s) = \phi^{in} + \phi^{out}$,
+	\item Element wise addition of in and out neighbor. So that $\phi(s) = \phi^{in} + \phi^{out}$.
 	
-	\item element wise subtraction of in and out neighbor. So that $\phi(s) = \phi^{in} - \phi^{out}$.
+	\item Element wise subtraction of in and out neighbor. So that $\phi(s) = \phi^{in} - \phi^{out}$.
 
 \end{enumerate}
 
-Furthermore, for each $\phi^{in}$ and $\phi^{out}$, we can vary the number of adverbs in the vector. We sort the adverbs by frequency of appearance and pick the top 10, 20, 30, 40, 50, 100, 200, 300, 400, 500, and all 605 adverbs/phrases. Finally, we explore a variety of $g$'s:
+Furthermore, for each $\phi^{in}$ and $\phi^{out}$, we can vary the number of adverbs in the vector. We sort the adverbs by frequency of appearance and pick the top 10, 20, 30, 40, 50, 100, 200, 300, 400, 500, and all 605 adverbs/phrases. 
+
+Now we consider the $\nu$'s. In this case we find all neighbors of $s$ and represent each neighbor by the frequency of 
+
+
+Finally, we explore a variety of $g$'s:
 
 \begin{enumerate}
 	\item element wise addition. $\pmb{x} = \phi(s) + \phi(t)$,
@@ -109,6 +115,8 @@ Furthermore, for each $\phi^{in}$ and $\phi^{out}$, we can vary the number of ad
 	\item concatenation. $\pmb{x} = (\phi(s), \phi(t))$,
 	\item dot product. $\pmb{x} = \phi(s) \cdot \phi(t)$.
 \end{enumerate}
+
+After $g$ has been applied, we also experimented with normalizing the entries of $\phi$ so they are between $0$ and $1$. 
 
 
 \begin{table}
