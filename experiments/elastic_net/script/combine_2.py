@@ -62,42 +62,51 @@ results_dir = os.path.join(work_dir['results'], 'combined/' + winner)
 if not os.path.exists(results_dir):
 	os.mkdir(results_dir)
 
-print('\n\t>> ranking moh-no-ties with ppdb-ngram graph ...')
-rank_all_gold( test['moh-no-tie']
+print('\n\t>> ranking moh-ppdb with ppdb-ngram graph ...')
+rank_all_gold( test['moh-ppdb']
 	         , decide
-	         , os.path.join(results_dir, 'moh-no-tie.txt')
+	         , os.path.join(results_dir, 'moh-ppdb.txt')
 	         , refresh = False
 	         , save    = SAVE )
 
+if False:
 
-print('\n\t>> ranking ccb-no-ties with ppdb-ngram graph ...')
-rank_all_gold( test['ccb-no-tie']
-	         , decide
-	         , os.path.join(results_dir, 'ccb-no-tie.txt')
-	         , refresh = False
-	         , save    = SAVE )
+	print('\n\t>> ranking moh-no-ties with ppdb-ngram graph ...')
+	rank_all_gold( test['moh-no-tie']
+		         , decide
+		         , os.path.join(results_dir, 'moh-no-tie.txt')
+		         , refresh = False
+		         , save    = SAVE )
 
 
-print('\n\t>> ranking bcs with ppdb-ngram graph ...')
-rank_all_gold( test['bcs']
-	         , decide
-	         , os.path.join(results_dir, 'bcs.txt')
-	         , refresh = False
-	         , save    = SAVE )
+	print('\n\t>> ranking ccb-no-ties with ppdb-ngram graph ...')
+	rank_all_gold( test['ccb-no-tie']
+		         , decide
+		         , os.path.join(results_dir, 'ccb-no-tie.txt')
+		         , refresh = False
+		         , save    = SAVE )
 
-print('\n\t>> ranking ccb with ppdb-ngram graph ...')
-rank_all_gold( test['ccb']
-	         , decide
-	         , os.path.join(results_dir, 'ccb.txt')
-	         , refresh = False
-	         , save    = SAVE )
 
-print('\n\t>> ranking moh with ppdb-ngram graph ...')
-rank_all_gold( test['moh']
-	         , decide
-	         , os.path.join(results_dir, 'moh.txt')
-	         , refresh = False
-	         , save    = SAVE )
+	print('\n\t>> ranking bcs with ppdb-ngram graph ...')
+	rank_all_gold( test['bcs']
+		         , decide
+		         , os.path.join(results_dir, 'bcs.txt')
+		         , refresh = False
+		         , save    = SAVE )
+
+	print('\n\t>> ranking ccb with ppdb-ngram graph ...')
+	rank_all_gold( test['ccb']
+		         , decide
+		         , os.path.join(results_dir, 'ccb.txt')
+		         , refresh = False
+		         , save    = SAVE )
+
+	print('\n\t>> ranking moh with ppdb-ngram graph ...')
+	rank_all_gold( test['moh']
+		         , decide
+		         , os.path.join(results_dir, 'moh.txt')
+		         , refresh = False
+		         , save    = SAVE )
 
 
 

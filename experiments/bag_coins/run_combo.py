@@ -22,21 +22,13 @@ from experiments.bag_coins import *
 '''
 	run on all data set
 '''
-decide      = decide_fn_both(G_ppng)
 results_dir = os.path.join(work_dir['results'], 'combo')
 SAVE        = True
 
 if not os.path.exists(results_dir):
 	os.mkdir(results_dir)
 
-exec_coin(G_ppng , 'ppdb-ngram', full_test , decide, results_dir, save = SAVE ) 
-exec_coin(G_ppdb , 'ppdb'      , full_test , decide, results_dir, save = SAVE ) 
-exec_coin(G_ngram, 'ngram'     , full_test , decide, results_dir, save = SAVE )
-
-
-
-
-
-
-
+exec_coin('ppdb'      , full_test , decide_fn_both(G_ppdb) , results_dir, save = SAVE ) 
+exec_coin('ppdb-ngram', full_test , decide_fn_both(G_ppng) , results_dir, save = SAVE ) 
+exec_coin('ngram'     , full_test , decide_fn_both(G_ngram), results_dir, save = SAVE )
 

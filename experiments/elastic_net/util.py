@@ -11,6 +11,24 @@ import numpy as np
 from app     import *
 from utils   import *
 from scripts import *
+from experiments.rank_all import *
+
+############################################################
+'''
+	@Use: given graph and graph_name, and test set
+	      run on all tests
+'''
+def exec_rank(graph_name, tests, decision_fn, results_dir, save = False):
+
+	for test_name, test in tests.iteritems():
+
+		msg = 'ranking ' + test_name + ' with ' + graph_name 
+		print('\n\t' + msg)
+
+		out_path = os.path.join(results_dir, test_name + '.txt')
+
+		rank_all_gold( test, decision_fn, out_path, refresh = False, save = save )
+
 
 ############################################################
 '''

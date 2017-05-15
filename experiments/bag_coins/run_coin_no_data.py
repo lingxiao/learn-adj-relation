@@ -29,11 +29,10 @@ SAVE        = True
 if not os.path.exists(results_dir):
 	os.mkdir(results_dir)
 
-
-for test in ( ngram_gr, ppdb_gr, both_gr ):
-	exec_coin(G_ppng , 'ppdb-ngram', test , decide, results_dir, save = SAVE ) 
-	exec_coin(G_ppdb , 'ppdb'      , test , decide, results_dir, save = SAVE ) 
-	exec_coin(G_ngram, 'ngram'     , test , decide, results_dir, save = SAVE )
+for no_data in ( ngram_gr, ppdb_gr, both_gr ):
+	exec_coin('ppdb-ngram', no_data , decide_fn_coin(G_ppng ), results_dir, save = SAVE ) 
+	exec_coin('ppdb'      , no_data , decide_fn_coin(G_ppdb ), results_dir, save = SAVE ) 
+	exec_coin('ngram'     , no_data , decide_fn_coin(G_ngram), results_dir, save = SAVE )
 
 
 

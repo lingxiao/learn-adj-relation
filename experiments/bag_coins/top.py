@@ -120,16 +120,21 @@ ccb = read_gold( get_path('ccb') )
 print('\n\t>> load moh')
 moh = read_gold( get_path('moh') )
 
+print('\n\t>> load moh-ppdb')
+moh_ppdb = read_gold( get_path('moh-ppdb') )
+
 print('\n\t>> load moh-no-tie')
 mohn = read_gold( get_path('moh-no-tie') )
 
 print('\n\t>> load turk-no-tie')
 ccbn = read_gold( get_path('ccb-no-tie') )
 
+
 full_test = {
-	  'bcs' : bcs
-	, 'ccb' : ccb
-	, 'moh' : moh 
+	  'bcs'       : bcs
+	, 'ccb'       : ccb
+	, 'moh'       : moh 
+	, 'moh-ppdb'  : moh_ppdb
 	, 'moh-no-tie': mohn
 	, 'ccb-no-tie': ccbn
 	}
