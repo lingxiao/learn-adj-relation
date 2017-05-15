@@ -145,6 +145,10 @@ test = {
 	, 'ccb-no-tie': ccbn
 	}
 
+anne_cluster = {
+	 'anne-25' : read_gold(get_path('anne-25' ))
+	,'anne-125': read_gold(get_path('anne-125'))
+	}
 
 ############################################################
 '''

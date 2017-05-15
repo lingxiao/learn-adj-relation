@@ -15,7 +15,7 @@ from app     import *
 '''
 	paths
 '''
-dirs       = working_dirs('ngram-all',['scripts','shells'])
+dirs = working_dirs('ngram-all',['scripts','shells','pairs'])
 
 word_dirs = working_dirs( 'words'
 	                    , [p + '-' + s for p in ['train', 'valid', 'all'] \
@@ -26,31 +26,31 @@ script_dir = dirs['scripts']
 shell_dir  = dirs['shells']
 
 
-
-
 ############################################################
 '''
 	@Use: split edges into chunks to compute
 	      weight on remote 
 '''
-def split_into_pairs(size, output_dir):
+def split_into_pairs(size, gr_path, output_dir, save = False):
 
-	gr_path    = get_path('graph')
 	ccb        = read_gold(get_path('ccb'))
-	bansal     = read_gold(get_path('bansal'))
+	bansal     = read_gold(get_path('moh'))
+	anne_sm    = read_gold(get_path('anne-25' ))
+	anne_lg    = read_gold(get_path('anne-125'))
+	bcs        = join(_xs for _, _xs in train_vertices(get_path('bcs')).iteritems())
+	bcs        = [[[w] for w in _ws] for _ws in bcs]	
+
 
 	'''
 		get all words
 	'''
-	bansal_words = join(join(ws) for _,ws in bansal.iteritems())
-	ccb_words    = join(join(ws) for _,ws in bansal.iteritems())
-
-	_, words = load_as_list(gr_path)
+	test_words = join(join(ccb + bansal + anne_sm + anne_lg + bcs))
+	_, words   = load_as_dict(gr_path)
 
 	'''
 		construct word pairs
 	'''
-	words    = words + bansal_words + ccb_words
+	words    = set(words + test_words)
 	pwords   = to_unique_pairs(words)
 	splits   = list(chunks(pwords,size))
 
@@ -63,19 +63,22 @@ def split_into_pairs(size, output_dir):
 	cnt = 0
 
 	print('\n>> splitting words pairs into ' + str(len(splits)) + ' chunks')
-	
-	for ws in splits:
 
-		path = os.path.join(output_dir, 'batch-' + str(cnt) + '.txt')
+	if save:
+		
+		for ws in splits:
 
-		with open(path,'wb') as h:
-			for s,t in ws:
-				h.write(s + ', ' + t + '\n')
+			path = os.path.join(output_dir, 'batch-' + str(cnt) + '.txt')
 
-		cnt += 1
+			print('\n\t>> saving to ' + path)
+
+			with open(path,'wb') as h:
+				for s,t in ws:
+					h.write(s + ', ' + t + '\n')
+
+			cnt += 1
 
 	return cnt
-
 
 '''
 	construct unique pairs of words 
@@ -139,15 +142,22 @@ def run_auto_sh(tot, work_dir, shell_dir):
 '''
 	run all
 '''
-current_job = 'all-pairs'
 
-num_jobs    = len([p for p in os.listdir(word_dirs[current_job]) if '.txt' in p])
+# run this to make pairs
+if False:
+	num_jobs = split_into_pairs( 100000
+		                       , get_path('ppdb')
+		                       , dirs['pairs']
+		                       , save = True)
 
-run_auto_main( num_jobs
+# run this after the pairs have been made
+num_jobs = len([p for p in os.listdir(dirs['pairs']) if '.txt' in p])
+
+run_auto_main( num_jobs + 1
 	 		 , work_dir
 	 		 , script_dir)
 
-run_auto_sh  ( num_jobs
+run_auto_sh  ( num_jobs + 1
 	         , work_dir
 	         , shell_dir )
 

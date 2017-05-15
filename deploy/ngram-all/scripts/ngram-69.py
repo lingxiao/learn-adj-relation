@@ -38,6 +38,7 @@ no_data_path = os.path.join( out_dirs['no-data']
 
 pattern_path = get_path('patterns')
 
+# ngram_dir    = get_path('ngram-sm')
 ngram_dir    = get_path('ngram-grep')
 
 
