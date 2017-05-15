@@ -10,7 +10,6 @@ import numpy as np
 from sklearn.linear_model import ElasticNet, LogisticRegression
 import pickle
 
-
 from app     import *
 from utils   import *
 from scripts import *
@@ -29,10 +28,9 @@ def Pr_s_le_t_model(model,phi):
 	eps = 1e-3
 
 	def fn(s,t):
-		yhat = model.predict(phi(s,t))
+		yhat = model.predict(phi(s,t))[0]
 		if yhat > 0.5 : p = 0.5 + eps
 		else: p = 0.5 - eps
-
 		return p
 
 	return fn
