@@ -138,7 +138,7 @@ Now we consider the $\nu$'s. In this case we find all neighbors of $s$ and repre
 	\item Bernoulli representation of in and out neighbor. So that for each neighbor $t$ we have:
 
 		\[   
-			\nu(s)_t = \left\{
+			\nu(s)^{\mathcal{B}}_t = \left\{
 			\begin{array}{ll}
 			      \frac{|\{(t,s) \in \pmb{E}\}|}{|\{(t,s) \in \pmb{E}\}| + |\{(s,t) \in \pmb{E}\}|} & \text{there is at least one edge from $t$ to $s$} \\
 			      \frac{1}{10} & otherwise.
@@ -150,19 +150,24 @@ Now we consider the $\nu$'s. In this case we find all neighbors of $s$ and repre
 
 In all cases, we sort the neighbors so that the most connected neighbor to $s$ is at the top, and so on. Finally we take the top $n$ neighbors of $s$ as its feature representation, where $n$ is also an experimental parameter. If an adjective has less than $n$ neighbors, then we pad the vector with $0$. Note how we smooth out the definition of $\nu$ above so that the padding can be distinguished from a case where there are vertices from $s$ to $t$, but not vice versa.
 
-
-
-
 Finally, we explore a variety of $g$'s:
 
 \begin{enumerate}
 	\item element wise addition. $\pmb{x} = \phi(s) + \phi(t)$,
 	\item element wise subtraction. $\pmb{x} = \phi(s) - \phi(t)$,
 	\item concatenation. $\pmb{x} = (\phi(s), \phi(t))$,
-	\item dot product. $\pmb{x} = \phi(s) \cdot \phi(t)$.
+	\item dot product. $\pmb{x} = \phi(s) \cdot \phi(t)$,
 \end{enumerate}
 
-After $g$ has been applied, we also experimented with normalizing the entries of $\phi$ so they are between $0$ and $1$. 
+and similarly for $\nu$. After $g$ has been applied, we also experimented with using the raw counts, versus normalizing the entries of $\phi$ so they are between $0$ and $1$. Normalization appears to make sense when the N-gram data is combined with the PPDB data, since the N-gram data is often times three orders of magnitude larger than the PPDB data. We normalized the raw $n \times p$ design matrix with $n$ samples and $p$ features in one of two ways.
+
+\begin{enumerate}
+	\item Normalize by mean and variance. Suppose each feature is a unique random variable $x$, then we can normalize this variable by:
+		\[	
+			\tilde{x} = \frac{x - \pmb{E}[x]}{var(x)}.
+		\]
+	\item Normalize by maximum value. So we have $\tilde{x} = \frac{x}{max(x_1,\ldots,x_n)}$
+\end{enumerate}
 
 
 \begin{table}
