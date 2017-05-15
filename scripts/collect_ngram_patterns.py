@@ -9,7 +9,6 @@ import re
 from utils   import *
 from scripts import *
 
-
 '''
     @Use: winnow ngram files by those that contain words found in word_path
           Note if you run this on multiple batchs of words from different `word_path`
@@ -80,6 +79,8 @@ def collect_ngram_patterns( word_path
                           , log_dir
                           , refresh = True
                           , debug   = False):
+
+    print('\n\t>> running collect_ngram_patterns')
     
     # log output
     writer = Writer(log_dir, 1, debug = debug, console = False)
@@ -88,6 +89,7 @@ def collect_ngram_patterns( word_path
 
     patterns  = read_pattern(pattern_path)
 
+    writer.tell('chunking all words')
     all_pairs   = [x.split(', ') for x in open(word_path,'rb').read().split('\n') if x]
     chunk       = 50
     pair_chunks = chunks(all_pairs,chunk)
