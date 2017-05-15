@@ -51,7 +51,7 @@ results_dir = os.path.join(work_dir['results'], 'combined/' + winner)
 if not os.path.exists(results_dir):
 	os.mkdir(results_dir)
 	
-if False:
+if True:
 	exec_rank( data_set
 		     , test
 		     , decide_fn_both(G_ppng, model, phi)
@@ -59,7 +59,6 @@ if False:
 		     , save = SAVE
 		     ) 
 
-g = decide_fn_both(G_ppng, model, phi)
 
 
 
