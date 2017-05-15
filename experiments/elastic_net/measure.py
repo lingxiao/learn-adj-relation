@@ -7,7 +7,7 @@
 import os
 import math
 import numpy as np
-from sklearn.linear_model import ElasticNet
+from sklearn.linear_model import ElasticNet, LogisticRegression
 import pickle
 
 
