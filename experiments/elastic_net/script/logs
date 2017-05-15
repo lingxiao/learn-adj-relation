@@ -63,3 +63,499 @@ quota: error while getting quota from nlpgridio3.seas.upenn.edu:/data for lingxi
 ++ hash -r
 + python /home1/l/lingxiao/xiao/learn-adj-relation/experiments/elastic_net/script/combine_8.py
 TERM environment variable not set.
+
+>> ========== in PRODUCTION mode ==========
+
+>> Initializing application [ learn-adj-relation ] ...
+
+>> directory /nlp/data/xiao/learn-adj-relation-data/inputs already exists
+
+>> directory /nlp/data/xiao/learn-adj-relation-data/inputs/test already exists
+
+>> directory /nlp/data/xiao/learn-adj-relation-data/logs already exists
+
+>> directory /mnt/castor/seas_home/l/lingxiao/xiao/learn-adj-relation/deploy already exists
+
+>> directory /nlp/data/xiao/learn-adj-relation-data already exists
+
+>> directory /nlp/data/xiao/learn-adj-relation-data/results already exists
+
+>> directory /nlp/data/xiao/learn-adj-relation-data/deploy already exists
+
+>> Located critical asset anne-125.txt at /nlp/data/xiao/learn-adj-relation-data/inputs/test/anne-125.txt
+
+>> Located critical asset moh.txt at /nlp/data/xiao/learn-adj-relation-data/inputs/test/moh.txt
+
+>> Located critical asset moh-no-tie.txt at /nlp/data/xiao/learn-adj-relation-data/inputs/test/moh-no-tie.txt
+
+>> Located critical asset anne-25.txt at /nlp/data/xiao/learn-adj-relation-data/inputs/test/anne-25.txt
+
+>> Located critical asset moh-ppdb.txt at /nlp/data/xiao/learn-adj-relation-data/inputs/test/moh-ppdb.txt
+
+>> Located critical asset ccb-no-tie.txt at /nlp/data/xiao/learn-adj-relation-data/inputs/test/ccb-no-tie.txt
+
+>> Located critical asset moh-ngram.txt at /nlp/data/xiao/learn-adj-relation-data/inputs/test/moh-ngram.txt
+
+>> Located critical asset ccb.txt at /nlp/data/xiao/learn-adj-relation-data/inputs/test/ccb.txt
+
+>> Located critical asset train at /nlp/data/xiao/learn-adj-relation-data/inputs/train
+
+>> complete application setup!
+
+>> finding or making directories
+
+>> root directory already exists
+
+>> sub-directory already exists at root/ppdb-ngram|uniform|0.9
+
+>> sub-directory already exists at root/ppdb-ngram|uniform|0.8
+
+>> sub-directory already exists at root/ppdb-ngram|uniform|0.1
+
+>> sub-directory already exists at root/ppdb-ngram|edge-wt|0.9
+
+>> sub-directory already exists at root/ppdb-ngram|edge-wt|0.8
+
+>> sub-directory already exists at root/ppdb-ngram|edge-wt|0.1
+
+>> sub-directory already exists at root/ppdb-ngram|BTL|0.9
+
+>> sub-directory already exists at root/ppdb-ngram|BTL|0.8
+
+>> sub-directory already exists at root/ppdb-ngram|BTL|0.1
+
+>> sub-directory already exists at root/ppdb-ngram-bool|uniform|0.9
+
+>> sub-directory already exists at root/ppdb-ngram-bool|uniform|0.8
+
+>> sub-directory already exists at root/ppdb-ngram-bool|uniform|0.1
+
+>> sub-directory already exists at root/ppdb-ngram-bool|edge-wt|0.9
+
+>> sub-directory already exists at root/ppdb-ngram-bool|edge-wt|0.8
+
+>> sub-directory already exists at root/ppdb-ngram-bool|edge-wt|0.1
+
+>> sub-directory already exists at root/ppdb-ngram-bool|BTL|0.9
+
+>> sub-directory already exists at root/ppdb-ngram-bool|BTL|0.8
+
+>> sub-directory already exists at root/ppdb-ngram-bool|BTL|0.1
+
+>> finding or making directories
+
+>> root directory already exists
+
+>> sub-directory already exists at root/results
+
+>> sub-directory already exists at root/script
+
+>> sub-directory already exists at root/shells
+
+>> sub-directory already exists at root/assets
+
+>> finding or making directories
+
+>> root directory already exists
+
+>> sub-directory already exists at root/no-data
+
+>> constructing graph ppdb|edge-wt|0.8 ...
+
+>> loading raw direct graph
+
+>> creating direct graph and adding all vertices
+
+>> adding all edges
+
+>> constructing graph ngram|edge-wt|0.8 ...
+
+>> loading raw direct graph
+
+>> creating direct graph and adding all vertices
+
+>> adding all edges
+
+>> constructing graph ppdb-ngram|edge-wt|0.8 ...
+
+>> loading raw direct graph
+
+>> creating direct graph and adding all vertices
+
+>> adding all edges
+
+>> constructing graph ppdb-one-event-no-loop|edge-wt|0.8 ...
+
+>> loading raw direct graph
+
+>> creating direct graph and adding all vertices
+
+>> adding all edges
+
+>> constructing graph ppdb-one-event-ngram-no-loop|edge-wt|0.8 ...
+
+>> loading raw direct graph
+
+>> creating direct graph and adding all vertices
+
+>> adding all edges
+
+	>> load base-comparative-superlative
+
+	>> load turk
+
+	>> load moh
+
+	>> load moh-ppdb
+
+	>> load moh-no-tie
+
+	>> load turk-no-tie
+
+	>> loading model from logistic-regression|ppdb-1|[nu^HT(s)-nu^HT(t)]|num_neigh=10|penalty=l1|C=0.4
+
+	ranking moh-ppdb with ppdb-1
+
+	>> ranking adjectives
+
+	>> computing averages
+
+	>> averages:
+
+		 pairwise: 66.54
+
+		 tau:      0.44834623005
+
+		 |tau|:    0.608201677044
+
+--------------------------------------------------
+
+	ranking bcs with ppdb-1
+
+	>> Removing existing file at outpath if it exists
+
+	>> ranking adjectives
+
+	>> computing averages
+
+	>> averages:
+
+		 pairwise: 90.76
+
+		 tau:      0.815204678363
+
+		 |tau|:    0.978947368421
+
+--------------------------------------------------
+
+	ranking moh-no-tie with ppdb-1
+
+	>> ranking adjectives
+
+	>> computing averages
+
+	>> averages:
+
+		 pairwise: 70.51
+
+		 tau:      0.410217596973
+
+		 |tau|:    0.717502365184
+
+--------------------------------------------------
+
+	ranking moh with ppdb-1
+
+	>> ranking adjectives
+
+	>> computing averages
+
+	>> averages:
+
+		 pairwise: 69.66
+
+		 tau:      0.513367085242
+
+		 |tau|:    0.636098483119
+
+--------------------------------------------------
+
+	ranking ccb with ppdb-1
+
+	>> ranking adjectives
+
+	>> computing averages
+
+	>> averages:
+
+		 pairwise: 74.37
+
+		 tau:      0.608926480192
+
+		 |tau|:    0.735142484614
+
+--------------------------------------------------
+
+	ranking ccb-no-tie with ppdb-1
+
+	>> ranking adjectives
+
+	>> computing averages
+
+	>> averages:
+
+		 pairwise: 79.63
+
+		 tau:      0.592592592593
+
+		 |tau|:    0.82962962963
+
+--------------------------------------------------
+
+>> ========== in PRODUCTION mode ==========
+
+>> Initializing application [ learn-adj-relation ] ...
+
+>> directory /nlp/data/xiao/learn-adj-relation-data/inputs already exists
+
+>> directory /nlp/data/xiao/learn-adj-relation-data/inputs/test already exists
+
+>> directory /nlp/data/xiao/learn-adj-relation-data/logs already exists
+
+>> directory /mnt/castor/seas_home/l/lingxiao/xiao/learn-adj-relation/deploy already exists
+
+>> directory /nlp/data/xiao/learn-adj-relation-data already exists
+
+>> directory /nlp/data/xiao/learn-adj-relation-data/results already exists
+
+>> directory /nlp/data/xiao/learn-adj-relation-data/deploy already exists
+
+>> Located critical asset anne-125.txt at /nlp/data/xiao/learn-adj-relation-data/inputs/test/anne-125.txt
+
+>> Located critical asset moh.txt at /nlp/data/xiao/learn-adj-relation-data/inputs/test/moh.txt
+
+>> Located critical asset moh-no-tie.txt at /nlp/data/xiao/learn-adj-relation-data/inputs/test/moh-no-tie.txt
+
+>> Located critical asset anne-25.txt at /nlp/data/xiao/learn-adj-relation-data/inputs/test/anne-25.txt
+
+>> Located critical asset moh-ppdb.txt at /nlp/data/xiao/learn-adj-relation-data/inputs/test/moh-ppdb.txt
+
+>> Located critical asset ccb-no-tie.txt at /nlp/data/xiao/learn-adj-relation-data/inputs/test/ccb-no-tie.txt
+
+>> Located critical asset moh-ngram.txt at /nlp/data/xiao/learn-adj-relation-data/inputs/test/moh-ngram.txt
+
+>> Located critical asset ccb.txt at /nlp/data/xiao/learn-adj-relation-data/inputs/test/ccb.txt
+
+>> Located critical asset train at /nlp/data/xiao/learn-adj-relation-data/inputs/train
+
+>> complete application setup!
+
+>> finding or making directories
+
+>> root directory already exists
+
+>> sub-directory already exists at root/ppdb-ngram|uniform|0.9
+
+>> sub-directory already exists at root/ppdb-ngram|uniform|0.8
+
+>> sub-directory already exists at root/ppdb-ngram|uniform|0.1
+
+>> sub-directory already exists at root/ppdb-ngram|edge-wt|0.9
+
+>> sub-directory already exists at root/ppdb-ngram|edge-wt|0.8
+
+>> sub-directory already exists at root/ppdb-ngram|edge-wt|0.1
+
+>> sub-directory already exists at root/ppdb-ngram|BTL|0.9
+
+>> sub-directory already exists at root/ppdb-ngram|BTL|0.8
+
+>> sub-directory already exists at root/ppdb-ngram|BTL|0.1
+
+>> sub-directory already exists at root/ppdb-ngram-bool|uniform|0.9
+
+>> sub-directory already exists at root/ppdb-ngram-bool|uniform|0.8
+
+>> sub-directory already exists at root/ppdb-ngram-bool|uniform|0.1
+
+>> sub-directory already exists at root/ppdb-ngram-bool|edge-wt|0.9
+
+>> sub-directory already exists at root/ppdb-ngram-bool|edge-wt|0.8
+
+>> sub-directory already exists at root/ppdb-ngram-bool|edge-wt|0.1
+
+>> sub-directory already exists at root/ppdb-ngram-bool|BTL|0.9
+
+>> sub-directory already exists at root/ppdb-ngram-bool|BTL|0.8
+
+>> sub-directory already exists at root/ppdb-ngram-bool|BTL|0.1
+
+>> finding or making directories
+
+>> root directory already exists
+
+>> sub-directory already exists at root/results
+
+>> sub-directory already exists at root/script
+
+>> sub-directory already exists at root/shells
+
+>> sub-directory already exists at root/assets
+
+>> finding or making directories
+
+>> root directory already exists
+
+>> sub-directory already exists at root/no-data
+
+>> constructing graph ppdb|edge-wt|0.8 ...
+
+>> loading raw direct graph
+
+>> creating direct graph and adding all vertices
+
+>> adding all edges
+
+>> constructing graph ngram|edge-wt|0.8 ...
+
+>> loading raw direct graph
+
+>> creating direct graph and adding all vertices
+
+>> adding all edges
+
+>> constructing graph ppdb-ngram|edge-wt|0.8 ...
+
+>> loading raw direct graph
+
+>> creating direct graph and adding all vertices
+
+>> adding all edges
+
+>> constructing graph ppdb-one-event-no-loop|edge-wt|0.8 ...
+
+>> loading raw direct graph
+
+>> creating direct graph and adding all vertices
+
+>> adding all edges
+
+>> constructing graph ppdb-one-event-ngram-no-loop|edge-wt|0.8 ...
+
+>> loading raw direct graph
+
+>> creating direct graph and adding all vertices
+
+>> adding all edges
+
+	>> load base-comparative-superlative
+
+	>> load turk
+
+	>> load moh
+
+	>> load moh-ppdb
+
+	>> load moh-no-tie
+
+	>> load turk-no-tie
+
+	>> loading model from logistic-regression|ppdb-ngram-1|[nu^HT(s)-nu^HT(t)]|num_neigh=10|penalty=l1|C=0.4
+
+	ranking moh-ppdb with ppdb-ngram-1
+
+	>> ranking adjectives
+
+	>> computing averages
+
+	>> averages:
+
+		 pairwise: 71.6
+
+		 tau:      0.551232307478
+
+		 |tau|:    0.689234486716
+
+--------------------------------------------------
+
+	ranking bcs with ppdb-ngram-1
+
+	>> Removing existing file at outpath if it exists
+
+	>> ranking adjectives
+
+	>> computing averages
+
+	>> averages:
+
+		 pairwise: 92.75
+
+		 tau:      0.854970760234
+
+		 |tau|:    0.983625730994
+
+--------------------------------------------------
+
+	ranking moh-no-tie with ppdb-ngram-1
+
+	>> ranking adjectives
+
+	>> computing averages
+
+	>> averages:
+
+		 pairwise: 76.32
+
+		 tau:      0.526458530432
+
+		 |tau|:    0.772816146326
+
+--------------------------------------------------
+
+	ranking moh with ppdb-ngram-1
+
+	>> ranking adjectives
+
+	>> computing averages
+
+	>> averages:
+
+		 pairwise: 74.2
+
+		 tau:      0.607641853944
+
+		 |tau|:    0.690125915097
+
+--------------------------------------------------
+
+	ranking ccb with ppdb-ngram-1
+
+	>> ranking adjectives
+
+	>> computing averages
+
+	>> averages:
+
+		 pairwise: 74.28
+
+		 tau:      0.608650171366
+
+		 |tau|:    0.723051829796
+
+--------------------------------------------------
+
+	ranking ccb-no-tie with ppdb-ngram-1
+
+	>> ranking adjectives
+
+	>> computing averages
+
+	>> averages:
+
+		 pairwise: 81.03
+
+		 tau:      0.620634920635
+
+		 |tau|:    0.818518518519
+
+--------------------------------------------------
