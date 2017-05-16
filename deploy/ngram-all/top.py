@@ -93,7 +93,7 @@ def to_unique_pairs(words):
 '''
 def run_auto_main(tot, work_dir, script_dir):
 
-	print('\n>> running run_auto_main for total: ' + str(tot) + ' for job ' + current_job)
+	print('\n>> running run_auto_main for total: ' + str(tot) )
 	print('\n>> removing existing scripts...')
 
 	shutil.rmtree(script_dir)
@@ -146,17 +146,18 @@ def run_auto_sh(tot, work_dir, shell_dir):
 if False:
 	num_jobs = split_into_pairs( 100000
 		                       , get_path('ppdb')
-		                       , dirs['pairs']
+		                       , word_dirs['all-pairs']
 		                       , save = True)
 
 # run this after the pairs have been made
 num_jobs = len([p for p in os.listdir(dirs['pairs']) if '.txt' in p])
 
-run_auto_main( num_jobs + 1
+print('\n\t>> found ' + str(num_jobs) + ' jobs') 
+run_auto_main( num_jobs 
 	 		 , work_dir
 	 		 , script_dir)
 
-run_auto_sh  ( num_jobs + 1
+run_auto_sh  ( num_jobs 
 	         , work_dir
 	         , shell_dir )
 
