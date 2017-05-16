@@ -1,0 +1,2574 @@
+ccb-no-tie.txt
+2017-05-15 22:00:01.358653
+------------------------------------------------
+average pairwise : 77.0%
+average tau:  0.54
+average |tau|:0.83
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['small']
+['minute']
+['miniscule']
+
+=== algo: 
+['small']
+['minute']
+['miniscule']
+
+=== raw:
+('prob*', 0.50099582502644158)
+('link-probs', [('small', 'minute', 0.9999966666777778), ('small', 'miniscule', 0.9999950000249999), ('minute', 'miniscule', 0.501)])
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['upset']
+['angry']
+['enraged']
+
+=== algo: 
+['angry']
+['upset']
+['enraged']
+
+=== raw:
+('prob*', 0.5999940000449997)
+('link-probs', [('angry', 'upset', 0.6), ('angry', 'enraged', 0.9999950000249999), ('upset', 'enraged', 0.9999950000249999)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['positive']
+['terrific']
+
+=== algo: 
+['positive']
+['terrific']
+
+=== raw:
+('prob*', 0.99999000009999894)
+('link-probs', [('positive', 'terrific', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['valuable']
+['immeasurable']
+
+=== algo: 
+['valuable']
+['immeasurable']
+
+=== raw:
+('prob*', 0.99999500002499986)
+('link-probs', [('valuable', 'immeasurable', 0.9999950000249999)])
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['useful']
+['worthwhile']
+['valuable']
+
+=== algo: 
+['useful']
+['valuable']
+['worthwhile']
+
+=== raw:
+('prob*', 0.47407407407407409)
+('link-probs', [('useful', 'valuable', 0.6666666666666666), ('useful', 'worthwhile', 0.8888888888888888), ('valuable', 'worthwhile', 0.8)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['functioning']
+['efficient']
+
+=== algo: 
+['functioning']
+['efficient']
+
+=== raw:
+('prob*', 0.99999500002499986)
+('link-probs', [('functioning', 'efficient', 0.9999950000249999)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['low']
+['limited']
+['scarce']
+
+=== algo: 
+['low']
+['limited']
+['scarce']
+
+=== raw:
+('prob*', 0.50099398806212347)
+('link-probs', [('low', 'limited', 0.501), ('low', 'scarce', 0.9999900000999989), ('limited', 'scarce', 0.9999980000040001)])
+
+------------------------------------------------
+=== tau:
+0.8
+
+=== pairwise accuracy:
+0.9
+
+=== gold: 
+['cute']
+['pretty']
+['lovely']
+['lovelier']
+['breathtaking']
+
+=== algo: 
+['cute']
+['pretty']
+['lovely']
+['breathtaking']
+['lovelier']
+
+=== raw:
+('prob*', 0.080527447452138745)
+('link-probs', [('cute', 'pretty', 0.625), ('cute', 'lovely', 0.7333333333333333), ('cute', 'breathtaking', 0.501), ('cute', 'lovelier', 0.9999950000249999), ('pretty', 'lovely', 0.7), ('pretty', 'breathtaking', 0.9999950000249999), ('pretty', 'lovelier', 0.9999980000040001), ('lovely', 'breathtaking', 0.9999966666777778), ('lovely', 'lovelier', 0.9999900000999989), ('breathtaking', 'lovelier', 0.501)])
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['costly']
+['expensive']
+['exorbitant']
+
+=== algo: 
+['expensive']
+['costly']
+['exorbitant']
+
+=== raw:
+('prob*', 0.71428071431357143)
+('link-probs', [('expensive', 'costly', 0.7142857142857143), ('expensive', 'exorbitant', 0.9999980000040001), ('costly', 'exorbitant', 0.9999950000249999)])
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['lousy']
+['miserable']
+['horrible']
+
+=== algo: 
+['lousy']
+['horrible']
+['miserable']
+
+=== raw:
+('prob*', 0.99997833366943989)
+('link-probs', [('lousy', 'horrible', 0.9999900000999989), ('lousy', 'miserable', 0.9999900000999989), ('horrible', 'miserable', 0.9999983333361112)])
+
+------------------------------------------------
+=== tau:
+-1.0
+
+=== pairwise accuracy:
+0.0
+
+=== gold: 
+['fine']
+['adequate']
+['good']
+
+=== algo: 
+['good']
+['adequate']
+['fine']
+
+=== raw:
+('prob*', 0.40990772455000912)
+('link-probs', [('good', 'adequate', 0.9999966666777778), ('good', 'fine', 0.8181818181818182), ('adequate', 'fine', 0.501)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['bad']
+['ludicrous']
+
+=== algo: 
+['bad']
+['ludicrous']
+
+=== raw:
+('prob*', 0.99999000009999894)
+('link-probs', [('bad', 'ludicrous', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+-0.333333333333
+
+=== pairwise accuracy:
+0.333333333333
+
+=== gold: 
+['useful']
+['relevant']
+['necessary']
+
+=== algo: 
+['relevant']
+['necessary']
+['useful']
+
+=== raw:
+('prob*', 0.33332666676666528)
+('link-probs', [('relevant', 'necessary', 0.9999900000999989), ('relevant', 'useful', 0.3333333333333333), ('necessary', 'useful', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+-0.333333333333
+
+=== pairwise accuracy:
+0.333333333333
+
+=== gold: 
+['fine']
+['satisfactory']
+['excellent']
+
+=== algo: 
+['satisfactory']
+['excellent']
+['fine']
+
+=== raw:
+('prob*', 0.3175438668261204)
+('link-probs', [('satisfactory', 'excellent', 0.9999950000249999), ('satisfactory', 'fine', 0.499), ('excellent', 'fine', 0.6363636363636364)])
+
+------------------------------------------------
+=== tau:
+-1.0
+
+=== pairwise accuracy:
+0.0
+
+=== gold: 
+['uncomfortable']
+['embarrassing']
+
+=== algo: 
+['embarrassing']
+['uncomfortable']
+
+=== raw:
+('prob*', 0.75)
+('link-probs', [('embarrassing', 'uncomfortable', 0.75)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['big']
+['substantial']
+['tremendous']
+
+=== algo: 
+['big']
+['substantial']
+['tremendous']
+
+=== raw:
+('prob*', 0.66666222224444438)
+('link-probs', [('big', 'substantial', 0.6666666666666666), ('big', 'tremendous', 0.9999966666777778), ('substantial', 'tremendous', 0.9999966666777778)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['big']
+['substantial']
+['staggering']
+
+=== algo: 
+['big']
+['substantial']
+['staggering']
+
+=== raw:
+('prob*', 0.66665333353333056)
+('link-probs', [('big', 'substantial', 0.6666666666666666), ('big', 'staggering', 0.9999900000999989), ('substantial', 'staggering', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['clear']
+['accurate']
+['precise']
+['exact']
+
+=== algo: 
+['clear']
+['accurate']
+['precise']
+['exact']
+
+=== raw:
+('prob*', 0.26999392509618614)
+('link-probs', [('clear', 'accurate', 0.9999900000999989), ('clear', 'precise', 0.6), ('clear', 'exact', 0.9999900000999989), ('accurate', 'precise', 0.6), ('accurate', 'exact', 0.9999975000062501), ('precise', 'exact', 0.75)])
+
+------------------------------------------------
+=== tau:
+0.6
+
+=== pairwise accuracy:
+0.8
+
+=== gold: 
+['pleased']
+['happy']
+['excited']
+['delighted']
+['overwhelmed']
+
+=== algo: 
+['happy']
+['excited']
+['pleased']
+['delighted']
+['overwhelmed']
+
+=== raw:
+('prob*', 0.032597043510249953)
+('link-probs', [('happy', 'excited', 0.6666666666666666), ('happy', 'pleased', 0.7142857142857143), ('happy', 'delighted', 0.9090909090909091), ('happy', 'overwhelmed', 0.9999950000249999), ('excited', 'pleased', 0.6), ('excited', 'delighted', 0.6666666666666666), ('excited', 'overwhelmed', 0.9999900000999989), ('pleased', 'delighted', 0.75), ('pleased', 'overwhelmed', 0.501), ('delighted', 'overwhelmed', 0.501)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['bad']
+['horrific']
+['horrendous']
+
+=== algo: 
+['bad']
+['horrific']
+['horrendous']
+
+=== raw:
+('prob*', 0.5009937375657556)
+('link-probs', [('bad', 'horrific', 0.501), ('bad', 'horrendous', 0.9999975000062501), ('horrific', 'horrendous', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['qualified']
+['excellent']
+['outstanding']
+
+=== algo: 
+['qualified']
+['excellent']
+['outstanding']
+
+=== raw:
+('prob*', 0.6428475001124988)
+('link-probs', [('qualified', 'excellent', 0.9999900000999989), ('qualified', 'outstanding', 0.9999950000249999), ('excellent', 'outstanding', 0.6428571428571429)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['high']
+['higher']
+
+=== algo: 
+['high']
+['higher']
+
+=== raw:
+('prob*', 0.80000000000000004)
+('link-probs', [('high', 'higher', 0.8)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['fine']
+['remarkable']
+['spectacular']
+
+=== algo: 
+['fine']
+['remarkable']
+['spectacular']
+
+=== raw:
+('prob*', 0.50099248508767402)
+('link-probs', [('fine', 'remarkable', 0.9999950000249999), ('fine', 'spectacular', 0.9999900000999989), ('remarkable', 'spectacular', 0.501)])
+
+------------------------------------------------
+=== tau:
+0.0
+
+=== pairwise accuracy:
+0.5
+
+=== gold: 
+['a-okay']
+['appropriate']
+['faultless']
+['perfect']
+
+=== algo: 
+['appropriate']
+['perfect']
+['a-okay']
+['faultless']
+
+=== raw:
+('prob*', 0.10060019479553703)
+('link-probs', [('appropriate', 'perfect', 0.9999950000249999), ('appropriate', 'a-okay', 0.501), ('appropriate', 'faultless', 0.501), ('perfect', 'a-okay', 0.9999950000249999), ('perfect', 'faultless', 0.8), ('a-okay', 'faultless', 0.501)])
+
+------------------------------------------------
+=== tau:
+0.0
+
+=== pairwise accuracy:
+0.5
+
+=== gold: 
+['okay']
+['appropriate']
+['faultless']
+['perfect']
+
+=== algo: 
+['appropriate']
+['perfect']
+['okay']
+['faultless']
+
+=== raw:
+('prob*', 0.2007957800653391)
+('link-probs', [('appropriate', 'perfect', 0.9999950000249999), ('appropriate', 'okay', 0.9999900000999989), ('appropriate', 'faultless', 0.501), ('perfect', 'okay', 0.9999900000999989), ('perfect', 'faultless', 0.8), ('okay', 'faultless', 0.501)])
+
+------------------------------------------------
+=== tau:
+0.0
+
+=== pairwise accuracy:
+0.5
+
+=== gold: 
+['fine']
+['appropriate']
+['faultless']
+['perfect']
+
+=== algo: 
+['appropriate']
+['perfect']
+['fine']
+['faultless']
+
+=== raw:
+('prob*', 0.24047398810220252)
+('link-probs', [('appropriate', 'perfect', 0.9999950000249999), ('appropriate', 'fine', 0.9999900000999989), ('appropriate', 'faultless', 0.501), ('perfect', 'fine', 0.6), ('perfect', 'faultless', 0.8), ('fine', 'faultless', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+-0.333333333333
+
+=== pairwise accuracy:
+0.333333333333
+
+=== gold: 
+['graver']
+['critical']
+['life-threatening']
+
+=== algo: 
+['critical']
+['life-threatening']
+['graver']
+
+=== raw:
+('prob*', 0.50098998015029794)
+('link-probs', [('critical', 'life-threatening', 0.9999900000999989), ('critical', 'graver', 0.9999900000999989), ('life-threatening', 'graver', 0.501)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['odd']
+['bizarre']
+
+=== algo: 
+['odd']
+['bizarre']
+
+=== raw:
+('prob*', 0.99999833333611121)
+('link-probs', [('odd', 'bizarre', 0.9999983333361112)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['unfortunate']
+['reprehensible']
+
+=== algo: 
+['unfortunate']
+['reprehensible']
+
+=== raw:
+('prob*', 0.99999500002499986)
+('link-probs', [('unfortunate', 'reprehensible', 0.9999950000249999)])
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['plenty']
+['vast']
+['abundant']
+
+=== algo: 
+['vast']
+['plenty']
+['abundant']
+
+=== raw:
+('prob*', 0.12575150099999999)
+('link-probs', [('vast', 'plenty', 0.501), ('vast', 'abundant', 0.501), ('plenty', 'abundant', 0.501)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['pleased']
+['delighted']
+
+=== algo: 
+['pleased']
+['delighted']
+
+=== raw:
+('prob*', 0.75)
+('link-probs', [('pleased', 'delighted', 0.75)])
+
+------------------------------------------------
+=== tau:
+-1.0
+
+=== pairwise accuracy:
+0.0
+
+=== gold: 
+['uncomfortable']
+['embarrassed']
+
+=== algo: 
+['embarrassed']
+['uncomfortable']
+
+=== raw:
+('prob*', 0.501)
+('link-probs', [('embarrassed', 'uncomfortable', 0.501)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['efficient']
+['optimum']
+
+=== algo: 
+['efficient']
+['optimum']
+
+=== raw:
+('prob*', 0.99999000009999894)
+('link-probs', [('efficient', 'optimum', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['satisfactory']
+['excellent']
+
+=== algo: 
+['satisfactory']
+['excellent']
+
+=== raw:
+('prob*', 0.99999500002499986)
+('link-probs', [('satisfactory', 'excellent', 0.9999950000249999)])
+
+------------------------------------------------
+=== tau:
+-1.0
+
+=== pairwise accuracy:
+0.0
+
+=== gold: 
+['fine']
+['excellent']
+
+=== algo: 
+['excellent']
+['fine']
+
+=== raw:
+('prob*', 0.63636363636363635)
+('link-probs', [('excellent', 'fine', 0.6363636363636364)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['appropriate']
+['excellent']
+
+=== algo: 
+['appropriate']
+['excellent']
+
+=== raw:
+('prob*', 0.99999000009999894)
+('link-probs', [('appropriate', 'excellent', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['clear']
+['prominent']
+
+=== algo: 
+['clear']
+['prominent']
+
+=== raw:
+('prob*', 0.99999000009999894)
+('link-probs', [('clear', 'prominent', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['tough']
+['formidable']
+['daunting']
+
+=== algo: 
+['tough']
+['formidable']
+['daunting']
+
+=== raw:
+('prob*', 0.12575150099999999)
+('link-probs', [('tough', 'formidable', 0.501), ('tough', 'daunting', 0.501), ('formidable', 'daunting', 0.501)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['capable']
+['skilled']
+
+=== algo: 
+['capable']
+['skilled']
+
+=== raw:
+('prob*', 0.99999000009999894)
+('link-probs', [('capable', 'skilled', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['qualified']
+['proficient']
+
+=== algo: 
+['qualified']
+['proficient']
+
+=== raw:
+('prob*', 0.99999000009999894)
+('link-probs', [('qualified', 'proficient', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['capable']
+['skilled']
+
+=== algo: 
+['capable']
+['skilled']
+
+=== raw:
+('prob*', 0.99999000009999894)
+('link-probs', [('capable', 'skilled', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['qualified']
+['proficient']
+
+=== algo: 
+['qualified']
+['proficient']
+
+=== raw:
+('prob*', 0.99999000009999894)
+('link-probs', [('qualified', 'proficient', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['okay']
+['incredible']
+
+=== algo: 
+['okay']
+['incredible']
+
+=== raw:
+('prob*', 0.99999000009999894)
+('link-probs', [('okay', 'incredible', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['okay']
+['awesome']
+
+=== algo: 
+['okay']
+['awesome']
+
+=== raw:
+('prob*', 0.99999500002499986)
+('link-probs', [('okay', 'awesome', 0.9999950000249999)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['okay']
+['terrific']
+
+=== algo: 
+['okay']
+['terrific']
+
+=== raw:
+('prob*', 0.99999500002499986)
+('link-probs', [('okay', 'terrific', 0.9999950000249999)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['okay']
+['marvelous']
+
+=== algo: 
+['okay']
+['marvelous']
+
+=== raw:
+('prob*', 0.99999000009999894)
+('link-probs', [('okay', 'marvelous', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['awful']
+['shitty']
+
+=== algo: 
+['awful']
+['shitty']
+
+=== raw:
+('prob*', 0.501)
+('link-probs', [('awful', 'shitty', 0.501)])
+
+------------------------------------------------
+=== tau:
+-1.0
+
+=== pairwise accuracy:
+0.0
+
+=== gold: 
+['content']
+['pleased']
+
+=== algo: 
+['pleased']
+['content']
+
+=== raw:
+('prob*', 0.501)
+('link-probs', [('pleased', 'content', 0.501)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['satisfied']
+['pleased']
+
+=== algo: 
+['satisfied']
+['pleased']
+
+=== raw:
+('prob*', 0.99999666667777776)
+('link-probs', [('satisfied', 'pleased', 0.9999966666777778)])
+
+------------------------------------------------
+=== tau:
+-1.0
+
+=== pairwise accuracy:
+0.0
+
+=== gold: 
+['adequate']
+['good']
+
+=== algo: 
+['good']
+['adequate']
+
+=== raw:
+('prob*', 0.99999666667777776)
+('link-probs', [('good', 'adequate', 0.9999966666777778)])
+
+------------------------------------------------
+=== tau:
+-1.0
+
+=== pairwise accuracy:
+0.0
+
+=== gold: 
+['fine']
+['good']
+
+=== algo: 
+['good']
+['fine']
+
+=== raw:
+('prob*', 0.81818181818181823)
+('link-probs', [('good', 'fine', 0.8181818181818182)])
+
+------------------------------------------------
+=== tau:
+-1.0
+
+=== pairwise accuracy:
+0.0
+
+=== gold: 
+['fitting']
+['good']
+
+=== algo: 
+['good']
+['fitting']
+
+=== raw:
+('prob*', 0.99999000009999894)
+('link-probs', [('good', 'fitting', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['poor']
+['indigent']
+['bankrupt']
+
+=== algo: 
+['poor']
+['bankrupt']
+['indigent']
+
+=== raw:
+('prob*', 0.50098998015029794)
+('link-probs', [('poor', 'bankrupt', 0.9999900000999989), ('poor', 'indigent', 0.9999900000999989), ('bankrupt', 'indigent', 0.501)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['pretty']
+['marvellous']
+
+=== algo: 
+['pretty']
+['marvellous']
+
+=== raw:
+('prob*', 0.99999500002499986)
+('link-probs', [('pretty', 'marvellous', 0.9999950000249999)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['pretty']
+['breathtaking']
+
+=== algo: 
+['pretty']
+['breathtaking']
+
+=== raw:
+('prob*', 0.99999500002499986)
+('link-probs', [('pretty', 'breathtaking', 0.9999950000249999)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['pretty']
+['spectacular']
+
+=== algo: 
+['pretty']
+['spectacular']
+
+=== raw:
+('prob*', 0.99999500002499986)
+('link-probs', [('pretty', 'spectacular', 0.9999950000249999)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['considerable']
+['abundant']
+
+=== algo: 
+['considerable']
+['abundant']
+
+=== raw:
+('prob*', 0.99999000009999894)
+('link-probs', [('considerable', 'abundant', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['fine']
+['remarkable']
+['impressive']
+
+=== algo: 
+['fine']
+['remarkable']
+['impressive']
+
+=== raw:
+('prob*', 0.69999300005249965)
+('link-probs', [('fine', 'remarkable', 0.9999950000249999), ('fine', 'impressive', 0.9999950000249999), ('remarkable', 'impressive', 0.7)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['fine']
+['admirable']
+
+=== algo: 
+['fine']
+['admirable']
+
+=== raw:
+('prob*', 0.99999500002499986)
+('link-probs', [('fine', 'admirable', 0.9999950000249999)])
+
+------------------------------------------------
+=== tau:
+-1.0
+
+=== pairwise accuracy:
+0.0
+
+=== gold: 
+['fine']
+['upstanding']
+
+=== algo: 
+['upstanding']
+['fine']
+
+=== raw:
+('prob*', 0.99999000009999894)
+('link-probs', [('upstanding', 'fine', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['bad']
+['distressing']
+
+=== algo: 
+['bad']
+['distressing']
+
+=== raw:
+('prob*', 0.99999500002499986)
+('link-probs', [('bad', 'distressing', 0.9999950000249999)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['much']
+['excessive']
+
+=== algo: 
+['much']
+['excessive']
+
+=== raw:
+('prob*', 0.99999000009999894)
+('link-probs', [('much', 'excessive', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['much']
+['huge']
+
+=== algo: 
+['much']
+['huge']
+
+=== raw:
+('prob*', 0.99999000009999894)
+('link-probs', [('much', 'huge', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['scary']
+['terrifying']
+
+=== algo: 
+['scary']
+['terrifying']
+
+=== raw:
+('prob*', 0.66666666666666663)
+('link-probs', [('scary', 'terrifying', 0.6666666666666666)])
+
+------------------------------------------------
+=== tau:
+-1.0
+
+=== pairwise accuracy:
+0.0
+
+=== gold: 
+['frightening']
+['terrifying']
+
+=== algo: 
+['terrifying']
+['frightening']
+
+=== raw:
+('prob*', 0.59999999999999998)
+('link-probs', [('terrifying', 'frightening', 0.6)])
+
+------------------------------------------------
+=== tau:
+-0.6
+
+=== pairwise accuracy:
+0.2
+
+=== gold: 
+['tough']
+['tougher']
+['rigorous']
+['stringent']
+['severe']
+
+=== algo: 
+['stringent']
+['severe']
+['rigorous']
+['tough']
+['tougher']
+
+=== raw:
+('prob*', 0.40077862465239827)
+('link-probs', [('stringent', 'severe', 0.501), ('stringent', 'rigorous', 0.8), ('stringent', 'tough', 0.9999950000249999), ('stringent', 'tougher', 0.9999950000249999), ('severe', 'rigorous', 0.9999900000999989), ('severe', 'tough', 0.9999900000999989), ('severe', 'tougher', 0.9999950000249999), ('rigorous', 'tough', 0.9999950000249999), ('rigorous', 'tougher', 0.9999900000999989), ('tough', 'tougher', 0.9999966666777778)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['low']
+['limited']
+['scarce']
+
+=== algo: 
+['low']
+['limited']
+['scarce']
+
+=== raw:
+('prob*', 0.50099398806212347)
+('link-probs', [('low', 'limited', 0.501), ('low', 'scarce', 0.9999900000999989), ('limited', 'scarce', 0.9999980000040001)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['good']
+['better']
+['remarkable']
+['exceptional']
+['perfect']
+
+=== algo: 
+['good']
+['better']
+['remarkable']
+['exceptional']
+['perfect']
+
+=== raw:
+('prob*', 0.020630827114965028)
+('link-probs', [('good', 'better', 0.875), ('good', 'remarkable', 0.9999980000040001), ('good', 'exceptional', 0.9999950000249999), ('good', 'perfect', 0.75), ('better', 'remarkable', 0.501), ('better', 'exceptional', 0.501), ('better', 'perfect', 0.501), ('remarkable', 'exceptional', 0.9999975000062501), ('remarkable', 'perfect', 0.499), ('exceptional', 'perfect', 0.501)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['few']
+['least']
+
+=== algo: 
+['few']
+['least']
+
+=== raw:
+('prob*', 0.99999000009999894)
+('link-probs', [('few', 'least', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['little']
+['least']
+
+=== algo: 
+['little']
+['least']
+
+=== raw:
+('prob*', 0.66666666666666663)
+('link-probs', [('little', 'least', 0.6666666666666666)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['unhappy']
+['miserable']
+
+=== algo: 
+['unhappy']
+['miserable']
+
+=== raw:
+('prob*', 0.99999500002499986)
+('link-probs', [('unhappy', 'miserable', 0.9999950000249999)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['sad']
+['miserable']
+
+=== algo: 
+['sad']
+['miserable']
+
+=== raw:
+('prob*', 0.99999900000100006)
+('link-probs', [('sad', 'miserable', 0.9999990000010001)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['competent']
+['impressive']
+
+=== algo: 
+['competent']
+['impressive']
+
+=== raw:
+('prob*', 0.99999000009999894)
+('link-probs', [('competent', 'impressive', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['relevant']
+['crucial']
+
+=== algo: 
+['relevant']
+['crucial']
+
+=== raw:
+('prob*', 0.99999500002499986)
+('link-probs', [('relevant', 'crucial', 0.9999950000249999)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['effective']
+['potent']
+
+=== algo: 
+['effective']
+['potent']
+
+=== raw:
+('prob*', 0.99999500002499986)
+('link-probs', [('effective', 'potent', 0.9999950000249999)])
+
+------------------------------------------------
+=== tau:
+0.6
+
+=== pairwise accuracy:
+0.8
+
+=== gold: 
+['general']
+['broad']
+['broader']
+['wide-ranging']
+['diverse']
+
+=== algo: 
+['general']
+['broad']
+['diverse']
+['broader']
+['wide-ranging']
+
+=== raw:
+('prob*', 0.047249236501758926)
+('link-probs', [('general', 'broad', 0.501), ('general', 'diverse', 0.501), ('general', 'broader', 0.9999900000999989), ('general', 'wide-ranging', 0.501), ('broad', 'diverse', 0.501), ('broad', 'broader', 0.9999900000999989), ('broad', 'wide-ranging', 0.75), ('diverse', 'broader', 0.9999950000249999), ('diverse', 'wide-ranging', 0.9999950000249999), ('broader', 'wide-ranging', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+-0.333333333333
+
+=== pairwise accuracy:
+0.333333333333
+
+=== gold: 
+['costly']
+['expensive']
+['excessive']
+
+=== algo: 
+['expensive']
+['excessive']
+['costly']
+
+=== raw:
+('prob*', 0.35785356432149967)
+('link-probs', [('expensive', 'excessive', 0.9999900000999989), ('expensive', 'costly', 0.7142857142857143), ('excessive', 'costly', 0.501)])
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['costly']
+['expensive']
+['exorbitant']
+
+=== algo: 
+['expensive']
+['costly']
+['exorbitant']
+
+=== raw:
+('prob*', 0.71428071431357143)
+('link-probs', [('expensive', 'costly', 0.7142857142857143), ('expensive', 'exorbitant', 0.9999980000040001), ('costly', 'exorbitant', 0.9999950000249999)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['big']
+['substantial']
+['tremendous']
+
+=== algo: 
+['big']
+['substantial']
+['tremendous']
+
+=== raw:
+('prob*', 0.66666222224444438)
+('link-probs', [('big', 'substantial', 0.6666666666666666), ('big', 'tremendous', 0.9999966666777778), ('substantial', 'tremendous', 0.9999966666777778)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['big']
+['major']
+['staggering']
+
+=== algo: 
+['big']
+['major']
+['staggering']
+
+=== raw:
+('prob*', 0.30059699403005968)
+('link-probs', [('big', 'major', 0.6), ('big', 'staggering', 0.9999900000999989), ('major', 'staggering', 0.501)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['big']
+['substantial']
+['tremendous']
+
+=== algo: 
+['big']
+['substantial']
+['tremendous']
+
+=== raw:
+('prob*', 0.66666222224444438)
+('link-probs', [('big', 'substantial', 0.6666666666666666), ('big', 'tremendous', 0.9999966666777778), ('substantial', 'tremendous', 0.9999966666777778)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['big']
+['major']
+['staggering']
+
+=== algo: 
+['big']
+['major']
+['staggering']
+
+=== raw:
+('prob*', 0.30059699403005968)
+('link-probs', [('big', 'major', 0.6), ('big', 'staggering', 0.9999900000999989), ('major', 'staggering', 0.501)])
+
+------------------------------------------------
+=== tau:
+0.6
+
+=== pairwise accuracy:
+0.8
+
+=== gold: 
+['sizeable']
+['huge']
+['major']
+['immense']
+['colossal']
+
+=== algo: 
+['major']
+['sizeable']
+['huge']
+['immense']
+['colossal']
+
+=== raw:
+('prob*', 0.031562332172303156)
+('link-probs', [('major', 'sizeable', 0.9999900000999989), ('major', 'huge', 0.9999900000999989), ('major', 'immense', 0.9999900000999989), ('major', 'colossal', 0.9999900000999989), ('sizeable', 'huge', 0.501), ('sizeable', 'immense', 0.501), ('sizeable', 'colossal', 0.501), ('huge', 'immense', 0.9999950000249999), ('huge', 'colossal', 0.501), ('immense', 'colossal', 0.501)])
+
+------------------------------------------------
+=== tau:
+0.6
+
+=== pairwise accuracy:
+0.8
+
+=== gold: 
+['sizeable']
+['huge']
+['major']
+['formidable']
+['overwhelming']
+
+=== algo: 
+['major']
+['sizeable']
+['huge']
+['formidable']
+['overwhelming']
+
+=== raw:
+('prob*', 0.062997722043179549)
+('link-probs', [('major', 'sizeable', 0.9999900000999989), ('major', 'huge', 0.9999900000999989), ('major', 'formidable', 0.9999900000999989), ('major', 'overwhelming', 0.9999900000999989), ('sizeable', 'huge', 0.501), ('sizeable', 'formidable', 0.501), ('sizeable', 'overwhelming', 0.501), ('huge', 'formidable', 0.9999900000999989), ('huge', 'overwhelming', 0.9999900000999989), ('formidable', 'overwhelming', 0.501)])
+
+------------------------------------------------
+=== tau:
+0.6
+
+=== pairwise accuracy:
+0.8
+
+=== gold: 
+['sizeable']
+['huge']
+['major']
+['immense']
+['tremendous']
+
+=== algo: 
+['major']
+['sizeable']
+['huge']
+['immense']
+['tremendous']
+
+=== raw:
+('prob*', 0.12574395617086748)
+('link-probs', [('major', 'sizeable', 0.9999900000999989), ('major', 'huge', 0.9999900000999989), ('major', 'immense', 0.9999900000999989), ('major', 'tremendous', 0.9999900000999989), ('sizeable', 'huge', 0.501), ('sizeable', 'immense', 0.501), ('sizeable', 'tremendous', 0.9999900000999989), ('huge', 'immense', 0.9999950000249999), ('huge', 'tremendous', 0.9999950000249999), ('immense', 'tremendous', 0.501)])
+
+------------------------------------------------
+=== tau:
+0.6
+
+=== pairwise accuracy:
+0.8
+
+=== gold: 
+['sizeable']
+['huge']
+['major']
+['formidable']
+['colossal']
+
+=== algo: 
+['major']
+['sizeable']
+['huge']
+['formidable']
+['colossal']
+
+=== raw:
+('prob*', 0.031562174362220391)
+('link-probs', [('major', 'sizeable', 0.9999900000999989), ('major', 'huge', 0.9999900000999989), ('major', 'formidable', 0.9999900000999989), ('major', 'colossal', 0.9999900000999989), ('sizeable', 'huge', 0.501), ('sizeable', 'formidable', 0.501), ('sizeable', 'colossal', 0.501), ('huge', 'formidable', 0.9999900000999989), ('huge', 'colossal', 0.501), ('formidable', 'colossal', 0.501)])
+
+------------------------------------------------
+=== tau:
+0.6
+
+=== pairwise accuracy:
+0.8
+
+=== gold: 
+['sizeable']
+['huge']
+['major']
+['immense']
+['overwhelming']
+
+=== algo: 
+['major']
+['sizeable']
+['huge']
+['immense']
+['overwhelming']
+
+=== raw:
+('prob*', 0.062998037030214823)
+('link-probs', [('major', 'sizeable', 0.9999900000999989), ('major', 'huge', 0.9999900000999989), ('major', 'immense', 0.9999900000999989), ('major', 'overwhelming', 0.9999900000999989), ('sizeable', 'huge', 0.501), ('sizeable', 'immense', 0.501), ('sizeable', 'overwhelming', 0.501), ('huge', 'immense', 0.9999950000249999), ('huge', 'overwhelming', 0.9999900000999989), ('immense', 'overwhelming', 0.501)])
+
+------------------------------------------------
+=== tau:
+0.6
+
+=== pairwise accuracy:
+0.8
+
+=== gold: 
+['sizeable']
+['huge']
+['major']
+['formidable']
+['tremendous']
+
+=== algo: 
+['major']
+['sizeable']
+['huge']
+['formidable']
+['tremendous']
+
+=== raw:
+('prob*', 0.25098217572190296)
+('link-probs', [('major', 'sizeable', 0.9999900000999989), ('major', 'huge', 0.9999900000999989), ('major', 'formidable', 0.9999900000999989), ('major', 'tremendous', 0.9999900000999989), ('sizeable', 'huge', 0.501), ('sizeable', 'formidable', 0.501), ('sizeable', 'tremendous', 0.9999900000999989), ('huge', 'formidable', 0.9999900000999989), ('huge', 'tremendous', 0.9999950000249999), ('formidable', 'tremendous', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+-0.333333333333
+
+=== pairwise accuracy:
+0.333333333333
+
+=== gold: 
+['fine']
+['terrific']
+['perfect']
+
+=== algo: 
+['perfect']
+['fine']
+['terrific']
+
+=== raw:
+('prob*', 0.52499934375082036)
+('link-probs', [('perfect', 'fine', 0.6), ('perfect', 'terrific', 0.875), ('fine', 'terrific', 0.9999987500015626)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['well']
+['awesome']
+['perfect']
+
+=== algo: 
+['well']
+['awesome']
+['perfect']
+
+=== raw:
+('prob*', 0.50099666001669996)
+('link-probs', [('well', 'awesome', 0.9999966666777778), ('well', 'perfect', 0.9999966666777778), ('awesome', 'perfect', 0.501)])
+
+------------------------------------------------
+=== tau:
+-0.333333333333
+
+=== pairwise accuracy:
+0.333333333333
+
+=== gold: 
+['fine']
+['terrific']
+['perfect']
+
+=== algo: 
+['perfect']
+['fine']
+['terrific']
+
+=== raw:
+('prob*', 0.52499934375082036)
+('link-probs', [('perfect', 'fine', 0.6), ('perfect', 'terrific', 0.875), ('fine', 'terrific', 0.9999987500015626)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['well']
+['awesome']
+['perfect']
+
+=== algo: 
+['well']
+['awesome']
+['perfect']
+
+=== raw:
+('prob*', 0.50099666001669996)
+('link-probs', [('well', 'awesome', 0.9999966666777778), ('well', 'perfect', 0.9999966666777778), ('awesome', 'perfect', 0.501)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['little']
+['feeble']
+
+=== algo: 
+['little']
+['feeble']
+
+=== raw:
+('prob*', 0.99999000009999894)
+('link-probs', [('little', 'feeble', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+-1.0
+
+=== pairwise accuracy:
+0.0
+
+=== gold: 
+['improper']
+['incorrect']
+
+=== algo: 
+['incorrect']
+['improper']
+
+=== raw:
+('prob*', 0.501)
+('link-probs', [('incorrect', 'improper', 0.501)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['poor']
+['unsatisfactory']
+
+=== algo: 
+['poor']
+['unsatisfactory']
+
+=== raw:
+('prob*', 0.99999000009999894)
+('link-probs', [('poor', 'unsatisfactory', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+-1.0
+
+=== pairwise accuracy:
+0.0
+
+=== gold: 
+['improper']
+['incorrect']
+
+=== algo: 
+['incorrect']
+['improper']
+
+=== raw:
+('prob*', 0.501)
+('link-probs', [('incorrect', 'improper', 0.501)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['poor']
+['unsatisfactory']
+
+=== algo: 
+['poor']
+['unsatisfactory']
+
+=== raw:
+('prob*', 0.99999000009999894)
+('link-probs', [('poor', 'unsatisfactory', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+-1.0
+
+=== pairwise accuracy:
+0.0
+
+=== gold: 
+['unusual']
+['rare']
+
+=== algo: 
+['rare']
+['unusual']
+
+=== raw:
+('prob*', 0.875)
+('link-probs', [('rare', 'unusual', 0.875)])
+
+------------------------------------------------
+=== tau:
+0.666666666667
+
+=== pairwise accuracy:
+0.833333333333
+
+=== gold: 
+['sizeable']
+['big']
+['huge']
+['immense']
+
+=== algo: 
+['big']
+['sizeable']
+['huge']
+['immense']
+
+=== raw:
+('prob*', 0.18824754977659397)
+('link-probs', [('big', 'sizeable', 0.9999900000999989), ('big', 'huge', 0.75), ('big', 'immense', 0.9999980000040001), ('sizeable', 'huge', 0.501), ('sizeable', 'immense', 0.501), ('huge', 'immense', 0.9999950000249999)])
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['sizeable']
+['big']
+['huge']
+['enormous']
+
+=== algo: 
+['big']
+['sizeable']
+['enormous']
+['huge']
+
+=== raw:
+('prob*', 0.15655936879696811)
+('link-probs', [('big', 'sizeable', 0.9999900000999989), ('big', 'enormous', 0.625), ('big', 'huge', 0.75), ('sizeable', 'enormous', 0.9999900000999989), ('sizeable', 'huge', 0.501), ('enormous', 'huge', 0.6666666666666666)])
+
+------------------------------------------------
+=== tau:
+0.666666666667
+
+=== pairwise accuracy:
+0.833333333333
+
+=== gold: 
+['sizeable']
+['big']
+['huge']
+['tremendous']
+
+=== algo: 
+['big']
+['sizeable']
+['huge']
+['tremendous']
+
+=== raw:
+('prob*', 0.37573935394517827)
+('link-probs', [('big', 'sizeable', 0.9999900000999989), ('big', 'huge', 0.75), ('big', 'tremendous', 0.9999966666777778), ('sizeable', 'huge', 0.501), ('sizeable', 'tremendous', 0.9999900000999989), ('huge', 'tremendous', 0.9999950000249999)])
+
+------------------------------------------------
+=== tau:
+-0.333333333333
+
+=== pairwise accuracy:
+0.333333333333
+
+=== gold: 
+['weak']
+['shaky']
+['vulnerable']
+
+=== algo: 
+['vulnerable']
+['weak']
+['shaky']
+
+=== raw:
+('prob*', 0.74998875013124855)
+('link-probs', [('vulnerable', 'weak', 0.75), ('vulnerable', 'shaky', 0.9999950000249999), ('weak', 'shaky', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['few']
+['limited']
+['scant']
+
+=== algo: 
+['limited']
+['few']
+['scant']
+
+=== raw:
+('prob*', 0.41749860833797225)
+('link-probs', [('limited', 'few', 0.8333333333333334), ('limited', 'scant', 0.501), ('few', 'scant', 0.9999966666777778)])
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['few']
+['limited']
+['meagre']
+
+=== algo: 
+['limited']
+['few']
+['meagre']
+
+=== raw:
+('prob*', 0.41749860833797225)
+('link-probs', [('limited', 'few', 0.8333333333333334), ('limited', 'meagre', 0.501), ('few', 'meagre', 0.9999966666777778)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['small']
+['minute']
+['miniscule']
+
+=== algo: 
+['small']
+['minute']
+['miniscule']
+
+=== raw:
+('prob*', 0.50099582502644158)
+('link-probs', [('small', 'minute', 0.9999966666777778), ('small', 'miniscule', 0.9999950000249999), ('minute', 'miniscule', 0.501)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['general']
+['comprehensive']
+
+=== algo: 
+['general']
+['comprehensive']
+
+=== raw:
+('prob*', 0.501)
+('link-probs', [('general', 'comprehensive', 0.501)])
+
+------------------------------------------------
+=== tau:
+-1.0
+
+=== pairwise accuracy:
+0.0
+
+=== gold: 
+['commonplace']
+['universal']
+
+=== algo: 
+['universal']
+['commonplace']
+
+=== raw:
+('prob*', 0.501)
+('link-probs', [('universal', 'commonplace', 0.501)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['general']
+['global']
+
+=== algo: 
+['general']
+['global']
+
+=== raw:
+('prob*', 0.99999500002499986)
+('link-probs', [('general', 'global', 0.9999950000249999)])
+
+------------------------------------------------
+=== tau:
+-1.0
+
+=== pairwise accuracy:
+0.0
+
+=== gold: 
+['commonplace']
+['comprehensive']
+
+=== algo: 
+['comprehensive']
+['commonplace']
+
+=== raw:
+('prob*', 0.501)
+('link-probs', [('comprehensive', 'commonplace', 0.501)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['general']
+['universal']
+
+=== algo: 
+['general']
+['universal']
+
+=== raw:
+('prob*', 0.99999000009999894)
+('link-probs', [('general', 'universal', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['commonplace']
+['global']
+
+=== algo: 
+['commonplace']
+['global']
+
+=== raw:
+('prob*', 0.501)
+('link-probs', [('commonplace', 'global', 0.501)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['awful']
+['dreadful']
+
+=== algo: 
+['awful']
+['dreadful']
+
+=== raw:
+('prob*', 0.99999875000156258)
+('link-probs', [('awful', 'dreadful', 0.9999987500015626)])
+
+------------------------------------------------
+=== tau:
+0.0
+
+=== pairwise accuracy:
+0.5
+
+=== gold: 
+['low']
+['scarce']
+['inadequate']
+['unacceptable']
+
+=== algo: 
+['inadequate']
+['low']
+['unacceptable']
+['scarce']
+
+=== raw:
+('prob*', 0.12474575858981843)
+('link-probs', [('inadequate', 'low', 0.9999900000999989), ('inadequate', 'unacceptable', 0.499), ('inadequate', 'scarce', 0.499), ('low', 'unacceptable', 0.9999900000999989), ('low', 'scarce', 0.9999900000999989), ('unacceptable', 'scarce', 0.501)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['little']
+['tiny']
+
+=== algo: 
+['little']
+['tiny']
+
+=== raw:
+('prob*', 0.99999666667777776)
+('link-probs', [('little', 'tiny', 0.9999966666777778)])
+
+------------------------------------------------
+=== tau:
+-0.333333333333
+
+=== pairwise accuracy:
+0.333333333333
+
+=== gold: 
+['hardworking']
+['tenacious']
+['tough']
+
+=== algo: 
+['tough']
+['hardworking']
+['tenacious']
+
+=== raw:
+('prob*', 0.50099398806212336)
+('link-probs', [('tough', 'hardworking', 0.9999980000040001), ('tough', 'tenacious', 0.9999900000999989), ('hardworking', 'tenacious', 0.501)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['cute']
+['gorgeous']
+
+=== algo: 
+['cute']
+['gorgeous']
+
+=== raw:
+('prob*', 0.83333333333333337)
+('link-probs', [('cute', 'gorgeous', 0.8333333333333334)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['known']
+['noteworthy']
+
+=== algo: 
+['known']
+['noteworthy']
+
+=== raw:
+('prob*', 0.99999000009999894)
+('link-probs', [('known', 'noteworthy', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['known']
+['celebrated']
+
+=== algo: 
+['known']
+['celebrated']
+
+=== raw:
+('prob*', 0.99999000009999894)
+('link-probs', [('known', 'celebrated', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['intact']
+['sturdy']
+
+=== algo: 
+['intact']
+['sturdy']
+
+=== raw:
+('prob*', 0.501)
+('link-probs', [('intact', 'sturdy', 0.501)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['big']
+['vast']
+
+=== algo: 
+['big']
+['vast']
+
+=== raw:
+('prob*', 0.99999800000400008)
+('link-probs', [('big', 'vast', 0.9999980000040001)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['big']
+['extensive']
+
+=== algo: 
+['big']
+['extensive']
+
+=== raw:
+('prob*', 0.66666666666666663)
+('link-probs', [('big', 'extensive', 0.6666666666666666)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['hard']
+['problematic']
+
+=== algo: 
+['hard']
+['problematic']
+
+=== raw:
+('prob*', 0.9999975000062501)
+('link-probs', [('hard', 'problematic', 0.9999975000062501)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['annoying']
+['obnoxious']
+
+=== algo: 
+['annoying']
+['obnoxious']
+
+=== raw:
+('prob*', 0.99999000009999894)
+('link-probs', [('annoying', 'obnoxious', 0.9999900000999989)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['sad']
+['miserable']
+
+=== algo: 
+['sad']
+['miserable']
+
+=== raw:
+('prob*', 0.99999900000100006)
+('link-probs', [('sad', 'miserable', 0.9999990000010001)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['sad']
+['terrible']
+
+=== algo: 
+['sad']
+['terrible']
+
+=== raw:
+('prob*', 0.9999975000062501)
+('link-probs', [('sad', 'terrible', 0.9999975000062501)])
+
+------------------------------------------------
+=== tau:
+0.0
+
+=== pairwise accuracy:
+0.5
+
+=== gold: 
+['fair']
+['fairer']
+['fairest']
+['beautiful']
+
+=== algo: 
+['beautiful']
+['fair']
+['fairer']
+['fairest']
+
+=== raw:
+('prob*', 0.25099472507539905)
+('link-probs', [('beautiful', 'fair', 0.9999950000249999), ('beautiful', 'fairer', 0.9999950000249999), ('beautiful', 'fairest', 0.501), ('fair', 'fairer', 0.9999950000249999), ('fair', 'fairest', 0.9999900000999989), ('fairer', 'fairest', 0.501)])
+
+------------------------------------------------
+=== END
