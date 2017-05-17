@@ -44,6 +44,8 @@ fix, nu = 'HT' , nu_coin( GRAPH[data_set], num_neigh )
 OP , op = '-'  , vec_subtract
 phi     = to_x(nu,op)
 
+save = True
+
 ############################################################
 '''
 	run on all data set
