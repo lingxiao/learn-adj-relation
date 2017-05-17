@@ -71,11 +71,10 @@ q = decide_fn_both_binomial(G_ppng, model, phi, num_tosses)
 P = Pr_s_le_t_combo(G_ppng, model, phi)
 Q = Q_s_le_t_combo (G_ppng, model, phi, num_tosses)
 	
-
 if True:
 	exec_rank( data_set
 		     , test
-		     , decide_fn_both_binomial(G_ppng, model, phi)
+		     , decide_fn_both_binomial(G_ppng, model, phi, num_tosses)
 		     , results_dir
 		     , save = SAVE
 		     ) 
