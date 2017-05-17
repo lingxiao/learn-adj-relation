@@ -38,7 +38,7 @@ with open(path,'rb') as h:
 
 data_set   = 'ppdb-1'
 num_neigh  = 10
-num_tosses = 100
+num_tosses = 5
 
 fix, nu = 'HT' , nu_coin( GRAPH[data_set], num_neigh )
 OP , op = '`o`', vec_concat
@@ -48,16 +48,10 @@ phi     = to_x(nu,op)
 '''
 	run on all data set
 '''
-results_dir = os.path.join( work_dir['results']
-	                      , 'combined/' 
-	                      + winner                 
-	                      + '|infer_tosses=' 
-	                      + str(num_tosses))
-
+results_dir = os.path.join(work_dir['results'], 'combined/' + winner + '|infer_tosses=' + str(num_tosses))
 
 if not os.path.exists(results_dir):
 	os.mkdir(results_dir)
-
 	
 if True:
  	exec_rank( data_set

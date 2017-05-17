@@ -48,14 +48,18 @@ phi     = to_x(nu,op)
 '''
 	run on all data set
 '''
-results_dir = os.path.join(work_dir['results'], 'combined/' + winner)
+results_dir = os.path.join( work_dir['results']
+	                      , 'combined/' 
+	                      + winner                 
+	                      + '|infer_tosses=' 
+	                      + str(num_tosses))
+
+
 
 if not os.path.exists(results_dir):
 	os.mkdir(results_dir)
 
-g = decide_fn_both_binomial(G_ppdb, model, phi, num_tosses)
-h = decide_fn_both(G_ppdb, model, phi)
-	
+
 if True:
 	exec_rank( data_set
 		     , test

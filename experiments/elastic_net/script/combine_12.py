@@ -29,7 +29,7 @@ from scipy.misc import comb
 '''
 	model and feature space representation
 '''
-winner = 'logistic-regression-beta-binomial|ppdb-ngram-1|[nu^HT(s)`o`nu^HT(t)]|num_neigh=10|penalty=l1|C=0.1num_tosses=100'
+winner = 'logistic-regression-beta-binomial|ppdb-ngram-1|[nu^HT(s)-nu^HT(t)]|num_neigh=15|penalty=l1|C=0.5'
 path   = os.path.join(work_dir['results'],winner + '/model')
 	
 print('\n\t>> loading model from ' + winner)
@@ -37,11 +37,11 @@ with open(path,'rb') as h:
 	model = pickle.load(h)
 
 data_set   = 'ppdb-1'
-num_neigh  = 10
-num_tosses = 100
+num_neigh  = 15
+num_tosses = 5
 
 fix, nu = 'HT' , nu_coin( GRAPH[data_set], num_neigh )
-OP , op = '`o`', vec_concat
+OP , op = '-'  , vec_subtract
 phi     = to_x(nu,op)
 
 ############################################################
@@ -58,9 +58,11 @@ results_dir = os.path.join( work_dir['results']
 if not os.path.exists(results_dir):
 	os.mkdir(results_dir)
 
+g = decide_fn_both_binomial(G_ppdb, model, phi, num_tosses)
+h = decide_fn_both(G_ppdb, model, phi)
 	
 if True:
- 	exec_rank( data_set
+	exec_rank( data_set
 		     , test
 		     , decide_fn_both_binomial(G_ppdb, model, phi, num_tosses)
 		     , results_dir
