@@ -103,7 +103,6 @@ def Q_s_le_t(G):
 
 	return fn
 
-
 '''
 	@Use: given model and hack num tosses
 	      find posterior probabilty of head

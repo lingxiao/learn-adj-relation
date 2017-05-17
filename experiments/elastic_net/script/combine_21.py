@@ -50,10 +50,6 @@ SAVE = True
 '''
 	run on all data set
 '''
-############################################################
-'''
-	run on all data set
-'''
 results_dir = os.path.join( work_dir['results']
 	                      , 'combined/' 
 	                      + winner           
@@ -76,7 +72,7 @@ with open( os.path.join(results_dir,'readme.txt'), 'wb' ) as h:
 if True:
  	exec_rank( data_set
 		     , test
-		     , decide_fn_both_binomial(G_ppdb, model, phi, num_tosses)
+		     , decide_fn_both_binomial(G_ppng, model, phi, num_tosses)
 		     , results_dir
 		     , save = SAVE
 		     ) 
