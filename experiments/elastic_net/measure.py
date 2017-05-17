@@ -7,8 +7,8 @@
 import os
 import math
 import numpy as np
-from sklearn.linear_model import ElasticNet, LogisticRegression
 import pickle
+from sklearn.linear_model import ElasticNet, LogisticRegression
 
 from app     import *
 from utils   import *
@@ -21,7 +21,10 @@ from experiments.elastic_net import *
 
 ############################################################
 '''
-	@Use: use model to predict 
+	Bernoulli models
+
+	@Use: use elastic net or logistic regression
+	      model to predict outcome
 '''	
 def Pr_s_le_t_model(model,phi):
 
@@ -77,9 +80,76 @@ def Pr_s_le_t_combo(G, model, phi):
 
 ############################################################
 '''
-	Decision Functions
+	Binomial models
+'''
+def Q_s_le_t(G):
 
-	@Use: pick out algo from gold
+	def fn(s,t):
+
+		s_ge_t = 0.0
+		s_le_t = 0.0
+
+		if t in G.out_neigh(s):
+			s_le_t += sum(n for _,n in G.out_neigh(s)[t].iteritems())
+			
+		if t in G.in_neigh(s):
+			s_ge_t += sum(n for _,n in G.in_neigh(s)[t].iteritems())
+
+		return E_binomial( s_le_t
+			             , s_ge_t + s_le_t
+			             , 1
+			             , 1
+			             )
+
+	return fn
+
+
+'''
+	@Use: given model and hack num tosses
+	      find posterior probabilty of head
+	      given model
+'''
+def Q_s_le_t_model(model, phi, num_tosses):
+
+	def fn(s,t):
+
+		prob_vec = model.predict_proba(phi(s,t))[0]
+		prob     = prob_vec[1]
+		h        = round(prob*num_tosses)
+		return E_binomial(h, num_tosses, 1, 1)
+
+	return fn
+
+def Q_s_le_t_combo(G, model, phi, num_tosses):
+
+	real  = Q_s_le_t(G)
+	model = Q_s_le_t_model(model,phi, num_tosses)
+
+	def fn(s,t):
+		prob = real(s,t)
+		if prob == 0.5:
+			return model(s,t)
+		else:
+			return prob
+
+	return fn
+
+'''
+	@Use: Expected value of p for Bernoulli(p)
+		  given h heads on n tosses
+		  with prior parameter alpha and beta
+'''
+def E_binomial(h,n,alpha,beta):
+	t   = n - h
+	top = float(alpha + h)
+	bot = float(alpha + beta + h + t)
+	return top / bot
+
+############################################################
+'''
+	Decision Functions using Bernoulli model
+
+	@Use: pick out algo from gold using Bernoulli model
 '''
 def decide_fn_model(model, phi):
 	def fn(gold):
@@ -90,4 +160,30 @@ def decide_fn_both(G,model,phi):
 	def fn(gold):
 		return argmax_Omega(join(gold), Pr_s_le_t_combo(G,model,phi))
 	return fn
+
+############################################################
+'''
+	Decision function using binomial prior
+'''
+def decide_fn_model_Binomial(model, phi, num_tosses):
+	def fn(gold):
+		return argmax_Omega(join(gold), Q_s_le_t_model(model,phi, num_tosses))
+	return fn
+
+def decide_fn_both_binomial(G,model,phi, num_tosses):
+	def fn(gold):
+		return argmax_Omega(join(gold), Q_s_le_t_combo(G,model,phi, num_tosses))
+	return fn
+
+
+
+
+
+
+
+
+
+
+
+
 

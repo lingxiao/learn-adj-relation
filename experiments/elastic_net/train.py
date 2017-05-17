@@ -31,8 +31,9 @@ def exec_train( dir_name = None
 	          , alpha    = None
 	          , l1_ratio = None
 
-	          , penalty  = ''
-	          , C        = None
+	          , penalty    = ''
+	          , C          = None
+	          , num_tosses = None
 
 	          , rho      = None
 	          , op       = None
@@ -49,8 +50,10 @@ def exec_train( dir_name = None
 	valid_X, valid_y, valid_gold = valid
 	test_X , test_y , test_gold  = test
 	
-	X = to_X(train_X, rho, op, normalize = False)
-	y = np.array(train_y)
+	X   = to_X(train_X, rho, op, normalize = False)
+	y   = np.array(train_y)
+	phi = to_x(rho, op)
+
 
 	print('\n\t>> training model ' + model + ' ...')
 	
@@ -59,15 +62,25 @@ def exec_train( dir_name = None
 		print('\n\t >> running ' + model + ' with alpha = ' + str(alpha) + ' and l1-ratio = ' + str(l1_ratio))
 		model = ElasticNet( alpha = alpha, l1_ratio = l1_ratio)
 		model = model.fit(X, y)
+		decide = decide_fn_model(model, phi)
 
 	elif model == 'logistic-regression':
 
 		print('\n\t >> running ' + model + ' with penalty ' + penalty + ' at C = ' + str(C))
 		model = LogisticRegression(C = C, penalty = penalty)
 		model = model.fit(X, y)
+		decide = decide_fn_model(model, phi)
+
+
+	elif model == 'logistic-regression-beta-binomial':
+
+		print('\n\t >> running ' + model + ' with penalty ' + penalty + ' at C = ' + str(C))
+		model = LogisticRegression(C = C, penalty = penalty)
+		model = model.fit(X, y)
+		decide = decide_fn_model_Binomial(model, phi, num_tosses)
+
 
 	results_dir = ''
-	phi = to_x(rho, op)
 
 	print('\n\t>> decoding coefficients of model')
 	vector = model.coef_
@@ -101,21 +114,21 @@ def exec_train( dir_name = None
 
 	print('\n\t>> ranking bcs with ppdb-ngram graph ...')
 	rank_all_gold( train_gold
-		         , decide_fn_model(model, phi)
+		         , decide
 		         , os.path.join(results_dir, 'bcs.txt')
 		         , refresh = False
 		         , save    = save )
 
 	print('\n\t>> ranking ccb with ppdb-ngram graph ...')
 	rank_all_gold( valid_gold
-		         , decide_fn_model(model, phi)
+		         , decide
 		         , os.path.join(results_dir, 'ccb.txt')
 		         , refresh = False
 		         , save    = save )
 
 	print('\n\t>> ranking moh with ppdb-ngram graph ...')
 	rank_all_gold( test_gold
-		         , decide_fn_model(model, phi)
+		         , decide
 		         , os.path.join(results_dir, 'moh.txt')
 		         , refresh = False
 		         , save    = save )

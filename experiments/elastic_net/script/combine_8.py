@@ -62,10 +62,4 @@ if False:
 
 
 
-def fn(p,alpha, beta):
-	pa = p**(alpha - 1)
-	qa = (1-p)**(beta-1)
-	return pa * qae
-
-
 

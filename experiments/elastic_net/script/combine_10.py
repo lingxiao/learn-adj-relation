@@ -1,5 +1,5 @@
 ############################################################
-# Module  : combine models run on anne's data set
+# Module  : combine models with beta prior measure
 # Date    : April 24th, 2017
 # Author  : Xiao Ling
 ############################################################
@@ -10,6 +10,7 @@ import numpy as np
 import networkx as nx
 from sklearn.metrics import r2_score
 from sklearn.linear_model import ElasticNet
+import scipy.stats
 import pickle
 
 
@@ -21,26 +22,27 @@ from experiments.argmax import *
 from experiments.rank_all import *
 from experiments.elastic_net import *
 
+from scipy.stats import binom, beta
+from scipy.misc import comb
 
 ############################################################
 '''
 	model and feature space representation
 '''
-winner = 'logistic-regression|ppdb-ngram-1|[nu^HT(s)-nu^HT(t)]|num_neigh=10|penalty=l1|C=0.4'
+winner = 'logistic-regression-beta-binomial|ppdb-ngram-1|[nu^HT(s)-nu^HT(t)]|num_neigh=15|penalty=l1|C=0.5'
 path   = os.path.join(work_dir['results'],winner + '/model')
 	
 print('\n\t>> loading model from ' + winner)
 with open(path,'rb') as h:
 	model = pickle.load(h)
 
-data_set  = 'ppdb-ngram-1'
-num_neigh = 10
+data_set   = 'ppdb-1'
+num_neigh  = 15
+num_tosses = 100
 
 fix, nu = 'HT' , nu_coin( GRAPH[data_set], num_neigh )
 OP , op = '-'  , vec_subtract
 phi     = to_x(nu,op)
-
-SAVE    = False
 
 ############################################################
 '''
@@ -50,12 +52,19 @@ results_dir = os.path.join(work_dir['results'], 'combined/' + winner)
 
 if not os.path.exists(results_dir):
 	os.mkdir(results_dir)
+
+g = decide_fn_both_binomial(G_ppdb, model, phi, num_tosses)
+h = decide_fn_both(G_ppdb, model, phi)
 	
-if False:
+if True:
 	exec_rank( data_set
-		     , anne_cluster
-		     , decide_fn_both(G_ppng, model, phi)
+		     , test
+		     , decide_fn_both_binomial(G_ppdb, model, phi, num_tosses)
 		     , results_dir
 		     , save = SAVE
 		     ) 
+
+
+
+
 
