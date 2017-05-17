@@ -65,12 +65,14 @@ readme = 'model:\t\t' + winner            + '\n' \
 with open( os.path.join(results_dir,'readme.txt'), 'wb' ) as h:
 	h.write(readme)
 
-g = decide_fn_both_binomial(G_ppng, model, phi, num_tosses)
-h = decide_fn_both(G_ppng, model, phi)
+p = decide_fn_both(G_ppng, model, phi)
+q = decide_fn_both_binomial(G_ppng, model, phi, num_tosses)
 
-Pr = Pr_s_le_t_combo(G_pp)
+P = Pr_s_le_t_combo(G_ppng, model, phi)
+Q = Q_s_le_t_combo (G_ppng, model, phi, num_tosses)
 	
-if False:
+
+if True:
 	exec_rank( data_set
 		     , test
 		     , decide_fn_both_binomial(G_ppng, model, phi)
