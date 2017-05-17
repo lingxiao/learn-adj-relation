@@ -1,5 +1,6 @@
 ############################################################
-# Module  : run train elastic net regression using neighbor features
+# Module  : run train penalized logistic regression 
+#           using neighbor features
 # Date    : April 24th, 2017
 # Author  : Xiao Ling
 ############################################################
@@ -66,17 +67,18 @@ elif data_set == 'ngram':
 	Train 
 '''
 if model == 'elastic-net':
-	dir_name = data_set     + '|'                                \
+	dir_name = data_set     + '|'                                 \
 	         + '[nu^'+ fix  + '(s)' + OP + 'nu^' + fix + '(t)]|'  \
 	         + 'num_neigh=' + str(num_neigh) + '|'                \
-	         + 'alpha='     + str(alpha)   + '|'                  \
+	         + 'alpha='     + str(alpha)     + '|'                \
 	         + 'l1='        + str(l1_ratio)   
+
 elif model == 'logistic-regression':
-	dir_name = model         + '|'                                \
-	         +  data_set     + '|'                                \
+	dir_name = model        + '|'                                 \
+	         +  data_set    + '|'                                 \
 	         + '[nu^'+ fix  + '(s)' + OP + 'nu^' + fix + '(t)]|'  \
 	         + 'num_neigh=' + str(num_neigh) + '|'                \
-	         + 'penalty='   + penalty        + '|'                  \
+	         + 'penalty='   + penalty        + '|'                \
 	         + 'C='         + str(C)   
 else:
 	raise NameError('Expected elastic-net or logistic-regression')	         

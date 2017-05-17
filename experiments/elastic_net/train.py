@@ -25,7 +25,6 @@ from experiments.elastic_net import *
 '''
 	@Use: train validate and test model. save results if needed
 '''
-
 def exec_train( dir_name = None
 
 	          , model    = ''

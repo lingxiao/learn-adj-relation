@@ -10,6 +10,7 @@ import numpy as np
 import networkx as nx
 from sklearn.metrics import r2_score
 from sklearn.linear_model import ElasticNet
+import scipy.stats
 import pickle
 
 
@@ -51,7 +52,7 @@ results_dir = os.path.join(work_dir['results'], 'combined/' + winner)
 if not os.path.exists(results_dir):
 	os.mkdir(results_dir)
 	
-if True:
+if False:
 	exec_rank( data_set
 		     , test
 		     , decide_fn_both(G_ppdb, model, phi)
@@ -59,6 +60,12 @@ if True:
 		     , save = SAVE
 		     ) 
 
+
+
+def fn(p,alpha, beta):
+	pa = p**(alpha - 1)
+	qa = (1-p)**(beta-1)
+	return pa * qae
 
 
 

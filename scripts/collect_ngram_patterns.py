@@ -42,7 +42,7 @@ def collect_ngram_patterns( word_path
     print('\n\t>> running collect_ngram_patterns')
     
     # log output
-    writer = Writer(log_dir, 1, debug = debug, console = False)
+    writer = Writer(log_dir, 1, debug = debug, console = True)
 
     s_refresh = 'refresh' if refresh else 'non-refresh'
 
@@ -159,11 +159,13 @@ def collect_pairs( pairs
 
             # if no data last time we looked, then skip
             if (s,t) in no_data:
-                writer.tell(s + ', ' + t + ' did not have data the last time we crawled. skipping ...')
+                # writer.tell(s + ', ' + t + ' did not have data the last time we crawled. skipping ...')
+                pass
 
             # if we already found the data, then skip
             elif refresh and os.path.exists(out['path']):
-                writer.tell('data for ' + s + ', ' + t + ' already exists. skipping ...')
+                # writer.tell('data for ' + s + ', ' + t + ' already exists. skipping ...')
+                pass
 
             # if both s and t are in the n-gram `gram`, then collect the data
             elif s in gram and t in gram:
