@@ -36,7 +36,7 @@ print('\n\t>> loading model from ' + winner)
 with open(path,'rb') as h:
 	model = pickle.load(h)
 
-data_set   = 'ppdb-1'
+data_set   = 'ppdb-ngram-1'
 num_neigh  = 15
 num_tosses = 100
 

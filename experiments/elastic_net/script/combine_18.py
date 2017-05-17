@@ -36,9 +36,9 @@ print('\n\t>> loading model from ' + winner)
 with open(path,'rb') as h:
 	model = pickle.load(h)
 
-data_set   = 'ppdb-1'
+data_set   = 'ppdb-ngram-1'
 num_neigh  = 15
-num_tosses = 100
+num_tosses = 5
 
 fix, nu = 'HT' , nu_coin( GRAPH[data_set], num_neigh )
 OP , op = '-'  , vec_subtract
@@ -46,6 +46,10 @@ phi     = to_x(nu,op)
 
 SAVE = True
 
+############################################################
+'''
+	run on all data set
+'''
 ############################################################
 '''
 	run on all data set
@@ -68,7 +72,7 @@ readme = 'model:\t\t' + winner            + '\n' \
 with open( os.path.join(results_dir,'readme.txt'), 'wb' ) as h:
 	h.write(readme)
 
-
+	
 if True:
 	exec_rank( data_set
 		     , test

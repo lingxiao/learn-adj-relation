@@ -50,9 +50,14 @@ SAVE = True
 '''
 	run on all data set
 '''
+############################################################
+'''
+	run on all data set
+'''
 results_dir = os.path.join( work_dir['results']
 	                      , 'combined/' 
-	                      + winner                 
+	                      + winner           
+	                      + '|infer_set=' + data_set      
 	                      + '|infer_tosses=' 
 	                      + str(num_tosses))
 
@@ -60,8 +65,13 @@ results_dir = os.path.join( work_dir['results']
 if not os.path.exists(results_dir):
 	os.mkdir(results_dir)
 
-g = decide_fn_both_binomial(G_ppdb, model, phi, num_tosses)
-h = decide_fn_both(G_ppdb, model, phi)
+readme = 'model:\t\t' + winner            + '\n' \
+	   + 'inference data set:\t' + data_set + '\n' \
+	   + 'inference tosses:\t'   + str(num_tosses)
+
+with open( os.path.join(results_dir,'readme.txt'), 'wb' ) as h:
+	h.write(readme)
+
 	
 if True:
 	exec_rank( data_set
