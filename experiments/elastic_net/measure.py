@@ -95,10 +95,12 @@ def Q_s_le_t(G):
 		if t in G.in_neigh(s):
 			s_ge_t += sum(n for _,n in G.in_neigh(s)[t].iteritems())
 
+		alpha_beta = max(1.0, s_ge_t + s_le_t)
+
 		return E_binomial( s_le_t
 			             , s_ge_t + s_le_t
-			             , 1
-			             , 1
+			             , alpha_beta
+			             , alpha_beta
 			             )
 
 	return fn
@@ -108,21 +110,21 @@ def Q_s_le_t(G):
 	      find posterior probabilty of head
 	      given model
 '''
-def Q_s_le_t_model(model, phi, num_tosses):
+def Q_s_le_t_model(model, phi):
 
 	def fn(s,t):
 
 		prob_vec = model.predict_proba(phi(s,t))[0]
 		prob     = prob_vec[1]
-		h        = round(prob*num_tosses)
-		return E_binomial(h, num_tosses, 1, 1)
+		# h        = round(prob*1)
+		return E_binomial(prob, 1, 1, 1)
 
 	return fn
 
-def Q_s_le_t_combo(G, model, phi, num_tosses):
+def Q_s_le_t_combo(G, model, phi):
 
 	real  = Q_s_le_t(G)
-	model = Q_s_le_t_model(model,phi, num_tosses)
+	model = Q_s_le_t_model(model,phi)
 
 	def fn(s,t):
 		prob = real(s,t)
@@ -169,9 +171,9 @@ def decide_fn_model_Binomial(model, phi, num_tosses):
 		return argmax_Omega(join(gold), Q_s_le_t_model(model,phi, num_tosses))
 	return fn
 
-def decide_fn_both_binomial(G,model,phi, num_tosses):
+def decide_fn_both_binomial(G, model, phi):
 	def fn(gold):
-		return argmax_Omega(join(gold), Q_s_le_t_combo(G,model,phi, num_tosses))
+		return argmax_Omega(join(gold), Q_s_le_t_combo(G,model,phi))
 	return fn
 
 

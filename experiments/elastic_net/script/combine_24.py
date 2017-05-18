@@ -26,7 +26,7 @@ from experiments.elastic_net import *
 '''
 	model and feature space representation
 '''
-winner = 'logistic-regression|ppdb-ngram-1|[nu^HT(s)-nu^HT(t)]|num_neigh=10|penalty=l1|C=0.4'
+winner = 'logistic-regression-beta-binomial|ppdb-ngram-1|[nu^HT(s)`o`nu^HT(t)]|num_neigh=10|penalty=l1|C=0.1'
 path   = os.path.join(work_dir['results'],winner + '/model')
 	
 print('\n\t>> loading model from ' + winner)
@@ -35,7 +35,6 @@ with open(path,'rb') as h:
 
 data_set   = 'ppdb-ngram-1'
 num_neigh  = 10
-num_tosses = 1
 
 fix, nu = 'HT' , nu_coin( GRAPH[data_set], num_neigh )
 OP , op = '-'  , vec_subtract
@@ -51,30 +50,26 @@ results_dir = os.path.join( work_dir['results']
 	                      , 'combined/' 
 	                      + winner           
 	                      + '|infer_set=' + data_set      
-	                      + '|infer_tosses=' 
-	                      + str(num_tosses))
+	                      + '|50-50-prior')
 
-
+						  
 if not os.path.exists(results_dir):
 	os.mkdir(results_dir)
 
 readme = 'model:\t\t' + winner            + '\n' \
 	   + 'inference data set:\t' + data_set + '\n' \
-	   + 'inference tosses:\t'   + str(num_tosses)
+	   + 'inference tosses:\t50-50-prior' 
 
 with open( os.path.join(results_dir,'readme.txt'), 'wb' ) as h:
 	h.write(readme)
 
-if False:
+if True:
 	exec_rank( data_set
 		     , test
-		     , decide_fn_both_binomial(G_ppng, model, phi, num_tosses)
+		     , decide_fn_both_binomial(G_ppng, model, phi)
 		     , results_dir
 		     , save = SAVE
 		     ) 
-
-
-
 
 
 
