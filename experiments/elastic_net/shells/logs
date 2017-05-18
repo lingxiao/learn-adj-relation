@@ -20,7 +20,38 @@
 ++ '[' -z '' ']'
 ++ _OLD_VIRTUAL_PS1=
 ++ '[' x '!=' x ']'
++ export PYTHONPATH=/home1/l/lingxiao/xiao/learn-adj-relation
++ PYTHONPATH=/home1/l/lingxiao/xiao/learn-adj-relation
++ cd /home1/l/lingxiao/xiao/learn-adj-relation
++ source /home1/l/lingxiao/xiao/tensorflow-1.0.1/bin/activate
 +++ basename /mnt/castor/seas_home/l/lingxiao/xiao/tensorflow-1.0.1
+++ deactivate nondestructive
+++ unset pydoc
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ '[' -n /pkg/bin/bash -o -n '' ']'
+++ hash -r
+++ '[' -n '' ']'
+++ unset VIRTUAL_ENV
+++ '[' '!' nondestructive = nondestructive ']'
+++ '[' tensorflow-1.0.1 = __ ']'
+++ VIRTUAL_ENV=/mnt/castor/seas_home/l/lingxiao/xiao/tensorflow-1.0.1
+++ export VIRTUAL_ENV
+++ _OLD_VIRTUAL_PATH=/home1/s/sgeadmin/ogs-2011p1/bin/linux-x64:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/games:/usr/local/bowtie/bin:/usr/local/bowtie2/bin:/usr/local/homer/bin:/usr/lib/mit/bin:/usr/local/mirnylib/bin:/usr/local/Qt5.4.0/Tools/QtCreator/bin:/usr/lib/qt3/bin:/usr/local/samtools/bin:/usr/local/sra-toolkit/bin:/usr/local/tophat/bin
+++ PATH=/mnt/castor/seas_home/l/lingxiao/xiao/tensorflow-1.0.1/bin:/home1/s/sgeadmin/ogs-2011p1/bin/linux-x64:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/games:/usr/local/bowtie/bin:/usr/local/bowtie2/bin:/usr/local/homer/bin:/usr/lib/mit/bin:/usr/local/mirnylib/bin:/usr/local/Qt5.4.0/Tools/QtCreator/bin:/usr/lib/qt3/bin:/usr/local/samtools/bin:/usr/local/sra-toolkit/bin:/usr/local/tophat/bin
+++ export PATH
+++ '[' -n '' ']'
++++ basename /mnt/castor/seas_home/l/lingxiao/xiao/tensorflow-1.0.1
+++ '[' -z '' ']'
+++ _OLD_VIRTUAL_PS1=
+++ '[' x '!=' x ']'
++++ basename /mnt/castor/seas_home/l/lingxiao/xiao/tensorflow-1.0.1
+++ PS1='(tensorflow-1.0.1)'
+++ export PS1
+++ alias 'pydoc=python -m pydoc'
+++ '[' -n /pkg/bin/bash -o -n '' ']'
+++ hash -r
++ python /home1/l/lingxiao/xiao/learn-adj-relation/experiments/elastic_net/script/combine_23.py
 ++ '[' tensorflow-1.0.1 = __ ']'
 +++ basename /mnt/castor/seas_home/l/lingxiao/xiao/tensorflow-1.0.1
 ++ PS1='(tensorflow-1.0.1)'
@@ -28,7 +59,8 @@
 ++ alias 'pydoc=python -m pydoc'
 ++ '[' -n /pkg/bin/bash -o -n '' ']'
 ++ hash -r
-+ python /home1/l/lingxiao/xiao/learn-adj-relation/experiments/elastic_net/script/combine_22.py
++ python /home1/l/lingxiao/xiao/learn-adj-relation/experiments/elastic_net/script/combine_24.py
+TERM environment variable not set.
 TERM environment variable not set.
 
 >> ========== in PRODUCTION mode ==========
@@ -179,104 +211,34 @@ TERM environment variable not set.
 
 	>> load turk-no-tie
 
-	>> loading model from logistic-regression|ppdb-ngram-1|[nu^HT(s)-nu^HT(t)]|num_neigh=10|penalty=l1|C=0.4
+	>> loading model from logistic-regression-beta-binomial|ppdb-ngram-1|[nu^HT(s)`o`nu^HT(t)]|num_neigh=10|penalty=l1|C=0.1
 
 	ranking moh-ppdb with ppdb-ngram-1
 
-	>> Removing existing file at outpath if it exists
-
 	>> ranking adjectives
-
-	>> computing averages
-
-	>> averages:
-
-		 pairwise: 73.33
-
-		 tau:      0.584428449458
-
-		 |tau|:    0.699353705618
-
---------------------------------------------------
-
-	ranking bcs with ppdb-ngram-1
-
-	>> Removing existing file at outpath if it exists
-
-	>> ranking adjectives
-
-	>> computing averages
-
-	>> averages:
-
-		 pairwise: 92.75
-
-		 tau:      0.854970760234
-
-		 |tau|:    0.983625730994
-
---------------------------------------------------
-
-	ranking moh-no-tie with ppdb-ngram-1
-
-	>> ranking adjectives
-
-	>> computing averages
-
-	>> averages:
-
-		 pairwise: 76.43
-
-		 tau:      0.528571428571
-
-		 |tau|:    0.766982024598
-
---------------------------------------------------
-
-	ranking moh with ppdb-ngram-1
-
-	>> ranking adjectives
-
-	>> computing averages
-
-	>> averages:
-
-		 pairwise: 74.64
-
-		 tau:      0.614981659929
-
-		 |tau|:    0.683672617634
-
---------------------------------------------------
-
-	ranking ccb with ppdb-ngram-1
-
-	>> ranking adjectives
-
-	>> computing averages
-
-	>> averages:
-
-		 pairwise: 74.96
-
-		 tau:      0.621733436047
-
-		 |tau|:    0.727696275912
-
---------------------------------------------------
-
-	ranking ccb-no-tie with ppdb-ngram-1
-
-	>> ranking adjectives
-
-	>> computing averages
-
-	>> averages:
-
-		 pairwise: 81.69
-
-		 tau:      0.633862433862
-
-		 |tau|:    0.826455026455
-
---------------------------------------------------
+Traceback (most recent call last):
+  File "/home1/l/lingxiao/xiao/learn-adj-relation/experiments/elastic_net/script/combine_24.py", line 71, in <module>
+    , save = SAVE
+  File "/home1/l/lingxiao/xiao/learn-adj-relation/experiments/elastic_net/util.py", line 30, in exec_rank
+    rank_all_gold( test, decision_fn, out_path, refresh = False, save = save )
+  File "/home1/l/lingxiao/xiao/learn-adj-relation/experiments/rank_all.py", line 32, in rank_all_gold
+    return go_rank(golds, decide_fn, out_path, save)
+  File "/home1/l/lingxiao/xiao/learn-adj-relation/experiments/rank_all.py", line 42, in go_rank
+    algo, raw = decide_fn(gold)
+  File "/home1/l/lingxiao/xiao/learn-adj-relation/experiments/elastic_net/measure.py", line 176, in fn
+    return argmax_Omega(join(gold), Q_s_le_t_combo(G,model,phi))
+  File "/home1/l/lingxiao/xiao/learn-adj-relation/experiments/argmax.py", line 38, in argmax_Omega
+    probs      = [ (o, prob_om(o,Pr_s_le_t)) for o in Omega ]
+  File "/home1/l/lingxiao/xiao/learn-adj-relation/experiments/argmax.py", line 62, in prob_om
+    probs  = [(s,t,Pr_s_le_t(s,t)) for s,t in links]
+  File "/home1/l/lingxiao/xiao/learn-adj-relation/experiments/elastic_net/measure.py", line 132, in fn
+    return model(s,t)
+  File "/home1/l/lingxiao/xiao/learn-adj-relation/experiments/elastic_net/measure.py", line 117, in fn
+    prob_vec = model.predict_proba(phi(s,t))[0]
+  File "/mnt/castor/seas_home/l/lingxiao/xiao/tensorflow-1.0.1/lib/python2.7/site-packages/sklearn/linear_model/logistic.py", line 1286, in predict_proba
+    return super(LogisticRegression, self)._predict_proba_lr(X)
+  File "/mnt/castor/seas_home/l/lingxiao/xiao/tensorflow-1.0.1/lib/python2.7/site-packages/sklearn/linear_model/base.py", line 350, in _predict_proba_lr
+    prob = self.decision_function(X)
+  File "/mnt/castor/seas_home/l/lingxiao/xiao/tensorflow-1.0.1/lib/python2.7/site-packages/sklearn/linear_model/base.py", line 317, in decision_function
+    % (X.shape[1], n_features))
+ValueError: X has 10 features per sample; expecting 20
