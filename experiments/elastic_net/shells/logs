@@ -242,3 +242,215 @@ Traceback (most recent call last):
   File "/mnt/castor/seas_home/l/lingxiao/xiao/tensorflow-1.0.1/lib/python2.7/site-packages/sklearn/linear_model/base.py", line 317, in decision_function
     % (X.shape[1], n_features))
 ValueError: X has 10 features per sample; expecting 20
++ export PYTHONPATH=/home1/l/lingxiao/xiao/learn-adj-relation
++ PYTHONPATH=/home1/l/lingxiao/xiao/learn-adj-relation
++ cd /home1/l/lingxiao/xiao/learn-adj-relation
++ source /home1/l/lingxiao/xiao/tensorflow-1.0.1/bin/activate
+++ deactivate nondestructive
+++ unset pydoc
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ '[' -n /pkg/bin/bash -o -n '' ']'
+++ hash -r
+++ '[' -n '' ']'
+++ unset VIRTUAL_ENV
+++ '[' '!' nondestructive = nondestructive ']'
+++ VIRTUAL_ENV=/mnt/castor/seas_home/l/lingxiao/xiao/tensorflow-1.0.1
+++ export VIRTUAL_ENV
+++ _OLD_VIRTUAL_PATH=/home1/s/sgeadmin/ogs-2011p1/bin/linux-x64:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/games:/usr/local/bowtie/bin:/usr/local/bowtie2/bin:/usr/local/homer/bin:/usr/lib/mit/bin:/usr/local/mirnylib/bin:/usr/local/Qt5.4.0/Tools/QtCreator/bin:/usr/lib/qt3/bin:/usr/local/samtools/bin:/usr/local/sra-toolkit/bin:/usr/local/tophat/bin
+++ PATH=/mnt/castor/seas_home/l/lingxiao/xiao/tensorflow-1.0.1/bin:/home1/s/sgeadmin/ogs-2011p1/bin/linux-x64:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/games:/usr/local/bowtie/bin:/usr/local/bowtie2/bin:/usr/local/homer/bin:/usr/lib/mit/bin:/usr/local/mirnylib/bin:/usr/local/Qt5.4.0/Tools/QtCreator/bin:/usr/lib/qt3/bin:/usr/local/samtools/bin:/usr/local/sra-toolkit/bin:/usr/local/tophat/bin
+++ export PATH
+++ '[' -n '' ']'
+++ '[' -z '' ']'
+++ _OLD_VIRTUAL_PS1=
+++ '[' x '!=' x ']'
++++ basename /mnt/castor/seas_home/l/lingxiao/xiao/tensorflow-1.0.1
+++ '[' tensorflow-1.0.1 = __ ']'
++++ basename /mnt/castor/seas_home/l/lingxiao/xiao/tensorflow-1.0.1
+++ PS1='(tensorflow-1.0.1)'
+++ export PS1
+++ alias 'pydoc=python -m pydoc'
+++ '[' -n /pkg/bin/bash -o -n '' ']'
+++ hash -r
++ python /home1/l/lingxiao/xiao/learn-adj-relation/experiments/elastic_net/script/combine_24.py
+TERM environment variable not set.
+
+>> ========== in PRODUCTION mode ==========
+
+>> Initializing application [ learn-adj-relation ] ...
+
+>> directory /nlp/data/xiao/learn-adj-relation-data/inputs already exists
+
+>> directory /nlp/data/xiao/learn-adj-relation-data/inputs/test already exists
+
+>> directory /nlp/data/xiao/learn-adj-relation-data/logs already exists
+
+>> directory /mnt/castor/seas_home/l/lingxiao/xiao/learn-adj-relation/deploy already exists
+
+>> directory /nlp/data/xiao/learn-adj-relation-data already exists
+
+>> directory /nlp/data/xiao/learn-adj-relation-data/results already exists
+
+>> directory /nlp/data/xiao/learn-adj-relation-data/deploy already exists
+
+>> Located critical asset anne-125.txt at /nlp/data/xiao/learn-adj-relation-data/inputs/test/anne-125.txt
+
+>> Located critical asset moh.txt at /nlp/data/xiao/learn-adj-relation-data/inputs/test/moh.txt
+
+>> Located critical asset moh-no-tie.txt at /nlp/data/xiao/learn-adj-relation-data/inputs/test/moh-no-tie.txt
+
+>> Located critical asset anne-25.txt at /nlp/data/xiao/learn-adj-relation-data/inputs/test/anne-25.txt
+
+>> Located critical asset moh-ppdb.txt at /nlp/data/xiao/learn-adj-relation-data/inputs/test/moh-ppdb.txt
+
+>> Located critical asset ccb-no-tie.txt at /nlp/data/xiao/learn-adj-relation-data/inputs/test/ccb-no-tie.txt
+
+>> Located critical asset moh-ngram.txt at /nlp/data/xiao/learn-adj-relation-data/inputs/test/moh-ngram.txt
+
+>> Located critical asset ccb.txt at /nlp/data/xiao/learn-adj-relation-data/inputs/test/ccb.txt
+
+>> Located critical asset train at /nlp/data/xiao/learn-adj-relation-data/inputs/train
+
+>> complete application setup!
+
+>> finding or making directories
+
+>> root directory already exists
+
+>> sub-directory already exists at root/ppdb-ngram|uniform|0.9
+
+>> sub-directory already exists at root/ppdb-ngram|uniform|0.8
+
+>> sub-directory already exists at root/ppdb-ngram|uniform|0.1
+
+>> sub-directory already exists at root/ppdb-ngram|edge-wt|0.9
+
+>> sub-directory already exists at root/ppdb-ngram|edge-wt|0.8
+
+>> sub-directory already exists at root/ppdb-ngram|edge-wt|0.1
+
+>> sub-directory already exists at root/ppdb-ngram|BTL|0.9
+
+>> sub-directory already exists at root/ppdb-ngram|BTL|0.8
+
+>> sub-directory already exists at root/ppdb-ngram|BTL|0.1
+
+>> sub-directory already exists at root/ppdb-ngram-bool|uniform|0.9
+
+>> sub-directory already exists at root/ppdb-ngram-bool|uniform|0.8
+
+>> sub-directory already exists at root/ppdb-ngram-bool|uniform|0.1
+
+>> sub-directory already exists at root/ppdb-ngram-bool|edge-wt|0.9
+
+>> sub-directory already exists at root/ppdb-ngram-bool|edge-wt|0.8
+
+>> sub-directory already exists at root/ppdb-ngram-bool|edge-wt|0.1
+
+>> sub-directory already exists at root/ppdb-ngram-bool|BTL|0.9
+
+>> sub-directory already exists at root/ppdb-ngram-bool|BTL|0.8
+
+>> sub-directory already exists at root/ppdb-ngram-bool|BTL|0.1
+
+>> finding or making directories
+
+>> root directory already exists
+
+>> sub-directory already exists at root/results
+
+>> sub-directory already exists at root/script
+
+>> sub-directory already exists at root/shells
+
+>> sub-directory already exists at root/assets
+
+>> finding or making directories
+
+>> root directory already exists
+
+>> sub-directory already exists at root/no-data
+
+>> constructing graph ppdb|edge-wt|0.8 ...
+
+>> loading raw direct graph
+
+>> creating direct graph and adding all vertices
+
+>> adding all edges
+
+>> constructing graph ngram|edge-wt|0.8 ...
+
+>> loading raw direct graph
+
+>> creating direct graph and adding all vertices
+
+>> adding all edges
+
+>> constructing graph ppdb-ngram|edge-wt|0.8 ...
+
+>> loading raw direct graph
+
+>> creating direct graph and adding all vertices
+
+>> adding all edges
+
+>> constructing graph ppdb-one-event-no-loop|edge-wt|0.8 ...
+
+>> loading raw direct graph
+
+>> creating direct graph and adding all vertices
+
+>> adding all edges
+
+>> constructing graph ppdb-one-event-ngram-no-loop|edge-wt|0.8 ...
+
+>> loading raw direct graph
+
+>> creating direct graph and adding all vertices
+
+>> adding all edges
+
+	>> load base-comparative-superlative
+
+	>> load turk
+
+	>> load moh
+
+	>> load moh-ppdb
+
+	>> load moh-no-tie
+
+	>> load turk-no-tie
+
+	>> loading model from logistic-regression-beta-binomial|ppdb-ngram-1|[nu^HT(s)`o`nu^HT(t)]|num_neigh=10|penalty=l1|C=0.1
+
+	ranking moh-ppdb with ppdb-ngram-1
+
+	>> ranking adjectives
+Traceback (most recent call last):
+  File "/home1/l/lingxiao/xiao/learn-adj-relation/experiments/elastic_net/script/combine_24.py", line 71, in <module>
+    , save = SAVE
+  File "/home1/l/lingxiao/xiao/learn-adj-relation/experiments/elastic_net/util.py", line 30, in exec_rank
+    rank_all_gold( test, decision_fn, out_path, refresh = False, save = save )
+  File "/home1/l/lingxiao/xiao/learn-adj-relation/experiments/rank_all.py", line 32, in rank_all_gold
+    return go_rank(golds, decide_fn, out_path, save)
+  File "/home1/l/lingxiao/xiao/learn-adj-relation/experiments/rank_all.py", line 42, in go_rank
+    algo, raw = decide_fn(gold)
+  File "/home1/l/lingxiao/xiao/learn-adj-relation/experiments/elastic_net/measure.py", line 176, in fn
+    return argmax_Omega(join(gold), Q_s_le_t_combo(G,model,phi))
+  File "/home1/l/lingxiao/xiao/learn-adj-relation/experiments/argmax.py", line 38, in argmax_Omega
+    probs      = [ (o, prob_om(o,Pr_s_le_t)) for o in Omega ]
+  File "/home1/l/lingxiao/xiao/learn-adj-relation/experiments/argmax.py", line 62, in prob_om
+    probs  = [(s,t,Pr_s_le_t(s,t)) for s,t in links]
+  File "/home1/l/lingxiao/xiao/learn-adj-relation/experiments/elastic_net/measure.py", line 132, in fn
+    return model(s,t)
+  File "/home1/l/lingxiao/xiao/learn-adj-relation/experiments/elastic_net/measure.py", line 117, in fn
+    prob_vec = model.predict_proba(phi(s,t))[0]
+  File "/mnt/castor/seas_home/l/lingxiao/xiao/tensorflow-1.0.1/lib/python2.7/site-packages/sklearn/linear_model/logistic.py", line 1286, in predict_proba
+    return super(LogisticRegression, self)._predict_proba_lr(X)
+  File "/mnt/castor/seas_home/l/lingxiao/xiao/tensorflow-1.0.1/lib/python2.7/site-packages/sklearn/linear_model/base.py", line 350, in _predict_proba_lr
+    prob = self.decision_function(X)
+  File "/mnt/castor/seas_home/l/lingxiao/xiao/tensorflow-1.0.1/lib/python2.7/site-packages/sklearn/linear_model/base.py", line 317, in decision_function
+    % (X.shape[1], n_features))
+ValueError: X has 10 features per sample; expecting 20
