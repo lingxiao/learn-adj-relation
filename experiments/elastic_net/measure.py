@@ -95,7 +95,8 @@ def Q_s_le_t(G):
 		if t in G.in_neigh(s):
 			s_ge_t += sum(n for _,n in G.in_neigh(s)[t].iteritems())
 
-		alpha_beta = max(1.0, s_ge_t + s_le_t)
+		# alpha_beta = max(1.0, s_ge_t + s_le_t)
+		alpha_beta = 1.0
 
 		return E_binomial( s_le_t
 			             , s_ge_t + s_le_t
