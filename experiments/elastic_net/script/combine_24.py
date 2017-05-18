@@ -37,7 +37,7 @@ data_set   = 'ppdb-ngram-1'
 num_neigh  = 10
 
 fix, nu = 'HT' , nu_coin( GRAPH[data_set], num_neigh )
-OP , op = '-'  , vec_subtract
+OP , op = '`o`'  , vec_concat
 phi     = to_x(nu,op)
 
 SAVE    = True
