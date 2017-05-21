@@ -158,7 +158,7 @@ def run_auto_sh(tot, work_dir, shell_dir):
 '''
 
 # run this to make pairs
-if True:
+if False:
 	num_jobs = split_into_pairs( 100000
 		                       , get_path('ppdb')
 		                       , word_dirs['all-pairs']
@@ -167,7 +167,7 @@ if True:
 	print('\n\t>> constructed ' + str(num_jobs) + ' jobs')
 
 # run this after the pairs have been made
-if False:
+if True:
 	num_jobs = len([p for p in os.listdir(word_dirs['all-pairs']) if '.txt' in p])
 
 	print('\n\t>> found ' + str(num_jobs) + ' jobs') 
