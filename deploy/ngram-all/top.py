@@ -43,8 +43,9 @@ def split_into_pairs(size, gr_path, output_dir, save = False):
 	'''
 		get all words
 	'''
-	# test_words = join(join(ccb + bansal + anne_sm + anne_lg + bcs))
-	test_words = join(join(anne_sm + anne_lg))
+	test_words = join(join(ccb + bansal + anne_sm + anne_lg + bcs))
+	new_words  = join(join(anne_sm + anne_lg))
+
 	_, words   = load_as_dict(gr_path)
 
 	'''
@@ -52,6 +53,12 @@ def split_into_pairs(size, gr_path, output_dir, save = False):
 	'''
 	words    = set(words + test_words)
 	pwords   = to_unique_pairs(words)
+
+	'''
+		filter out pairs with new words only
+	'''
+	pwords = [ (s,t) for s,t in pwords if s in new_words or t in new_words ]
+
 	splits   = list(chunks(pwords,size))
 
 	'''
@@ -144,16 +151,16 @@ def run_auto_sh(tot, work_dir, shell_dir):
 '''
 
 # run this to make pairs
-if False:
+if True:
 	num_jobs = split_into_pairs( 100000
 		                       , get_path('ppdb')
 		                       , word_dirs['all-pairs']
-		                       , save = True)
+		                       , save = False)
 
 	print('\n\t>> constructed ' + str(num_jobs) + ' jobs')
 
 # run this after the pairs have been made
-if True:
+if False:
 	num_jobs = len([p for p in os.listdir(word_dirs['all-pairs']) if '.txt' in p])
 
 	print('\n\t>> found ' + str(num_jobs) + ' jobs') 
