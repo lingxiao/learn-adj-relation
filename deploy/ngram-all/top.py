@@ -32,6 +32,7 @@ shell_dir  = dirs['shells']
 '''
 def split_into_pairs(size, gr_path, output_dir, save = False):
 
+	print('\n>> opening all test sets ...')
 	ccb        = read_gold(get_path('ccb'))
 	bansal     = read_gold(get_path('moh'))
 	anne_sm    = read_gold(get_path('anne-25' ))
@@ -43,6 +44,7 @@ def split_into_pairs(size, gr_path, output_dir, save = False):
 	'''
 		get all words
 	'''
+	print('\n>> combining all test sets ...')
 	test_words = join(join(ccb + bansal + anne_sm + anne_lg + bcs))
 	new_words  = join(join(anne_sm + anne_lg))
 
@@ -57,9 +59,14 @@ def split_into_pairs(size, gr_path, output_dir, save = False):
 	'''
 		filter out pairs with new words only
 	'''
+	print('\n>> pruning whole graph for unique pairs ...')
 	pwords = [ (s,t) for s,t in pwords if s in new_words or t in new_words ]
+	print('\n>> found ' + str(len(pwords)) + ' new unique pairs')
 
+
+	print('\n>> dividing pairs into ' + str( float(len(pwords)/size) ) + ' chunks ...')
 	splits   = list(chunks(pwords,size))
+
 
 	'''
 		prepend debug pair file
