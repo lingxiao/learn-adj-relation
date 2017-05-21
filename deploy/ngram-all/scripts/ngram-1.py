@@ -42,24 +42,15 @@ pattern_path = get_path('patterns')
 ngram_dir    = get_path('ngram-grep')
 
 
-patterns  = read_pattern(pattern_path)
-all_pairs   = [x.split(', ') for x in open(pair_path,'rb').read().split('\n') if x]
-chunk       = 50
-pair_chunks = chunks(all_pairs,chunk)
-
-
-
-
 '''
 	run function
 '''
-if True:
-	collect_ngram_patterns( pair_path
-		                  , pattern_path
-		                  , no_data_path
-		                  , ngram_dir
-		                  , out_dirs['outputs']
-		                  , word_dirs['log']
-		                  , refresh = True
-		                  , debug   = False)
+collect_ngram_patterns( pair_path
+	                  , pattern_path
+	                  , no_data_path
+	                  , ngram_dir
+	                  , out_dirs['outputs']
+	                  , word_dirs['log']
+	                  , refresh = True
+	                  , debug   = False)
 
