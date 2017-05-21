@@ -172,10 +172,17 @@ def collect_pairs( pairs
 
                 writer.tell('collecting data for ' + s + ', ' + t)
 
+                print('=================== There ==============================')
+                print(out)
+
                 patts = out['regexp']
 
-                s_stronger_t = [gram + '\t' + n for r in patts[s + '>' + t] if r.match(gram)]
-                s_weaker_t   = [gram + '\t' + n for r in patts[s + '<' + t] if r.match(gram)]
+
+                print('=================== HERE ==============================')
+                print patts
+
+                s_stronger_t = [gram + '\t' + n for _,r in patts[s + '>' + t] if r.match(gram)]
+                s_weaker_t   = [gram + '\t' + n for _,r in patts[s + '<' + t] if r.match(gram)]
 
                 out[s + '>' + t] += s_stronger_t             
                 out[s + '<' + t] += s_weaker_t
