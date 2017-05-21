@@ -102,7 +102,7 @@ def run_auto_main(tot, work_dir, script_dir):
 
 	cnt = 0
 
-	for k in xrange(tot-1):
+	for k in xrange(tot):
 		src_path = os.path.join(work_dir, 'ngram-0.py')
 		tgt_path = os.path.join(script_dir, 'ngram-' + str(cnt) + '.py')
 		src_strs = ['batch = 0']
@@ -128,7 +128,7 @@ def run_auto_sh(tot, work_dir, shell_dir):
 
 	cnt = 0
 
-	for k in xrange(tot-1):
+	for k in xrange(tot):
 		src_path = os.path.join(work_dir,'ngram-0.sh')
 		tgt_path = os.path.join(shell_dir,'ngram-' + str(cnt) + '.sh')
 		src_strs = ['ngram-0']
@@ -144,7 +144,7 @@ def run_auto_sh(tot, work_dir, shell_dir):
 '''
 
 # run this to make pairs
-if True:
+if False:
 	num_jobs = split_into_pairs( 100000
 		                       , get_path('ppdb')
 		                       , word_dirs['all-pairs']
@@ -154,7 +154,7 @@ if True:
 
 # run this after the pairs have been made
 if True:
-	num_jobs = len([p for p in os.listdir(dirs['pairs']) if '.txt' in p])
+	num_jobs = len([p for p in os.listdir(word_dirs['all-pairs']) if '.txt' in p])
 
 	print('\n\t>> found ' + str(num_jobs) + ' jobs') 
 	run_auto_main( num_jobs 
