@@ -43,7 +43,8 @@ def split_into_pairs(size, gr_path, output_dir, save = False):
 	'''
 		get all words
 	'''
-	test_words = join(join(ccb + bansal + anne_sm + anne_lg + bcs))
+	# test_words = join(join(ccb + bansal + anne_sm + anne_lg + bcs))
+	test_words = join(join(anne_sm + anne_lg))
 	_, words   = load_as_dict(gr_path)
 
 	'''
@@ -143,23 +144,26 @@ def run_auto_sh(tot, work_dir, shell_dir):
 '''
 
 # run this to make pairs
-if False:
+if True:
 	num_jobs = split_into_pairs( 100000
 		                       , get_path('ppdb')
 		                       , word_dirs['all-pairs']
 		                       , save = True)
 
+	print('\n\t>> constructed ' + str(num_jobs) + ' jobs')
+
 # run this after the pairs have been made
-num_jobs = len([p for p in os.listdir(dirs['pairs']) if '.txt' in p])
+if True:
+	num_jobs = len([p for p in os.listdir(dirs['pairs']) if '.txt' in p])
 
-print('\n\t>> found ' + str(num_jobs) + ' jobs') 
-run_auto_main( num_jobs 
-	 		 , work_dir
-	 		 , script_dir)
+	print('\n\t>> found ' + str(num_jobs) + ' jobs') 
+	run_auto_main( num_jobs 
+		 		 , work_dir
+		 		 , script_dir)
 
-run_auto_sh  ( num_jobs 
-	         , work_dir
-	         , shell_dir )
+	run_auto_sh  ( num_jobs 
+		         , work_dir
+		         , shell_dir )
 
 
 

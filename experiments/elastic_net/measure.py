@@ -14,7 +14,8 @@ from app     import *
 from utils   import *
 from scripts import *
 from scripts.graph import *
-from experiments.argmax import *
+from experiments.argmax     import *
+from experiments.argmax_ilp import *
 from experiments.rank_all import *
 from experiments.elastic_net import *
 
@@ -155,12 +156,12 @@ def E_binomial(h,n,alpha,beta):
 '''
 def decide_fn_model(model, phi):
 	def fn(gold):
-		return argmax_Omega(join(gold), Pr_s_le_t_model(model,phi))
+		return argmax_Omega(gold, Pr_s_le_t_model(model,phi))
 	return fn
 
 def decide_fn_both(G,model,phi):
 	def fn(gold):
-		return argmax_Omega(join(gold), Pr_s_le_t_combo(G,model,phi))
+		return argmax_Omega(gold, Pr_s_le_t_combo(G,model,phi))
 	return fn
 
 ############################################################
@@ -169,14 +170,23 @@ def decide_fn_both(G,model,phi):
 '''
 def decide_fn_model_Binomial(model, phi, num_tosses):
 	def fn(gold):
-		return argmax_Omega(join(gold), Q_s_le_t_model(model,phi, num_tosses))
+		return argmax_Omega(gold, Q_s_le_t_model(model,phi, num_tosses))
 	return fn
 
 def decide_fn_both_binomial(G, model, phi):
 	def fn(gold):
-		return argmax_Omega(join(gold), Q_s_le_t_combo(G,model,phi))
+		return argmax_Omega(gold, Q_s_le_t_combo(G,model,phi))
 	return fn
 
+
+############################################################
+'''
+	Decision function using equivalent ilp formulation
+'''
+def decide_fn_both_binomial_ilp(G, model, phi):
+	def fn(gold):
+		return argmax_ILP(gold, Q_s_le_t_combo(G,model,phi))
+	return fn
 
 
 

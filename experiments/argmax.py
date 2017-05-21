@@ -23,7 +23,7 @@ from scripts.graph import *
 	@Use: given words and pairwise judguments from logistic regression
 		  output most likely permutation
 
-	@Input: - words  :: [String]
+	@Input: - gold   :: [[String]]
 			- probs  :: Dict (String,String) _
 				with key:
 					(word1, word2)
@@ -32,8 +32,9 @@ from scripts.graph import *
 					- yhat
 	@Output: ranked :: [[String]] 
 '''
-def argmax_Omega(words, Pr_s_le_t):
+def argmax_Omega(gold, Pr_s_le_t):
 
+	words      = join(gold)
 	Omega      = Pi(words)
 	probs      = [ (o, prob_om(o,Pr_s_le_t)) for o in Omega ]
 	probs      = [ (o, p, raw) for o,(p,raw) in probs ]
@@ -72,7 +73,6 @@ def Pi(words):
 	Om = list(itertools.permutations(words))
 	Om.sort()
 	Om.reverse()     # NOTE the set is reversed
-
 	return Om
 
 
