@@ -61,7 +61,7 @@ readme = 'model:\t\t' + winner              + '\n' \
 	   + 'inference tosses:\t1'             + '\n' \
 	   + 'goldset:\t anne'
 
-
+ 
 with open( os.path.join(results_dir,'readme.txt'), 'wb' ) as h:
 	h.write(readme)
 
@@ -72,6 +72,9 @@ if True:
 		     , results_dir
 		     , save = SAVE
 		     ) 
+
+
+
 
 
 
