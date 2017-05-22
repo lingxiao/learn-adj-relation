@@ -16,6 +16,7 @@ def read_gold(path):
   gold = [rs.split('\n') for rs in gold if rs.split('\n')]
   gold = [rs[1:-1] for rs in gold]
   gold = [[r.split(', ') for r in val] for val in gold]
+  gold = [[[w.strip() for w in ws] for ws in cluster] for cluster in gold]
   return gold
 
 '''

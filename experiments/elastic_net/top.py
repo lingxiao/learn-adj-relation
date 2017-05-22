@@ -161,12 +161,10 @@ def make_word2index():
 		encode(G_ppng, num, work_dir['assets'])
 	
 	print('\n\t>> [ Making w2idx, id2w dicts for single-adverb-pattern ]')
-	for num in [1,2]:
+	for num in [1,2]:	
 		encode(G_ppng_1, num, work_dir['assets'])
 
 # make_word2index()
-
-
 
 
 
