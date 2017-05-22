@@ -35,7 +35,37 @@ while we used the actual probabilty value $p$ output by the logistic regression 
 \right.
 \]
 
-This captures our intuition that the prediction output by the model is less accruate than that of the actual data. Results are displayed below. 
+This captures our intuition that the prediction output by the model is less accruate than that of the actual data. Additionally, we also constructed a version of the Turk and Mohit's clusters where ties are removed. We reasoned that since our models are designed to predict ordering, while ties can be interepreted as synonyms, clusters generated without ties may give a more ``fair" representation of how well the models perform. Results are displayed below. 
+
+\begin{table}
+\small
+\centering
+\begin{tabular}{|l|cc|cc|cc|}
+	% 
+	\hline 
+	& \multicolumn{2}{c|}{Elastic Net Regression } 
+	& \multicolumn{2}{c|}{$l_1$-Logistic Regression} \\
+	\hline 
+	\bf Gold Set
+	& \bf Pairwise & \bf Avg. $\tau$  
+	& \bf Pairwise & \bf Avg. $\tau$  \\ 
+	\hline
+	% 
+	BCS          & 90.0\% & 0.81 & 00.0\%  &  0.00 \\
+	Turk         & 75.0\% & 0.62 & 00.0\%  &  0.00 \\
+	Turk no-tie  & 81.0\% & 0.63 & 00.0\%  &  0.00 \\
+	Mohit        & 74.0\% & 0.61 & 00.0\%  &  0.00 \\
+	Mohit no-tie & 76.0\% & 0.52 & 00.0\%  &  0.00 \\
+	% 
+	\hline
+\end{tabular}
+\caption{\label{font-table}. Results for the two best models combined with pointwise estimation baseline in the remedial fashion. }
+\end{table}
+
+
+\subsection{Beta-Binomial Solution}
+
+
 
 
 
