@@ -40,6 +40,7 @@ work_dir = locate_dirs( get_path('baseline')
 	                    , 'script'
 	                    , 'shells'
 	                    , 'no-data'
+	                    , 'has-data'
 	                    ] 
 	                  )
 

@@ -196,12 +196,12 @@ def reverse_path(path):
 '''
 def decide_fn(G):
 	def fn(gold):
-		return argmax_Omega(join(gold), Pr_s_le_t(G))
+		return argmax_Omega(gold, Pr_s_le_t(G))
 	return fn
 
 def decide_fn_neigh(G):
 	def fn(gold):
-		return argmax_Omega(join(gold), Pr_s_le_t_union_neigh(G))
+		return argmax_Omega(gold, Pr_s_le_t_union_neigh(G))
 	return fn	
 
 '''
@@ -213,7 +213,7 @@ def decide_fn_uniform():
 		return 0.5
 
 	def fn(gold):
-		return argmax_Omega(join(gold), uniform_s_le_t)
+		return argmax_Omega(gold, uniform_s_le_t)
 	return fn
 
 '''
@@ -221,6 +221,6 @@ def decide_fn_uniform():
 '''
 def decide_fn_shortest_path(G):
 	def fn(gold):
-		return argmax_Omega(join(gold), Pr_s_le_t_shortest_path(G))
+		return argmax_Omega(gold, Pr_s_le_t_shortest_path(G))
 	return fn
 

@@ -55,6 +55,7 @@ results_dir = os.path.join( work_dir['results']
 if not os.path.exists(results_dir):
 	os.mkdir(results_dir)
 
+
 readme = 'model:\t\t' + winner              + '\n' \
 	   + 'inference data set:\t' + data_set + '\n' \
 	   + 'inference tosses:\t1'             + '\n' \

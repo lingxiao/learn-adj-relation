@@ -33,17 +33,17 @@ from experiments.baseline import *
 		    output dictionary and write each dict to out_dir
 '''
 
-def make_all_no_data_pairs( in_paths, out_dir ):
+def make_all_pairs( in_paths, out_dir, to_pairs, suffix ):
 
 	for in_path in in_paths:
 
 		in_name   = in_path.split('/')[-1]
 		in_name,_ = in_name.split('.')
-		out_path_stem  = os.path.join(out_dir, in_name + '-no-data')
+		out_path_stem  = os.path.join(out_dir, in_name + suffix)
 
-		print('\n\t>> find_no_data_pairs for ' + in_name)
+		print('\n\t>> make_all_pairs for ' + in_name)
 
-		find_no_data_pairs( in_path, out_path_stem )
+		to_pairs( in_path, out_path_stem )
 
 '''
 	@Use: given in_path to results,
@@ -72,18 +72,60 @@ def find_no_data_pairs( in_path, out_path_stem ):
 			if p == 0.5:
 				if (s,t) in pairs:
 					no_data_pairs.append((s,t))
-				celse:
+				else:
 					no_data_pairs.append((t,s))
 
 		if no_data_pairs:
 			no_data[n] = no_data_pairs
 
+	print('\n\t>> saving to ' + out_path_stem)		
 	write_gold(out_path_stem + '.txt', no_data)
 
 	with open(out_path_stem + '.pkl','wb') as h:
 		pickle.dump(no_data, h)
 
 	return no_data
+
+'''
+	@Use: given in_path to results,
+		  output subset of results where there is data
+
+	@Input:  - in_path  :: String
+			 - out_path :: String
+
+	@Output: IO (Dict String [(String,String)])
+
+		    output dictionary and write it to out_path
+'''
+def find_has_data_pairs( in_path, out_path_stem ):
+
+	with open(in_path,'rb') as h:
+		test = pickle.load(h)
+
+	has_data = dict()
+
+	for n,cluster in test['ranking'].iteritems():
+
+		pairs = to_le_than(cluster['gold'])
+		has_data_pairs = []
+
+		for s,t,p in cluster['raw']['link-probs']:
+			if p != 0.5:
+				if (s,t) in pairs:
+					has_data_pairs.append((s,t))
+				else:
+					has_data_pairs.append((t,s))
+
+		if has_data_pairs:
+			has_data[n] = has_data_pairs
+
+	print('\n\t>> saving to ' + out_path_stem)		
+	write_gold(out_path_stem + '.txt', has_data)
+
+	with open(out_path_stem + '.pkl','wb') as h:
+		pickle.dump(has_data, h)
+
+	return has_data
 
 ############################################################
 '''
@@ -127,7 +169,11 @@ test_names  = ['ccb', 'moh','bcs']
 names = [ stem + '-' + g + '-' + t for g in graph_names for t in test_names]
 paths = [ os.path.join(work_dir['results'],p + '.pkl') for p in names ]
 
-make_all_no_data_pairs( paths, work_dir['no-data'] )
+if False:
+	print('\n>> make_all_pairs for find_no_data_pairs')
+	make_all_pairs( paths, work_dir['no-data'], find_no_data_pairs, '-no-data' )
 
-
-
+if True:
+	print('\n>> make_all_pairs for find_has_data_pairs')
+	make_all_pairs( paths, work_dir['has-data'], find_has_data_pairs, '-has-data' )
+	

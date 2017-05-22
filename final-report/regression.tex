@@ -80,7 +80,7 @@ Given words $s$ and $t$, and their representation $\pmb{x} = g(\phi(s), \phi(t))
 		\hat{y} = \widehat{\sbeta}^{T} \pmb{x},
 	\]
 
-then we can define:
+where $\widehat{\sbeta}$ is the elastic net model, then we can define:
 
 \[   
 \Prob[s < x ] = \left\{
@@ -91,7 +91,9 @@ then we can define:
 \right. 
 \]
 
-for an appropriate threshold $\delta$. Again we discard the value of $\hat{y}$ and define the probability by fiat.
+for an appropriate threshold $\delta$. Again we discard the value of $\hat{y}$ and define the probability by fiat. In the case of penalized logistic regression, we use the actual probability output by the model.
+
+
 \end{definition}
 
 \subsection{Feature Representations}
@@ -231,7 +233,7 @@ In addition to varying the feature representations, we also varied the emphasis 
 	% 
 	\hline 
 	& \multicolumn{2}{c|}{Elastic Net Regression } 
-	& \multicolumn{2}{c|}{$l_1$ Logistic Regression} \\
+	& \multicolumn{2}{c|}{$l_1$-Logistic Regression} \\
 	\hline 
 	\bf Gold Set
 	& \bf Pairwise & \bf Avg. $\tau$  
@@ -247,8 +249,49 @@ In addition to varying the feature representations, we also varied the emphasis 
 \caption{\label{font-table}. Results for the two best models. Note the performance on the validation and test sets are comparable between the two models. It is also curious to note that the models performed better on the test set than the validation set. In fact, no model performed better than $70\%$ on the validation set. }
 \end{table}
 
+All models were implemented using Python's Scikit-learn library. The best performing $l_1$-penalized logistic regression model has a constant $C$ of $0.4$. While the best performing elastic net model has an $\alpha$ of $0.9$, and $l_1$ of $0.1$. 
 
-All models were implemented using Python's Scikit-learn library. The best performing $l_1$-penalized logistic regression model has a constant $C$ of $0.4$. While the best performing elastic net model has an $\alpha$ of $0.9$, and $l_1$ of $0.1$.
+One natural question we can ask is how well the model performs on the pairs of adjective with no direct comparisons, versus how well the baseline performs on the set of pairs with direct comparisons. Table 3 displays the baseline one pairs with direct comparisons. Overall, we see that the model does $9\%$ worse on the Turk set relative to the baseline using PPDB and N-gram data, and does only $2\%$ worse relative to the baseline on Mohit's clusters.
+
+
+
+\begin{table}
+\small
+\centering
+\begin{tabular}{|l|cc|cc|cc|}
+	% 
+	\hline 
+	& \multicolumn{2}{c|}{N-gram} 
+	& \multicolumn{2}{c|}{PPDB} 
+	& \multicolumn{2}{c|}{PPDB + N-gram} \\
+	\hline 
+	\bf Test set
+	& \bf Pairwise & \bf Avg. $\tau$ 
+	& \bf Pairwise & \bf Avg. $\tau$ 
+	& \bf Pairwise & \bf Avg. $\tau$ \\
+	\hline
+	% 
+	BCS   & 100.0\% & 1.00 & 97.0\% &  0.93 & 97.0\% & 0.94 \\
+	% 
+	Turk  & 78.0\%  & 0.57 & 69.5\% &  0.38 & 70.0\% & 0.40 \\
+	% 
+	Mohit & 84.0\%  & 0.67 & 48.2\% & -0.04 & 74.3\% & 0.49 \\
+	% 
+	\hline
+\end{tabular}
+\caption{\label{font-table} Results across all datasets for pairs of gold standards for which direct comparison exists. Note how performance is higher when using N-grams alone across all gold standards. Note how PPDB data alone fails to do better than random on Mohit's clusters, even though direct direct comparisons exists for the pairs in these clusters. Suggesting the data that exists for Mohit's pairs are too noisy to give useful information. }
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
