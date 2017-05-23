@@ -1,0 +1,66 @@
+anne-98.txt
+2017-05-23 11:20:34.875843
+------------------------------------------------
+average pairwise : 64.0%
+average tau:  0.29
+average |tau|:0.29
+------------------------------------------------
+=== tau:
+0.285714285714
+
+=== pairwise accuracy:
+0.642857142857
+
+=== gold: 
+['sound']
+['right']
+['decent']
+['smooth']
+['appropriate']
+['reasonable']
+['proper']
+['correct']
+
+=== algo: 
+['smooth']
+['right']
+['appropriate']
+['sound']
+['reasonable']
+['correct']
+['proper']
+['decent']
+
+prob*:	8.80319081471e-06
+link-probs:
+	('smooth', 'right', 0.5471778430273637)
+	('smooth', 'appropriate', 0.598310531204707)
+	('smooth', 'sound', 0.5668971106197155)
+	('smooth', 'reasonable', 0.5911567390479219)
+	('smooth', 'correct', 0.6615091766637681)
+	('smooth', 'proper', 0.6616417086642197)
+	('smooth', 'decent', 0.49220874246568846)
+	('right', 'appropriate', 0.5613816303874142)
+	('right', 'sound', 0.8333333333333334)
+	('right', 'reasonable', 0.8)
+	('right', 'correct', 0.75)
+	('right', 'proper', 0.8181818181818182)
+	('right', 'decent', 0.75)
+	('appropriate', 'sound', 0.6666666666666666)
+	('appropriate', 'reasonable', 0.48943902617392826)
+	('appropriate', 'correct', 0.8)
+	('appropriate', 'proper', 0.8)
+	('appropriate', 'decent', 0.6666666666666666)
+	('sound', 'reasonable', 0.9642857142857143)
+	('sound', 'correct', 0.6548382437036282)
+	('sound', 'proper', 0.6551361756802586)
+	('sound', 'decent', 0.42668724699309263)
+	('reasonable', 'correct', 0.64969094076826)
+	('reasonable', 'proper', 0.6501118461379507)
+	('reasonable', 'decent', 0.6666666666666666)
+	('correct', 'proper', 0.625)
+	('correct', 'decent', 0.75)
+	('proper', 'decent', 0.6666666666666666)
+
+------------------------------------------------
+=== END
