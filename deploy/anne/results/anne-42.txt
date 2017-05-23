@@ -1,0 +1,77 @@
+anne-42.txt
+2017-05-22 23:01:51.038613
+------------------------------------------------
+average pairwise : 29.0%
+average tau:  -0.42
+average |tau|:0.47
+------------------------------------------------
+=== tau:
+-0.333333333333
+
+=== pairwise accuracy:
+0.333333333333
+
+=== gold: 
+['terrible']
+['rude']
+['horrible']
+
+=== algo: 
+['rude']
+['horrible']
+['terrible']
+
+=== raw:
+('prob*', 0.18583772148626618)
+('link-probs', [('rude', 'horrible', 0.6666666666666666), ('rude', 'terrible', 0.47786842667897017), ('horrible', 'terrible', 0.5833333333333334)])
+
+------------------------------------------------
+=== tau:
+-1.0
+
+=== pairwise accuracy:
+0.0
+
+=== gold: 
+['sweet']
+['tasty']
+['delicious']
+
+=== algo: 
+['delicious']
+['tasty']
+['sweet']
+
+=== raw:
+('prob*', 0.3968253968253968)
+('link-probs', [('delicious', 'tasty', 0.7142857142857143), ('delicious', 'sweet', 0.8333333333333334), ('tasty', 'sweet', 0.6666666666666666)])
+
+------------------------------------------------
+=== tau:
+0.0666666666667
+
+=== pairwise accuracy:
+0.533333333333
+
+=== gold: 
+['little']
+['slow']
+['few']
+['enough']
+['short']
+['small']
+
+=== algo: 
+['small']
+['little']
+['enough']
+['slow']
+['few']
+['short']
+
+=== raw:
+('prob*', 0.00026059423583963055)
+('link-probs', [('small', 'little', 0.6875), ('small', 'enough', 0.6209754213277228), ('small', 'slow', 0.6666666666666666), ('small', 'few', 0.625), ('small', 'short', 0.6666666666666666), ('little', 'enough', 0.5415707489918985), ('little', 'slow', 0.4792802632485884), ('little', 'few', 0.5423322984423238), ('little', 'short', 0.5188773314851066), ('enough', 'slow', 0.75), ('enough', 'few', 0.5008130585579075), ('enough', 'short', 0.4766468366394187), ('slow', 'few', 0.5611220391531367), ('slow', 'short', 0.5390472516870808), ('few', 'short', 0.5555555555555556)])
+
+------------------------------------------------
+=== END
