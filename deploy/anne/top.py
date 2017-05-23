@@ -6,6 +6,7 @@
 ############################################################
 
 import os
+import pickle
 import shutil
 from utils   import *
 from scripts import *
@@ -66,9 +67,9 @@ def run_auto_sh(tot, work_dir, shell_dir):
 
 ############################################################
 '''
-	run all
+	generate py and shell scripts
 '''
-if True:
+if False:
 	num_jobs = len(files)
 
 	print('\n\t>> found ' + str(num_jobs) + ' jobs') 
@@ -80,6 +81,18 @@ if True:
 		 		 , dirs['root']
 		         , dirs['shells'])
 
+
+############################################################
+'''
+	combine results into one file
+'''
+results_dir = dirs['results']
+paths       = [os.path.join(results_dir, p) for p in os.listdir(results_dir) if 'pkl' in p]
+
+path = paths[1]
+
+with open(path,'rb') as h:
+	d = pickle.load(h)
 
 
 
