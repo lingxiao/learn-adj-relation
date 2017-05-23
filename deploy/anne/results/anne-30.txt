@@ -1,0 +1,37 @@
+anne-30.txt
+2017-05-23 09:38:38.495435
+------------------------------------------------
+average pairwise : 43.0%
+average tau:  -0.14
+average |tau|:0.14
+------------------------------------------------
+=== tau:
+-0.142857142857
+
+=== pairwise accuracy:
+0.428571428571
+
+=== gold: 
+['scary']
+['horrendous']
+['disgusting']
+['outrageous']
+['horrible']
+['awful']
+['obnoxious']
+
+=== algo: 
+['horrible']
+['scary']
+['obnoxious']
+['awful']
+['horrendous']
+['outrageous']
+['disgusting']
+
+=== raw:
+('prob*', 5.8231759938847133e-05)
+('link-probs', [('horrible', 'scary', 0.5136952253704471), ('horrible', 'obnoxious', 0.6546027945626723), ('horrible', 'awful', 0.5384615384615384), ('horrible', 'horrendous', 0.875), ('horrible', 'outrageous', 0.6497779873121535), ('horrible', 'disgusting', 0.6), ('scary', 'obnoxious', 0.652534268701693), ('scary', 'awful', 0.8), ('scary', 'horrendous', 0.6453325050698048), ('scary', 'outrageous', 0.6469329933520256), ('scary', 'disgusting', 0.6560278725958418), ('obnoxious', 'awful', 0.6666666666666666), ('obnoxious', 'horrendous', 0.46433803975548776), ('obnoxious', 'outrageous', 0.47100137726027164), ('obnoxious', 'disgusting', 0.5243942065116477), ('awful', 'horrendous', 0.8571428571428571), ('awful', 'outrageous', 0.8), ('awful', 'disgusting', 0.6666666666666666), ('horrendous', 'outrageous', 0.5069210016794458), ('horrendous', 'disgusting', 0.5582324415208589), ('outrageous', 'disgusting', 0.6666666666666666)])
+
+------------------------------------------------
+=== END
