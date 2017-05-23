@@ -1,0 +1,31 @@
+anne-16.txt
+2017-05-23 10:39:08.746576
+------------------------------------------------
+average pairwise : 100.0%
+average tau:  1.0
+average |tau|:1.0
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['available']
+['affordable']
+['accessible']
+
+=== algo: 
+['available']
+['affordable']
+['accessible']
+
+prob*:	0.540452168939
+link-probs:
+	('available', 'affordable', 0.8333333333333334)
+	('available', 'accessible', 0.9977452085682075)
+	('affordable', 'accessible', 0.650008235727586)
+
+------------------------------------------------
+=== END

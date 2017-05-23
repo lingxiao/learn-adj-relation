@@ -1,0 +1,31 @@
+anne-13.txt
+2017-05-23 10:39:08.448046
+------------------------------------------------
+average pairwise : 67.0%
+average tau:  0.33
+average |tau|:0.33
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['necessary']
+['worth']
+['unnecessary']
+
+=== algo: 
+['necessary']
+['unnecessary']
+['worth']
+
+prob*:	0.243782148834
+link-probs:
+	('necessary', 'unnecessary', 0.8333333333333334)
+	('necessary', 'worth', 0.5322831783110787)
+	('unnecessary', 'worth', 0.5495920038831316)
+
+------------------------------------------------
+=== END

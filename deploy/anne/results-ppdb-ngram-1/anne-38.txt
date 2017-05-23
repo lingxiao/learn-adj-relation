@@ -1,0 +1,36 @@
+anne-38.txt
+2017-05-23 10:39:08.817743
+------------------------------------------------
+average pairwise : 33.0%
+average tau:  -0.33
+average |tau|:0.33
+------------------------------------------------
+=== tau:
+-0.333333333333
+
+=== pairwise accuracy:
+0.333333333333
+
+=== gold: 
+['generic']
+['popular']
+['public']
+['general']
+
+=== algo: 
+['popular']
+['general']
+['public']
+['generic']
+
+prob*:	0.0600605013953
+link-probs:
+	('popular', 'general', 0.5588211021923634)
+	('popular', 'public', 0.662842875860753)
+	('popular', 'generic', 0.6647398907732339)
+	('general', 'public', 0.6587705412962244)
+	('general', 'generic', 0.6666666666666666)
+	('public', 'generic', 0.5554064389842579)
+
+------------------------------------------------
+=== END

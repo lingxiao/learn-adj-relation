@@ -1,0 +1,31 @@
+anne-97.txt
+2017-05-23 10:39:13.660992
+------------------------------------------------
+average pairwise : 33.0%
+average tau:  -0.33
+average |tau|:0.33
+------------------------------------------------
+=== tau:
+-0.333333333333
+
+=== pairwise accuracy:
+0.333333333333
+
+=== gold: 
+['solid']
+['consistent']
+['constant']
+
+=== algo: 
+['constant']
+['solid']
+['consistent']
+
+prob*:	0.242668778992
+link-probs:
+	('constant', 'solid', 0.5632833404084701)
+	('constant', 'consistent', 0.6601773758071281)
+	('solid', 'consistent', 0.652568883027061)
+
+------------------------------------------------
+=== END

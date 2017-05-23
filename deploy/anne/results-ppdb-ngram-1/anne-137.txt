@@ -1,0 +1,42 @@
+anne-137.txt
+2017-05-23 10:39:11.059898
+------------------------------------------------
+average pairwise : 60.0%
+average tau:  0.2
+average |tau|:0.2
+------------------------------------------------
+=== tau:
+0.2
+
+=== pairwise accuracy:
+0.6
+
+=== gold: 
+['beautiful']
+['cute']
+['soft']
+['favorite']
+['nice']
+
+=== algo: 
+['beautiful']
+['nice']
+['soft']
+['cute']
+['favorite']
+
+prob*:	0.00677738288736
+link-probs:
+	('beautiful', 'nice', 0.6190476190476191)
+	('beautiful', 'soft', 0.49637830922161436)
+	('beautiful', 'cute', 0.5625)
+	('beautiful', 'favorite', 0.6603016244932238)
+	('nice', 'soft', 0.6666666666666666)
+	('nice', 'cute', 0.6)
+	('nice', 'favorite', 0.6592528409216197)
+	('soft', 'cute', 0.5113548602672292)
+	('soft', 'favorite', 0.6605674137817572)
+	('cute', 'favorite', 0.6666666666666666)
+
+------------------------------------------------
+=== END

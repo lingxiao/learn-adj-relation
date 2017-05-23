@@ -1,0 +1,36 @@
+anne-133.txt
+2017-05-23 10:39:08.715094
+------------------------------------------------
+average pairwise : 33.0%
+average tau:  -0.33
+average |tau|:0.33
+------------------------------------------------
+=== tau:
+-0.333333333333
+
+=== pairwise accuracy:
+0.333333333333
+
+=== gold: 
+['pleasant']
+['comfortable']
+['friendly']
+['helpful']
+
+=== algo: 
+['friendly']
+['helpful']
+['pleasant']
+['comfortable']
+
+prob*:	0.0447628134285
+link-probs:
+	('friendly', 'helpful', 0.5179799044358596)
+	('friendly', 'pleasant', 0.6576082618948048)
+	('friendly', 'comfortable', 0.5096966233510645)
+	('helpful', 'pleasant', 0.6554909421803911)
+	('helpful', 'comfortable', 0.49166440138906237)
+	('pleasant', 'comfortable', 0.8)
+
+------------------------------------------------
+=== END

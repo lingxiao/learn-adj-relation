@@ -1,0 +1,42 @@
+anne-49.txt
+2017-05-23 10:39:11.123339
+------------------------------------------------
+average pairwise : 10.0%
+average tau:  -0.8
+average |tau|:0.8
+------------------------------------------------
+=== tau:
+-0.8
+
+=== pairwise accuracy:
+0.1
+
+=== gold: 
+['loyal']
+['straight']
+['legit']
+['fair']
+['honest']
+
+=== algo: 
+['honest']
+['fair']
+['straight']
+['legit']
+['loyal']
+
+prob*:	0.0137820643195
+link-probs:
+	('honest', 'fair', 0.6)
+	('honest', 'straight', 0.8571428571428571)
+	('honest', 'legit', 0.8333333333333334)
+	('honest', 'loyal', 0.8)
+	('fair', 'straight', 0.75)
+	('fair', 'legit', 0.40113868938347297)
+	('fair', 'loyal', 0.5031333900259458)
+	('straight', 'legit', 0.6666666666666666)
+	('straight', 'loyal', 0.6629381020742714)
+	('legit', 'loyal', 0.6008698248063756)
+
+------------------------------------------------
+=== END

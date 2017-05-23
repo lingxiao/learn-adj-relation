@@ -1,0 +1,36 @@
+anne-122.txt
+2017-05-23 10:39:09.087110
+------------------------------------------------
+average pairwise : 17.0%
+average tau:  -0.67
+average |tau|:0.67
+------------------------------------------------
+=== tau:
+-0.666666666667
+
+=== pairwise accuracy:
+0.166666666667
+
+=== gold: 
+['disappointed']
+['excited']
+['glad']
+['happy']
+
+=== algo: 
+['happy']
+['glad']
+['disappointed']
+['excited']
+
+prob*:	0.043240946
+link-probs:
+	('happy', 'glad', 0.6363636363636364)
+	('happy', 'disappointed', 0.5307056122793654)
+	('happy', 'excited', 0.6)
+	('glad', 'disappointed', 0.5052466825788973)
+	('glad', 'excited', 0.6503930136127777)
+	('disappointed', 'excited', 0.6493899495302519)
+
+------------------------------------------------
+=== END

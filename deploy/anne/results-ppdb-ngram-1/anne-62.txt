@@ -1,0 +1,42 @@
+anne-62.txt
+2017-05-23 10:39:15.207093
+------------------------------------------------
+average pairwise : 40.0%
+average tau:  -0.2
+average |tau|:0.2
+------------------------------------------------
+=== tau:
+-0.2
+
+=== pairwise accuracy:
+0.4
+
+=== gold: 
+['scrumptious']
+['tasty']
+['yummy']
+['delicious']
+['exquisite']
+
+=== algo: 
+['delicious']
+['tasty']
+['yummy']
+['exquisite']
+['scrumptious']
+
+prob*:	0.0165098021831
+link-probs:
+	('delicious', 'tasty', 0.7142857142857143)
+	('delicious', 'yummy', 0.6666666666666666)
+	('delicious', 'exquisite', 0.7142857142857143)
+	('delicious', 'scrumptious', 0.8333333333333334)
+	('tasty', 'yummy', 0.6111565024334914)
+	('tasty', 'exquisite', 0.6666666666666666)
+	('tasty', 'scrumptious', 0.6564011971378078)
+	('yummy', 'exquisite', 0.5674109807507325)
+	('yummy', 'scrumptious', 0.6666666666666666)
+	('exquisite', 'scrumptious', 0.5757493108533985)
+
+------------------------------------------------
+=== END

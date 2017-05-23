@@ -1,0 +1,42 @@
+anne-40.txt
+2017-05-23 10:39:12.742630
+------------------------------------------------
+average pairwise : 20.0%
+average tau:  -0.6
+average |tau|:0.6
+------------------------------------------------
+=== tau:
+-0.6
+
+=== pairwise accuracy:
+0.2
+
+=== gold: 
+['successful']
+['efficient']
+['adequate']
+['competitive']
+['effective']
+
+=== algo: 
+['competitive']
+['adequate']
+['effective']
+['efficient']
+['successful']
+
+prob*:	0.00875303789618
+link-probs:
+	('competitive', 'adequate', 0.5328793387783418)
+	('competitive', 'effective', 0.6589562423612553)
+	('competitive', 'efficient', 0.6463046658458139)
+	('competitive', 'successful', 0.6086897574737795)
+	('adequate', 'effective', 0.655295722520308)
+	('adequate', 'efficient', 0.6371816866725957)
+	('adequate', 'successful', 0.5870035372977801)
+	('effective', 'efficient', 0.65)
+	('effective', 'successful', 0.6363636363636364)
+	('efficient', 'successful', 0.625)
+
+------------------------------------------------
+=== END

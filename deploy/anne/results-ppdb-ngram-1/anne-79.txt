@@ -1,0 +1,42 @@
+anne-79.txt
+2017-05-23 10:39:20.457754
+------------------------------------------------
+average pairwise : 80.0%
+average tau:  0.6
+average |tau|:0.6
+------------------------------------------------
+=== tau:
+0.6
+
+=== pairwise accuracy:
+0.8
+
+=== gold: 
+['numerous']
+['many']
+['multiple']
+['frequent']
+['countless']
+
+=== algo: 
+['many']
+['numerous']
+['frequent']
+['multiple']
+['countless']
+
+prob*:	0.0159512114356
+link-probs:
+	('many', 'numerous', 0.75)
+	('many', 'frequent', 0.5935630305500479)
+	('many', 'multiple', 0.8)
+	('many', 'countless', 0.75)
+	('numerous', 'frequent', 0.5358365506039232)
+	('numerous', 'multiple', 0.6666666666666666)
+	('numerous', 'countless', 0.6612302192319764)
+	('frequent', 'multiple', 0.6294975727100551)
+	('frequent', 'countless', 0.658326470006451)
+	('multiple', 'countless', 0.6100777247966906)
+
+------------------------------------------------
+=== END

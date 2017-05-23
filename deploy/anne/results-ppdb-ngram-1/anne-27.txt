@@ -1,0 +1,31 @@
+anne-27.txt
+2017-05-23 10:39:04.394109
+------------------------------------------------
+average pairwise : 100.0%
+average tau:  1.0
+average |tau|:1.0
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['miserable']
+['bitter']
+['desperate']
+
+=== algo: 
+['miserable']
+['bitter']
+['desperate']
+
+prob*:	0.224232763561
+link-probs:
+	('miserable', 'bitter', 0.6606637100831053)
+	('miserable', 'desperate', 0.6615230626124041)
+	('bitter', 'desperate', 0.5130664634818463)
+
+------------------------------------------------
+=== END

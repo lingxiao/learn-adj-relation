@@ -1,0 +1,31 @@
+anne-23.txt
+2017-05-23 10:39:04.382399
+------------------------------------------------
+average pairwise : 33.0%
+average tau:  -0.33
+average |tau|:0.33
+------------------------------------------------
+=== tau:
+-0.333333333333
+
+=== pairwise accuracy:
+0.333333333333
+
+=== gold: 
+['enjoyable']
+['pleasant']
+['entertaining']
+
+=== algo: 
+['pleasant']
+['entertaining']
+['enjoyable']
+
+prob*:	0.328165758696
+link-probs:
+	('pleasant', 'entertaining', 0.75)
+	('pleasant', 'enjoyable', 0.6666666666666666)
+	('entertaining', 'enjoyable', 0.6563315173911)
+
+------------------------------------------------
+=== END

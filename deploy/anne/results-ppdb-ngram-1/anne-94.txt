@@ -1,0 +1,31 @@
+anne-94.txt
+2017-05-23 10:39:13.614096
+------------------------------------------------
+average pairwise : 33.0%
+average tau:  -0.33
+average |tau|:0.33
+------------------------------------------------
+=== tau:
+-0.333333333333
+
+=== pairwise accuracy:
+0.333333333333
+
+=== gold: 
+['questionable']
+['dangerous']
+['negative']
+
+=== algo: 
+['dangerous']
+['negative']
+['questionable']
+
+prob*:	0.169369963202
+link-probs:
+	('dangerous', 'negative', 0.5657150132566956)
+	('dangerous', 'questionable', 0.5793427983127268)
+	('negative', 'questionable', 0.5167768805134437)
+
+------------------------------------------------
+=== END

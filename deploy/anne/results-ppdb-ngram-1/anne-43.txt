@@ -1,0 +1,36 @@
+anne-43.txt
+2017-05-23 10:39:09.297772
+------------------------------------------------
+average pairwise : 50.0%
+average tau:  0.0
+average |tau|:0.0
+------------------------------------------------
+=== tau:
+0.0
+
+=== pairwise accuracy:
+0.5
+
+=== gold: 
+['complimentary']
+['off']
+['free']
+['out']
+
+=== algo: 
+['off']
+['free']
+['out']
+['complimentary']
+
+prob*:	0.0457225407266
+link-probs:
+	('off', 'free', 0.5238916614109009)
+	('off', 'out', 0.5328382486035929)
+	('off', 'complimentary', 0.6571353660920706)
+	('free', 'out', 0.5092066205619573)
+	('free', 'complimentary', 0.75)
+	('out', 'complimentary', 0.6526544918628631)
+
+------------------------------------------------
+=== END

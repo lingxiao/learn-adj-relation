@@ -1,0 +1,31 @@
+anne-54.txt
+2017-05-23 10:39:12.106159
+------------------------------------------------
+average pairwise : 100.0%
+average tau:  1.0
+average |tau|:1.0
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['impressed']
+['overwhelmed']
+['shocked']
+
+=== algo: 
+['impressed']
+['overwhelmed']
+['shocked']
+
+prob*:	0.246252634127
+link-probs:
+	('impressed', 'overwhelmed', 0.6513063238270177)
+	('impressed', 'shocked', 0.6604432161551882)
+	('overwhelmed', 'shocked', 0.5724797196456799)
+
+------------------------------------------------
+=== END

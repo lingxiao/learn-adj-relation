@@ -1,0 +1,42 @@
+anne-42.txt
+2017-05-23 10:39:10.927713
+------------------------------------------------
+average pairwise : 10.0%
+average tau:  -0.8
+average |tau|:0.8
+------------------------------------------------
+=== tau:
+-0.8
+
+=== pairwise accuracy:
+0.1
+
+=== gold: 
+['comparable']
+['similar']
+['like']
+['same']
+['equal']
+
+=== algo: 
+['equal']
+['like']
+['same']
+['similar']
+['comparable']
+
+prob*:	0.0147811434103
+link-probs:
+	('equal', 'like', 0.6401023833012989)
+	('equal', 'same', 0.7264791464597479)
+	('equal', 'similar', 0.6666666666666666)
+	('equal', 'comparable', 0.6666666666666666)
+	('like', 'same', 0.9988399071925754)
+	('like', 'similar', 0.6)
+	('like', 'comparable', 0.6666666666666666)
+	('same', 'similar', 0.5204690541928464)
+	('same', 'comparable', 0.4814987880392971)
+	('similar', 'comparable', 0.7142857142857143)
+
+------------------------------------------------
+=== END

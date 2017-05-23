@@ -1,0 +1,42 @@
+anne-58.txt
+2017-05-23 10:39:15.584837
+------------------------------------------------
+average pairwise : 60.0%
+average tau:  0.2
+average |tau|:0.2
+------------------------------------------------
+=== tau:
+0.2
+
+=== pairwise accuracy:
+0.6
+
+=== gold: 
+['following']
+['further']
+['next']
+['third']
+['new']
+
+=== algo: 
+['third']
+['following']
+['further']
+['new']
+['next']
+
+prob*:	0.00677034097178
+link-probs:
+	('third', 'following', 0.5836042322376039)
+	('third', 'further', 0.6569574298585498)
+	('third', 'new', 0.6582556025696006)
+	('third', 'next', 0.6609330513755358)
+	('following', 'further', 0.6390326270411143)
+	('following', 'new', 0.642548826692575)
+	('following', 'next', 0.6666666666666666)
+	('further', 'new', 0.5122721669877879)
+	('further', 'next', 0.5438553639495507)
+	('new', 'next', 0.5322072186704078)
+
+------------------------------------------------
+=== END

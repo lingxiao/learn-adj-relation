@@ -1,0 +1,42 @@
+anne-31.txt
+2017-05-23 10:39:12.635607
+------------------------------------------------
+average pairwise : 40.0%
+average tau:  -0.2
+average |tau|:0.2
+------------------------------------------------
+=== tau:
+-0.2
+
+=== pairwise accuracy:
+0.4
+
+=== gold: 
+['boring']
+['unpleasant']
+['frustrating']
+['annoying']
+['painful']
+
+=== algo: 
+['painful']
+['unpleasant']
+['boring']
+['annoying']
+['frustrating']
+
+prob*:	0.00359544005288
+link-probs:
+	('painful', 'unpleasant', 0.6666666666666666)
+	('painful', 'boring', 0.5844807223095652)
+	('painful', 'annoying', 0.5145357086353021)
+	('painful', 'frustrating', 0.5803249577316252)
+	('unpleasant', 'boring', 0.5)
+	('unpleasant', 'annoying', 0.6666666666666666)
+	('unpleasant', 'frustrating', 0.4945008272426239)
+	('boring', 'annoying', 0.6666666666666666)
+	('boring', 'frustrating', 0.4945008272426239)
+	('annoying', 'frustrating', 0.5686758952077808)
+
+------------------------------------------------
+=== END

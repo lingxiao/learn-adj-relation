@@ -1,0 +1,31 @@
+anne-9.txt
+2017-05-23 10:39:13.752012
+------------------------------------------------
+average pairwise : 100.0%
+average tau:  1.0
+average |tau|:1.0
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['professional']
+['human']
+['social']
+
+=== algo: 
+['professional']
+['human']
+['social']
+
+prob*:	0.219480436644
+link-probs:
+	('professional', 'human', 0.5061615738422925)
+	('professional', 'social', 0.6587909982822949)
+	('human', 'social', 0.6582016813598912)
+
+------------------------------------------------
+=== END

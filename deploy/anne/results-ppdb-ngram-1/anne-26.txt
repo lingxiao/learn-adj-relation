@@ -1,0 +1,36 @@
+anne-26.txt
+2017-05-23 10:39:04.597991
+------------------------------------------------
+average pairwise : 17.0%
+average tau:  -0.67
+average |tau|:0.67
+------------------------------------------------
+=== tau:
+-0.666666666667
+
+=== pairwise accuracy:
+0.166666666667
+
+=== gold: 
+['pricey']
+['inexpensive']
+['cheap']
+['expensive']
+
+=== algo: 
+['expensive']
+['inexpensive']
+['cheap']
+['pricey']
+
+prob*:	0.196453391566
+link-probs:
+	('expensive', 'inexpensive', 0.8)
+	('expensive', 'cheap', 0.8333333333333334)
+	('expensive', 'pricey', 0.75)
+	('inexpensive', 'cheap', 0.9987012987012988)
+	('inexpensive', 'pricey', 0.6634581060739814)
+	('cheap', 'pricey', 0.5929804936113441)
+
+------------------------------------------------
+=== END

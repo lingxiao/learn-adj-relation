@@ -1,0 +1,31 @@
+anne-32.txt
+2017-05-23 10:39:08.467804
+------------------------------------------------
+average pairwise : 67.0%
+average tau:  0.33
+average |tau|:0.33
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['impossible']
+['unable']
+['incompetent']
+
+=== algo: 
+['impossible']
+['incompetent']
+['unable']
+
+prob*:	0.361822397256
+link-probs:
+	('impossible', 'incompetent', 0.5815002813038429)
+	('impossible', 'unable', 0.9333333333333333)
+	('incompetent', 'unable', 0.6666666666666666)
+
+------------------------------------------------
+=== END

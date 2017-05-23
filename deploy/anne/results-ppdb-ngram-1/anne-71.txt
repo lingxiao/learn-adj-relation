@@ -1,0 +1,36 @@
+anne-71.txt
+2017-05-23 10:39:17.819521
+------------------------------------------------
+average pairwise : 33.0%
+average tau:  -0.33
+average |tau|:0.33
+------------------------------------------------
+=== tau:
+-0.333333333333
+
+=== pairwise accuracy:
+0.333333333333
+
+=== gold: 
+['convenient']
+['fitting']
+['handy']
+['ideal']
+
+=== algo: 
+['ideal']
+['fitting']
+['convenient']
+['handy']
+
+prob*:	0.0597605557327
+link-probs:
+	('ideal', 'fitting', 0.6579209018343409)
+	('ideal', 'convenient', 0.5511784310134122)
+	('ideal', 'handy', 0.6580117173127854)
+	('fitting', 'convenient', 0.6666666666666666)
+	('fitting', 'handy', 0.5008931560536287)
+	('convenient', 'handy', 0.75)
+
+------------------------------------------------
+=== END
