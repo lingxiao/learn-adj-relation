@@ -59,13 +59,70 @@ This captures our intuition that the prediction output by the model is less accr
 	% 
 	\hline
 \end{tabular}
-\caption{\label{font-table}. Results for the two best models combined with pointwise estimation baseline in the remedial fashion. Note how two models performs comparable across all gold sets. In addition, not the gold clusters with no ties enjoyed a higher pairwise accuracy but suffer a lower $\tau$ value. for i in $( ls ); 
-}
+\caption{\label{font-table}. Results for the two best models combined with pointwise estimation baseline in the remedial fashion. Note how two models performs comparable across all gold sets. In addition, not the gold clusters with no ties enjoyed a higher pairwise accuracy but suffer a lower $\tau$ value.}
 \end{table}
 
 \subsection{Solution with Beta Prior}
 
-In this section we provide a more formal variant of the remedial solution. The heart of the of the problem is that we have some prior belief about the likelihood that one adjective is weaker than another, and an updated belief after observing some data, be it direct comparison or estimation from a model. Since we are modeling each edge a Bernoulli variable with parameter $p$, the prior is then a distribution over the Bernoulli $p$, this is the Beta distribution. In this next few paragraphs, we give a brief overview of Beta-Binomial model, in particular how it applies to our problem. 
+In this section we provide a more formal variant of the remedial solution. The heart of the of the problem is that we have some prior belief about the likelihood that one adjective is weaker than another, and an updated belief after observing some data, be it direct comparison or estimation from a model. Since we are modeling each edge a Bernoulli variable with parameter $\theta$ ranging over $[0,1]$, the prior is then a distribution over the Bernoulli $\theta$, this is the Beta distribution. In this next few paragraphs, we give a brief overview of Beta-Binomial model, in particular how it applies to our problem. 
+
+It is well known that the prior the binomial and Bernoulli likelihood function is the Beta distribution with paramters $\beta_1, \beta_2 \in \{1, \ldots \}$, where we have:
+	\begin{align*}
+		\Prob[\theta | \beta_1, \beta_2 ] 
+		&= \frac{\theta^{\beta_1 - 1} (1 - \theta)^{\beta_2 - 1}}{\int_{0}^1 \mu^{\beta_1 - 1} (1 - \mu)^{\beta_2 - 1} d \mu} \\
+		&= \frac{\Gamma(\beta_1 + \beta_2)}{\Gamma(\beta_1)\Gamma(\beta_2)} \theta^{\beta_1 - 1} (1-\theta)^{\beta_2 - 1}.
+	\end{align*}
+
+The exact form of the $\Gamma$ function is beyond the scope of this introduction but the reader may select any introductory book on statistics for a refresher. 
+
+Now after observing $n$ coin tosses with $h$ heads and $t$ tails for $h + t = n$, the posterior probability over $\theta$ given some prior setting of $\beta_1$ and $\beta_2$ is:
+	\begin{align*}
+		\Prob[\theta | h, t\beta_1, \beta_2 ] 
+		&= \frac{\Prob[ h | n, \theta] \Prob[\theta |, n, \beta_1, \beta_2]}{\Prob[h|n, \beta_1 + \beta_2]} \\
+		&\propto \theta^{h + \beta_1 - 1} (1 - \theta)^{t + \beta_2 - 1},
+	\end{align*}
+
+note the posterior distribution is also a beta distribution. Now we a have the distribution $\Prob[\theta | h, t\beta_1, \beta_2 ]$, we can return the the pointwise estimation setting and ask what is the likelihood the next toss lands heads, this is exactly the posteriror mean:
+	\begin{align*}
+		\pmb{E}[\theta | h, t\beta_1, \beta_2 ]  
+		&= \int_{0}^1 \theta \Prob[\theta | h, t\beta_1, \beta_2 ] d \theta \\
+		&= \frac{\beta_1 + h}{\beta_1 + \beta_2 + n}.
+	\end{align*}
+
+Not how the last line appeals strongly to intuition and therefore can be easily used: the expected outcome of the next toss given the prior is simply the prior tosses plus the tosses observed from data. 
+
+In our setting, we fix the ratio of $\beta_1$ and $\beta_2$ so that the prior probability is exactly $1/2$, thus reflecting our ignorance. Note this is consistent with our ad-hoc setting in the remedial solution. The exactly values of $\beta_1$ and $\beta_2$ is a hyperparameter to be tuned, in practice we set $\beta_1 = \beta_2 = 1$. The coin tosses observed from data and the model are also hyperparameters. Note the more confident we are with the data, the larger the values of $h$ and $t$ should be with respect to $\beta_1$ and $\beta_2$. We experimented with a variety of values, and settled on the following settings for $h$ and $t$:
+	\begin{enumerate}
+		\item If there is an observation, then we use the raw comparison counts between the adjectives as $h$ and $t$
+		\item If there is no obervation so we are using the model, we set $h$ to be the probability that the model predicts less than, and $t = 1 - h$.
+	\end{enumerate}
+
+In informal terms, we are confident in the quality of direct comparisons, if they can be observed, and not very confident in the prediction of the model. Results for Beta-Binomal model is presented below. 
+
+\begin{table}
+\small
+\centering
+\begin{tabular}{|l|cc|cc|cc|}
+	% 
+	\hline 
+	& \multicolumn{2}{c|}{Elastic Net Regression } 
+	& \multicolumn{2}{c|}{$l_1$-Logistic Regression} \\
+	\hline 
+	\bf Gold Set
+	& \bf Pairwise & \bf Avg. $\tau$  
+	& \bf Pairwise & \bf Avg. $\tau$  \\ 
+	\hline
+	% 
+	BCS          & 00.0\% & 0.00 & 93.0\%  &  0.85 \\
+	Turk         & 00.0\% & 0.00 & 75.0\%  &  0.62 \\
+	Turk no-tie  & 00.0\% & 0.00 & 82.0\%  &  0.63 \\
+	Mohit        & 00.0\% & 0.00 & 75.0\%  &  0.61 \\
+	Mohit no-tie & 00.0\% & 0.00 & 76.0\%  &  0.53 \\
+	% 
+	\hline
+\end{tabular}
+\caption{\label{font-table}. Results for the two best models combined with pointwise estimation baseline using Beta-Binomial model.}
+\end{table}
 
 
 

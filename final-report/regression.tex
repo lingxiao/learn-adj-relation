@@ -224,7 +224,7 @@ and similarly for $\nu$. After $g$ has been applied, we also experimented with u
 
 \subsection{Results}
 
-In addition to varying the feature representations, we also varied the emphasis over each of the two penalty terms in the objective function. For the sake of brevity, we report results from the two best performing models in each method only: (1) $l_1$-penalized logistic regression model with Bernoulli representation of the top 10 most connected neighbors and (2) elastic-net regression where the feature vector is the 50 most frequent adverbs incident on the vertex and outgoing from the vertex. Note this model is learned using the data set with PPDB and N-gram comparisons and base-comparative-superlative gold sets, validated using the Turk set, and tested using Mohit's set.
+In addition to varying the feature representations, we also varied the emphasis over each of the two penalty terms in the objective function. For the sake of brevity, we report results from the two best performing models in each method only: (1) $l_1$-penalized logistic regression model with Bernoulli representation of the top 10 most connected neighbors and (2) elastic-net regression where the feature vector is the Bernoulli representation of the top 50 most connected neighbors and. Note this model is learned using the data set with PPDB and N-gram comparisons and base-comparative-superlative gold sets, validated using the Turk set, and tested using Mohit's set.
 
 \begin{table}
 \small
