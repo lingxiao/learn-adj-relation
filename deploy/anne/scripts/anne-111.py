@@ -32,7 +32,7 @@ print('\n\t>> loading model from ' + winner)
 with open(path,'rb') as h:
 	model = pickle.load(h)
 
-data_set   = 'ppdb-1'
+data_set   = 'ppdb-ngram-1'
 num_neigh  = 10
 
 fix, nu = 'HT' , nu_coin( GRAPH[data_set], num_neigh )
@@ -45,7 +45,7 @@ SAVE    = True
 '''
 	load data and deploy root
 '''
-dirs  = working_dirs('anne',['scripts','shells', 'results'])
+dirs  = working_dirs('anne',['scripts','shells', 'results-ppdb-1', 'results-ppdb-ngram-1'])
 anne  = get_path('anne')
 files = [ p for p in os.listdir(anne) if '.txt' in p ]
 			
@@ -56,8 +56,7 @@ files = [ p for p in os.listdir(anne) if '.txt' in p ]
 batch = 111
 path        = os.path.join(anne, 'cluster-' + str(batch) + '.txt')
 golds       = read_gold(path)
-results_dir = dirs['results']
-
+results_dir = dirs['results-' + data_set]
 
 readme = 'model:\t\t' + winner              + '\n' \
 	   + 'inference data set:\t' + data_set + '\n' \
@@ -68,8 +67,8 @@ with open( os.path.join(results_dir,'readme.txt'), 'wb' ) as h:
 	h.write(readme)
 
 if True:
-	out_path    = os.path.join(dirs['results'], 'anne-' + str(batch) + '.txt')
-	decision_fn = decide_fn_both_binomial(G_ppdb, model, phi)
+	out_path    = os.path.join(dirs['results-' + data_set], 'anne-' + str(batch) + '.txt')
+	decision_fn = decide_fn_both_binomial(G_ppng, model, phi)
 	rank_all_gold( golds, decision_fn, out_path, refresh = False, save = True )
 
 

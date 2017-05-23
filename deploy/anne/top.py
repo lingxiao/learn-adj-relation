@@ -17,7 +17,7 @@ from experiments import *
 '''
 	paths
 '''
-dirs  = working_dirs('anne',['scripts','shells', 'results'])
+dirs  = working_dirs('anne',['scripts','shells', 'results-ppdb-1', 'results-ppdb-ngram-1'])
 anne  = get_path('anne')
 files = [p for p in os.listdir(anne) if '.txt' in p]
 			
@@ -87,12 +87,15 @@ if False:
 '''
 	combine results into one file
 '''
-print('\n\t>> saving results algo only')
-results_dir = dirs['results']
-results     = read_results(results_dir)	
-out_path    = os.path.join(dirs['root'], 'anne-all.txt')
-save_results(results, out_path, algo_only = True)
+if True:
+	data_sets   = ['ppdb-1', 'ppdb-ngram-1']
 
+	for data_set in data_sets:
+		print('\n\t>> saving results algo only for ' + data_set)
+		results_dir = dirs['results-' + data_set ]
+		results     = read_results(results_dir)	
+		out_path    = os.path.join(dirs['root'], 'anne-all-' + data_set + '.txt')
+		save_results(results, out_path, algo_only = True)
 
 
 

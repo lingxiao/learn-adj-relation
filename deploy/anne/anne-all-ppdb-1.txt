@@ -1,5 +1,5 @@
-anne-all.txt
-2017-05-23 10:10:09.415929
+anne-all-ppdb-1.txt
+2017-05-23 10:36:30.700943
 ------------------------------------------------
 === algo: 
 ['good']
@@ -1470,6 +1470,49 @@ link-probs:
 
 ------------------------------------------------
 === algo: 
+['cold']
+['korean']
+['wet']
+['dry']
+['fresh']
+['chilly']
+['moist']
+['frozen']
+
+=== raw:
+prob*:	5.76881889228e-07
+link-probs:
+	('cold', 'korean', 0.6066136267416051)
+	('cold', 'wet', 0.6116846545147542)
+	('cold', 'dry', 0.6147710603056327)
+	('cold', 'fresh', 0.64629253366019)
+	('cold', 'chilly', 0.8333333333333334)
+	('cold', 'moist', 0.6562763767808635)
+	('cold', 'frozen', 0.75)
+	('korean', 'wet', 0.5088756093739466)
+	('korean', 'dry', 0.5145799082957585)
+	('korean', 'fresh', 0.5904845120137053)
+	('korean', 'chilly', 0.6232347086948381)
+	('korean', 'moist', 0.6240957228650911)
+	('korean', 'frozen', 0.624978206400966)
+	('wet', 'dry', 0.5057309973491959)
+	('wet', 'fresh', 0.5840386089674565)
+	('wet', 'chilly', 0.619046705353172)
+	('wet', 'moist', 0.75)
+	('wet', 'frozen', 0.6209318003062684)
+	('dry', 'fresh', 0.579689304758552)
+	('dry', 'chilly', 0.6161689604085444)
+	('dry', 'moist', 0.6171461217422346)
+	('dry', 'frozen', 0.6181486294292348)
+	('fresh', 'chilly', 0.5547140601753212)
+	('fresh', 'moist', 0.5564168630633095)
+	('fresh', 'frozen', 0.558178843291414)
+	('chilly', 'moist', 0.5019156824122674)
+	('chilly', 'frozen', 0.5039132193764065)
+	('moist', 'frozen', 0.5019980761919128)
+
+------------------------------------------------
+=== algo: 
 ['perfect']
 ['flawless']
 ['absolute']
@@ -1929,6 +1972,49 @@ link-probs:
 
 ------------------------------------------------
 === algo: 
+['surprising']
+['strange']
+['surprised']
+['weird']
+['curious']
+['unexpected']
+['odd']
+['awkward']
+
+=== raw:
+prob*:	3.7307693174e-07
+link-probs:
+	('surprising', 'strange', 0.5555555555555556)
+	('surprising', 'surprised', 0.5555555555555556)
+	('surprising', 'weird', 0.513968589165425)
+	('surprising', 'curious', 0.5111771636805961)
+	('surprising', 'unexpected', 0.75)
+	('surprising', 'odd', 0.625)
+	('surprising', 'awkward', 0.47894460066769334)
+	('strange', 'surprised', 0.75)
+	('strange', 'weird', 0.4827586206896552)
+	('strange', 'curious', 0.6111111111111112)
+	('strange', 'unexpected', 0.5008804003576538)
+	('strange', 'odd', 0.6666666666666666)
+	('strange', 'awkward', 0.8181818181818182)
+	('surprised', 'weird', 0.6055949057571491)
+	('surprised', 'curious', 0.6038964171074515)
+	('surprised', 'unexpected', 0.6128513509354856)
+	('surprised', 'odd', 0.6666666666666666)
+	('surprised', 'awkward', 0.581701732562402)
+	('weird', 'curious', 0.5833333333333334)
+	('weird', 'unexpected', 0.5127081990056523)
+	('weird', 'odd', 0.5384615384615384)
+	('weird', 'awkward', 0.75)
+	('curious', 'unexpected', 0.5154955022075481)
+	('curious', 'odd', 0.5632435367658334)
+	('curious', 'awkward', 0.7142857142857143)
+	('unexpected', 'odd', 0.5494941717681665)
+	('unexpected', 'awkward', 0.4533740395567379)
+	('odd', 'awkward', 0.625)
+
+------------------------------------------------
+=== algo: 
 ['bad']
 ['wrong']
 ['fake']
@@ -2125,6 +2211,49 @@ link-probs:
 	('solid', 'consistent', 0.5808379159252839)
 	('solid', 'constant', 0.6226165783480769)
 	('consistent', 'constant', 0.5649578694264813)
+
+------------------------------------------------
+=== algo: 
+['appropriate']
+['right']
+['reasonable']
+['sound']
+['smooth']
+['correct']
+['proper']
+['decent']
+
+=== raw:
+prob*:	6.38956626254e-06
+link-probs:
+	('appropriate', 'right', 0.6058911250148297)
+	('appropriate', 'reasonable', 0.5647537730988712)
+	('appropriate', 'sound', 0.6666666666666666)
+	('appropriate', 'smooth', 0.6395166628604506)
+	('appropriate', 'correct', 0.8)
+	('appropriate', 'proper', 0.8)
+	('appropriate', 'decent', 0.6666666666666666)
+	('right', 'reasonable', 0.8)
+	('right', 'sound', 0.8333333333333334)
+	('right', 'smooth', 0.5718262267694344)
+	('right', 'correct', 0.75)
+	('right', 'proper', 0.8181818181818182)
+	('right', 'decent', 0.75)
+	('reasonable', 'sound', 0.6666666666666666)
+	('reasonable', 'smooth', 0.6107979662681022)
+	('reasonable', 'correct', 0.6262451419259651)
+	('reasonable', 'proper', 0.6230804954405408)
+	('reasonable', 'decent', 0.6666666666666666)
+	('sound', 'smooth', 0.5993978091282596)
+	('sound', 'correct', 0.6174377749785895)
+	('sound', 'proper', 0.6137082583363304)
+	('sound', 'decent', 0.5843327032093648)
+	('smooth', 'correct', 0.5311157322304014)
+	('smooth', 'proper', 0.524127599343103)
+	('smooth', 'decent', 0.47842387895751015)
+	('correct', 'proper', 0.625)
+	('correct', 'decent', 0.75)
+	('proper', 'decent', 0.6666666666666666)
 
 ------------------------------------------------
 === algo: 
