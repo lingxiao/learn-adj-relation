@@ -1,0 +1,75 @@
+anne-11.txt
+2017-05-22 23:01:25.804704
+------------------------------------------------
+average pairwise : 60.0%
+average tau:  0.2
+average |tau|:0.42
+------------------------------------------------
+=== tau:
+0.6
+
+=== pairwise accuracy:
+0.8
+
+=== gold: 
+['boring']
+['unpleasant']
+['frustrating']
+['annoying']
+['painful']
+
+=== algo: 
+['unpleasant']
+['frustrating']
+['boring']
+['annoying']
+['painful']
+
+=== raw:
+('prob*', 0.0032408247112412107)
+('link-probs', [('unpleasant', 'frustrating', 0.6205690994798347), ('unpleasant', 'boring', 0.6231292880485445), ('unpleasant', 'annoying', 0.6666666666666666), ('unpleasant', 'painful', 0.3333333333333333), ('frustrating', 'boring', 0.505499172757376), ('frustrating', 'annoying', 0.5743325857362401), ('frustrating', 'painful', 0.6028248034843946), ('boring', 'annoying', 0.6666666666666666), ('boring', 'painful', 0.599347982995773), ('annoying', 'painful', 0.5393080907570394)])
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['impossible']
+['unable']
+['incompetent']
+
+=== algo: 
+['impossible']
+['incompetent']
+['unable']
+
+=== raw:
+('prob*', 0.39252759950500021)
+('link-probs', [('impossible', 'incompetent', 0.6308479277758933), ('impossible', 'unable', 0.9333333333333333), ('incompetent', 'unable', 0.6666666666666666)])
+
+------------------------------------------------
+=== tau:
+-0.333333333333
+
+=== pairwise accuracy:
+0.333333333333
+
+=== gold: 
+['likely']
+['potential']
+['possible']
+
+=== algo: 
+['possible']
+['likely']
+['potential']
+
+=== raw:
+('prob*', 0.34999999999999998)
+('link-probs', [('possible', 'likely', 0.6), ('possible', 'potential', 0.875), ('likely', 'potential', 0.6666666666666666)])
+
+------------------------------------------------
+=== END

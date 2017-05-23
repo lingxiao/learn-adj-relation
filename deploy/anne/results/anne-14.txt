@@ -1,0 +1,79 @@
+anne-14.txt
+2017-05-22 23:01:28.255738
+------------------------------------------------
+average pairwise : 38.0%
+average tau:  -0.24
+average |tau|:0.24
+------------------------------------------------
+=== tau:
+-0.2
+
+=== pairwise accuracy:
+0.4
+
+=== gold: 
+['successful']
+['efficient']
+['adequate']
+['competitive']
+['effective']
+
+=== algo: 
+['adequate']
+['effective']
+['efficient']
+['successful']
+['competitive']
+
+=== raw:
+('prob*', 0.0056155772607075901)
+('link-probs', [('adequate', 'effective', 0.6238669884437683), ('adequate', 'efficient', 0.639344352095658), ('adequate', 'successful', 0.6240843224211005), ('adequate', 'competitive', 0.6357652437190292), ('effective', 'efficient', 0.65), ('effective', 'successful', 0.6363636363636364), ('effective', 'competitive', 0.5301531541078031), ('efficient', 'successful', 0.625), ('efficient', 'competitive', 0.48877838413630154), ('successful', 'competitive', 0.5296822788963337)])
+
+------------------------------------------------
+=== tau:
+-0.333333333333
+
+=== pairwise accuracy:
+0.333333333333
+
+=== gold: 
+['subtle']
+['delicate']
+['sophisticated']
+
+=== algo: 
+['delicate']
+['sophisticated']
+['subtle']
+
+=== raw:
+('prob*', 0.21927644900239629)
+('link-probs', [('delicate', 'sophisticated', 0.65067799403185), ('delicate', 'subtle', 0.6666666666666666), ('sophisticated', 'subtle', 0.5054953087709532)])
+
+------------------------------------------------
+=== tau:
+-0.2
+
+=== pairwise accuracy:
+0.4
+
+=== gold: 
+['comparable']
+['similar']
+['like']
+['same']
+['equal']
+
+=== algo: 
+['like']
+['equal']
+['similar']
+['comparable']
+['same']
+
+=== raw:
+('prob*', 0.0071031682225605125)
+('link-probs', [('like', 'equal', 0.6355223983764767), ('like', 'similar', 0.6), ('like', 'comparable', 0.6666666666666666), ('like', 'same', 0.6399554192960293), ('equal', 'similar', 0.6666666666666666), ('equal', 'comparable', 0.6666666666666666), ('equal', 'same', 0.3333333333333333), ('similar', 'comparable', 0.7142857142857143), ('similar', 'same', 0.6415431642323502), ('comparable', 'same', 0.6431576694666142)])
+
+------------------------------------------------
+=== END

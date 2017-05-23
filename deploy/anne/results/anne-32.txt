@@ -1,0 +1,67 @@
+anne-32.txt
+2017-05-22 23:01:21.693973
+------------------------------------------------
+average pairwise : 89.0%
+average tau:  0.78
+average |tau|:0.78
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['questionable']
+['dangerous']
+['negative']
+
+=== algo: 
+['questionable']
+['negative']
+['dangerous']
+
+=== raw:
+('prob*', 0.1426482236381745)
+('link-probs', [('questionable', 'negative', 0.5079025957765184), ('questionable', 'dangerous', 0.533799238968787), ('negative', 'dangerous', 0.5261480742369309)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['natural']
+['physical']
+
+=== algo: 
+['natural']
+['physical']
+
+=== raw:
+('prob*', 0.52335305988333103)
+('link-probs', [('natural', 'physical', 0.523353059883331)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['bold']
+['noisy']
+
+=== algo: 
+['bold']
+['noisy']
+
+=== raw:
+('prob*', 0.54477753276127183)
+('link-probs', [('bold', 'noisy', 0.5447775327612718)])
+
+------------------------------------------------
+=== END

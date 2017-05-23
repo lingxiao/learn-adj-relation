@@ -1,0 +1,71 @@
+anne-45.txt
+2017-05-22 23:01:22.257295
+------------------------------------------------
+average pairwise : 33.0%
+average tau:  -0.33
+average |tau|:0.56
+------------------------------------------------
+=== tau:
+-0.333333333333
+
+=== pairwise accuracy:
+0.333333333333
+
+=== gold: 
+['pleasant']
+['comfortable']
+['friendly']
+['helpful']
+
+=== algo: 
+['helpful']
+['pleasant']
+['friendly']
+['comfortable']
+
+=== raw:
+('prob*', 0.038484540684718176)
+('link-probs', [('helpful', 'pleasant', 0.5062838441945613), ('helpful', 'friendly', 0.5295277338008321), ('helpful', 'comfortable', 0.5965505792509783), ('pleasant', 'friendly', 0.5234001962818499), ('pleasant', 'comfortable', 0.8), ('friendly', 'comfortable', 0.5746883425416237)])
+
+------------------------------------------------
+=== tau:
+-1.0
+
+=== pairwise accuracy:
+0.0
+
+=== gold: 
+['green']
+['clean']
+
+=== algo: 
+['clean']
+['green']
+
+=== raw:
+('prob*', 0.66666666666666663)
+('link-probs', [('clean', 'green', 0.6666666666666666)])
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['only']
+['own']
+['same']
+
+=== algo: 
+['own']
+['only']
+['same']
+
+=== raw:
+('prob*', 0.2394136619831205)
+('link-probs', [('own', 'only', 0.6429499720810993), ('own', 'same', 0.6561889541691319), ('only', 'same', 0.5674699023285213)])
+
+------------------------------------------------
+=== END

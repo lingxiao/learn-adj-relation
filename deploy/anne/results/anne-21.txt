@@ -1,0 +1,77 @@
+anne-21.txt
+2017-05-22 23:01:26.610567
+------------------------------------------------
+average pairwise : 54.0%
+average tau:  0.09
+average |tau|:0.36
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['sexy']
+['appealing']
+['attractive']
+
+=== algo: 
+['appealing']
+['sexy']
+['attractive']
+
+=== raw:
+('prob*', 0.19761577816374087)
+('link-probs', [('appealing', 'sexy', 0.5269754084366424), ('appealing', 'attractive', 0.6), ('sexy', 'attractive', 0.625)])
+
+------------------------------------------------
+=== tau:
+-0.4
+
+=== pairwise accuracy:
+0.3
+
+=== gold: 
+['scrumptious']
+['tasty']
+['yummy']
+['delicious']
+['exquisite']
+
+=== algo: 
+['delicious']
+['yummy']
+['tasty']
+['exquisite']
+['scrumptious']
+
+=== raw:
+('prob*', 0.013167688423632402)
+('link-probs', [('delicious', 'yummy', 0.6666666666666666), ('delicious', 'tasty', 0.7142857142857143), ('delicious', 'exquisite', 0.7142857142857143), ('delicious', 'scrumptious', 0.8333333333333334), ('yummy', 'tasty', 0.602662027330145), ('yummy', 'exquisite', 0.5533476324160497), ('yummy', 'scrumptious', 0.6666666666666666), ('tasty', 'exquisite', 0.6666666666666666), ('tasty', 'scrumptious', 0.5330304869196797), ('exquisite', 'scrumptious', 0.5880262347187873)])
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['flexible']
+['relaxed']
+['loose']
+['relaxing']
+
+=== algo: 
+['flexible']
+['relaxing']
+['relaxed']
+['loose']
+
+=== raw:
+('prob*', 0.032143400040345105)
+('link-probs', [('flexible', 'relaxing', 0.5079416972279925), ('flexible', 'relaxed', 0.6666666666666666), ('flexible', 'loose', 0.5781843528483682), ('relaxing', 'relaxed', 0.5077912575343114), ('relaxing', 'loose', 0.5718486888226466), ('relaxed', 'loose', 0.565374898870641)])
+
+------------------------------------------------
+=== END

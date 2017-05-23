@@ -1,0 +1,77 @@
+anne-37.txt
+2017-05-22 23:01:24.960224
+------------------------------------------------
+average pairwise : 56.0%
+average tau:  0.11
+average |tau|:0.11
+------------------------------------------------
+=== tau:
+0.0
+
+=== pairwise accuracy:
+0.5
+
+=== gold: 
+['familiar']
+['aware']
+['used']
+['experienced']
+['famous']
+
+=== algo: 
+['used']
+['aware']
+['famous']
+['familiar']
+['experienced']
+
+=== raw:
+('prob*', 0.0063576331282985624)
+('link-probs', [('used', 'aware', 0.5206289710257977), ('used', 'famous', 0.5429552938645344), ('used', 'familiar', 0.6066580322090095), ('used', 'experienced', 0.6260524948764677), ('aware', 'famous', 0.6666666666666666), ('aware', 'familiar', 0.6666666666666666), ('aware', 'experienced', 0.6163116938470071), ('famous', 'familiar', 0.6666666666666666), ('famous', 'experienced', 0.6032168984757852), ('familiar', 'experienced', 0.5375863426425848)])
+
+------------------------------------------------
+=== tau:
+0.0
+
+=== pairwise accuracy:
+0.5
+
+=== gold: 
+['confident']
+['reliable']
+['sure']
+['unsure']
+
+=== algo: 
+['sure']
+['reliable']
+['confident']
+['unsure']
+
+=== raw:
+('prob*', 0.13881205246797526)
+('link-probs', [('sure', 'reliable', 0.8571428571428571), ('sure', 'confident', 0.8333333333333334), ('sure', 'unsure', 0.75), ('reliable', 'confident', 0.6456448554529495), ('reliable', 'unsure', 0.66179010822786), ('confident', 'unsure', 0.6064290281530638)])
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['close']
+['closed']
+['intimate']
+
+=== algo: 
+['closed']
+['close']
+['intimate']
+
+=== raw:
+('prob*', 0.1943778875688697)
+('link-probs', [('closed', 'close', 0.6126957623205532), ('closed', 'intimate', 0.6191160330719946), ('close', 'intimate', 0.5124245525121793)])
+
+------------------------------------------------
+=== END

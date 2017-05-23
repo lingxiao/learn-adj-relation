@@ -1,0 +1,71 @@
+anne-17.txt
+2017-05-22 23:01:25.015734
+------------------------------------------------
+average pairwise : 10.0%
+average tau:  -0.8
+average |tau|:0.8
+------------------------------------------------
+=== tau:
+-0.4
+
+=== pairwise accuracy:
+0.3
+
+=== gold: 
+['loyal']
+['straight']
+['legit']
+['fair']
+['honest']
+
+=== algo: 
+['honest']
+['fair']
+['loyal']
+['straight']
+['legit']
+
+=== raw:
+('prob*', 0.012613708673275954)
+('link-probs', [('honest', 'fair', 0.6), ('honest', 'loyal', 0.8), ('honest', 'straight', 0.8571428571428571), ('honest', 'legit', 0.8333333333333334), ('fair', 'loyal', 0.5080689771231007), ('fair', 'straight', 0.75), ('fair', 'legit', 0.5304043777727295), ('loyal', 'straight', 0.5225344237843627), ('loyal', 'legit', 0.5225344237843627), ('straight', 'legit', 0.6666666666666666)])
+
+------------------------------------------------
+=== tau:
+-1.0
+
+=== pairwise accuracy:
+0.0
+
+=== gold: 
+['concerned']
+['interested']
+
+=== algo: 
+['interested']
+['concerned']
+
+=== raw:
+('prob*', 0.59999999999999998)
+('link-probs', [('interested', 'concerned', 0.6)])
+
+------------------------------------------------
+=== tau:
+-1.0
+
+=== pairwise accuracy:
+0.0
+
+=== gold: 
+['refreshing']
+['comforting']
+
+=== algo: 
+['comforting']
+['refreshing']
+
+=== raw:
+('prob*', 0.75)
+('link-probs', [('comforting', 'refreshing', 0.75)])
+
+------------------------------------------------
+=== END
