@@ -89,10 +89,16 @@ if False:
 results_dir = dirs['results']
 paths       = [os.path.join(results_dir, p) for p in os.listdir(results_dir) if 'pkl' in p]
 
-path = paths[1]
 
-with open(path,'rb') as h:
-	d = pickle.load(h)
+out = dict()
+
+incr = 1
+for path in paths:
+	with open(path,'rb') as h:
+		o = pickle.load(h)
+
+	# out[incr] = 
+	incr += 1 
 
 
 

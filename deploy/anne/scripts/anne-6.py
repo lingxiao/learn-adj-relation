@@ -68,7 +68,7 @@ with open( os.path.join(results_dir,'readme.txt'), 'wb' ) as h:
 	h.write(readme)
 
 if True:
-	out_path    = os.path.join(dirs['results'], 'anne-' + str(batch) + '.txt')
+	out_path    = os.path.join(dirs['results'], 'cluster-' + str(batch) + '.txt')
 	decision_fn = decide_fn_both_binomial(G_ppdb, model, phi)
 	rank_all_gold( golds, decision_fn, out_path, refresh = False, save = True )
 
