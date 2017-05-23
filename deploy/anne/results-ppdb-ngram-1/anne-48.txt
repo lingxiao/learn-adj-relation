@@ -1,0 +1,57 @@
+anne-48.txt
+2017-05-23 10:42:13.261969
+------------------------------------------------
+average pairwise : 29.0%
+average tau:  -0.43
+average |tau|:0.43
+------------------------------------------------
+=== tau:
+-0.428571428571
+
+=== pairwise accuracy:
+0.285714285714
+
+=== gold: 
+['distinct']
+['plain']
+['clear']
+['apparent']
+['visible']
+['obvious']
+['understandable']
+
+=== algo: 
+['clear']
+['understandable']
+['obvious']
+['visible']
+['distinct']
+['apparent']
+['plain']
+
+prob*:	0.000140985222292
+link-probs:
+	('clear', 'understandable', 0.6666666666666666)
+	('clear', 'obvious', 0.4864864864864865)
+	('clear', 'visible', 0.625)
+	('clear', 'distinct', 0.8)
+	('clear', 'apparent', 0.7777777777777778)
+	('clear', 'plain', 0.8636363636363636)
+	('understandable', 'obvious', 0.6666666666666666)
+	('understandable', 'visible', 0.6097189513499854)
+	('understandable', 'distinct', 0.4105088055357428)
+	('understandable', 'apparent', 0.6593002493221621)
+	('understandable', 'plain', 0.4430576803957669)
+	('obvious', 'visible', 0.7272727272727273)
+	('obvious', 'distinct', 0.75)
+	('obvious', 'apparent', 0.7777777777777778)
+	('obvious', 'plain', 0.875)
+	('visible', 'distinct', 0.6666666666666666)
+	('visible', 'apparent', 0.5384615384615384)
+	('visible', 'plain', 0.6666666666666666)
+	('distinct', 'apparent', 0.6644124987952181)
+	('distinct', 'plain', 0.5398614646615004)
+	('apparent', 'plain', 0.8333333333333334)
+
+------------------------------------------------
+=== END

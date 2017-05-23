@@ -1,0 +1,57 @@
+anne-12.txt
+2017-05-23 10:42:48.833099
+------------------------------------------------
+average pairwise : 38.0%
+average tau:  -0.24
+average |tau|:0.24
+------------------------------------------------
+=== tau:
+-0.238095238095
+
+=== pairwise accuracy:
+0.380952380952
+
+=== gold: 
+['tricky']
+['stressful']
+['picky']
+['hard']
+['easy']
+['difficult']
+['challenging']
+
+=== algo: 
+['difficult']
+['hard']
+['picky']
+['easy']
+['tricky']
+['challenging']
+['stressful']
+
+prob*:	0.000275472705356
+link-probs:
+	('difficult', 'hard', 0.6410256410256411)
+	('difficult', 'picky', 0.9047619047619048)
+	('difficult', 'easy', 0.6363636363636364)
+	('difficult', 'tricky', 0.9166666666666666)
+	('difficult', 'challenging', 0.78125)
+	('difficult', 'stressful', 0.875)
+	('hard', 'picky', 0.5209962992864936)
+	('hard', 'easy', 0.6802841918294849)
+	('hard', 'tricky', 0.8)
+	('hard', 'challenging', 0.6666666666666666)
+	('hard', 'stressful', 0.662632109957456)
+	('picky', 'easy', 0.5194474763943339)
+	('picky', 'tricky', 0.6468868756699347)
+	('picky', 'challenging', 0.656310569389423)
+	('picky', 'stressful', 0.6614871348274184)
+	('easy', 'tricky', 0.8)
+	('easy', 'challenging', 0.6666666666666666)
+	('easy', 'stressful', 0.6601454862217041)
+	('tricky', 'challenging', 0.5543337023244226)
+	('tricky', 'stressful', 0.5999554019370676)
+	('challenging', 'stressful', 0.5567091347037548)
+
+------------------------------------------------
+=== END
