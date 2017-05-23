@@ -1,0 +1,71 @@
+anne-3.txt
+2017-05-22 22:55:34.277606
+------------------------------------------------
+average pairwise : 67.0%
+average tau:  0.33
+average |tau|:0.33
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['fun']
+['funny']
+['hilarious']
+
+=== algo: 
+['funny']
+['fun']
+['hilarious']
+
+=== raw:
+('prob*', 0.54642857142857149)
+('link-probs', [('funny', 'fun', 0.8095238095238095), ('funny', 'hilarious', 0.9), ('fun', 'hilarious', 0.75)])
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['certain']
+['several']
+['partial']
+
+=== algo: 
+['certain']
+['partial']
+['several']
+
+=== raw:
+('prob*', 0.20124995296417952)
+('link-probs', [('certain', 'partial', 0.6342920951428659), ('certain', 'several', 0.6343512831977812), ('partial', 'several', 0.5001688787400974)])
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['professional']
+['human']
+['social']
+
+=== algo: 
+['human']
+['professional']
+['social']
+
+=== raw:
+('prob*', 0.19378420385449563)
+('link-probs', [('human', 'professional', 0.612790795856975), ('human', 'social', 0.6186003232138831), ('professional', 'social', 0.5112060640619499)])
+
+------------------------------------------------
+=== END

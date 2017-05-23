@@ -51,20 +51,20 @@ This captures our intuition that the prediction output by the model is less accr
 	& \bf Pairwise & \bf Avg. $\tau$  \\ 
 	\hline
 	% 
-	BCS          & 90.0\% & 0.81 & 00.0\%  &  0.00 \\
-	Turk         & 75.0\% & 0.62 & 00.0\%  &  0.00 \\
-	Turk no-tie  & 81.0\% & 0.63 & 00.0\%  &  0.00 \\
-	Mohit        & 74.0\% & 0.61 & 00.0\%  &  0.00 \\
-	Mohit no-tie & 76.0\% & 0.52 & 00.0\%  &  0.00 \\
+	BCS          & 90.0\% & 0.81 & 93.0\%  &  0.85 \\
+	Turk         & 75.0\% & 0.62 & 74.0\%  &  0.61 \\
+	Turk no-tie  & 81.0\% & 0.63 & 81.0\%  &  0.62 \\
+	Mohit        & 74.0\% & 0.61 & 74.0\%  &  0.61 \\
+	Mohit no-tie & 76.0\% & 0.52 & 76.0\%  &  0.53 \\
 	% 
 	\hline
 \end{tabular}
-\caption{\label{font-table}. Results for the two best models combined with pointwise estimation baseline in the remedial fashion. }
+\caption{\label{font-table}. Results for the two best models combined with pointwise estimation baseline in the remedial fashion. Note how two models performs comparable across all gold sets. In addition, not the gold clusters with no ties enjoyed a higher pairwise accuracy but suffer a lower $\tau$ value. }
 \end{table}
 
 \subsection{Solution with Beta Prior}
 
-In this section we provide a more formal variant of the remedial solution. The heart of the of the problem is that we have some prior belief about the likelihood that one adjective is weaker than another, and an updated belief after observing some data, be it direct comparison or estimation from a model. Since we are modeling each edge a Bernoulli variable with parameter $p$, the prior is then a distribution over the Bernoulli $p$, this is the Beta distribution. In this next few paragraphs, we give a brief overview of Beta-Binomial model, in particular how it applies to our problem.
+In this section we provide a more formal variant of the remedial solution. The heart of the of the problem is that we have some prior belief about the likelihood that one adjective is weaker than another, and an updated belief after observing some data, be it direct comparison or estimation from a model. Since we are modeling each edge a Bernoulli variable with parameter $p$, the prior is then a distribution over the Bernoulli $p$, this is the Beta distribution. In this next few paragraphs, we give a brief overview of Beta-Binomial model, in particular how it applies to our problem. 
 
 
 
