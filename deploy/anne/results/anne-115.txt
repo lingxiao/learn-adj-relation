@@ -1,0 +1,29 @@
+anne-115.txt
+2017-05-23 09:34:49.562187
+------------------------------------------------
+average pairwise : 0.0%
+average tau:  -1.0
+average |tau|:1.0
+------------------------------------------------
+=== tau:
+-1.0
+
+=== pairwise accuracy:
+0.0
+
+=== gold: 
+['pricey']
+['cheap']
+['expensive']
+
+=== algo: 
+['expensive']
+['cheap']
+['pricey']
+
+=== raw:
+('prob*', 0.34756413913103379)
+('link-probs', [('expensive', 'cheap', 0.8333333333333334), ('expensive', 'pricey', 0.75), ('cheap', 'pricey', 0.556102622609654)])
+
+------------------------------------------------
+=== END

@@ -1,0 +1,31 @@
+anne-63.txt
+2017-05-23 09:34:51.107286
+------------------------------------------------
+average pairwise : 67.0%
+average tau:  0.33
+average |tau|:0.33
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['flexible']
+['relaxed']
+['loose']
+['relaxing']
+
+=== algo: 
+['flexible']
+['relaxing']
+['relaxed']
+['loose']
+
+=== raw:
+('prob*', 0.032143400040345105)
+('link-probs', [('flexible', 'relaxing', 0.5079416972279925), ('flexible', 'relaxed', 0.6666666666666666), ('flexible', 'loose', 0.5781843528483682), ('relaxing', 'relaxed', 0.5077912575343114), ('relaxing', 'loose', 0.5718486888226466), ('relaxed', 'loose', 0.565374898870641)])
+
+------------------------------------------------
+=== END

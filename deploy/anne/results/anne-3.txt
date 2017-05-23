@@ -1,0 +1,33 @@
+anne-3.txt
+2017-05-23 09:34:54.942115
+------------------------------------------------
+average pairwise : 20.0%
+average tau:  -0.6
+average |tau|:0.6
+------------------------------------------------
+=== tau:
+-0.6
+
+=== pairwise accuracy:
+0.2
+
+=== gold: 
+['plentiful']
+['enough']
+['generous']
+['ample']
+['rich']
+
+=== algo: 
+['rich']
+['generous']
+['enough']
+['ample']
+['plentiful']
+
+=== raw:
+('prob*', 0.010294886161334048)
+('link-probs', [('rich', 'generous', 0.6185648627054222), ('rich', 'enough', 0.631826770233919), ('rich', 'ample', 0.6505551654108933), ('rich', 'plentiful', 0.6614709208001058), ('generous', 'enough', 0.5303254654343488), ('generous', 'ample', 0.589513383267899), ('generous', 'plentiful', 0.638055706753068), ('enough', 'ample', 0.8333333333333334), ('enough', 'plentiful', 0.6268485695571204), ('ample', 'plentiful', 0.5874450543243337)])
+
+------------------------------------------------
+=== END

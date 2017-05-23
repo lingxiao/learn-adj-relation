@@ -1,0 +1,29 @@
+anne-130.txt
+2017-05-23 09:34:49.042379
+------------------------------------------------
+average pairwise : 67.0%
+average tau:  0.33
+average |tau|:0.33
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['many']
+['different']
+['several']
+
+=== algo: 
+['different']
+['many']
+['several']
+
+=== raw:
+('prob*', 0.375)
+('link-probs', [('different', 'many', 0.6666666666666666), ('different', 'several', 0.75), ('many', 'several', 0.75)])
+
+------------------------------------------------
+=== END

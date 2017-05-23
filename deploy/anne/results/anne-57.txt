@@ -1,0 +1,29 @@
+anne-57.txt
+2017-05-23 09:34:50.962555
+------------------------------------------------
+average pairwise : 100.0%
+average tau:  1.0
+average |tau|:1.0
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['perfect']
+['flawless']
+['absolute']
+
+=== algo: 
+['perfect']
+['flawless']
+['absolute']
+
+=== raw:
+('prob*', 0.30947731196525996)
+('link-probs', [('perfect', 'flawless', 0.9), ('perfect', 'absolute', 0.6466975662118735), ('flawless', 'absolute', 0.5317225515098692)])
+
+------------------------------------------------
+=== END

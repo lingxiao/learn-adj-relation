@@ -1,0 +1,35 @@
+anne-45.txt
+2017-05-23 09:35:16.112479
+------------------------------------------------
+average pairwise : 80.0%
+average tau:  0.6
+average |tau|:0.6
+------------------------------------------------
+=== tau:
+0.6
+
+=== pairwise accuracy:
+0.8
+
+=== gold: 
+['detailed']
+['full']
+['complete']
+['thorough']
+['deep']
+['extensive']
+
+=== algo: 
+['detailed']
+['full']
+['complete']
+['extensive']
+['deep']
+['thorough']
+
+=== raw:
+('prob*', 0.00051550237340167344)
+('link-probs', [('detailed', 'full', 0.6209277584935774), ('detailed', 'complete', 0.6666666666666666), ('detailed', 'extensive', 0.75), ('detailed', 'deep', 0.6068054784317062), ('detailed', 'thorough', 0.5522163182414895), ('full', 'complete', 0.5107819364746494), ('full', 'extensive', 0.6666666666666666), ('full', 'deep', 0.47360484809774506), ('full', 'thorough', 0.6666666666666666), ('complete', 'extensive', 0.6666666666666666), ('complete', 'deep', 0.46319993821556343), ('complete', 'thorough', 0.6), ('extensive', 'deep', 0.6044783683503585), ('extensive', 'thorough', 0.5486826117208228), ('deep', 'thorough', 0.75)])
+
+------------------------------------------------
+=== END

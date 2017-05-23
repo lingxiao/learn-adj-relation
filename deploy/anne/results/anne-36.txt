@@ -1,0 +1,33 @@
+anne-36.txt
+2017-05-23 09:34:55.037763
+------------------------------------------------
+average pairwise : 30.0%
+average tau:  -0.4
+average |tau|:0.4
+------------------------------------------------
+=== tau:
+-0.4
+
+=== pairwise accuracy:
+0.3
+
+=== gold: 
+['passionate']
+['enthusiastic']
+['hot']
+['warm']
+['romantic']
+
+=== algo: 
+['hot']
+['warm']
+['romantic']
+['enthusiastic']
+['passionate']
+
+=== raw:
+('prob*', 0.0039886482923468429)
+('link-probs', [('hot', 'warm', 0.5003684014024024), ('hot', 'romantic', 0.5463713601853022), ('hot', 'enthusiastic', 0.6147403001909897), ('hot', 'passionate', 0.6157934920775665), ('warm', 'romantic', 0.5460312679145493), ('warm', 'enthusiastic', 0.6666666666666666), ('warm', 'passionate', 0.6156026222528089), ('romantic', 'enthusiastic', 0.5845672878197271), ('romantic', 'passionate', 0.5860571580026975), ('enthusiastic', 'passionate', 0.5020187787926744)])
+
+------------------------------------------------
+=== END

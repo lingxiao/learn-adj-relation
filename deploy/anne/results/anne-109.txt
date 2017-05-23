@@ -1,0 +1,33 @@
+anne-109.txt
+2017-05-23 09:34:52.216333
+------------------------------------------------
+average pairwise : 50.0%
+average tau:  0.0
+average |tau|:0.0
+------------------------------------------------
+=== tau:
+0.0
+
+=== pairwise accuracy:
+0.5
+
+=== gold: 
+['familiar']
+['aware']
+['used']
+['experienced']
+['famous']
+
+=== algo: 
+['used']
+['aware']
+['famous']
+['familiar']
+['experienced']
+
+=== raw:
+('prob*', 0.0063576331282985624)
+('link-probs', [('used', 'aware', 0.5206289710257977), ('used', 'famous', 0.5429552938645344), ('used', 'familiar', 0.6066580322090095), ('used', 'experienced', 0.6260524948764677), ('aware', 'famous', 0.6666666666666666), ('aware', 'familiar', 0.6666666666666666), ('aware', 'experienced', 0.6163116938470071), ('famous', 'familiar', 0.6666666666666666), ('famous', 'experienced', 0.6032168984757852), ('familiar', 'experienced', 0.5375863426425848)])
+
+------------------------------------------------
+=== END

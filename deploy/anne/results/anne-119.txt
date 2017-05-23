@@ -1,0 +1,31 @@
+anne-119.txt
+2017-05-23 09:34:49.816337
+------------------------------------------------
+average pairwise : 50.0%
+average tau:  0.0
+average |tau|:0.0
+------------------------------------------------
+=== tau:
+0.0
+
+=== pairwise accuracy:
+0.5
+
+=== gold: 
+['decent']
+['regular']
+['worth']
+['reasonable']
+
+=== algo: 
+['reasonable']
+['decent']
+['regular']
+['worth']
+
+=== raw:
+('prob*', 0.051312825929826132)
+('link-probs', [('reasonable', 'decent', 0.6666666666666666), ('reasonable', 'regular', 0.6310396100166104), ('reasonable', 'worth', 0.6666666666666666), ('decent', 'regular', 0.5619427458774817), ('decent', 'worth', 0.5972716175029191), ('regular', 'worth', 0.5451146876527629)])
+
+------------------------------------------------
+=== END

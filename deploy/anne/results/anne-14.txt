@@ -1,0 +1,31 @@
+anne-14.txt
+2017-05-23 09:34:47.981283
+------------------------------------------------
+average pairwise : 67.0%
+average tau:  0.33
+average |tau|:0.33
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['beautiful']
+['american']
+['lovely']
+['pretty']
+
+=== algo: 
+['american']
+['beautiful']
+['pretty']
+['lovely']
+
+=== raw:
+('prob*', 0.058055618427154176)
+('link-probs', [('american', 'beautiful', 0.5638130280152688), ('american', 'pretty', 0.615217113798311), ('american', 'lovely', 0.6025363351726974), ('beautiful', 'pretty', 0.625), ('beautiful', 'lovely', 0.6666666666666666), ('pretty', 'lovely', 0.6666666666666666)])
+
+------------------------------------------------
+=== END

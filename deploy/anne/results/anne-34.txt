@@ -1,0 +1,29 @@
+anne-34.txt
+2017-05-23 09:34:51.144013
+------------------------------------------------
+average pairwise : 100.0%
+average tau:  1.0
+average |tau|:1.0
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['definite']
+['accurate']
+['exact']
+
+=== algo: 
+['definite']
+['accurate']
+['exact']
+
+=== raw:
+('prob*', 0.21699355078804911)
+('link-probs', [('definite', 'accurate', 0.5250977592450834), ('definite', 'exact', 0.49589291967274196), ('accurate', 'exact', 0.8333333333333334)])
+
+------------------------------------------------
+=== END

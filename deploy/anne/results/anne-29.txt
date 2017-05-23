@@ -1,0 +1,33 @@
+anne-29.txt
+2017-05-23 09:34:43.501217
+------------------------------------------------
+average pairwise : 80.0%
+average tau:  0.6
+average |tau|:0.6
+------------------------------------------------
+=== tau:
+0.6
+
+=== pairwise accuracy:
+0.8
+
+=== gold: 
+['real']
+['authentic']
+['true']
+['genuine']
+['actual']
+
+=== algo: 
+['true']
+['real']
+['authentic']
+['genuine']
+['actual']
+
+=== raw:
+('prob*', 0.0070351924497632865)
+('link-probs', [('true', 'real', 0.7333333333333333), ('true', 'authentic', 0.3333333333333333), ('true', 'genuine', 0.7), ('true', 'actual', 0.627105517316435), ('real', 'authentic', 0.6666666666666666), ('real', 'genuine', 0.6), ('real', 'actual', 0.8), ('authentic', 'genuine', 0.5817250078192938), ('authentic', 'actual', 0.6232332572175843), ('genuine', 'actual', 0.5651175781060891)])
+
+------------------------------------------------
+=== END

@@ -1,0 +1,29 @@
+anne-41.txt
+2017-05-23 09:34:51.667054
+------------------------------------------------
+average pairwise : 33.0%
+average tau:  -0.33
+average |tau|:0.33
+------------------------------------------------
+=== tau:
+-0.333333333333
+
+=== pairwise accuracy:
+0.333333333333
+
+=== gold: 
+['subtle']
+['delicate']
+['sophisticated']
+
+=== algo: 
+['delicate']
+['sophisticated']
+['subtle']
+
+=== raw:
+('prob*', 0.21927644900239629)
+('link-probs', [('delicate', 'sophisticated', 0.65067799403185), ('delicate', 'subtle', 0.6666666666666666), ('sophisticated', 'subtle', 0.5054953087709532)])
+
+------------------------------------------------
+=== END

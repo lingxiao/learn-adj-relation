@@ -1,0 +1,31 @@
+anne-78.txt
+2017-05-23 09:34:50.382057
+------------------------------------------------
+average pairwise : 50.0%
+average tau:  0.0
+average |tau|:0.0
+------------------------------------------------
+=== tau:
+0.0
+
+=== pairwise accuracy:
+0.5
+
+=== gold: 
+['responsive']
+['sensitive']
+['attentive']
+['careful']
+
+=== algo: 
+['sensitive']
+['careful']
+['responsive']
+['attentive']
+
+=== raw:
+('prob*', 0.094815254928370035)
+('link-probs', [('sensitive', 'careful', 0.55799544521211), ('sensitive', 'responsive', 0.9090909090909091), ('sensitive', 'attentive', 0.6557476199843423), ('careful', 'responsive', 0.59841058612975), ('careful', 'attentive', 0.8), ('responsive', 'attentive', 0.59540745838765)])
+
+------------------------------------------------
+=== END

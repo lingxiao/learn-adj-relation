@@ -1,0 +1,29 @@
+anne-61.txt
+2017-05-23 09:34:50.896429
+------------------------------------------------
+average pairwise : 67.0%
+average tau:  0.33
+average |tau|:0.33
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['sexy']
+['appealing']
+['attractive']
+
+=== algo: 
+['appealing']
+['sexy']
+['attractive']
+
+=== raw:
+('prob*', 0.19761577816374087)
+('link-probs', [('appealing', 'sexy', 0.5269754084366424), ('appealing', 'attractive', 0.6), ('sexy', 'attractive', 0.625)])
+
+------------------------------------------------
+=== END

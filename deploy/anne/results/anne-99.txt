@@ -1,0 +1,31 @@
+anne-99.txt
+2017-05-23 09:34:39.615801
+------------------------------------------------
+average pairwise : 67.0%
+average tau:  0.33
+average |tau|:0.33
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['embarrassed']
+['comfy']
+['uncomfortable']
+['comfortable']
+
+=== algo: 
+['embarrassed']
+['comfortable']
+['comfy']
+['uncomfortable']
+
+=== raw:
+('prob*', 0.060360903551571012)
+('link-probs', [('embarrassed', 'comfortable', 0.5945378993379263), ('embarrassed', 'comfy', 0.5823508199459465), ('embarrassed', 'uncomfortable', 0.5448055438597422), ('comfortable', 'comfy', 0.6), ('comfortable', 'uncomfortable', 0.8), ('comfy', 'uncomfortable', 0.6666666666666666)])
+
+------------------------------------------------
+=== END

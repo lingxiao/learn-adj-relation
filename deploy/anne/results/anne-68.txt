@@ -1,0 +1,31 @@
+anne-68.txt
+2017-05-23 09:34:51.709720
+------------------------------------------------
+average pairwise : 100.0%
+average tau:  1.0
+average |tau|:1.0
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['phenomenal']
+['gigantic']
+['terrible']
+['extreme']
+
+=== algo: 
+['phenomenal']
+['gigantic']
+['terrible']
+['extreme']
+
+=== raw:
+('prob*', 0.028100609378412956)
+('link-probs', [('phenomenal', 'gigantic', 0.5), ('phenomenal', 'terrible', 0.5403488304332872), ('phenomenal', 'extreme', 0.5886687013310224), ('gigantic', 'terrible', 0.5403488304332872), ('gigantic', 'extreme', 0.5886687013310224), ('terrible', 'extreme', 0.5554633522285978)])
+
+------------------------------------------------
+=== END

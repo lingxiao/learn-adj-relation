@@ -1,0 +1,35 @@
+anne-24.txt
+2017-05-23 09:35:05.302973
+------------------------------------------------
+average pairwise : 93.0%
+average tau:  0.87
+average |tau|:0.87
+------------------------------------------------
+=== tau:
+0.866666666667
+
+=== pairwise accuracy:
+0.933333333333
+
+=== gold: 
+['nervous']
+['angry']
+['upset']
+['hungry']
+['annoyed']
+['irritated']
+
+=== algo: 
+['nervous']
+['angry']
+['hungry']
+['upset']
+['annoyed']
+['irritated']
+
+=== raw:
+('prob*', 0.00083490066641701344)
+('link-probs', [('nervous', 'angry', 0.6310640042369186), ('nervous', 'hungry', 0.6323142633050525), ('nervous', 'upset', 0.5555555555555556), ('nervous', 'annoyed', 0.6557886459864174), ('nervous', 'irritated', 0.6601187383379246), ('angry', 'hungry', 0.503327802858604), ('angry', 'upset', 0.5714285714285714), ('angry', 'annoyed', 0.6666666666666666), ('angry', 'irritated', 0.6188278775537688), ('hungry', 'upset', 0.617602972976283), ('hungry', 'annoyed', 0.5910107277063599), ('hungry', 'irritated', 0.6171680422739323), ('upset', 'annoyed', 0.8), ('upset', 'irritated', 0.75), ('annoyed', 'irritated', 0.5424554370456715)])
+
+------------------------------------------------
+=== END
