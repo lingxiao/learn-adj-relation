@@ -1,0 +1,49 @@
+anne-44.txt
+2017-05-23 10:39:28.623854
+------------------------------------------------
+average pairwise : 33.0%
+average tau:  -0.33
+average |tau|:0.33
+------------------------------------------------
+=== tau:
+-0.333333333333
+
+=== pairwise accuracy:
+0.333333333333
+
+=== gold: 
+['unhappy']
+['sad']
+['disappointing']
+['unfortunate']
+['sorry']
+['disappointed']
+
+=== algo: 
+['disappointed']
+['sad']
+['sorry']
+['unhappy']
+['unfortunate']
+['disappointing']
+
+prob*:	0.000713531442698
+link-probs:
+	('disappointed', 'sad', 0.5087862445932497)
+	('disappointed', 'sorry', 0.5054417724801998)
+	('disappointed', 'unhappy', 0.6523384246859145)
+	('disappointed', 'unfortunate', 0.4920708824009701)
+	('disappointed', 'disappointing', 0.5714285714285714)
+	('sad', 'sorry', 0.6923076923076923)
+	('sad', 'unhappy', 0.75)
+	('sad', 'unfortunate', 0.6666666666666666)
+	('sad', 'disappointing', 0.6666666666666666)
+	('sorry', 'unhappy', 0.75)
+	('sorry', 'unfortunate', 0.6)
+	('sorry', 'disappointing', 0.6666666666666666)
+	('unhappy', 'unfortunate', 0.5714285714285714)
+	('unhappy', 'disappointing', 0.4779615363494161)
+	('unfortunate', 'disappointing', 0.8)
+
+------------------------------------------------
+=== END

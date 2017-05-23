@@ -1,0 +1,49 @@
+anne-75.txt
+2017-05-23 10:39:38.882765
+------------------------------------------------
+average pairwise : 73.0%
+average tau:  0.47
+average |tau|:0.47
+------------------------------------------------
+=== tau:
+0.466666666667
+
+=== pairwise accuracy:
+0.733333333333
+
+=== gold: 
+['huge']
+['wide']
+['massive']
+['tall']
+['overwhelming']
+['vast']
+
+=== algo: 
+['wide']
+['huge']
+['tall']
+['vast']
+['massive']
+['overwhelming']
+
+prob*:	0.0015809814869
+link-probs:
+	('wide', 'huge', 0.6666666666666666)
+	('wide', 'tall', 0.5196139056101162)
+	('wide', 'vast', 0.6666666666666666)
+	('wide', 'massive', 0.6666666666666666)
+	('wide', 'overwhelming', 0.6467140082763452)
+	('huge', 'tall', 0.5757194851837101)
+	('huge', 'vast', 0.6666666666666666)
+	('huge', 'massive', 0.6666666666666666)
+	('huge', 'overwhelming', 0.9987325728770595)
+	('tall', 'vast', 0.6666666666666666)
+	('tall', 'massive', 0.639547161934933)
+	('tall', 'overwhelming', 0.6666666666666666)
+	('vast', 'massive', 0.655633315263371)
+	('vast', 'overwhelming', 0.6565890155749806)
+	('massive', 'overwhelming', 0.5077912575343115)
+
+------------------------------------------------
+=== END

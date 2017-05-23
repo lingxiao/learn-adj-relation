@@ -1,0 +1,49 @@
+anne-35.txt
+2017-05-23 10:39:26.183465
+------------------------------------------------
+average pairwise : 47.0%
+average tau:  -0.07
+average |tau|:0.07
+------------------------------------------------
+=== tau:
+-0.0666666666667
+
+=== pairwise accuracy:
+0.466666666667
+
+=== gold: 
+['pathetic']
+['lame']
+['stupid']
+['dumb']
+['silly']
+['cheesy']
+
+=== algo: 
+['stupid']
+['silly']
+['lame']
+['dumb']
+['cheesy']
+['pathetic']
+
+prob*:	0.00331658553029
+link-probs:
+	('stupid', 'silly', 0.6818181818181818)
+	('stupid', 'lame', 0.8181818181818182)
+	('stupid', 'dumb', 0.7058823529411765)
+	('stupid', 'cheesy', 0.75)
+	('stupid', 'pathetic', 0.8888888888888888)
+	('silly', 'lame', 0.6)
+	('silly', 'dumb', 0.6)
+	('silly', 'cheesy', 0.75)
+	('silly', 'pathetic', 0.75)
+	('lame', 'dumb', 0.6)
+	('lame', 'cheesy', 0.6666666666666666)
+	('lame', 'pathetic', 0.6666666666666666)
+	('dumb', 'cheesy', 0.6477442211178075)
+	('dumb', 'pathetic', 0.6666666666666666)
+	('cheesy', 'pathetic', 0.5417833892043379)
+
+------------------------------------------------
+=== END

@@ -1,0 +1,49 @@
+anne-138.txt
+2017-05-23 10:39:27.749954
+------------------------------------------------
+average pairwise : 20.0%
+average tau:  -0.6
+average |tau|:0.6
+------------------------------------------------
+=== tau:
+-0.6
+
+=== pairwise accuracy:
+0.2
+
+=== gold: 
+['fantastic']
+['outstanding']
+['wonderful']
+['excellent']
+['unique']
+['special']
+
+=== algo: 
+['special']
+['excellent']
+['wonderful']
+['outstanding']
+['unique']
+['fantastic']
+
+prob*:	0.00167740988238
+link-probs:
+	('special', 'excellent', 0.6666666666666666)
+	('special', 'wonderful', 0.75)
+	('special', 'outstanding', 0.8)
+	('special', 'unique', 0.8)
+	('special', 'fantastic', 0.6666666666666666)
+	('excellent', 'wonderful', 0.6666666666666666)
+	('excellent', 'outstanding', 0.625)
+	('excellent', 'unique', 0.45177272929318396)
+	('excellent', 'fantastic', 0.8571428571428571)
+	('wonderful', 'outstanding', 0.625)
+	('wonderful', 'unique', 0.49989280776440675)
+	('wonderful', 'fantastic', 0.6666666666666666)
+	('outstanding', 'unique', 0.6666666666666666)
+	('outstanding', 'fantastic', 0.5325878734117079)
+	('unique', 'fantastic', 0.6589505675710666)
+
+------------------------------------------------
+=== END

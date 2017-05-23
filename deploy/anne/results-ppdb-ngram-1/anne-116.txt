@@ -1,0 +1,49 @@
+anne-116.txt
+2017-05-23 10:39:28.043273
+------------------------------------------------
+average pairwise : 33.0%
+average tau:  -0.33
+average |tau|:0.33
+------------------------------------------------
+=== tau:
+-0.333333333333
+
+=== pairwise accuracy:
+0.333333333333
+
+=== gold: 
+['impressed']
+['awesome']
+['amazing']
+['hot']
+['super']
+['cool']
+
+=== algo: 
+['cool']
+['hot']
+['awesome']
+['impressed']
+['super']
+['amazing']
+
+prob*:	0.000415974858031
+link-probs:
+	('cool', 'hot', 0.5555555555555556)
+	('cool', 'awesome', 0.5714285714285714)
+	('cool', 'impressed', 0.4998507797214527)
+	('cool', 'super', 0.6666666666666666)
+	('cool', 'amazing', 0.6666666666666666)
+	('hot', 'awesome', 0.75)
+	('hot', 'impressed', 0.6666666666666666)
+	('hot', 'super', 0.6666666666666666)
+	('hot', 'amazing', 0.5099686672467729)
+	('awesome', 'impressed', 0.6666666666666666)
+	('awesome', 'super', 0.625)
+	('awesome', 'amazing', 0.3333333333333333)
+	('impressed', 'super', 0.6106964227174857)
+	('impressed', 'amazing', 0.6567870179077547)
+	('super', 'amazing', 0.6228451711725002)
+
+------------------------------------------------
+=== END

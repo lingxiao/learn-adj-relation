@@ -1,0 +1,42 @@
+anne-82.txt
+2017-05-23 10:39:21.245944
+------------------------------------------------
+average pairwise : 50.0%
+average tau:  0.0
+average |tau|:0.0
+------------------------------------------------
+=== tau:
+0.0
+
+=== pairwise accuracy:
+0.5
+
+=== gold: 
+['healthy']
+['quality']
+['safe']
+['green']
+['clean']
+
+=== algo: 
+['healthy']
+['clean']
+['safe']
+['green']
+['quality']
+
+prob*:	0.00367526160898
+link-probs:
+	('healthy', 'clean', 0.5250397585803951)
+	('healthy', 'safe', 0.6020261372138543)
+	('healthy', 'green', 0.5139388665593947)
+	('healthy', 'quality', 0.580763761499044)
+	('clean', 'safe', 0.5847839177721026)
+	('clean', 'green', 0.6666666666666666)
+	('clean', 'quality', 0.5600994199844702)
+	('safe', 'green', 0.6666666666666666)
+	('safe', 'quality', 0.4697702575959901)
+	('green', 'quality', 0.5696475129725157)
+
+------------------------------------------------
+=== END

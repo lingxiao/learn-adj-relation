@@ -1,0 +1,49 @@
+anne-72.txt
+2017-05-23 10:39:40.309881
+------------------------------------------------
+average pairwise : 20.0%
+average tau:  -0.6
+average |tau|:0.6
+------------------------------------------------
+=== tau:
+-0.6
+
+=== pairwise accuracy:
+0.2
+
+=== gold: 
+['unusual']
+['rare']
+['exceptional']
+['extraordinary']
+['unique']
+['special']
+
+=== algo: 
+['special']
+['unique']
+['rare']
+['exceptional']
+['extraordinary']
+['unusual']
+
+prob*:	0.000639768731557
+link-probs:
+	('special', 'unique', 0.8)
+	('special', 'rare', 0.5017990629209618)
+	('special', 'exceptional', 0.8)
+	('special', 'extraordinary', 0.3584736385691601)
+	('special', 'unusual', 0.6666666666666666)
+	('unique', 'rare', 0.6378040050190791)
+	('unique', 'exceptional', 0.4)
+	('unique', 'extraordinary', 0.6666666666666666)
+	('unique', 'unusual', 0.5702468775758375)
+	('rare', 'exceptional', 0.9941520467836257)
+	('rare', 'extraordinary', 0.6666666666666666)
+	('rare', 'unusual', 0.3803680981595092)
+	('exceptional', 'extraordinary', 0.9770114942528736)
+	('exceptional', 'unusual', 0.6)
+	('extraordinary', 'unusual', 0.5815830954356536)
+
+------------------------------------------------
+=== END

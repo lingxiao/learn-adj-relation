@@ -1,0 +1,49 @@
+anne-55.txt
+2017-05-23 10:39:40.454245
+------------------------------------------------
+average pairwise : 73.0%
+average tau:  0.47
+average |tau|:0.47
+------------------------------------------------
+=== tau:
+0.466666666667
+
+=== pairwise accuracy:
+0.733333333333
+
+=== gold: 
+['independent']
+['lazy']
+['own']
+['separate']
+['personal']
+['private']
+
+=== algo: 
+['independent']
+['personal']
+['lazy']
+['own']
+['private']
+['separate']
+
+prob*:	0.00055635918739
+link-probs:
+	('independent', 'personal', 0.5170429058506589)
+	('independent', 'lazy', 0.5206461420081342)
+	('independent', 'own', 0.5396432552046962)
+	('independent', 'private', 0.6566618045408362)
+	('independent', 'separate', 0.6599851981786095)
+	('personal', 'lazy', 0.5036494651335774)
+	('personal', 'own', 0.5231637592839419)
+	('personal', 'private', 0.9992223950233281)
+	('personal', 'separate', 0.6585003816891623)
+	('lazy', 'own', 0.5195738627377344)
+	('lazy', 'private', 0.6539406028660931)
+	('lazy', 'separate', 0.6581440930499994)
+	('own', 'private', 0.6507157248871998)
+	('own', 'separate', 0.6559488009777673)
+	('private', 'separate', 0.534012313085442)
+
+------------------------------------------------
+=== END

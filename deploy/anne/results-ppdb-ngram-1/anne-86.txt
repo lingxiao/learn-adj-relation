@@ -1,0 +1,49 @@
+anne-86.txt
+2017-05-23 10:39:41.717241
+------------------------------------------------
+average pairwise : 47.0%
+average tau:  -0.07
+average |tau|:0.07
+------------------------------------------------
+=== tau:
+-0.0666666666667
+
+=== pairwise accuracy:
+0.466666666667
+
+=== gold: 
+['updated']
+['modern']
+['contemporary']
+['current']
+['present']
+['recent']
+
+=== algo: 
+['modern']
+['current']
+['recent']
+['present']
+['updated']
+['contemporary']
+
+prob*:	0.00141696450607
+link-probs:
+	('modern', 'current', 0.5383172725448163)
+	('modern', 'recent', 0.6605716148703432)
+	('modern', 'present', 0.5417088037916828)
+	('modern', 'updated', 0.6539828908950026)
+	('modern', 'contemporary', 0.75)
+	('current', 'recent', 0.6570375237917073)
+	('current', 'present', 0.6666666666666666)
+	('current', 'updated', 0.75)
+	('current', 'contemporary', 0.6609870684516227)
+	('recent', 'present', 0.6666666666666666)
+	('recent', 'updated', 0.75)
+	('recent', 'contemporary', 0.5439406503406236)
+	('present', 'updated', 0.6460395987694739)
+	('present', 'contemporary', 0.6607408510974115)
+	('updated', 'contemporary', 0.5948976411265584)
+
+------------------------------------------------
+=== END
