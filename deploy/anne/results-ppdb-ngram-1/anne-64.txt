@@ -1,0 +1,76 @@
+anne-64.txt
+2017-05-23 17:29:26.310998
+------------------------------------------------
+average pairwise : 28.0%
+average tau:  -0.44
+average |tau|:0.44
+------------------------------------------------
+=== tau:
+-0.444444444444
+
+=== pairwise accuracy:
+0.277777777778
+
+=== gold: 
+['delighted']
+['proud']
+['satisfied']
+['pleased']
+['thankful']
+['grateful']
+['excited']
+['glad']
+['happy']
+
+=== algo: 
+['happy']
+['glad']
+['pleased']
+['proud']
+['excited']
+['grateful']
+['delighted']
+['satisfied']
+['thankful']
+
+prob*:	3.86202317428e-07
+link-probs:
+	('happy', 'glad', 0.6363636363636364)
+	('happy', 'pleased', 0.6875)
+	('happy', 'proud', 0.625)
+	('happy', 'excited', 0.6)
+	('happy', 'grateful', 0.625)
+	('happy', 'delighted', 0.8333333333333334)
+	('happy', 'satisfied', 0.9609261939218524)
+	('happy', 'thankful', 0.661690335893099)
+	('glad', 'pleased', 0.6666666666666666)
+	('glad', 'proud', 0.75)
+	('glad', 'excited', 0.6503930136127777)
+	('glad', 'grateful', 0.42857142857142855)
+	('glad', 'delighted', 0.6666666666666666)
+	('glad', 'satisfied', 0.6512431792245907)
+	('glad', 'thankful', 0.659920129605715)
+	('pleased', 'proud', 0.6666666666666666)
+	('pleased', 'excited', 0.42857142857142855)
+	('pleased', 'grateful', 0.5352154177531437)
+	('pleased', 'delighted', 0.6666666666666666)
+	('pleased', 'satisfied', 0.9957850368809273)
+	('pleased', 'thankful', 0.662645067863119)
+	('proud', 'excited', 0.6551458448243157)
+	('proud', 'grateful', 0.75)
+	('proud', 'delighted', 0.6517406611087533)
+	('proud', 'satisfied', 0.9880952380952381)
+	('proud', 'thankful', 0.6619320518378377)
+	('excited', 'grateful', 0.6666666666666666)
+	('excited', 'delighted', 0.6)
+	('excited', 'satisfied', 0.75)
+	('excited', 'thankful', 0.5710084989856874)
+	('grateful', 'delighted', 0.75)
+	('grateful', 'satisfied', 0.6526036199365334)
+	('grateful', 'thankful', 0.8571428571428571)
+	('delighted', 'satisfied', 0.5269221405672269)
+	('delighted', 'thankful', 0.5882985817576704)
+	('satisfied', 'thankful', 0.5671205306869411)
+
+------------------------------------------------
+=== END
