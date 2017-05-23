@@ -1,0 +1,89 @@
+anne-20.txt
+2017-05-23 06:55:47.351290
+------------------------------------------------
+average pairwise : 56.0%
+average tau:  0.12
+average |tau|:0.46
+------------------------------------------------
+=== tau:
+0.2
+
+=== pairwise accuracy:
+0.6
+
+=== gold: 
+['following']
+['further']
+['next']
+['third']
+['new']
+
+=== algo: 
+['following']
+['new']
+['next']
+['further']
+['third']
+
+=== raw:
+('prob*', 0.0074835792391026732)
+('link-probs', [('following', 'new', 0.5518839435193404), ('following', 'next', 0.6666666666666666), ('following', 'further', 0.6500178841581251), ('following', 'third', 0.6563888825059685), ('new', 'next', 0.5487386401818876), ('new', 'further', 0.6363362795413331), ('new', 'third', 0.6476280715767216), ('next', 'further', 0.6151410346527973), ('next', 'third', 0.6334588670064546), ('further', 'third', 0.5409975877293453)])
+
+------------------------------------------------
+=== tau:
+0.666666666667
+
+=== pairwise accuracy:
+0.833333333333
+
+=== gold: 
+['polite']
+['courteous']
+['friendly']
+['gracious']
+
+=== algo: 
+['polite']
+['friendly']
+['courteous']
+['gracious']
+
+=== raw:
+('prob*', 0.052872932020181999)
+('link-probs', [('polite', 'friendly', 0.6326446693368769), ('polite', 'courteous', 0.6666666666666666), ('polite', 'gracious', 0.6596510624211657), ('friendly', 'courteous', 0.6088465329547014), ('friendly', 'gracious', 0.6136475081012779), ('courteous', 'gracious', 0.5086554732617626)])
+
+------------------------------------------------
+=== tau:
+-0.5
+
+=== pairwise accuracy:
+0.25
+
+=== gold: 
+['insane']
+['crazy']
+['patient']
+['unbelievable']
+['indian']
+['mad']
+['sick']
+['wild']
+['ridiculous']
+
+=== algo: 
+['ridiculous']
+['crazy']
+['mad']
+['wild']
+['sick']
+['indian']
+['patient']
+['unbelievable']
+['insane']
+
+=== raw:
+('prob*', 1.6483605151667225e-08)
+('link-probs', [('ridiculous', 'crazy', 0.6923076923076923), ('ridiculous', 'mad', 0.5958674146560964), ('ridiculous', 'wild', 0.6666666666666666), ('ridiculous', 'sick', 0.6197685605195168), ('ridiculous', 'indian', 0.6274478523193806), ('ridiculous', 'patient', 0.627806170150725), ('ridiculous', 'unbelievable', 0.6666666666666666), ('ridiculous', 'insane', 0.9230769230769231), ('crazy', 'mad', 0.7), ('crazy', 'wild', 0.6666666666666666), ('crazy', 'sick', 0.625), ('crazy', 'indian', 0.6018656623725694), ('crazy', 'patient', 0.6024066422072268), ('crazy', 'unbelievable', 0.75), ('crazy', 'insane', 0.75), ('mad', 'wild', 0.526896816464661), ('mad', 'sick', 0.6666666666666666), ('mad', 'indian', 0.5563786842174985), ('mad', 'patient', 0.5571445253941228), ('mad', 'unbelievable', 0.75), ('mad', 'insane', 0.375), ('wild', 'sick', 0.5144134280849864), ('wild', 'indian', 0.5311842356457275), ('wild', 'patient', 0.5320194138346542), ('wild', 'unbelievable', 0.6666666666666666), ('wild', 'insane', 0.6), ('sick', 'indian', 0.5170466389279952), ('sick', 'patient', 0.5179034396306753), ('sick', 'unbelievable', 0.6082077928812567), ('sick', 'insane', 0.5879079795859989), ('indian', 'patient', 0.5008663189182744), ('indian', 'unbelievable', 0.5976452737362591), ('indian', 'insane', 0.574902105606231), ('patient', 'unbelievable', 0.597074577010238), ('patient', 'insane', 0.5742091398322622), ('unbelievable', 'insane', 0.6666666666666666)])
+
+------------------------------------------------
+=== END

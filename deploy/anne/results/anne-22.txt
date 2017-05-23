@@ -1,0 +1,83 @@
+anne-22.txt
+2017-05-23 05:23:12.232089
+------------------------------------------------
+average pairwise : 63.0%
+average tau:  0.26
+average |tau|:0.63
+------------------------------------------------
+=== tau:
+-0.555555555556
+
+=== pairwise accuracy:
+0.222222222222
+
+=== gold: 
+['delighted']
+['proud']
+['satisfied']
+['pleased']
+['thankful']
+['grateful']
+['excited']
+['glad']
+['happy']
+
+=== algo: 
+['happy']
+['glad']
+['excited']
+['satisfied']
+['pleased']
+['proud']
+['grateful']
+['delighted']
+['thankful']
+
+=== raw:
+('prob*', 5.4998033404898988e-08)
+('link-probs', [('happy', 'glad', 0.6363636363636364), ('happy', 'excited', 0.6), ('happy', 'satisfied', 0.6666666666666666), ('happy', 'pleased', 0.6875), ('happy', 'proud', 0.625), ('happy', 'grateful', 0.625), ('happy', 'delighted', 0.8461538461538461), ('happy', 'thankful', 0.6326929133464468), ('glad', 'excited', 0.6020416530260774), ('glad', 'satisfied', 0.5455731925123749), ('glad', 'pleased', 0.6666666666666666), ('glad', 'proud', 0.75), ('glad', 'grateful', 0.42857142857142855), ('glad', 'delighted', 0.6666666666666666), ('glad', 'thankful', 0.659920129605715), ('excited', 'satisfied', 0.75), ('excited', 'pleased', 0.5714285714285714), ('excited', 'proud', 0.49573145352288894), ('excited', 'grateful', 0.6666666666666666), ('excited', 'delighted', 0.6), ('excited', 'thankful', 0.6403000702865458), ('satisfied', 'pleased', 0.8), ('satisfied', 'proud', 0.564223708034767), ('satisfied', 'grateful', 0.4461507322437141), ('satisfied', 'delighted', 0.6361012582525359), ('satisfied', 'thankful', 0.6550194846528873), ('pleased', 'proud', 0.6666666666666666), ('pleased', 'grateful', 0.36153864417599824), ('pleased', 'delighted', 0.6666666666666666), ('pleased', 'thankful', 0.6110208880724283), ('proud', 'grateful', 0.75), ('proud', 'delighted', 0.6048807226622746), ('proud', 'thankful', 0.6415175569171513), ('grateful', 'delighted', 0.75), ('grateful', 'thankful', 0.8571428571428571), ('delighted', 'thankful', 0.5786753092723269)])
+
+------------------------------------------------
+=== tau:
+1.0
+
+=== pairwise accuracy:
+1.0
+
+=== gold: 
+['interesting']
+['informative']
+
+=== algo: 
+['interesting']
+['informative']
+
+=== raw:
+('prob*', 0.90909090909090906)
+('link-probs', [('interesting', 'informative', 0.9090909090909091)])
+
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['outside']
+['opposite']
+['other']
+['else']
+
+=== algo: 
+['opposite']
+['other']
+['outside']
+['else']
+
+=== raw:
+('prob*', 0.04149308190821472)
+('link-probs', [('opposite', 'other', 0.5024314140233389), ('opposite', 'outside', 0.5526513926614075), ('opposite', 'else', 0.6614152221429189), ('other', 'outside', 0.5504524952204574), ('other', 'else', 0.625), ('outside', 'else', 0.6567099422489927)])
+
+------------------------------------------------
+=== END
