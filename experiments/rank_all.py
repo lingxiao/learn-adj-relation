@@ -32,6 +32,12 @@ def rank_all_gold(golds, decide_fn, out_path, refresh = True, save = True):
 			os.remove(out_path)
 		return go_rank(golds, decide_fn, out_path, save)
 
+
+
+############################################################
+'''
+	helper
+'''
 def go_rank(golds, decide_fn, out_path, save):
 
 	report = dict()
@@ -74,11 +80,6 @@ def go_rank(golds, decide_fn, out_path, save):
 		name = out_path.split('/')[-1]
 		save_results(out, out_path)
 		print('\n' + '-'*50)
-
-	pickle_path = out_path.replace('.txt', '.pkl')	
-
-	with open (pickle_path,'wb') as h:
-		pickle.dump(out, h)
 
 	return out
 

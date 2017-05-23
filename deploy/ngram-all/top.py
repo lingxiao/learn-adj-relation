@@ -156,13 +156,14 @@ def run_auto_sh(tot, work_dir, shell_dir):
 '''
 	run all
 '''
+size = 20000
 
 # run this to make pairs
-if False:
-	num_jobs = split_into_pairs( 100000
+if True:
+	num_jobs = split_into_pairs( size
 		                       , get_path('ppdb')
 		                       , word_dirs['all-pairs']
-		                       , save = False)
+		                       , save = True)
 
 	print('\n\t>> constructed ' + str(num_jobs) + ' jobs')
 

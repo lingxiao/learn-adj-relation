@@ -11,6 +11,7 @@ import shutil
 from utils   import *
 from scripts import *
 from app     import *
+from experiments import *
 
 ############################################################
 '''
@@ -86,19 +87,14 @@ if False:
 '''
 	combine results into one file
 '''
+print('\n\t>> saving results algo only')
 results_dir = dirs['results']
-paths       = [os.path.join(results_dir, p) for p in os.listdir(results_dir) if 'pkl' in p]
+results     = read_results(results_dir)	
+out_path    = os.path.join(dirs['root'], 'anne-all.txt')
+save_results(results, out_path, algo_only = True)
 
 
-out = dict()
 
-incr = 1
-for path in paths:
-	with open(path,'rb') as h:
-		o = pickle.load(h)
-
-	# out[incr] = 
-	incr += 1 
 
 
 
