@@ -8,7 +8,7 @@ export PYTHONPATH=/home1/l/lingxiao/xiao/learn-adj-relation
 # $HOME/sample_applications/sample_sge_script_1.sh
 # wallclock time reservation (format is hours:minutes:seconds).
 # man 5 complex
-#$ -l h_rt=100:20:0
+#$ -l h_rt=100:17:0
 
 # request x gigabyte of RAM 
 # man 5 complex

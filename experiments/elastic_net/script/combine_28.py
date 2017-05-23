@@ -26,15 +26,15 @@ from experiments.elastic_net import *
 '''
 	model and feature space representation
 '''
-winner = 'logistic-regression|ppdb-ngram-1|[nu^HT(s)-nu^HT(t)]|num_neigh=10|penalty=l1|C=0.4'
+winner = 'ppdb-ngram-1|[nu^HT(s)-nu^HT(t)]|num_neigh=50|alpha=0.9|l1=0.1'
 path   = os.path.join(work_dir['results'],winner + '/model')
 	
 print('\n\t>> loading model from ' + winner)
 with open(path,'rb') as h:
 	model = pickle.load(h)
 
-data_set   = 'ppdb-1'
-num_neigh  = 10
+data_set   = 'ppdb-ngram-1'
+num_neigh  = 50
 
 fix, nu = 'HT' , nu_coin( GRAPH[data_set], num_neigh )
 OP , op = '-'  , vec_subtract
@@ -49,8 +49,8 @@ SAVE    = True
 results_dir = os.path.join( work_dir['results']
 	                      , 'combined/' 
 	                      + winner           
-	                      + '|infer_set=' + data_set
-	                      + '|gold_set=anne')      
+	                      + '|infer-set=' + data_set
+	                      + '|infer-toss=1')
 						  
 if not os.path.exists(results_dir):
 	os.mkdir(results_dir)
@@ -59,7 +59,6 @@ if not os.path.exists(results_dir):
 readme = 'model:\t\t' + winner              + '\n' \
 	   + 'inference data set:\t' + data_set + '\n' \
 	   + 'inference tosses:\t1'             + '\n' \
-	   + 'goldset:\t anne'
 
  
 with open( os.path.join(results_dir,'readme.txt'), 'wb' ) as h:
@@ -67,22 +66,10 @@ with open( os.path.join(results_dir,'readme.txt'), 'wb' ) as h:
 	
 if True:
 	exec_rank( data_set
-		     , anne_cluster
-		     , decide_fn_both_binomial(G_ppng, model, phi)
+		     , test
+		     , decide_fn_both(G_ppng, model, phi)
 		     , results_dir
 		     , save = SAVE
 		     ) 
-
-
-
-
-
-
-
-
-
-
-
-
 
 
