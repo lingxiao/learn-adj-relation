@@ -1,0 +1,39 @@
+anne-84.txt
+2017-05-23 10:11:25.203330
+------------------------------------------------
+average pairwise : 46.0%
+average tau:  -0.07
+average |tau|:0.07
+------------------------------------------------
+=== tau:
+-0.0714285714286
+
+=== pairwise accuracy:
+0.464285714286
+
+=== gold: 
+['unexpected']
+['awkward']
+['surprising']
+['strange']
+['curious']
+['weird']
+['odd']
+['surprised']
+
+=== algo: 
+['surprising']
+['strange']
+['surprised']
+['weird']
+['curious']
+['unexpected']
+['odd']
+['awkward']
+
+=== raw:
+('prob*', 3.730769317402665e-07)
+('link-probs', [('surprising', 'strange', 0.5555555555555556), ('surprising', 'surprised', 0.5555555555555556), ('surprising', 'weird', 0.513968589165425), ('surprising', 'curious', 0.5111771636805961), ('surprising', 'unexpected', 0.75), ('surprising', 'odd', 0.625), ('surprising', 'awkward', 0.47894460066769334), ('strange', 'surprised', 0.75), ('strange', 'weird', 0.4827586206896552), ('strange', 'curious', 0.6111111111111112), ('strange', 'unexpected', 0.5008804003576538), ('strange', 'odd', 0.6666666666666666), ('strange', 'awkward', 0.8181818181818182), ('surprised', 'weird', 0.6055949057571491), ('surprised', 'curious', 0.6038964171074515), ('surprised', 'unexpected', 0.6128513509354856), ('surprised', 'odd', 0.6666666666666666), ('surprised', 'awkward', 0.581701732562402), ('weird', 'curious', 0.5833333333333334), ('weird', 'unexpected', 0.5127081990056523), ('weird', 'odd', 0.5384615384615384), ('weird', 'awkward', 0.75), ('curious', 'unexpected', 0.5154955022075481), ('curious', 'odd', 0.5632435367658334), ('curious', 'awkward', 0.7142857142857143), ('unexpected', 'odd', 0.5494941717681665), ('unexpected', 'awkward', 0.4533740395567379), ('odd', 'awkward', 0.625)])
+
+------------------------------------------------
+=== END
