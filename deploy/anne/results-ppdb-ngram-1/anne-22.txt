@@ -1,0 +1,76 @@
+anne-22.txt
+2017-05-23 18:26:06.983733
+------------------------------------------------
+average pairwise : 67.0%
+average tau:  0.33
+average |tau|:0.33
+------------------------------------------------
+=== tau:
+0.333333333333
+
+=== pairwise accuracy:
+0.666666666667
+
+=== gold: 
+['normal']
+['classic']
+['daily']
+['traditional']
+['regular']
+['common']
+['ordinary']
+['usual']
+['typical']
+
+=== algo: 
+['classic']
+['common']
+['normal']
+['daily']
+['ordinary']
+['usual']
+['typical']
+['regular']
+['traditional']
+
+prob*:	7.04108665746e-08
+link-probs:
+	('classic', 'common', 0.557347301905012)
+	('classic', 'normal', 0.5521022133065626)
+	('classic', 'daily', 0.5621848764156313)
+	('classic', 'ordinary', 0.6504382053003149)
+	('classic', 'usual', 0.6547670424052137)
+	('classic', 'typical', 0.3333333333333333)
+	('classic', 'regular', 0.6585075174593064)
+	('classic', 'traditional', 0.6618759552805633)
+	('common', 'normal', 0.6666666666666666)
+	('common', 'daily', 0.5055501012598108)
+	('common', 'ordinary', 0.6666666666666666)
+	('common', 'usual', 0.8)
+	('common', 'typical', 0.8)
+	('common', 'regular', 0.6503658049580129)
+	('common', 'traditional', 0.6569955138602146)
+	('normal', 'daily', 0.5114139769254131)
+	('normal', 'ordinary', 0.9166666666666666)
+	('normal', 'usual', 0.8461538461538461)
+	('normal', 'typical', 0.9166666666666666)
+	('normal', 'regular', 0.9)
+	('normal', 'traditional', 0.6576365127733667)
+	('daily', 'ordinary', 0.6330678188946766)
+	('daily', 'usual', 0.6416647743115372)
+	('daily', 'typical', 0.6392907201076112)
+	('daily', 'regular', 0.6493012562916558)
+	('daily', 'traditional', 0.6563498374499243)
+	('ordinary', 'usual', 0.526751525112528)
+	('ordinary', 'typical', 0.5187022204535365)
+	('ordinary', 'regular', 0.5570032181725731)
+	('ordinary', 'traditional', 0.5927514095388409)
+	('usual', 'typical', 0.6666666666666666)
+	('usual', 'regular', 0.6666666666666666)
+	('usual', 'traditional', 0.5724735637530024)
+	('typical', 'regular', 0.5398296237521126)
+	('typical', 'traditional', 0.6666666666666666)
+	('regular', 'traditional', 0.544151919235466)
+
+------------------------------------------------
+=== END

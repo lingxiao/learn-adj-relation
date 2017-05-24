@@ -1,0 +1,76 @@
+anne-60.txt
+2017-05-23 18:40:29.114062
+------------------------------------------------
+average pairwise : 33.0%
+average tau:  -0.33
+average |tau|:0.33
+------------------------------------------------
+=== tau:
+-0.333333333333
+
+=== pairwise accuracy:
+0.333333333333
+
+=== gold: 
+['insane']
+['crazy']
+['patient']
+['unbelievable']
+['indian']
+['mad']
+['sick']
+['wild']
+['ridiculous']
+
+=== algo: 
+['ridiculous']
+['crazy']
+['mad']
+['sick']
+['indian']
+['patient']
+['wild']
+['unbelievable']
+['insane']
+
+prob*:	3.01841460499e-08
+link-probs:
+	('ridiculous', 'crazy', 0.6923076923076923)
+	('ridiculous', 'mad', 0.44947216448121347)
+	('ridiculous', 'sick', 0.4935855313400224)
+	('ridiculous', 'indian', 0.5105328084962668)
+	('ridiculous', 'patient', 0.5416365255767431)
+	('ridiculous', 'wild', 0.6666666666666666)
+	('ridiculous', 'unbelievable', 0.6666666666666666)
+	('ridiculous', 'insane', 0.9230769230769231)
+	('crazy', 'mad', 0.7)
+	('crazy', 'sick', 0.625)
+	('crazy', 'indian', 0.5273274315636861)
+	('crazy', 'patient', 0.5571531753535373)
+	('crazy', 'wild', 0.6666666666666666)
+	('crazy', 'unbelievable', 0.75)
+	('crazy', 'insane', 0.997751798561151)
+	('mad', 'sick', 0.6666666666666666)
+	('mad', 'indian', 0.5599127633662736)
+	('mad', 'patient', 0.585675557674815)
+	('mad', 'wild', 0.6362602533724241)
+	('mad', 'unbelievable', 0.75)
+	('mad', 'insane', 0.375)
+	('sick', 'indian', 0.5169061572344312)
+	('sick', 'patient', 0.5475933959762299)
+	('sick', 'wild', 0.6173109878358288)
+	('sick', 'unbelievable', 0.6588130489111886)
+	('sick', 'insane', 0.6550264946040271)
+	('indian', 'patient', 0.531602652932885)
+	('indian', 'wild', 0.6081247202660566)
+	('indian', 'unbelievable', 0.657090829665154)
+	('indian', 'insane', 0.6525100380771979)
+	('patient', 'wild', 0.5872556469553728)
+	('patient', 'unbelievable', 0.6527961360858492)
+	('patient', 'insane', 0.6462901945963587)
+	('wild', 'unbelievable', 0.6666666666666666)
+	('wild', 'insane', 0.6)
+	('unbelievable', 'insane', 0.6666666666666666)
+
+------------------------------------------------
+=== END
