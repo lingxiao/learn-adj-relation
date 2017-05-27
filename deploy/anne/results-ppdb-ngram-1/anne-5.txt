@@ -1,0 +1,87 @@
+anne-5.txt
+2017-05-27 05:04:36.783461
+------------------------------------------------
+average pairwise : 47.0%
+average tau:  -0.07
+average |tau|:0.07
+------------------------------------------------
+=== tau:
+-0.0666666666667
+
+=== pairwise accuracy:
+0.466666666667
+
+=== gold: 
+['impressive']
+['remarkable']
+['outstanding']
+['incredible']
+['spectacular']
+['superb']
+['stunning']
+['fabulous']
+['excellent']
+['exciting']
+
+=== algo: 
+['stunning']
+['impressive']
+['exciting']
+['fabulous']
+['incredible']
+['remarkable']
+['excellent']
+['spectacular']
+['outstanding']
+['superb']
+
+prob*:	6.1791531015e-10
+link-probs:
+	('stunning', 'impressive', 0.6666666666666666)
+	('stunning', 'exciting', 0.6666666666666666)
+	('stunning', 'fabulous', 0.6666666666666666)
+	('stunning', 'incredible', 0.6666666666666666)
+	('stunning', 'remarkable', 0.6666666666666666)
+	('stunning', 'excellent', 0.6666666666666666)
+	('stunning', 'spectacular', 0.44163422286969106)
+	('stunning', 'outstanding', 0.6666666666666666)
+	('stunning', 'superb', 0.6666666666666666)
+	('impressive', 'exciting', 0.6521310529695478)
+	('impressive', 'fabulous', 0.40246187168102177)
+	('impressive', 'incredible', 0.875)
+	('impressive', 'remarkable', 0.3333333333333333)
+	('impressive', 'excellent', 0.4903536745086692)
+	('impressive', 'spectacular', 0.8888888888888888)
+	('impressive', 'outstanding', 0.6666666666666666)
+	('impressive', 'superb', 0.6311782470601336)
+	('exciting', 'fabulous', 0.6666666666666666)
+	('exciting', 'incredible', 0.6666666666666666)
+	('exciting', 'remarkable', 0.75)
+	('exciting', 'excellent', 0.6666666666666666)
+	('exciting', 'spectacular', 0.4255867911800763)
+	('exciting', 'outstanding', 0.6666666666666666)
+	('exciting', 'superb', 0.4255867911800763)
+	('fabulous', 'incredible', 0.5742508369187306)
+	('fabulous', 'remarkable', 0.663957910527618)
+	('fabulous', 'excellent', 0.5909732339440037)
+	('fabulous', 'spectacular', 0.6565890155749806)
+	('fabulous', 'outstanding', 0.660524616919458)
+	('fabulous', 'superb', 0.6565890155749806)
+	('incredible', 'remarkable', 0.7)
+	('incredible', 'excellent', 0.6666666666666666)
+	('incredible', 'spectacular', 0.6416125345836846)
+	('incredible', 'outstanding', 0.6511154953148083)
+	('incredible', 'superb', 0.6416125345836846)
+	('remarkable', 'excellent', 0.7272727272727273)
+	('remarkable', 'spectacular', 0.40270251541985663)
+	('remarkable', 'outstanding', 0.7)
+	('remarkable', 'superb', 0.8888888888888888)
+	('excellent', 'spectacular', 0.6346889558351366)
+	('excellent', 'outstanding', 0.625)
+	('excellent', 'superb', 0.9090909090909091)
+	('spectacular', 'outstanding', 0.5413882173838203)
+	('spectacular', 'superb', 0.5)
+	('outstanding', 'superb', 0.6666666666666666)
+
+------------------------------------------------
+=== END
