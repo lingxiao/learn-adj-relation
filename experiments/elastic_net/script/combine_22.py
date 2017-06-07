@@ -52,7 +52,6 @@ results_dir = os.path.join( work_dir['results']
 	                      + '|infer_tosses=' 
 	                      + str(num_tosses))
 
-
 if not os.path.exists(results_dir):
 	os.mkdir(results_dir)
 
