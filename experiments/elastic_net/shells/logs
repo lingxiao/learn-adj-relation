@@ -1,35 +1,3 @@
-+ export PYTHONPATH=/home1/l/lingxiao/xiao/learn-adj-relation
-+ PYTHONPATH=/home1/l/lingxiao/xiao/learn-adj-relation
-+ cd /home1/l/lingxiao/xiao/learn-adj-relation
-+ source /home1/l/lingxiao/xiao/tensorflow-1.0.1/bin/activate
-++ deactivate nondestructive
-++ unset pydoc
-++ '[' -n '' ']'
-++ '[' -n '' ']'
-++ '[' -n /pkg/bin/bash -o -n '' ']'
-++ hash -r
-++ '[' -n '' ']'
-++ unset VIRTUAL_ENV
-++ '[' '!' nondestructive = nondestructive ']'
-++ VIRTUAL_ENV=/mnt/castor/seas_home/l/lingxiao/xiao/tensorflow-1.0.1
-++ export VIRTUAL_ENV
-++ _OLD_VIRTUAL_PATH=/home1/s/sgeadmin/ogs-2011p1/bin/linux-x64:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/games:/usr/local/bowtie/bin:/usr/local/bowtie2/bin:/usr/local/homer/bin:/usr/lib/mit/bin:/usr/local/mirnylib/bin:/usr/local/Qt5.4.0/Tools/QtCreator/bin:/usr/lib/qt3/bin:/usr/local/samtools/bin:/usr/local/sra-toolkit/bin:/usr/local/tophat/bin
-++ PATH=/mnt/castor/seas_home/l/lingxiao/xiao/tensorflow-1.0.1/bin:/home1/s/sgeadmin/ogs-2011p1/bin/linux-x64:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/games:/usr/local/bowtie/bin:/usr/local/bowtie2/bin:/usr/local/homer/bin:/usr/lib/mit/bin:/usr/local/mirnylib/bin:/usr/local/Qt5.4.0/Tools/QtCreator/bin:/usr/lib/qt3/bin:/usr/local/samtools/bin:/usr/local/sra-toolkit/bin:/usr/local/tophat/bin
-++ export PATH
-++ '[' -n '' ']'
-++ '[' -z '' ']'
-++ _OLD_VIRTUAL_PS1=
-++ '[' x '!=' x ']'
-+++ basename /mnt/castor/seas_home/l/lingxiao/xiao/tensorflow-1.0.1
-++ '[' tensorflow-1.0.1 = __ ']'
-+++ basename /mnt/castor/seas_home/l/lingxiao/xiao/tensorflow-1.0.1
-++ PS1='(tensorflow-1.0.1)'
-++ export PS1
-++ alias 'pydoc=python -m pydoc'
-++ '[' -n /pkg/bin/bash -o -n '' ']'
-++ hash -r
-+ python /home1/l/lingxiao/xiao/learn-adj-relation/experiments/elastic_net/script/combine_26.py
-TERM environment variable not set.
 quota: error while getting quota from nlpgridio3.seas.upenn.edu:/data for lingxiao (id 15210): Connection refused
 + export PYTHONPATH=/home1/l/lingxiao/xiao/learn-adj-relation
 + PYTHONPATH=/home1/l/lingxiao/xiao/learn-adj-relation
@@ -46,8 +14,8 @@ quota: error while getting quota from nlpgridio3.seas.upenn.edu:/data for lingxi
 ++ '[' '!' nondestructive = nondestructive ']'
 ++ VIRTUAL_ENV=/mnt/castor/seas_home/l/lingxiao/xiao/tensorflow-1.0.1
 ++ export VIRTUAL_ENV
-++ _OLD_VIRTUAL_PATH=/home1/s/sgeadmin/ogs-2011p1/bin/linux-x64:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/games:/usr/local/bowtie/bin:/usr/local/bowtie2/bin:/usr/local/homer/bin:/usr/lib/mit/bin:/usr/local/mirnylib/bin:/usr/local/Qt5.4.0/Tools/QtCreator/bin:/usr/lib/qt3/bin:/usr/local/samtools/bin:/usr/local/sra-toolkit/bin:/usr/local/tophat/bin
-++ PATH=/mnt/castor/seas_home/l/lingxiao/xiao/tensorflow-1.0.1/bin:/home1/s/sgeadmin/ogs-2011p1/bin/linux-x64:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/games:/usr/local/bowtie/bin:/usr/local/bowtie2/bin:/usr/local/homer/bin:/usr/lib/mit/bin:/usr/local/mirnylib/bin:/usr/local/Qt5.4.0/Tools/QtCreator/bin:/usr/lib/qt3/bin:/usr/local/samtools/bin:/usr/local/sra-toolkit/bin:/usr/local/tophat/bin
+++ _OLD_VIRTUAL_PATH=/home1/l/lingxiao/anaconda2/bin:/home1/s/sgeadmin/ogs-2011p1/bin/linux-x64:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/games:/usr/local/bowtie/bin:/usr/local/bowtie2/bin:/usr/local/homer/bin:/usr/lib/mit/bin:/usr/local/mirnylib/bin:/usr/local/Qt5.4.0/Tools/QtCreator/bin:/usr/lib/qt3/bin:/usr/local/samtools/bin:/usr/local/sra-toolkit/bin:/usr/local/tophat/bin
+++ PATH=/mnt/castor/seas_home/l/lingxiao/xiao/tensorflow-1.0.1/bin:/home1/l/lingxiao/anaconda2/bin:/home1/s/sgeadmin/ogs-2011p1/bin/linux-x64:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/games:/usr/local/bowtie/bin:/usr/local/bowtie2/bin:/usr/local/homer/bin:/usr/lib/mit/bin:/usr/local/mirnylib/bin:/usr/local/Qt5.4.0/Tools/QtCreator/bin:/usr/lib/qt3/bin:/usr/local/samtools/bin:/usr/local/sra-toolkit/bin:/usr/local/tophat/bin
 ++ export PATH
 ++ '[' -n '' ']'
 ++ '[' -z '' ']'
@@ -61,7 +29,7 @@ quota: error while getting quota from nlpgridio3.seas.upenn.edu:/data for lingxi
 ++ alias 'pydoc=python -m pydoc'
 ++ '[' -n /pkg/bin/bash -o -n '' ']'
 ++ hash -r
-+ python /home1/l/lingxiao/xiao/learn-adj-relation/experiments/elastic_net/script/combine_27.py
++ python /home1/l/lingxiao/xiao/learn-adj-relation/experiments/elastic_net/script/combine_22.py
 TERM environment variable not set.
 
 >> ========== in PRODUCTION mode ==========
@@ -97,6 +65,8 @@ TERM environment variable not set.
 >> Located critical asset moh-ngram.txt at /nlp/data/xiao/learn-adj-relation-data/inputs/test/moh-ngram.txt
 
 >> Located critical asset ccb.txt at /nlp/data/xiao/learn-adj-relation-data/inputs/test/ccb.txt
+
+>> Located critical asset anne at /nlp/data/xiao/learn-adj-relation-data/inputs/test/anne
 
 >> Located critical asset train at /nlp/data/xiao/learn-adj-relation-data/inputs/train
 
@@ -146,7 +116,7 @@ TERM environment variable not set.
 
 >> root directory already exists
 
->> sub-directory already exists at root/results
+>> making sub-directory at root/results
 
 >> sub-directory already exists at root/script
 
@@ -211,104 +181,11 @@ TERM environment variable not set.
 	>> load moh-no-tie
 
 	>> load turk-no-tie
-
-	>> loading model from logistic-regression|ppdb-ngram-1|[nu^HT(s)-nu^HT(t)]|num_neigh=10|penalty=l1|C=0.4
-
-	ranking moh-ppdb with ppdb-ngram-1
-
-	>> ranking adjectives
-
-	>> computing averages
-
-	>> averages:
-
-		 pairwise: 71.6
-
-		 tau:      0.551232307478
-
-		 |tau|:    0.689234486716
-
---------------------------------------------------
-
-	ranking bcs with ppdb-ngram-1
-
-	>> ranking adjectives
-
-	>> computing averages
-
-	>> averages:
-
-		 pairwise: 92.75
-
-		 tau:      0.854970760234
-
-		 |tau|:    0.983625730994
-
---------------------------------------------------
-
-	ranking moh-no-tie with ppdb-ngram-1
-
-	>> ranking adjectives
-
-	>> computing averages
-
-	>> averages:
-
-		 pairwise: 76.32
-
-		 tau:      0.526458530432
-
-		 |tau|:    0.772816146326
-
---------------------------------------------------
-
-	ranking moh with ppdb-ngram-1
-
-	>> ranking adjectives
-
-	>> computing averages
-
-	>> averages:
-
-		 pairwise: 74.2
-
-		 tau:      0.607641853944
-
-		 |tau|:    0.690125915097
-
---------------------------------------------------
-
-	ranking ccb with ppdb-ngram-1
-
-	>> ranking adjectives
-
-	>> computing averages
-
-	>> averages:
-
-		 pairwise: 74.28
-
-		 tau:      0.608650171366
-
-		 |tau|:    0.723051829796
-
---------------------------------------------------
-
-	ranking ccb-no-tie with ppdb-ngram-1
-
-	>> ranking adjectives
-
-	>> computing averages
-
-	>> averages:
-
-		 pairwise: 81.03
-
-		 tau:      0.620634920635
-
-		 |tau|:    0.818518518519
-
---------------------------------------------------
+Traceback (most recent call last):
+  File "/home1/l/lingxiao/xiao/learn-adj-relation/experiments/elastic_net/script/combine_22.py", line 28, in <module>
+    path   = os.path.join(work_dir['results'],winner + '/model')
+KeyError: 'results'
+quota: error while getting quota from nlpgridio3.seas.upenn.edu:/data for lingxiao (id 15210): Connection refused
 + export PYTHONPATH=/home1/l/lingxiao/xiao/learn-adj-relation
 + PYTHONPATH=/home1/l/lingxiao/xiao/learn-adj-relation
 + cd /home1/l/lingxiao/xiao/learn-adj-relation
@@ -324,8 +201,8 @@ TERM environment variable not set.
 ++ '[' '!' nondestructive = nondestructive ']'
 ++ VIRTUAL_ENV=/mnt/castor/seas_home/l/lingxiao/xiao/tensorflow-1.0.1
 ++ export VIRTUAL_ENV
-++ _OLD_VIRTUAL_PATH=/home1/s/sgeadmin/ogs-2011p1/bin/linux-x64:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/games:/usr/local/bowtie/bin:/usr/local/bowtie2/bin:/usr/local/homer/bin:/usr/lib/mit/bin:/usr/local/mirnylib/bin:/usr/local/Qt5.4.0/Tools/QtCreator/bin:/usr/lib/qt3/bin:/usr/local/samtools/bin:/usr/local/sra-toolkit/bin:/usr/local/tophat/bin
-++ PATH=/mnt/castor/seas_home/l/lingxiao/xiao/tensorflow-1.0.1/bin:/home1/s/sgeadmin/ogs-2011p1/bin/linux-x64:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/games:/usr/local/bowtie/bin:/usr/local/bowtie2/bin:/usr/local/homer/bin:/usr/lib/mit/bin:/usr/local/mirnylib/bin:/usr/local/Qt5.4.0/Tools/QtCreator/bin:/usr/lib/qt3/bin:/usr/local/samtools/bin:/usr/local/sra-toolkit/bin:/usr/local/tophat/bin
+++ _OLD_VIRTUAL_PATH=/home1/l/lingxiao/anaconda2/bin:/home1/s/sgeadmin/ogs-2011p1/bin/linux-x64:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/games:/usr/local/bowtie/bin:/usr/local/bowtie2/bin:/usr/local/homer/bin:/usr/lib/mit/bin:/usr/local/mirnylib/bin:/usr/local/Qt5.4.0/Tools/QtCreator/bin:/usr/lib/qt3/bin:/usr/local/samtools/bin:/usr/local/sra-toolkit/bin:/usr/local/tophat/bin
+++ PATH=/mnt/castor/seas_home/l/lingxiao/xiao/tensorflow-1.0.1/bin:/home1/l/lingxiao/anaconda2/bin:/home1/s/sgeadmin/ogs-2011p1/bin/linux-x64:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/games:/usr/local/bowtie/bin:/usr/local/bowtie2/bin:/usr/local/homer/bin:/usr/lib/mit/bin:/usr/local/mirnylib/bin:/usr/local/Qt5.4.0/Tools/QtCreator/bin:/usr/lib/qt3/bin:/usr/local/samtools/bin:/usr/local/sra-toolkit/bin:/usr/local/tophat/bin
 ++ export PATH
 ++ '[' -n '' ']'
 ++ '[' -z '' ']'
@@ -339,7 +216,7 @@ TERM environment variable not set.
 ++ alias 'pydoc=python -m pydoc'
 ++ '[' -n /pkg/bin/bash -o -n '' ']'
 ++ hash -r
-+ python /home1/l/lingxiao/xiao/learn-adj-relation/experiments/elastic_net/script/combine_28.py
++ python /home1/l/lingxiao/xiao/learn-adj-relation/experiments/elastic_net/script/combine_22.py
 TERM environment variable not set.
 
 >> ========== in PRODUCTION mode ==========
@@ -492,11 +369,9 @@ TERM environment variable not set.
 
 	>> load turk-no-tie
 
-	>> loading model from ppdb-ngram-1|[nu^HT(s)-nu^HT(t)]|num_neigh=50|alpha=0.9|l1=0.1
+	>> loading model from logistic-regression|ppdb-ngram-1|[nu^HT(s)-nu^HT(t)]|num_neigh=10|penalty=l1|C=0.4
 
 	ranking moh-ppdb with ppdb-ngram-1
-
-	>> Removing existing file at outpath if it exists
 
 	>> ranking adjectives
 
@@ -504,11 +379,11 @@ TERM environment variable not set.
 
 	>> averages:
 
-		 pairwise: 70.38
+		 pairwise: 73.01
 
-		 tau:      0.526891195989
+		 tau:      0.577406365387
 
-		 |tau|:    0.677713888047
+		 |tau|:    0.692331621548
 
 --------------------------------------------------
 
@@ -522,11 +397,11 @@ TERM environment variable not set.
 
 	>> averages:
 
-		 pairwise: 90.41
+		 pairwise: 92.75
 
-		 tau:      0.808187134503
+		 tau:      0.854970760234
 
-		 |tau|:    0.971929824561
+		 |tau|:    0.983625730994
 
 --------------------------------------------------
 
@@ -538,11 +413,11 @@ TERM environment variable not set.
 
 	>> averages:
 
-		 pairwise: 76.02
+		 pairwise: 76.72
 
-		 tau:      0.520466729738
+		 tau:      0.5344055503
 
-		 |tau|:    0.775654367707
+		 |tau|:    0.772816146326
 
 --------------------------------------------------
 
@@ -554,11 +429,11 @@ TERM environment variable not set.
 
 	>> averages:
 
-		 pairwise: 74.41
+		 pairwise: 75.08
 
-		 tau:      0.610092509372
+		 tau:      0.62330349956
 
-		 |tau|:    0.700239405775
+		 |tau|:    0.691994457265
 
 --------------------------------------------------
 
@@ -570,11 +445,11 @@ TERM environment variable not set.
 
 	>> averages:
 
-		 pairwise: 74.91
+		 pairwise: 74.02
 
-		 tau:      0.62117567759
+		 tau:      0.601557577409
 
-		 |tau|:    0.73557733602
+		 |tau|:    0.715959235839
 
 --------------------------------------------------
 
@@ -586,10 +461,10 @@ TERM environment variable not set.
 
 	>> averages:
 
-		 pairwise: 81.3
+		 pairwise: 81.08
 
-		 tau:      0.625925925926
+		 tau:      0.621693121693
 
-		 |tau|:    0.82380952381
+		 |tau|:    0.819576719577
 
 --------------------------------------------------
