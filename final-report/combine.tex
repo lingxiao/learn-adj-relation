@@ -1,4 +1,4 @@
-\section{Regression}
+\section{Logistic Regression Regression}
 
 \subsection{Introduction}
 
@@ -97,7 +97,7 @@ In our setting, we fix the ratio of $\beta_1$ and $\beta_2$ so that the prior pr
 		\item If there is no obervation so we are using the model, we set $h$ to be the probability that the model predicts less than, and $t = 1 - h$.
 	\end{enumerate}
 
-In informal terms, we are confident in the quality of direct comparisons, if they can be observed, and not very confident in the prediction of the model. Results for Beta-Binomal model is presented below.  All in all, the best model uses the beta-binomial model to combine direct observations with $l-1$-penalized logistic regression model, the regression model uses top the coin toss probability of 10 most connect neighbors as features. This model achieved $75\%$ pairwise accuracy on Mohit's data set and the Turk set, and a Kendall's $\tau$ value of $0.61$ and $0.62$. After adjusting for ties, the pairwise accuracy on Mohit's data set was $76\%$, which approaches the interannotator accuracy of $78\%$, while the pairwise accuracy on the Turks set was $82\%$ after adjusting for ties. 
+In informal terms, we are confident in the quality of direct comparisons, if they can be observed, and not very confident in the prediction of the model. Results for Beta-Binomal model is presented below.  All in all, the best model uses the beta-binomial model to combine direct observations with $l-1$-penalized logistic regression model, the regression model uses top the coin toss probability of 10 most connect neighbors as features. This model achieved $75\%$ pairwise accuracy on Mohit's data set and the Turk set, and a Kendall's $\tau$ value of $0.61$ and $0.62$. After adjusting for ties, the pairwise accuracy on Mohit's data set was $76\%$, which approaches the inter-annotator accuracy of $78\%$, while the pairwise accuracy on the Turks set was $82\%$ after adjusting for ties. 
 
 \begin{table}
 \small
@@ -124,53 +124,7 @@ In informal terms, we are confident in the quality of direct comparisons, if the
 	\hline
 \end{tabular}
 \caption{\label{font-table}. The first two columns show results for the two best models combined with pointwise estimation baseline using Beta-Binomial model. The third column displays Mohit's MILP method using N-gram data only. The results shows that $l_1$-logistic regression outperformed elastic net regression on most data sets by a small (possibly insignificant) margin, otherwise they are equivalent. In particular, oberve how logistic regression performs just as well on Mohit's set as it does no the Turk set. Furthermore, both model outperform MILP by a non-trivial amount on all gold sets. Finally, note how well the MILP method performs on Mohit's gold cluster, versus how poorly it performs on other gold standards.}
-\end{table}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\end{table}\newpage
 
 
 

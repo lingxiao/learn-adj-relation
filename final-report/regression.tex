@@ -2,7 +2,7 @@
 
 \subsection{Introduction}
 
-In the previous two chapters we attempted to construct generic measures that may work for every graph, but in the end certainly did not perform on this graph. In this chapter we will construct a measure specifically for this dataset. Towards this end, we will use elastic net regression to learn what it means for $s$ to be less than $t$. We construct a variety of feature representations using adverbs and/or phrases that co-occur with the adjectives for this task, and divide our annotated data into train, validation, and test sets to assess their efficacy. 
+In this section we will find models that approximate the ordering of the adjectives when no comparisons between them are observed.  Towards this end, we will use logistic regression and elastic net regression to learn what it means for $s$ to be less than $t$. We construct a variety of feature representations using adverbs and/or phrases that co-occur with the adjectives for this task, and divide our annotated data into train, validation, and test sets to assess their efficacy. 
 
 \subsection{Data Set}
 
@@ -280,7 +280,7 @@ One natural question we can ask is how well the model performs on the pairs of a
 	\hline
 \end{tabular}
 \caption{\label{font-table} Results across all datasets for pairs of gold standards for which direct comparison exists. Note how performance is higher when using N-grams alone across all gold standards. Note how PPDB data alone fails to do better than random on Mohit's clusters, even though direct direct comparisons exists for the pairs in these clusters. Suggesting the data that exists for Mohit's pairs are too noisy to give useful information. }
-\end{table}
+\end{table}\newpage
 
 
 

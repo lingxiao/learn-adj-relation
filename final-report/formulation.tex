@@ -1,8 +1,6 @@
+\section{Reformulation}
 
-
-\section{Problem Overview}
-
-In this brief chapter, we give an overview of how we formulated the problem of recovering the ``most likely" total ordering of adjectives. However most of the interesting details are missing, and this chapter serves as a motivation for the rest of the thesis. Suppose we have a cluster of $n$ items, $\mathcal C = \{s_1, \ldots, s_n\}$, then we can form the set of all permuations of $\mathcal{C}$ by:
+In this brief chapter, we give an overview of how we formulated the problem of recovering the ``most likely" total ordering of adjectives. However most of the interesting details are missing, and this chapter serves as a motivation for the rest of the thesis. Suppose we have a cluster of $n$ items, $\mathcal C = \{s_1, \ldots, s_n\}$, then we can form the set of all permutations of $\mathcal{C}$ by:
 	\[
 		\pmb \Omega = \{ \omega \in \Pi(\mathcal{C}) : \Pi : \{1,\ldots,n\} \rightarrow \{1,\ldots,n\}\}.
 	\]
@@ -62,5 +60,7 @@ Note a contradictory possibility such as $s > t, s > r, t < r$ is not enumerated
 \]
 \end{remark}
 
+In the next chapter, we offer some ways of determining what the probability should be over, and how to estimate $\Prob[ s_i < s_j ]$ on different data sets.  Unless it is explicitly noted, we recover the total ordering from pairwise probabilities using the $argmax$ expression above.\newpage
 
-In the next few chapters, we offer some ways of determining what the probability should be over, and how to estimate $\Prob[ s_i < s_j ]$ on different data sets.  Unless it is explicitly noted, we recover the total ordering from pairwise probabilities using the $argmax$ expression above.
+
+

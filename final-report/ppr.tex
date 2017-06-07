@@ -1,15 +1,17 @@
 \section{Ranking Using Network Centrality}
 
+In this chapter, we report a failed attempt at ranking adjectives using rank centrality.
+
 \subsection{Introduction}
 
 % https://cs.stanford.edu/people/plofgren/bidirectional_ppr_thesis.pdf
 % http://scholarworks.sjsu.edu/cgi/viewcontent.cgi?article=7971&context=etd_theses
 
-Since all heuristics measures constructed in the previous chapter failed, we will consider two measures in this chapter using more principled approaches. These measure differs notably from the previous chapter in that (1) the previous chapters considers local information, here we consider the whole graph; and (2) there is large precedent in literature for these measures. 
+This measure differs notably from the previous chapter in that (1) the previous chapters considers local information, here we consider the whole graph; and (2) there is large precedent in literature for these measures. 
 
 \subsection{Motivation}
 
-We hypothesize that one reason local measures fails is because it is not simply the number of edges that determines the strength of $s$ and $t$. Both the relative strength of of vertices incident on $s$ versus those of $t$, and the relative strength of vertices pointed to by $s$ and $t$ are important. For example, suppose both "good" and "great" have equal number of edges incident upon it, but great is a paraphrase of "much better", which we know to be stronger than "good", then we should rank "great" as more intense than "good". What we are interested in measuring is the ``centrality" of an adjective. In fact there is a family of measures constructed for just this task, and all involves defining some random walk over the graph and computing the stationary distribution over all vertices under this walk. In this chapter we consider two in particular: PageRank and Personalized PageRank. PageRank outputs a total ordering over all vertices, ranked by their centrality measure. Personalized PageRank, on the other hand, does not assume a unique ordering of all words in the graph, instead it computes how important some vertex $t$ is given the perspective of a particular vertex $s$. And note the ranking of $t$ may be different for each $s$. Now we will introduce some notation and review these measures.
+We hypothesize that both the relative strength of of vertices incident on $s$ versus those of $t$, and the relative strength of vertices pointed to by $s$ and $t$ are important. For example, suppose both "good" and "great" have equal number of edges incident upon it, but great is a paraphrase of "much better", which we know to be stronger than "good", then we should rank "great" as more intense than "good". What we are interested in measuring is the ``centrality" of an adjective. In fact there is a family of measures constructed for just this task, and all involves defining some random walk over the graph and computing the stationary distribution over all vertices under this walk. In this chapter we consider two in particular: PageRank and Personalized PageRank. PageRank outputs a total ordering over all vertices, ranked by their centrality measure. Personalized PageRank, on the other hand, does not assume a unique ordering of all words in the graph, instead it computes how important some vertex $t$ is given the perspective of a particular vertex $s$. And note the ranking of $t$ may be different for each $s$. Now we will introduce some notation and review these measures.
 
 \subsection{Notation}
 
@@ -264,7 +266,7 @@ Detailed comments are found underneath each table. All in all, PageRank appears 
 	\hline
 \end{tabular}
 \caption{\label{font-table} Personalized PageRank with out-neighbor construction. Note in general it is not worse than the out-edge construction. Finally, the negative correlation appear here in the same test set and gold set. }
-\end{table}
+\end{table}\newpage
 
 
 
