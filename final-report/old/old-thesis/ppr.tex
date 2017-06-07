@@ -1,0 +1,214 @@
+\section{Ranking Using Global Graph Structure}
+
+\subsection{Introduction}
+
+% https://cs.stanford.edu/people/plofgren/bidirectional_ppr_thesis.pdf
+
+In this chapter, we resist the temptation to "do machine learning" and remain focused on finding better measures of intensity over the graph. In particular, we lift the three assumptions of the previous chapter: (1) local information is sufficient to rank adjectives, and (2) there exists a unique ranking over all adjectives, (3), every word is comparable.
+
+Although the baseline using only local information performed surprisingly well, we note the reality is far more complex. Specifically, it is not simply the number of edges that determines the strength of $s$ and $t$. Both the relative strength of of vertices incident on $s$ versus those of $t$, and the relative strength of vertices pointed to by $s$ and $t$ are also important. For example, suppose both "good" and "great" have equal number of edges incident upon it, but great is a paraphrase of "much better", which we know to be stronger than "good", then we should rank "great" as more intense than "good". The recursive nature of this task has been well studied in literature, in particular by [citation] for ranking strength of academic journals, and by [citation] for ranking the influence of web pages. Although PageRank appears to be a good choice to rank adjectives in this graph, it assumes there exist a unique ordering of all words in the graph. But adjectives modify words in different manners, thus this assumption appears too restrictive. The natural alternative is personalized PageRank, which computes how important vertex $t$ from the perspective of vertex $s$, and vice versa. Now we will introduce some notation and redefine what it means for one adjective to be stronger than another. 
+
+\subsection{Notation}
+
+Personalized PageRank assumes the presence of a directed graph $\G$ with vertices $\V$ and edges $\E$, the vertices in this graph be denoted by $s$, $t$, or $r$. An edge from $s$ to $t$ will be denoted $(s,t)$. The out edges of $s$ will be denoted $\E_{out}[s] = \{ (s,x) \in \E\}$, and the set of edges incident on $s$ will be $\E_{in}[s] = \{ (x, s) \in \E\}$. We denote the out neighbors of $s$ as $\V_{out}[s] = \{ x  : (s,x) \in \E_{out}[s] \}$, and the in neighbors of $s$ as $\V_{in}[s] = \{ x : (x,s) \in \E_{in}[s] \}$. We can construct a transition matrix $\Wa$ from $\G$ so that for every $st$'th entry in $W$, written $\Wa_{st}$, we have:
+
+\begin{enumerate}
+	\item $\Wa_{st} \in [0,1]$
+	\item $\sum_t \Wa_{st} = 1$.
+\end{enumerate}
+
+Following the tradition of [citation], we will use $\pi_s$ to denote a distribution over all vertices in $\G$. And finally, we will overload the symbol $s$ to mean both the vertex in $\V$ and a distribution over vertices where the entry $s$ has probability one, and all other vertices have probability zero. 
+
+\subsection{Definition}
+
+A personalized PageRank of vertex $t$ relative to $s$ is defined as the probability that a random walk of length starting from $s$ will terminate at $t$. Formally, $X_i$ be a random variable ranging over distributions over vertices in $\G$, then the ordered sequence $(X_0, X_1,\ldots,X_L)$ is a random walk of length $L$ starting from $X_0 = s$. $L$ follows a geometric distribution where $\Prob[L = l] = (1 - \alpha)^l \alpha$. In other words, the random walk starts at $s$ and with probability $1 - \alpha$ continue to a random neighbor of the current vertex; and with probability $\alpha$ terminates at the current vertex. At each vertex $s$, the random neighbor $t$ is chosen with probability $\Wa_{st}$. The personalized PageRank vector $\pi_s$ with respect to $s$ is the solution to the expression:
+
+\[
+	\pi_s = \alpha s + (1 - \alpha) \pi_s \Wa.
+\]
+
+The PPR of vertex $t$ with respect to $s$ is the probability we terminate at $t$:
+
+	\[
+		\pi_s[t] = \Prob[X_L = t].
+	\]
+
+Solving for $\pi$ is well studied but beyond the scope of this thesis, the interested reader should refer to [citation] for a thorough treatment. Now we will define "weaker than" with respect to a random walk over the adjective graph:
+
+\theoremstyle{definition}
+\begin{definition}
+Given two adjectives $s$ and $t$, we say $s$ is less intense than $t$ under PPR over the graph, written $s <_{\pi} t$, if $\pi_s[t] > \pi_t[s]$. Given $n$ vertices $s_1, \ldots, s_n$, we decide $s_1 <_{\pi} \ldots <_{\pi} s_n$ if for every $j \in \{1,\ldots,n\}$, and every $i$ less each $j$:
+
+\[
+	\pi_{s_j}[s_i] > \pi_{s_i}[s_j].
+\]
+If $\pi_s[t] = \pi_t[s]$, then the two words are equally intense; they are synonyms.
+
+\end{definition}
+
+We will argue qualitatively why this definition is appropriate for our problem. Suppose we have two adjectives $s$ and $t$ that are comparable, and $s$ is less intense than $t$, then there are four cases to consider. If $s$ and $t$ are adjacent, and if there there are more edges from $s$ to $t$ than from $t$ to $s$ as expected, then $\pi_s[t] > \pi_t[s]$ as desired. Here the expectation is with respect to a distribution over different adjective graphs, which is not observed. If $s$ and $t$ are not adjacent, but $s$ and $t$ are comparable by construction, there must exist at least one vertex $r$ so that $s$ is less intense than $r$, and $r$ is less intense than $t$. Furthermore, if $\E_{out}[s] > \E_{out}[r]$ for every $r$ between $s$ and $t$, then the probability that a random walk starting at $s$ terminates at $t$ will be greater than that from $t$ to $s$. If $s$ and $t$ are not adjacent and $\E_{out}[s] \leq \E_{out}[t]$, then again we must have at least one $r$ between $s$ and $t$. If $r$ is adjacent to $t$ and $\E_{out}[r] > \E_{out}[t]$, then this reduces to the first case. In the final case, if a sufficient number of edges between $s$ and $t$ are either flipped or removed, then PPR may fail to find the appropriate ordering. An precise characterization of "sufficient" is beyond the goal of this thesis. But if we imagine a game where given a true noise-free graph $\tG$, and for every vertex $s$ and $t$, a malicious agent either deletes an edge or flips its direction with independent probability $p$, then the probability that PPR fails for every pair of adjectives appears to be polynomial in the number of edges in the graph. We hope the reader find this crude argument somewhat encouraging. All in all, we expect the weaker words in the graph to be sources, while the stronger words in the graph to be sinks. 
+
+Now we discuss how PPR lifts the the three restrictions of the previous chapter. 
+
+\begin{enumerate}
+\item PPR computes the stationary distribution over all vertices in the graph under the defined random walk. Thus by definition it incorporates information over the entire graph.
+\item Since the random walk from $s$ resets back to $s$, the stationary distribution over vertices is certainly not the same for every vertex. Thus we do not have a unique ranking over all adjectives.
+\item In this case, $\pi_s$ actually gives a total ranking over all adjectives for every $s$. This problem is mediated by setting some threshold $\tau$ and say that $s$ is not comparable to $t$ if $\pi_s[t] < \tau$. We can also control how many adjectives are comparable to $s$ by controlling the length of the random walk (parameterized by $\alpha$). The shorter the random walk, the less likely that we will terminate at a vertex multiple hops away from $s$, thus more adjectives in the graph will be labeled "not-comparable" under $\tau$. 
+\end{enumerate}
+
+\subsection{Inferring Total Order from Pairwise Comparisons}
+
+Given a set of pairwise comparisons between vertices, we reconstruct the most likely total order over them in two ways: computing the most likely path over $\G$, and ILP. 
+
+In the maximum likelihood formulation, given a the vertices we wish to rank $\pmb v = \{s_1, \ldots, s_n\}$, we can construct the set of all possible permutations over the $n$ vertices as $\Omega$. Each $\omega \in \Omega$ then correspond to a possible total ordering. We can interpret this ordering as a path through $\G$ beginning in the first item in $\omega$, and traversing each of the subsequent vertices in order. Now if we denote this path as $\omega = s_1 \rightarrow \ldots \rightarrow s_n$, then we can assign a probability to each $\omega$ via the following expression:
+
+\begin{align*}
+	\Pr[\omega] &= \Pr[s_1 \rightarrow \ldots \rightarrow s_n] \\
+			    &= \Pr[s_1] \Pr[s_1 \rightarrow s_2 | s_1] \ldots \Pr[s_{n-1} \rightarrow s_n | s_{n-1}],
+\end{align*}
+where $\Pr[s_1] = 1$ by definition, and $\Pr[s_i \rightarrow s_j | s_i] \sim \pi_{s_i}[s_j]$ for every $i$ and $j$. Finally, we can select the most likely order $\omega$ by:
+
+\begin{equation}
+	\omega^{*} = argmax_{\omega \in \Omega} \Pr[\omega].
+\end{equation}
+
+% TODO: THIS IS NOT CORRECT!!
+
+In the ILP formulation, we define a set of boolean variables $b_{st}$ so that $b_{st} = 1$ if s is more intense than $t$, and $0$ otherwise. Then we can solve for a similar formulation that we saw in the previous chapter:
+
+\begin{align*}
+  &{\bf Maximize}\\
+  &\sum_{s,t \in \{1,..,n\}} V_{st} \cdot b_{st} + V_{ts} \cdot (1 - s_{ts}) \\
+  &{\bf s.t}\\
+  &(1 - b_{st}) + (1 - b_{tr}) \geq (1 - b_{sr}),  \\
+  &\forall s,t,r \in \{1,...,n\},\\
+\end{align*}
+
+where $V_{st} = \frac{\pi_t[s]}{\pi_s[t]}.$
+
+\section{Constructing the Weighted Directed Graph}
+
+These formulations appear nice, however PPR assumes a weight directed graph $\G$, but we have an unweighted directed graph $\tG$ where multiple edges may exist between a pair of vertices. Similar to the approach of previous chapter, we give two simple constructions of $\Wa$ and evaluate their performance on the annotated sets we have. In fact, we explore just one factor of variation: to use or not use the number of edges between two vertices. 
+
+In the first construction, we ignore the number of edges between two vertices $s$ and $t$, and define the probability of transitioning from $s$ to $t$ as:
+
+\begin{equation}
+	\Wa_{st} = \frac{1}{|\tV_{out}[s]|}.
+\end{equation}
+
+In the second construction we use the number of edges between vertices
+
+\begin{equation}
+	\Wa_{st} = \frac{|\{(s,t) \in \tE \}|}{|\tE_{out}[s]|}
+\end{equation}
+
+\section{Results and Discussion}
+
+In addition to the edge weight construction, we test PPR over two variation of combined graphs detailed in the previous chapter: naive combination of PDPB and N-gram data, as well as PPDB and the N-gram with a boolean mask. Furthermore, we also varied the reset constant $\alpha$ between over $[0.1,0.9]$ in $0.1$ increments, although we only report the results for $\alpha = 0.1$ and $\alpha = 0.9$ since the variation in termination probability among the different $\alpha$'s is minute at best.
+
+The results of all experiments are presented in the table 1, suffice it to say they look less promising than the baseline.. In particular, on the base-comparative-superlative set, PPR only manage to achieve $75\%$ accuracy versus $85\%$ in the naive baseline, and $0.50$ Kendall's $\tau$ versus $0.81$ in the baseline. The results for the Turk data set is appreciably worse, and those for Mohit's dataset is no better than random.
+
+The reason is both surprising and yet very simple: direct comparison between two adjectives introduces too much noise and degrades the accuracy.
+
+\begin{table}
+\small
+\centering
+\begin{tabular}{|l|ccc|ccc|}
+	% 
+	\hline 
+	& \multicolumn{3}{c|}{$\alpha = 0.8$} & \multicolumn{3}{c|}{$\alpha = 0.1$} \\
+	\hline 
+	\bf Method 
+	& \bf Pairwise & \bf Avg. $\tau$ & \bf Avg. $|\tau|$ 
+	& \bf Pairwise & \bf Avg. $\tau$ & \bf Avg. $|\tau|$ \\ 
+	\hline
+	% 
+	$PPDB|ngram     \lvert (1)$  & 00.0\% & 0.00 & 0.00 & 00.0\% & 0.00 & 0.00 \\
+	$PPDB|ngram     \lvert (2)$  & 00.0\% & 0.00 & 0.00 & 00.0\% & 0.00 & 0.00 \\
+	$PPDB|ngram-bool\lvert (1)$  & 00.0\% & 0.00 & 0.00 & 00.0\% & 0.00 & 0.00 \\
+	$PPDB|ngram-bool\lvert (2)$  & 00.0\% & 0.00 & 0.00 & 00.0\% & 0.00 & 0.00 \\
+	% 
+	\hline
+	\hline 
+	% 
+	$PPDB|ngram     \lvert (1)$  & 00.0\% & 0.00 & 0.00 & 00.0\% & 0.00 & 0.00 \\
+	$PPDB|ngram     \lvert (2)$  & 00.0\% & 0.00 & 0.00 & 00.0\% & 0.00 & 0.00 \\
+	$PPDB|ngram-bool\lvert (1)$  & 00.0\% & 0.00 & 0.00 & 00.0\% & 0.00 & 0.00 \\
+	$PPDB|ngram-bool\lvert (2)$  & 00.0\% & 0.00 & 0.00 & 00.0\% & 0.00 & 0.00 \\
+	% 
+	\hline
+	\hline
+	% 
+	$PPDB|ngram     \lvert (1)$  & 00.0\% & 0.00 & 0.00 & 00.0\% & 0.00 & 0.00 \\
+	$PPDB|ngram     \lvert (2)$  & 00.0\% & 0.00 & 0.00 & 00.0\% & 0.00 & 0.00 \\
+	$PPDB|ngram-bool\lvert (1)$  & 00.0\% & 0.00 & 0.00 & 00.0\% & 0.00 & 0.00 \\
+	$PPDB|ngram-bool\lvert (2)$  & 00.0\% & 0.00 & 0.00 & 00.0\% & 0.00 & 0.00 \\
+	% 
+	\hline
+\end{tabular}
+\caption{\label{font-table} Results across all measures using PPDB data with $argmax$ inference. Top: base comparative superlative triples. Middle: Mechanical Turk data. Bottom: Mohit's data set. The number (1) in the left most column refer to edge weight computed using (1), and similarly for (2). }
+\end{table}
+
+
+\begin{table}
+\small
+\centering
+\begin{tabular}{|l|ccc|ccc|}
+	% 
+	\hline 
+	& \multicolumn{3}{c|}{$\alpha = 0.8$} & \multicolumn{3}{c|}{$\alpha = 0.1$} \\
+	\hline 
+	\bf Method 
+	& \bf Pairwise & \bf Avg. $\tau$ & \bf Avg. $|\tau|$ 
+	& \bf Pairwise & \bf Avg. $\tau$ & \bf Avg. $|\tau|$ \\ 
+	\hline
+	% 
+	$PPDB|ngram     \lvert (1)$  & 00.0\% & 0.00 & 0.00 & 00.0\% & 0.00 & 0.00 \\
+	$PPDB|ngram     \lvert (2)$  & 00.0\% & 0.00 & 0.00 & 00.0\% & 0.00 & 0.00 \\
+	$PPDB|ngram-bool\lvert (1)$  & 00.0\% & 0.00 & 0.00 & 00.0\% & 0.00 & 0.00 \\
+	$PPDB|ngram-bool\lvert (2)$  & 00.0\% & 0.00 & 0.00 & 00.0\% & 0.00 & 0.00 \\
+	% 
+	\hline
+	\hline 
+	% 
+	$PPDB|ngram     \lvert (1)$  & 00.0\% & 0.00 & 0.00 & 00.0\% & 0.00 & 0.00 \\
+	$PPDB|ngram     \lvert (2)$  & 00.0\% & 0.00 & 0.00 & 00.0\% & 0.00 & 0.00 \\
+	$PPDB|ngram-bool\lvert (1)$  & 00.0\% & 0.00 & 0.00 & 00.0\% & 0.00 & 0.00 \\
+	$PPDB|ngram-bool\lvert (2)$  & 00.0\% & 0.00 & 0.00 & 00.0\% & 0.00 & 0.00 \\
+	% 
+	\hline
+	\hline
+	% 
+	$PPDB|ngram     \lvert (1)$  & 00.0\% & 0.00 & 0.00 & 00.0\% & 0.00 & 0.00 \\
+	$PPDB|ngram     \lvert (2)$  & 00.0\% & 0.00 & 0.00 & 00.0\% & 0.00 & 0.00 \\
+	$PPDB|ngram-bool\lvert (1)$  & 00.0\% & 0.00 & 0.00 & 00.0\% & 0.00 & 0.00 \\
+	$PPDB|ngram-bool\lvert (2)$  & 00.0\% & 0.00 & 0.00 & 00.0\% & 0.00 & 0.00 \\
+	% 
+	\hline
+\end{tabular}
+\caption{\label{font-table} Results across all measures using PPDB data with ILP inference. Top: base comparative superlative triples. Middle: Mechanical Turk data. Bottom: Mohit's data set. The number (1) in the left most column refer to edge weight computed using (1), and similarly for (2). }
+\end{table}
+
+% pick 'large' and 'larger' to talk about how it fails
+% heuristic: pi_s[t] relative to all neighbors of s, versus pi_t[s] relative
+% to all neighbors of t
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

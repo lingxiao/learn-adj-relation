@@ -1,0 +1,112 @@
+\section{Data and Evaluation}
+
+This section contains a detailed description of how the data is procured and preprocessed, as well as how the training and test sets are created. 
+
+\subsection{Extracting Intensity Patterns from Monolingual Data}
+
+Previously, \newcite{demelo:13} showed that linguistic patterns connecting two adjectives reveal semantic intensities of these adjectives. Their work traces back to Sheinman \newcite{sheinman2012refining}, who extracted the patterns by first compiling pairs of seed words where the relative intensity between each pair is known. Then they collected patterns of the form ``a * b" for each pair from an online search engine, where * is a wildcard denoting one or more words, and word ``a" is fixed to be weaker than word ``b". Sheinman then took the intersection of all wildcard phrases appearing between all pairs of words, thereby revealing a set of ``weak-strong" patterns $P_{ws}$ where words appearing in front of the pattern is always weaker than the word appearing behind. Table 1 shows the weak-strong patterns extracted by Sheinman. Bansal used a similar approach but used the Google N-gram corpus \cite{brants2006web} as the source of patterns. Additionally, they also considered ``strong-weak" patterns $P_{sw}$ where words appearing in front of the pattern are stronger than those appearing behind. See table 1 for the set of strong-weak and weak-strong patterns mined by Bansal. Finally, during the course of the project, we found additional strong-weak patterns in the N-gram corpus that increased the accuracy of our results, they are found in table 2.
+
+\subsection{Extracting Adjectives associated with Intensity Patterns from Monolingual Data}
+
+We used the Google N-gram Web 1T 5-gram Version 1 publicly distributed by the Linguistic Data Consortium to replicate Bansal's results. Because we aggressively downsized the N-gram corpus, a detail account of our process is given here. The entire N-gram corpus was first normalized by case folding and white-space stripping. Then for each linguistic pattern in tables 1 and 2, we grepped the corpus for key words appearing in each pattern. Both the grep commands and their corresponding grepped N-grams are located in the raw-data directory of project folder. The grepped N-gram corpus is several times smaller than the original corpus, thus dramatically increasing the number of experiments we can perform.
+
+Next, we crawled the grepped corpus for the patterns found in tables 1 and 2. Specifically, for each pattern of form $* P *$ and pairs of words $a_1$ and $a_2$, we collect statistics for $a_1 P a_2$ and $a_2 P a_1$. In a departure from Bansal's method, we also collected statistics for $* P a_1$, $* P a_2$, $a_1 P *$, and $a_2 P *$, where $*$ is allowed to be any string. Finally, we also count the occurences of each pattern $* P *$.
+
+\subsection{Extracting Bilingual-induced Data from PPDB}
+
+While \newcite{demelo:13} and \newcite{sheinman2012refining} only considered patterns that relate pairs of adjectives to each other, we also considered adverbs and adverb phrases that occur infront of adjectives, thereby modifying their intensity. We hypothesized that the adverbs can be roughly separated into three classes: intensifying, deintensifying, and netural. For example, we suspect the adverb ``extremely" might intensify adjectives such as ``good" in the phrase ``extremely good", while ``slightly" would deintensify adjectives it modifies. In general however, neither the class in which adverbs belong to nor the degree in which they modify adjectives are clear, thus both need to be learned from corpora. 
+
+The paraphrase database (PPDB) \cite{pavlick-EtAl:2015:ACL-IJCNLP3} makes this learning problem possible. This database maps English utterances to other English utterances of similar meaning, so that if $(x_1, x_2)$ appears in the database, then we conclude $x_1$ and $x_2$ are paraphrases. Section 3.3 outlines a method that uses (adverb-adjective, adjective) and (adjective, adverb-adjective) pairs to simultaneously assign scalar values to both the adjectives and adverbs for the task of adjective ranking. We test our assignment on pairs of adjectives ranked by Amazon mechanical turks that also appear in the PPDB corpus. In order to reduce noise in the labels, we removed pairs of adjectives where there is no simple majority consensus among the turks. 
+
+\subsection{Metrics}
+
+In this section we describe two ways in which ranking is evaluated: pairwise accuracy and Kendall's-$\tau$. First we consider pairwise accuracy. If every adjective in each cluster is assigned a numerical ranking $r(a_i)$, then the label of each pair is defined as as: 
+
+\[
+  L(a_i, a_j) = \begin{cases}
+  > & if \quad r(a_i) > r(a_j)\\
+  < & if \quad r(a_i) < r(a_j)\\
+  = & if \quad r(a_i) = r(a_j).\\
+  \end{cases}
+\]
+
+Given gold-standard labels $L_G$ and predicted labels $L_P$, the pairwise accuracy of each cluster of adjectives is the fraction of pairs that are correctly classified:
+
+\[
+PW = \frac{ \sum_{i < j} \mathbbm{1}( L_G(a_i,a_j) = L_P(a_i,a_j) )  }{\sum_{i<j} \mathbbm{1} }
+\]
+
+Now we describe Kendall's-$\tau$, which captures rank correlation between the gold-standard and the predicted set. Kendall's-$\tau$ measures the total number of pairwise inversions \newcite{Kruskal:58}:
+
+\[
+\tau = \frac{ P - Q }{\sqrt{  (P + Q + X)(P + Q + Y) }  }. \quad (5)
+\]
+
+
+P measures the number of concordant pairs and Q is the number of discordant pairs, X is the number of pairs tied in the gold ranking, and Y is number of ties in the predicted ranking. The pair $(ai,aj)$ are:
+
+\begin{itemize}
+\item concordant if $r_G(a_i) < r_G(a_j)$ and $r_L(a_i) < r_L(a_j)$ or $r_G(a_i)> r_G(a_j)$ and $r_L(a_i) > r_L(a_j)$
+\item discordant if $r_G(a_i) < r_G(a_j)$ and $r_L(a_i) > r_L(a_j)$ or $r_G(a_i) > r_G(a_j)$ and $r_L(a_i) < r_L(a_j)$
+\item tied if $r_G(a_i) = r_G(a_j)$ and $r_L(a_i) = r_L(a_j)$ or $r_G(a_i) = r_G(a_j)$ and $r_L(a_i) = r_L(a_j)$
+\end{itemize}
+
+Since many of our ranking methods do not allow ties, we also consider a variant where the ties are not counted:
+
+\[
+  \tau' = \frac{ P - Q }{n \cdot (n-1)/ 2 }, \quad (6)
+\]
+
+here $n$ is the number of adjectives in a cluster, and $\frac{n \cdot (n-1)}{2}$ is the total number of unique pairs. In this case the predicted label is discordant w.r.t. gold if the label is flipped, or if the gold-standard pair is a tie. The overall efficacy of each ranking method is captured by finding the average kendall's tau score. Additionally, Bansal observed that sometimes the ordering of adjectives was clear but the annotators would disagreed about which end of the scale was the stronger one, thus absolute kendall's tau is also reported.
+
+During the course of this project we observed that it is possible to outperform certain gold standards under (5). This behavior is highly unexpected and it behooves the reader to consider this concrete example. Suppose our gold standard is: $G = [[a,b],[c]]$, read as: $a$ is tied with $b$, and they both dominate $c$. Then relative to itself, $G$ has three unique pairs:
+\[
+	pairs = [(a,b),(a,c),(b,c)],
+\]
+two concordant pairs: $P = [(a,c),(b,c)]$, no discordant pairs, and one tied pair so that both $X$ and $Y$ in (5) are one. Thus Kendall's tau of $G$ with respect to itself is:
+
+\begin{align*}
+	\tau &= \frac{2 - 0}{\sqrt{(2 + 0 + 1)(2 + 0 + 1)}} \\
+		 &= \frac{2}{\sqrt{9}} = \frac{2}{3}.
+\end{align*}
+
+Observe in the case of ties, the maximum Kendall's tau is less than $1$. Next consider the ranking $A = [[a],[b],[c]]$, read as $a$ dominates $b$ and $c$, while $b$ dominates $c$. Once again we have two concordant pairs $[(a,c),(b,c)]$ but no discordant pairs by definition, $X = 1$ and now $Y = 0$ because $A$ does not have ties. Thus $A$ with respect to $G$ is:
+
+\begin{align*}
+	\tau &= \frac{2 - 0}{\sqrt{(2 + 0 + 1)(2 + 0)}} \\
+		 &= \frac{2}{\sqrt{6}} > \frac{2}{3}.
+\end{align*}
+
+Therefore an algorithms that ranks the adjectives in correct order without ties can actually outperform the gold standard against itself if the gold ranking does have ties. In the interest of fair comparision, we also report how well gold performs against itself in table 5.
+
+\begin{table}
+\small
+\centering
+\begin{tabular}{|l|rl|}
+\hline \bf Strong-Weak Patterns & \bf Weak-Strong Patterns & \\ \hline
+not  * (,) just *           &  * (,) but not *         & \\
+not  * (,) but just *       &  * (,) if not *          & \\
+not  * (,) still *          &  * (,) although not *    &  \\
+not  * (,) but still *      &  * (,) though not *      & \\
+not  * (,) although still * &  * (,) (and,or) even *   & \\
+not  * (,) though still *   &  * (,) (and,or) almost * & \\
+* (,) or very *             & not only * but *         & \\
+not  * (,) just *           & not just * but *         & \\
+\hline
+\end{tabular}
+\caption{\label{font-table} Bansal and de Melo's linguistic patterns. Note the syntax (and,or) means either one of ``and" or ``or" are allowed to appear, or not appear at all. Similarly, (,) denotes a comman is allowed to appear. Additionally, articles such as ``a", ``an", and ``the" are may also appear before the wildcards. Wildcards matches any string.}
+\end{table}
+
+\begin{table}
+\small
+\centering
+\begin{tabular}{|l|rl|}
+\hline \bf Strong-Weak Patterns & \bf Weak-Strong Patterns & \\ \hline
+* (,) unbelievably *     &  very * (and,or) totally *   & \\
+* not even *             &  * (,) yet still *           & \\
+                         &  * (,) (and,or) fully *      & \\
+                         &  * (,) (and,or) outright *   & \\
+\hline
+\end{tabular}
+\caption{\label{font-table} The weak-strong patterns were found by Sheinman. We mined for the strong-weak patterns from google N-gram corpus.}
+\end{table}\newpage

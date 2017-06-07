@@ -1,0 +1,89 @@
+\section{Baseline Using Neighbors}
+
+\subsection{Introduction}
+
+In the previous chapter we considered pairwise comparisons between adjectives only, when there is no data supporting the pairwise comparison, we answer with ``do not know."  We would like to determine some way of knowing. Towards this end, in this chapter we ask if it is possible to compare the two adjectives by \textit{not} comparing them. In other words, suppose we have a data set where we do not observe any pairwise comparisons between adjectives in the annotated sets, how well can we perform?
+
+\subsection{Formulation}
+
+Similar to the road map laid out in the problem formulation chapter, we suppose each edge in the graph is placed independently, and similar to the previous chapter we estimate $\Prob[ s < t ]$ with pointwise estimation, without considering the comparisons between $s$ and $t$. In the simplest case we answer with $\frac{1}{2}$ again, this is exactly the ``random" baseline we witnessed. An immediate improvement is to estimate this probability using local connectivity of each adjectives. 
+
+Suppose we wish to compare vertices $s$ and $t$, then for a vertex $s$ we can form the neighbor $\N$ of $s$ without $t$ with:
+
+	\[
+		\N_{s/t} = \{ x : x \in \N_{s/t}\}.
+	\]
+
+Note if $t$ is not in the neighborhood of $s$ then $\N_s = \N_{s/t}.$ Now we make the simplifying assumption that all vertices in $\N_{s/t}$ are the same. Again we let $<$ be a Bernoulli variable with parameter $p$, since all vertices are the same, so we have for $\pmb{\Omega} = \{<,>\}$ and the frequencies of $<$ and $>$ are estimated from the set: $\N_{s/t}$:
+	\[
+		\Prob_{\pmb{\Omega}}[s < t] = \frac{\{ s < x \in \N_{s/t}\}}{|\N_{s/t}|},
+	\]
+
+and $\Prob_{\pmb{\Omega}}[t < s] = 1 - \Prob_{\pmb{\Omega}}[s < t].$ But could also determine $\Prob[t < s]$ by examining $t$. That is we can form $\N_{t/s}$ and for $\pmb{\Omega} = \{<',>'\}$ defined where the frequencies are estimated from $\N_{t/s}$:
+	\[
+		\Prob_{\pmb{\Omega}'}[t < s] = \frac{\{ t < x \in \N_{t/s}\}}{|\N_{t/s}|},
+	\]
+where $\Prob_{\pmb{\Omega}'}[s < t] = 1 - \Prob_{\pmb{\Omega}'}[t < s].$ These definitions are simple but they create a very pernicious problem: the probabilities do not sum to one in every case. This is not surprising since the distributions are placed over outcomes of $<$ over different sets. If our goal is to toss a coin and place edges between vertices, then what we have defined cannot be used. One way forward is to make another simplifying assumption, all vertices in neighbor of $t$ and neighbors of $s$ are the same, we call this vertex $z$. Now we have four possibilities, $s < z < t$, $s > z > t$, $s < z > t$, and $s > z < t$. In the first two cases it is clear that either $s < t$ or $s > t$, in the next two it is not clear, so we do not consider the next two cases when computing our probability; this is in the spirit of our $argmax$ function: contradictory results are not considered. There is a natural interpretation to this formulation: we are using intermediate vertices between $s$ and $t$ to rank them, assuming all vertices are the same. All in all, our final data set is $\N_{st} = \N_{s/t} \cup \N_{t/s}$, and: 
+	\[
+		\Prob[s < t ] = \frac{| \{s < z < t \in \N_{st}\}|}{|\{s < z < t \in \N_{st}\}| + |\{s > z > t \in \N_{st}\}|}.
+	\]
+
+\begin{remark}
+If $| \N_{st} | = 1$ so that we have a single vertex $r$ with edges between $s$ and $r$ and $t$ and $r$, then the formulation above is using an intermediate word to rank the two words given. Note in this case we could also have two cases where they are both stronger than $r$ or weaker than $r$, there is no information gained from these cases unless we examine $r$ itself, as a baseline we ignore these cases.
+\end{remark}
+
+\begin{remark}
+If $\N_{s/t} \cup \N_{t/s} = \N_{s/t} \cap \N_{t/s}$, then the two words are in a community for a loose definition of community, so we are using all \textit{informative} intermediary paths in the community to rank the two adjectives.
+\end{remark}
+
+\begin{remark}
+If $\N_{s/t} \cap \N_{t/s} = \emptyset$, then we are assuming although they do not share neighbors, the vertices in their neighbors are ``similar" in strength, again for a very loose definition of strength. 
+\end{remark}
+
+\subsection{Results}
+
+In this section we examine the results for our formulation, specifically we are interested in determining how well we perform on the subset of test clusters where previous method fails. 
+
+First we consider Mohit's data set across all datasets. In the N-gram data set alone the accuracy went down across all measures relative to the direct comparison baseline from last chapter. However this is to be expected and the overall performance is not relevant, we need to examine if our neighbor-only method is correctly classifying clusters where no data existed before in the neighbor-oblivious method.  
+
+In the cluster ``close, near, intimate" we once again flipped the order of ``close" and ``near," because we found evidence that $\Prob[ near < close ] = 0.55.$ In ``real, solemn, serious, grave" we performed worse than before ($0 \tau$ instead of $0.66$) because in each case we found strong evidence supporting the decision. Overall there were 10 clusters in the neighbor-oblivious method with negative taus, compared to 19 clusters in the neighbor-only method. They intersect on six clusters, where the gold is:
+
+\begin{enumerate}
+	\item possible $<$ realistic $<$ feasible $<$ practical
+	\item low $<$ subdued $<$ quiet
+	\item valid $<$ sound $<$ reasonable
+	\item content $\sim$ satisfied $<$ pleased $<$ happy
+	\item handsome $\sim$ lovely $\sim$ gorgeous $<$ beautify $\sim$ pretty $\sim$ attractive
+	\item close $<$ snug $<$ tight.
+\end{enumerate}
+
+Note in the two cases where the gold standard has multiple ties, we do not anticipate improvements in performance simply because our models will not output ties. Now we examine the the first of the other four clusters closely. In ``possible, realistic, feasible, practical," neighbor-only method flipped the order of possible and realistic, even though in the neighbor-only method we correctly placed the order due to corpus evidence for direct comparisons. In both cases feasible and realistic are also flipped, in the neighbor-oblivious method due to lack of evidence, and in the neighbor-only case due to weak corpus evidence ($\Prob[ feasible < realistic ] = 0.52$. In fact over all most of the probabilities of pairs in this cluster are close to $\frac{1}{2}$. In ``low, subdued, quiet" we improved from $-1.0-\tau$ to $-0.33$. Neighbor-oblivious method failed because there was corpus evidence for one comparison, and none for the other two, lexicographical sorting then pick the exact wrong order. Neighbor-only method did better due to corpus evidence. In the clusters where $\tau <  0$ for neighbor-only method but $\tau > 0$ in neighbor oblivious method, the $\tau$'s were only slightly above zero. Overall, any gains over the neighbor-only method on Mohit's set is marginal.
+
+Now we consider Mohit on PPDB data set, again the performance drops over all. Unlike the the previous case, we reduced the overall number of negative $\tau$'s by 25 clusters, but also introduced 12 negative clusters. We will not pore over each cluster here as the previous case, but suffice it to say in the clusters with negative $\tau$'s we see both strong evidence ($\Prob[s < t] \sim 1.0$) and weak evidence ($\Prob[s < t] \sim 0.5$), suggesting there is no immediate way to improve the results. Finally we examine Mohit on the combined data set. First note 
+
+
+
+\begin{table}
+\small
+\centering
+\begin{tabular}{|l|ccc|ccc|ccc|}
+	% 
+	\hline 
+	& \multicolumn{3}{c|}{Ngram} 
+	& \multicolumn{3}{c|}{PPDB} 
+	& \multicolumn{3}{c|}{PPDB + Ngram} \\
+	\hline 
+	\bf Test set
+	& \bf Pairwise & \bf Avg. $\tau$ & \bf Avg. $|\tau|$ 
+	& \bf Pairwise & \bf Avg. $\tau$ & \bf Avg. $|\tau|$ 
+	& \bf Pairwise & \bf Avg. $\tau$ & \bf Avg. $|\tau|$ \\ 
+	\hline
+	% 
+	Mohit & 61.0\%  & 0.34 & 0.55  & 53.0\% & 0.16 & 0.49 & 61.0\% & 0.34 & 0.55 \\ 
+	Turk  & 60.0\%  & 0.31 & 0.70  & 62.0\% & 0.36 & 0.70 & 64.0\% & 0.40 & 0.69 \\
+	BCS   & 63.0\%  & 0.26 & 0.91  & 68.0\% & 0.36 & 0.91 & 00.0\% & 0.00 & 0.00 \\
+	% 
+	\hline
+\end{tabular}
+\caption{\label{font-table} Results across all datasets. }
+\end{table}

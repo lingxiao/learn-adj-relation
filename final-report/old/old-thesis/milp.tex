@@ -1,10 +1,12 @@
-\section{MILP Method using Monolingual Corpus}
 
-This this chapter we reproduce the state of the art in adjective ranking by Bansal and de Melo \newcite{demelo:13}. 
 
-\subsection{Problem Formulation}
+\section{Problem Formulation}
 
-Bansal and de Melo use pairwise co-occurrence of adjective pairs around the paraphrases found in table 1 to infer the relative strength between the adjectives. Because this data is missing for most pairs, pairwise rankings are computed when possible, otherwise Bansal and de Melo used the transitive property of partial rankings to infer the missing relationships. Pairwise ranking is computed as:
+This section presents three formulations of the ranking problem. We show derivations when possible, otherwise qualitative argument is given.
+
+\subsection{Global Ranking with Two Sided Patterns}
+
+Bansal and de Melo \newcite{demelo:13} use pairwise co-occurence of adjective pairs around the paraphrases found in table 1 to infer the relative strength between the adjectives. Because this data is missing for most pairs, they confronted this problem by computing pairwise rankings when possible, and using the transitive property of partial rankings to infer the missing relationships. Pairwise ranking is computed as:
 
 \[ score(a_1, a_2) = \frac{(W_1 - S_1) - (W_2 - S_2)}{cnt(a_1) \cdot cnt(a_2)}, \]
 
@@ -52,35 +54,4 @@ Note $d_{ij}$ captures the difference between $x_i$ and $x_j$, $C$ is a very lar
 
 \[ \sum_{(i,j) \not\in E} (w_{ij} - s_{ij}) \cdot score(a_i, a_j) - \sum_{(i,j) \in E} (w_{ij} + s_{ij}) \cdot C,\]
 
-while the constraints remain unchanged. The additional set of terms encourages both $s_{ij}$ and $w_{ij}$ to be zero if both $a_i$ and $a_j$ are in $E$, thus the optimal solution may contain synonyms. 
-
-
-\subsection{Results and Analysis}
-
-In this section we report both the results of Bansal's method as stated in their paper, and the results we reproduced. Table 5 reports all results from the different approaches. Note that our reproduction of Bansal's MILP is accurate with acceptable errors. However, we were not able to reproduce MILP with synonymy accurately because Bansal relied on synonyms marked by annotators, these annotations were not released in the public code base accompanying the paper. Instead we attempted to replicate the experiment using synonyms used by word-net, and observed a marked decrease in accuracy across all measures. However since the synonym set are presumably different, these results cannot be meaningful and thus are not reported. 
-
-\begin{table}
-\small
-\centering
-\begin{tabular}{|l|c|c|c|c|c|}
-% 
-\hline 
-\bf Method & \bf Pairwise Accuracy & \bf Avg. $\tau$ & \bf Avg. $|\tau|$ & \bf Avg. $\tau'$ & \bf Avg. $|\tau'|$ \\ 
-\hline
-% 
-Inter-Annotator Agreement           & 78.0\% & 0.67 & 0.76 & N/A & N/A         \\
-Gold Standard                       & 100.0\% & 0.90 & 0.90 & 0.90 & 0.90         \\
-\hline
-% 
-% 
-MILP reported                       & 69.6\% & 0.57 & 0.65 & N/A & N/A         \\
-MILP with synonymy reported         & 78.2\% & 0.57 & 0.66 & N/A & N/A         \\
-\hline
-% 
-MILP reproduced                     & 68.0\% & 0.55 & 0.64 & 0.41 & 0.54         \\
-MILP with new patterns reproduced   & 70.0\% & 0.58 & 0.66 & 0.44 & 0.56 \\
-\hline
-\end{tabular}
-\caption{\label{font-table} Main results using Bansal's patterns. Note $\tau$ refers to kendall's $\tau$ with ties, while $\tau'$ referrs to the variant where ties are not considered.}
-\end{table}
-
+while the constraints remain unchanged. The additional set of terms encourages both $s_{ij}$ and $w_{ij}$ to be zero if both $a_i$ and $a_j$ are in $E$, thus the optimal solution may contain synonyms. We discuss the benefits and draw back of this approach in section four, but for now it suffices to say that in practice we observe $score(a_i, a_j) = 0$ for most pairs of adjectives within a cluster, this data sparsity motivates our next formulation.
