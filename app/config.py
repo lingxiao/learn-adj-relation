@@ -129,7 +129,7 @@ PATH = {
               , 'affective'    : os.path.join(root, 'experiments/affective')
               , 'bag-coins'    : os.path.join(root, 'experiments/bag_coins')
               , 'milp'         : os.path.join(root, 'experiments/milp')
-
+              , 'adverbs'      : os.path.join(root, 'experiments/adverbs')
 
         },                   
 

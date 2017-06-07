@@ -41,7 +41,7 @@ fix, nu = 'HT' , nu_coin( GRAPH[data_set], num_neigh )
 OP , op = '-'  , vec_subtract
 phi     = to_x(nu,op)
 
-SAVE    = True
+SAVE = True
 
 ############################################################
 '''
@@ -54,21 +54,21 @@ results_dir = os.path.join( work_dir['results']
 	                      + '|infer_tosses=' 
 	                      + str(num_tosses))
 
+if True:
 
-if not os.path.exists(results_dir):
-	os.mkdir(results_dir)
+	if not os.path.exists(results_dir):
+		os.mkdir(results_dir)
 
-readme = 'model:\t\t' + winner            + '\n' \
-	   + 'inference data set:\t' + data_set + '\n' \
-	   + 'inference tosses:\t'   + str(num_tosses)
+	readme = 'model:\t\t' + winner            + '\n' \
+		   + 'inference data set:\t' + data_set + '\n' \
+		   + 'inference tosses:\t'   + str(num_tosses)
 
-with open( os.path.join(results_dir,'readme.txt'), 'wb' ) as h:
-	h.write(readme)
+	with open( os.path.join(results_dir,'readme.txt'), 'wb' ) as h:
+		h.write(readme)
 
-if False:
 	exec_rank( data_set
 		     , test
-		     , decide_fn_both_binomial(G_ppng, model, phi, num_tosses)
+		     , decide_fn_both_binomial(G_ppng, model, phi)
 		     , results_dir
 		     , save = SAVE
 		     ) 

@@ -1,5 +1,5 @@
 ############################################################
-# Module  : pointwise estimation baeline
+# Module  : pointwise estimation baseline
 # Date    : April 24th, 2017
 # Author  : Xiao Ling
 ############################################################

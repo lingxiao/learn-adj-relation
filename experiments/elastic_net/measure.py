@@ -40,7 +40,7 @@ def Pr_s_le_t_model(model,phi):
 	return fn
 
 '''
-	@Use: baseline Pr[ s < t ] using just pointwise esitmation
+	@Use: baseline Pr[ s < t ] using just pointwise estimation
 '''
 def Pr_s_le_t(G):
 
@@ -168,9 +168,9 @@ def decide_fn_both(G,model,phi):
 '''
 	Decision function using binomial prior
 '''
-def decide_fn_model_Binomial(model, phi, num_tosses):
+def decide_fn_model_Binomial(model, phi):
 	def fn(gold):
-		return argmax_Omega(gold, Q_s_le_t_model(model,phi, num_tosses))
+		return argmax_Omega(gold, Q_s_le_t_model(model,phi))
 	return fn
 
 def decide_fn_both_binomial(G, model, phi):
